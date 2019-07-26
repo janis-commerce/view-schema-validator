@@ -1,5 +1,5 @@
 {
-  "name": " @janiscommerce/view-schema-validator",
+  "name": "@janiscommerce/view-schema-validator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -31,5 +31,10 @@
   ],
   "directories": {
     "test": "tests"
+  },
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "yamljs": "^0.3.0",
+    "yargs": "^13.3.0"
   }
 }
