@@ -12,15 +12,19 @@ fields:
       colorSource: sadasd
   - name: test
     component: Text
+    mapper:
+      name: translate
+
   - name: id
     component: BoldText
     attributes:
       sortable: true
       isDefaultSort: true
+    mapper: translate
   - name: asd
     component: Icon
     componentAttributes:
-      color: 56s
+      color: red
       icon: test
   - name: sadasd
     component: BadgeLetter
@@ -31,6 +35,48 @@ fields:
         - name: test
           component: Icon
           componentAttributes:
-            color: 45
-  - name: asd
-    component: Text
+            color: red
+            icon: test
+        - name: sadasdsad
+          component: FieldList
+          componentAttributes:
+            fields:
+              - name: test
+                component: Icon
+                componentAttributes:
+                  color: red
+                  icon: test
+  - name: asdasdasdasd
+    component: Image
+    componentAttributes:
+      roundBorders: true
+      width: 500
+      height: 500
+  - name: asdasdasdasd
+    component: UserImage
+    componentAttributes:
+      size: medium
+  - name: asdasdasd456456456
+    component: SmallChip
+    mapper:
+      name: numberToTime
+      props:
+        type: hour
+  - name: asd465as4d
+    component: ActionButtons
+    componentAttributes:
+      actionsData:
+        - name: test
+          title: test
+          type: link
+          options:
+            path: /test/tsdasd
+            endpointParameters:
+              id: idTest
+        - name: sadasd
+          type: request
+          options:
+            endpoint:
+              service: asd
+              namespace: asd
+              method: asdasd
