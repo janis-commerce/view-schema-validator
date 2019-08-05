@@ -5,6 +5,13 @@ source:
   service: sac
   namespace: claim-semaphore
   method: browse
+actions:
+  - name: new
+    icon: star_light
+    color: fizzGreen
+    type: link
+    options:
+      path: /view/service/namespace/new
 fields:
   - name: asdasd
     component: StatusChip
@@ -95,5 +102,7 @@ fields:
             value: 231
   - name: test123546
     component: Text
+    attributes:
+      sortable: true
     filter:
       component: Input
