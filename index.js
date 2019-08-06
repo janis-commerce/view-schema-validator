@@ -21,7 +21,7 @@ const { ViewSchemaValidator } = require('./lib');
 
 const availableCommands = ['build', 'validate'];
 
-(() => {
+(async () => {
 	const { input, output, _: commands } = argv;
 
 	if(input && output) {
@@ -32,6 +32,6 @@ const availableCommands = ['build', 'validate'];
 		const execute = schemaValidator.execute.bind(schemaValidator);
 
 		if(currentCommand)
-			execute(currentCommand.toLowerCase());
+			await execute(currentCommand.toLowerCase());
 	}
 })();
