@@ -106,3 +106,5 @@ fields:
       sortable: true
     filter:
       component: Input
+  - name: 1231j123k
+    component: AsyncWrapper

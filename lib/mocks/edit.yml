@@ -13,7 +13,17 @@ sections:
     icon: catalogue
     fields:
     - name: name
-      component: Input
+      component: Select
+      componentAttributes:
+        translateLabels: true
+        options:
+          scope: local
+          values:
+            - label: common.status.active
+              value: 1
+            - label: common.status.inactive
+              value: 0
+
       validations:
         - - name: required
         - - name: maxLength
