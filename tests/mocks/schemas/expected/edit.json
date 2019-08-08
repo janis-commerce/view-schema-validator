@@ -1,0 +1,131 @@
+{
+    "service": "sac",
+    "name": "claim-motive-edit",
+    "root": "Edit",
+    "source": {
+        "service": "sac",
+        "namespace": "claim-motive",
+        "method": "edit",
+        "resolve": true
+    },
+    "sections": [
+        {
+            "name": "mainFormSection",
+            "rootComponent": "MainForm",
+            "fieldsGroup": [
+                {
+                    "name": "detail",
+                    "icon": "catalogue",
+                    "fields": [
+                        {
+                            "name": "name",
+                            "component": "Select",
+                            "componentAttributes": {
+                                "translateLabels": true,
+                                "options": {
+                                    "scope": "local",
+                                    "values": [
+                                        {
+                                            "label": "common.status.active",
+                                            "value": 1
+                                        },
+                                        {
+                                            "label": "common.status.inactive",
+                                            "value": 0
+                                        }
+                                    ]
+                                }
+                            },
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "name": "maxLength",
+                                        "options": {
+                                            "length": 50
+                                        }
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "name": "description",
+                            "component": "Textarea",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "maxLength",
+                                        "options": {
+                                            "length": 50
+                                        }
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "appliesToLogistics",
+                            "component": "Switch",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "missingStockDefault",
+                            "component": "Switch",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "others",
+                    "fields": [
+                        {
+                            "name": "status",
+                            "component": "Select",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {
+                                "translateLabels": true,
+                                "options": {
+                                    "scope": "local",
+                                    "values": [
+                                        {
+                                            "label": "common.status.active",
+                                            "value": 1
+                                        },
+                                        {
+                                            "label": "common.status.inactive",
+                                            "value": 0
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

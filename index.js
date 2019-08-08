@@ -17,21 +17,27 @@ const { argv } = require('yargs')
 	.help('help');
 
 
+const EventEmitter = require('events');
 const { ViewSchemaValidator } = require('./lib');
 
-const availableCommands = ['build', 'validate'];
+const event = new EventEmitter();
+
+event.on('error', e => {
+	console.log(e.message);
+	process.exit(1);
+});
 
 (async () => {
 	const { input, output, _: commands } = argv;
+	const [command] = commands;
 
-	if(input && output) {
-		const [command] = commands;
-		const currentCommand = availableCommands.find(cmd => cmd === command);
+	const schemaValidator = new ViewSchemaValidator(input, output, command);
+	const execute = schemaValidator.execute.bind(schemaValidator);
 
-		const schemaValidator = new ViewSchemaValidator(input, output);
-		const execute = schemaValidator.execute.bind(schemaValidator);
-
-		if(currentCommand)
-			await execute(currentCommand.toLowerCase());
+	try {
+		await execute();
+	} catch(error) {
+		event.emit('error', error);
 	}
+
 })();
