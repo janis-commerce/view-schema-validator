@@ -109,7 +109,7 @@ describe('test builder multiple files', () => {
 		assert(processInputStub.calledOnce);
 	});
 
-	it.only('Should pass validation with path directory', async () => {
+	it('Should pass validation with path directory', async () => {
 		sandbox.stub(process, 'exit');
 		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
 
