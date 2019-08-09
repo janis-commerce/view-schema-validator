@@ -1,9 +1,10 @@
 service: sac
-root: Edit
+name: claim-motive-new
+root: Create
 source:
   service: sac
   namespace: claim-motive
-  method: edit
+  method: new
 sections:
 - name: mainFormSection
   rootComponent: MainForm
@@ -12,17 +13,7 @@ sections:
     icon: catalogue
     fields:
     - name: name
-      component: Select
-      componentAttributes:
-        translateLabels: true
-        options:
-          scope: local
-          values:
-            - label: common.status.active
-              value: 1
-            - label: common.status.inactive
-              value: 0
-
+      component: Input
       validations:
         - - name: required
         - - name: maxLength

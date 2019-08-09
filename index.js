@@ -2,6 +2,7 @@
 
 'use strict';
 
+const EventEmitter = require('events');
 const { argv } = require('yargs')
 	.command('build')
 	.command('validate')
@@ -16,8 +17,6 @@ const { argv } = require('yargs')
 	})
 	.help('help');
 
-
-const EventEmitter = require('events');
 const { ViewSchemaValidator } = require('./lib');
 
 const event = new EventEmitter();

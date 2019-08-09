@@ -1,0 +1,50 @@
+service: sac
+name: claim-motive-new
+root: Create
+source:
+  service: sac
+  namespace: claim-motive
+  method: new
+sections:
+- name: mainFormSection
+  rootComponent: MainForm
+  fieldsGroup:
+  - name: detail
+    icon: catalogue
+    fields:
+    - name: name
+      component: Input
+      validations:
+        - - name: required
+        - - name: maxLength
+            options:
+              length: 50
+    - name: description
+      component: Textarea
+      validations:
+        - - name: maxLength
+            options:
+              length: 50
+    - name: appliesToLogistics
+      component: Switch
+      validations:
+        - - name: required
+    - name: missingStockDefault
+      component: Switch
+      validations:
+        - - name: required
+  - name: others
+    fields:
+      - name: status
+        component: Select
+        validations:
+          - - name: required
+        componentAttributes:
+          translateLabels: true
+          options:
+            scope: local
+            values:
+            - label: common.status.active
+              value: 1
+            - label: common.status.inactive
+              value: 0
