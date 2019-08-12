@@ -6,7 +6,7 @@ const fs = require('fs-extra');
 const mock = require('mock-fs');
 const Builder = require('../lib/builder');
 const Validator = require('../lib/validator');
-const { ViewSchemaValidator } = require('./../lib');
+const ViewSchemaValidator = require('./../lib');
 
 const schemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const schemaExampleJSON = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');

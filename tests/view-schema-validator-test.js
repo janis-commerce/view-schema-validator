@@ -3,7 +3,7 @@
 const assert = require('assert');
 const sinon = require('sinon');
 
-const { ViewSchemaValidator } = require('./../lib');
+const ViewSchemaValidator = require('./../lib');
 const Builder = require('../lib/builder');
 
 const sandbox = sinon.createSandbox();

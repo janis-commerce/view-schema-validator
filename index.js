@@ -18,7 +18,7 @@ const { argv } = require('yargs')
 	})
 	.help('help');
 
-const { ViewSchemaValidator } = require('./lib');
+const ViewSchemaValidator = require('./lib');
 
 const event = new EventEmitter();
 
