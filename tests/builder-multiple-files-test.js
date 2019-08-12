@@ -6,6 +6,7 @@ const fs = require('fs-extra');
 const mock = require('mock-fs');
 const Builder = require('../lib/builder');
 const Validator = require('../lib/validator');
+
 const { ViewSchemaValidator } = require('./../lib');
 
 const schemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
@@ -33,7 +34,8 @@ const mockfs = () => {
 				'browse.json': mock.file({ content: schemaExampleJSON.toString() }),
 				more: mock.directory({
 					items: {
-						'new.yml': mock.file({ content: schemaExampleTwoYML.toString() })
+						'new.yml': mock.file({ content: schemaExampleTwoYML.toString() }),
+						'test.js': mock.file({ content: 'file js' })
 					}
 				})
 			}
@@ -62,7 +64,8 @@ describe('test builder multiple files', () => {
 
 		readdirStub.withArgs(secondPath)
 			.returns([
-				{ name: 'new.yml', isFile: () => true }
+				{ name: 'new.yml', isFile: () => true },
+				{ name: 'test.js', isFile: () => true }
 			]);
 
 		writeFileStub = sandbox.stub(fs, 'writeFile');
@@ -124,4 +127,23 @@ describe('test builder multiple files', () => {
 		assert(writeFileStub.calledThrice);
 
 	});
+
+	it('should warn if validate file invalid', async () => {
+		sandbox.stub(process, 'exit');
+		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+
+		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
+		const processInputSpy = sandbox.spy(Builder.prototype, 'processInput');
+		const processFileSpy = sandbox.spy(Builder.prototype, 'processFile');
+
+		mockfs();
+
+		const execute = executeInstance();
+
+		await execute();
+		assert(processOutputSpy.calledThrice);
+		assert(processInputSpy.calledTwice);
+		assert(processFileSpy.callCount === 4);
+	});
+
 });

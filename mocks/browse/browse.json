@@ -24,6 +24,15 @@
 	}, {
 		"name": "parentName",
 		"component": "Text"
+	},{
+		"name": "sad",
+		"component": "AsyncWrapper",
+		"componentAttributes": {
+			"asdasd": "asdasd",
+			"asdasds": {
+				"asdasd": 123
+			}
+		}
 	}, {
 		"name": "name",
 		"component": "LightText",
@@ -69,6 +78,9 @@
 		"name": "areaInCharge",
 		"component": "Chip"
 	}, {
+		"name": "sad",
+		"component": "AsyncWrapper"
+	},{
 		"name": "sla",
 		"component": "TimeChip",
 		"mapper": {

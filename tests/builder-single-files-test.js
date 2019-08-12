@@ -74,7 +74,6 @@ describe('test builder single files', () => {
 
 		assert(processInputSpy.calledOnce);
 		assert(processFileSpy.calledOnce);
-
 	});
 
 	it('Should exec clearOutputFolder if is build and before processInputs', async () => {

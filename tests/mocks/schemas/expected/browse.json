@@ -56,22 +56,6 @@
             }
         },
         {
-            "name": "sad",
-            "component": "AsyncWrapper",
-            "componentAttributes": {
-                "asdasd": "asdasd",
-                "asdasds": {
-                    "asdasd": 123
-                }
-            },
-            "attributes": {
-                "isStatus": false,
-                "sortable": false,
-                "isDefaultSort": false,
-                "initialSortDirection": "desc"
-            }
-        },
-        {
             "name": "name",
             "component": "LightText",
             "filter": {
@@ -144,17 +128,6 @@
         {
             "name": "areaInCharge",
             "component": "Chip",
-            "attributes": {
-                "isStatus": false,
-                "sortable": false,
-                "isDefaultSort": false,
-                "initialSortDirection": "desc"
-            },
-            "componentAttributes": {}
-        },
-        {
-            "name": "sad",
-            "component": "AsyncWrapper",
             "attributes": {
                 "isStatus": false,
                 "sortable": false,
