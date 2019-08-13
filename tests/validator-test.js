@@ -74,14 +74,13 @@ describe('Test validation functions', () => {
 	});
 
 	it('should schema builded is a expected', async () => {
-		const formatJSON = json => JSON.stringify(json, null, 4);
 		const schemaOne = JSON.parse(schemaExampleOne.toString());
 		const schemaTwo = ymljs.parse(schemaExampleYmlTwo.toString());
 
 		const dataOne = Validator.execute(schemaOne, true, '/test/data1.json');
 		const dataTwo = Validator.execute(schemaTwo, true, '/test/data2.json');
 
-		sinon.assert.match(formatJSON(dataOne), schemaExpectedExampleOne.toString());
-		sinon.assert.match(formatJSON(dataTwo), schemaExpectedExampleTwo.toString());
+		sandbox.assert.match(dataOne, JSON.parse(schemaExpectedExampleOne.toString()));
+		sandbox.assert.match(dataTwo, JSON.parse(schemaExpectedExampleTwo.toString()));
 	});
 });
