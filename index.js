@@ -2,7 +2,6 @@
 
 'use strict';
 
-const EventEmitter = require('events');
 const logger = require('lllog')();
 const { argv } = require('yargs')
 	.command('build')
@@ -20,13 +19,6 @@ const { argv } = require('yargs')
 
 const ViewSchemaValidator = require('./lib');
 
-const event = new EventEmitter();
-
-event.on('error', e => {
-	logger.error(e.message || e);
-	process.exit(1);
-});
-
 (async () => {
 	const { input, output, _: commands } = argv;
 	const [command] = commands;
@@ -37,6 +29,7 @@ event.on('error', e => {
 	try {
 		await execute();
 	} catch(error) {
-		event.emit('error', error);
+		logger.error(error.message || error);
+		process.exit(1);
 	}
 })();

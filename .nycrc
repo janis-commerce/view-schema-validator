@@ -5,7 +5,8 @@
     "tests/",
     "mocks/",
     ".eslintrc.js",
-    ".travis.yml"
+    ".travis.yml",
+    "index.js"
   ],
   "extension": [
     ".js"
