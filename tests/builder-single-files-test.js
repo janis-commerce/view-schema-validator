@@ -115,7 +115,7 @@ describe('test builder single files', () => {
 		assert(processOutputSpy.calledOnce);
 		assert(writeFileStub.calledOnce);
 		assert(writeFileStub.calledWithExactly(
-			'/var/www/view-schema-validator/tests/schemas/fakeBuildFolder/edit.json',
+			`${process.cwd()}/tests/schemas/fakeBuildFolder/edit.json`,
 			JSON.stringify({ data: 'test' }, null, 4)
 		));
 	});
@@ -135,13 +135,12 @@ describe('test builder single files', () => {
 		assert(processOutputSpy.calledOnce);
 		assert(writeFileStub.calledOnce);
 		assert(writeFileStub.calledWithExactly(
-			'/var/www/view-schema-validator/tests/schemas/fakeBuildFolder/edit.json',
+			`${process.cwd()}/tests/schemas/fakeBuildFolder/edit.json`,
 			JSON.stringify({ data: 'test' }, null, 4)
 		));
 
 		const call = isFileSpy.getCall(0);
-		const callRes = await call;
-
+		const callRes = await call.returnValue;
 		assert(callRes);
 	});
 
@@ -162,12 +161,12 @@ describe('test builder single files', () => {
 		assert(processOutputSpy.calledOnce);
 		assert(writeFileStub.calledOnce);
 		assert(writeFileStub.calledWithExactly(
-			'/var/www/view-schema-validator/tests/schemas/fakeBuildFolder/browse.json',
+			`${process.cwd()}/tests/schemas/fakeBuildFolder/browse.json`,
 			JSON.stringify({ data: 'test' }, null, 4)
 		));
 
 		const call = isFileSpy.getCall(0);
-		const callRes = await call;
+		const callRes = await call.returnValue;
 
 		assert(callRes);
 	});
