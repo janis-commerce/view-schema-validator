@@ -14,12 +14,12 @@ npm install  @janiscommerce/view-schema-validator
 ```sh
 npx @janiscommerce/view-schema-validator validate -i=/schemas -o=/build
 ```
-### Comandos
+### Commands
 ```sh
 build        Validate, compile and write new file or files JSON with valid schemas and defaults include.
 validate     Validate if the file or files are valid schemas
 ```
-### Opciones:
+### Options:
 ```sh
 --input, -i   write a relative dir folder or dir file
 --output, -o  write a relative dir fordel for your outputs
