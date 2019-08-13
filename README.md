@@ -27,14 +27,10 @@ npx @janiscommerce/view-schema-validator validate -i=/schemas -o=/build
 
 ## Examples
 
-### Recursively validating directory
+### Recursively validating and building directory
+
 ```sh
 npx @janiscommerce/view-schema-validator validate -i=/schemas -o=/build
-```
-
-### Recursively building directory
-
-```sh
 npx @janiscommerce/view-schema-validator build -i=/schemas -o=/build
 ```
 
