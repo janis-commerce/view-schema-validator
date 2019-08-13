@@ -189,5 +189,16 @@
     "hasPreview": false,
     "canEdit": true,
     "canView": false,
-    "pageSize": 60
+    "pageSize": 60,
+    "actions": [
+        {
+            "name": "new",
+            "icon": "star_light",
+            "color": "fizzGreen",
+            "type": "link",
+            "options": {
+                "path": "/view/sac/claim-type/new"
+            }
+        }
+    ]
 }
