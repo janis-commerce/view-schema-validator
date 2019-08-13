@@ -16,13 +16,13 @@ npx @janiscommerce/view-schema-validator validate -i=/schemas -o=/build
 ```
 ### Comandos
 ```sh
-  build        Validate, compile and write new file or files JSON with valid schemas and defaults include.
-  validate     Validate if the file or files are valid schemas
+build        Validate, compile and write new file or files JSON with valid schemas and defaults include.
+validate     Validate if the file or files are valid schemas
 ```
 ### Opciones:
 ```sh
-  --input, -i   write a relative dir folder or dir file
-  --output, -o  write a relative dir fordel for your outputs
+--input, -i   write a relative dir folder or dir file
+--output, -o  write a relative dir fordel for your outputs
 ```
 
 ## Examples
