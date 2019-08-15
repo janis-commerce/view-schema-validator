@@ -21,6 +21,7 @@ const executeInstance = (build = true) => {
 	const schemaValidator = new ViewSchemaValidator(
 		'/tests/schemas/fakeFolder',
 		'/tests/schemas/fakeBuildFolder',
+		false,
 		build ? 'build' : 'validate'
 	);
 	return schemaValidator.execute.bind(schemaValidator);

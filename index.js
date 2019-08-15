@@ -18,16 +18,21 @@ const { argv } = require('yargs')
 		type: 'string',
 		describe: 'write a relative dir for outputs'
 	})
+	.option('minified', {
+		alias: 'm',
+		type: 'boolean',
+		default: false
+	})
 	.strict()
 	.help('help');
 
 const ViewSchemaValidator = require('./lib');
 
 (async () => {
-	const { input, output, _: commands } = argv;
+	const { input, output, minified, _: commands } = argv;
 	const [command] = commands;
 
-	const schemaValidator = new ViewSchemaValidator(input, output, command);
+	const schemaValidator = new ViewSchemaValidator(input, output, minified, command);
 	const execute = schemaValidator.execute.bind(schemaValidator);
 
 	try {

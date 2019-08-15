@@ -15,10 +15,11 @@ const sandbox = sinon.createSandbox();
 
 let writeFileStub;
 
-const executeInstance = (build = true, file) => {
+const executeInstance = (build = true, file, minified = false) => {
 	const schemaValidator = new ViewSchemaValidator(
 		`/tests/schemas/fakeFolder/${file || ''}`,
 		'/tests/schemas/fakeBuildFolder',
+		minified,
 		build ? 'build' : 'validate'
 	);
 	return schemaValidator.execute.bind(schemaValidator);
@@ -103,7 +104,7 @@ describe('test builder single files', () => {
 
 	it('Should pass validation with input path directory', async () => {
 		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
 		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
 
@@ -116,13 +117,13 @@ describe('test builder single files', () => {
 		assert(writeFileStub.calledOnce);
 		assert(writeFileStub.calledWithExactly(
 			`${process.cwd()}/tests/schemas/fakeBuildFolder/edit.json`,
-			JSON.stringify({ data: 'test' }, null, 4)
+			JSON.stringify({ data0: 'test', data1: 'test', data2: 'test' }, null, 4)
 		));
 	});
 
 	it('Should pass validation with input file yml path directory', async () => {
 		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
 		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
 		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
@@ -136,7 +137,7 @@ describe('test builder single files', () => {
 		assert(writeFileStub.calledOnce);
 		assert(writeFileStub.calledWithExactly(
 			`${process.cwd()}/tests/schemas/fakeBuildFolder/edit.json`,
-			JSON.stringify({ data: 'test' }, null, 4)
+			JSON.stringify({ data0: 'test', data1: 'test', data2: 'test' }, null, 4)
 		));
 
 		const call = isFileSpy.getCall(0);
@@ -148,7 +149,7 @@ describe('test builder single files', () => {
 	it('Should pass validation with input file JSON path directory', async () => {
 
 		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
 		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
 		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
@@ -162,7 +163,33 @@ describe('test builder single files', () => {
 		assert(writeFileStub.calledOnce);
 		assert(writeFileStub.calledWithExactly(
 			`${process.cwd()}/tests/schemas/fakeBuildFolder/browse.json`,
-			JSON.stringify({ data: 'test' }, null, 4)
+			JSON.stringify({ data0: 'test', data1: 'test', data2: 'test' }, null, 4)
+		));
+
+		const call = isFileSpy.getCall(0);
+		const callRes = await call.returnValue;
+
+		assert(callRes);
+	});
+
+	it('Should pass validation with input file minified', async () => {
+
+		sandbox.stub(process, 'exit');
+		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
+
+		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
+		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
+
+		mockfs({ 'browse.json': mock.file({ content: schemaExampleJSON.toString() }) });
+
+		const execute = executeInstance(true, 'browse.json', true);
+		await execute();
+
+		assert(processOutputSpy.calledOnce);
+		assert(writeFileStub.calledOnce);
+		assert(writeFileStub.calledWithExactly(
+			`${process.cwd()}/tests/schemas/fakeBuildFolder/browse.json`,
+			JSON.stringify({ data0: 'test', data1: 'test', data2: 'test' })
 		));
 
 		const call = isFileSpy.getCall(0);

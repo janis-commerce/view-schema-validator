@@ -17,7 +17,7 @@ describe('Test execute commmand initials', () => {
 	it('Should error if pass input empty string', async () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 
-		const schemaValidatorOne = new ViewSchemaValidator(' ', '/build', 'build');
+		const schemaValidatorOne = new ViewSchemaValidator(' ', '/build', false, 'build');
 		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
 
 		await assert.rejects(async () => { await executeOne(); }, { message: 'Please add input' });
@@ -27,7 +27,7 @@ describe('Test execute commmand initials', () => {
 	it('Should error if pass output empty string', async () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 
-		const schemaValidatorOne = new ViewSchemaValidator('/mocks', '', 'build');
+		const schemaValidatorOne = new ViewSchemaValidator('/mocks', '', false, 'build');
 		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
 
 		await assert.rejects(async () => { await executeOne(); }, { message: 'Please add output' });
@@ -35,7 +35,7 @@ describe('Test execute commmand initials', () => {
 
 		sandbox.restore();
 
-		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', ' ', 'build');
+		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', ' ', false, 'build');
 		const executeTwo = schemaValidatorTwo.execute.bind(schemaValidatorTwo);
 
 		await assert.rejects(async () => { await executeTwo(); }, { message: 'Please add output' });
@@ -47,7 +47,7 @@ describe('Test execute commmand initials', () => {
 
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 
-		const schemaValidatorOne = new ViewSchemaValidator('/mocks', ' ', 'validate');
+		const schemaValidatorOne = new ViewSchemaValidator('/mocks', ' ', false, 'validate');
 		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
 
 		await executeOne();
@@ -55,7 +55,7 @@ describe('Test execute commmand initials', () => {
 		assert(execSpy.calledOnce);
 		assert(executeBuilderStub.calledOnce);
 
-		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', '', 'validate');
+		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', '', false, 'validate');
 		const executeTwo = schemaValidatorTwo.execute.bind(schemaValidatorTwo);
 
 		await executeTwo();
@@ -70,7 +70,7 @@ describe('Test execute commmand initials', () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 		const builderSpy = sandbox.spy(ViewSchemaValidator.prototype, 'executeBuilder');
 
-		const schemaValidator = new ViewSchemaValidator('/test/mocks/schemas', '/test/mocks/build', 'validate');
+		const schemaValidator = new ViewSchemaValidator('/test/mocks/schemas', '/test/mocks/build', false, 'validate');
 
 		const execute = schemaValidator.execute.bind(schemaValidator);
 
@@ -87,7 +87,7 @@ describe('Test execute commmand initials', () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 		const builderSpy = sandbox.spy(ViewSchemaValidator.prototype, 'executeBuilder');
 
-		const schemaValidator = new ViewSchemaValidator('/tests/mocks/schemas', '/tests/mocks/build', 'build');
+		const schemaValidator = new ViewSchemaValidator('/tests/mocks/schemas', '/tests/mocks/build', false, 'build');
 
 		const execute = schemaValidator.execute.bind(schemaValidator);
 
@@ -104,7 +104,7 @@ describe('Test execute commmand initials', () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 		const builderSpy = sandbox.spy(ViewSchemaValidator.prototype, 'executeBuilder');
 
-		const schemaValidator = new ViewSchemaValidator('/tests/mocks/schemas', '/tests/mocks/build', 'build');
+		const schemaValidator = new ViewSchemaValidator('/tests/mocks/schemas', '/tests/mocks/build', false, 'build');
 
 		const execute = schemaValidator.execute.bind(schemaValidator);
 
