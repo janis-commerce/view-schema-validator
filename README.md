@@ -12,7 +12,7 @@ npm install  @janiscommerce/view-schema-validator
 
 ## Usage
 ```sh
-npx @janiscommerce/view-schema-validator validate -i=/schemas -o=/build
+npx @janiscommerce/view-schema-validator build -i=/schemas -o=/build
 ```
 ### Commands
 ```sh
@@ -31,7 +31,7 @@ validate     Validate if the file or files are valid schemas
 ### Recursively validating and building directory
 
 ```sh
-npx @janiscommerce/view-schema-validator validate -i=/schemas -o=/build
+npx @janiscommerce/view-schema-validator validate -i=/schemas
 npx @janiscommerce/view-schema-validator build -i=/schemas -o=/build
 ```
 
@@ -39,6 +39,6 @@ npx @janiscommerce/view-schema-validator build -i=/schemas -o=/build
 Accepts files json and Yaml
 
 ```sh
-npx @janiscommerce/view-schema-validator validate -i=/schemas/browse.json -o=/build
+npx @janiscommerce/view-schema-validator validate -i=/schemas/browse.json
 npx @janiscommerce/view-schema-validator build -i=/schemas/browse.yml -o=/build
 ```
