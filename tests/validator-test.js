@@ -20,7 +20,7 @@ describe('Test validation functions', () => {
 	});
 
 	// your tests here...
-	it('Should error if pass schema with root not defined', async () => {
+	it('Should error if pass schema with root not defined', () => {
 		const schema = JSON.parse(schemaExampleOne.toString());
 		delete schema.root;
 
@@ -30,14 +30,14 @@ describe('Test validation functions', () => {
 		);
 	});
 
-	it('Should error if has a error validation', async () => {
+	it('Should error if has a error validation', () => {
 		const schema = JSON.parse(schemaExampleOne.toString());
 		delete schema.name;
 
 		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
 	});
 
-	it('Should validate only', async () => {
+	it('Should validate only', () => {
 		const schema = JSON.parse(schemaExampleOne.toString());
 		const validateSpy = sandbox.spy(Validator, 'validate');
 		const compileSpy = sandbox.spy(Validator, 'compile');
@@ -49,7 +49,7 @@ describe('Test validation functions', () => {
 		assert(data === undefined);
 	});
 
-	it('Should compile and validate', async () => {
+	it('Should compile and validate', () => {
 		const schema = JSON.parse(schemaExampleOne.toString());
 		const validateSpy = sandbox.spy(Validator, 'validate');
 		const compileSpy = sandbox.spy(Validator, 'compile');
@@ -60,7 +60,7 @@ describe('Test validation functions', () => {
 		assert(compileSpy.calledOnce);
 	});
 
-	it('Should compile if schema is valid', async () => {
+	it('Should compile if schema is valid', () => {
 		const schema = JSON.parse(schemaExampleOne.toString());
 		delete schema.name;
 
@@ -73,7 +73,7 @@ describe('Test validation functions', () => {
 		assert(compileSpy.notCalled);
 	});
 
-	it('should schema builded is a expected', async () => {
+	it('should schema builded is a expected', () => {
 		const schemaOne = JSON.parse(schemaExampleOne.toString());
 		const schemaTwo = ymljs.parse(schemaExampleYmlTwo.toString());
 
@@ -83,4 +83,25 @@ describe('Test validation functions', () => {
 		sandbox.assert.match(dataOne, JSON.parse(schemaExpectedExampleOne.toString()));
 		sandbox.assert.match(dataTwo, JSON.parse(schemaExpectedExampleTwo.toString()));
 	});
+
+	it('should error with default schema', () => {
+		const schemaOne = { url: 'http://janis.in' };
+		const schemaTwo = { root: 5, url: 'http://janis.in' };
+
+		assert.throws(() => Validator.execute(schemaOne, true, '/test/data.json'));
+		assert.throws(() => Validator.execute(schemaTwo, true, '/test/data.json'));
+	});
+
+	it('should pass validation and build data with default schema', () => {
+		const validateSpy = sandbox.spy(Validator, 'validate');
+		const compileSpy = sandbox.spy(Validator, 'compile');
+
+		const schema = { root: 'Terminal', url: 'http://janis.in' };
+
+		Validator.execute(schema, true, '/test/data.json');
+
+		assert(validateSpy.calledOnce);
+		assert(compileSpy.calledOnce);
+	});
+
 });
