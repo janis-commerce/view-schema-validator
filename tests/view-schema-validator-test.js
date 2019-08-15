@@ -14,28 +14,20 @@ describe('Test execute commmand initials', () => {
 	});
 
 	// your tests here...
-	it('Should error if pass input empty or true', async () => {
+	it('Should error if pass input empty string', async () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 
-		const schemaValidatorOne = new ViewSchemaValidator(true, '/build', 'build');
+		const schemaValidatorOne = new ViewSchemaValidator(' ', '/build', 'build');
 		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
 
 		await assert.rejects(async () => { await executeOne(); }, { message: 'Please add input' });
 		assert(execSpy.calledOnce);
-
-		sandbox.restore();
-
-		const schemaValidatorTwo = new ViewSchemaValidator('', '/build', 'build');
-		const executeTwo = schemaValidatorTwo.execute.bind(schemaValidatorTwo);
-
-		await assert.rejects(async () => { await executeTwo(); }, { message: 'Please add input' });
-		assert(execSpy.calledOnce);
 	});
 
-	it('Should error if pass output empty or true', async () => {
+	it('Should error if pass output empty string', async () => {
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 
-		const schemaValidatorOne = new ViewSchemaValidator('/mocks', true, 'build');
+		const schemaValidatorOne = new ViewSchemaValidator('/mocks', '', 'build');
 		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
 
 		await assert.rejects(async () => { await executeOne(); }, { message: 'Please add output' });
@@ -43,39 +35,33 @@ describe('Test execute commmand initials', () => {
 
 		sandbox.restore();
 
-		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', '', 'build');
+		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', ' ', 'build');
 		const executeTwo = schemaValidatorTwo.execute.bind(schemaValidatorTwo);
 
 		await assert.rejects(async () => { await executeTwo(); }, { message: 'Please add output' });
 		assert(execSpy.calledOnce);
 	});
 
-	it('Should error if pass output and input empty or true', async () => {
+	it('Should pass validation if pass output empty or true in validation', async () => {
+		const executeBuilderStub = sandbox.stub(ViewSchemaValidator.prototype, 'executeBuilder');
+
 		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
 
-		const schemaValidatorOne = new ViewSchemaValidator('', true, 'build');
+		const schemaValidatorOne = new ViewSchemaValidator('/mocks', ' ', 'validate');
 		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
 
-		await assert.rejects(async () => { await executeOne(); }, { message: 'Please add input and output' });
+		await executeOne();
+
 		assert(execSpy.calledOnce);
+		assert(executeBuilderStub.calledOnce);
 
-		sandbox.restore();
-
-		const schemaValidatorTwo = new ViewSchemaValidator(true, '', 'build');
+		const schemaValidatorTwo = new ViewSchemaValidator('/mocks', '', 'validate');
 		const executeTwo = schemaValidatorTwo.execute.bind(schemaValidatorTwo);
 
-		await assert.rejects(async () => { await executeTwo(); }, { message: 'Please add input and output' });
-		assert(execSpy.calledOnce);
-	});
+		await executeTwo();
 
-	it('Should error if pass command invalid', async () => {
-		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
-
-		const schemaValidator = new ViewSchemaValidator('/mocks', '/build', 'compile');
-		const execute = schemaValidator.execute.bind(schemaValidator);
-
-		await assert.rejects(async () => { await execute(); }, { message: 'Command "compile" not exist' });
-		assert(execSpy.calledOnce);
+		assert(execSpy.calledTwice);
+		assert(executeBuilderStub.calledTwice);
 	});
 
 	it('Should execute validate', async () => {

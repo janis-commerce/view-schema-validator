@@ -9,12 +9,16 @@ const { argv } = require('yargs')
 	.demandCommand()
 	.option('input', {
 		alias: 'i',
-		describe: 'write a relative dir for your inputs files folder or file'
+		describe: 'write a relative dir for your inputs files folder or file',
+		type: 'string',
+		demandOption: true
 	})
 	.option('output', {
 		alias: 'o',
+		type: 'string',
 		describe: 'write a relative dir for outputs'
 	})
+	.strict()
 	.help('help');
 
 const ViewSchemaValidator = require('./lib');
@@ -29,7 +33,7 @@ const ViewSchemaValidator = require('./lib');
 	try {
 		await execute();
 	} catch(error) {
-		logger.error(error.message || error);
+		logger.error(error.stack || error);
 		process.exit(1);
 	}
 })();

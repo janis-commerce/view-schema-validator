@@ -197,7 +197,7 @@
             "color": "fizzGreen",
             "type": "link",
             "options": {
-                "path": "/view/sac/claim-type/new"
+                "path": "/sac/claim-type/new"
             }
         }
     ]

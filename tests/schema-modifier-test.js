@@ -32,7 +32,7 @@ describe('Test schema-modifier functions', () => {
 			color: 'fizzGreen',
 			type: 'link',
 			options: {
-				path: '/view/sac/claim-type/new'
+				path: '/sac/claim-type/new'
 			}
 		}];
 
