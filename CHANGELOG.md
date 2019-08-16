@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.2] - 2019-08-16
+### Changed
+- Now each error is logged separately
+
+### Fixed
+- `Multiselect` component name
+
 ## [1.0.1] - 2019-08-16
 ### Fixed
 - npx command added
