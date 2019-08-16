@@ -39,6 +39,10 @@ const ViewSchemaValidator = require('./lib');
 		await execute();
 	} catch(error) {
 		logger.error(error.stack || error);
+
+		if(error.errors)
+			logger.error(error.errors);
+
 		process.exit(1);
 	}
 })();
