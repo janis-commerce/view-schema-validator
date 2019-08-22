@@ -5,6 +5,7 @@ source:
   service: sac
   namespace: claim-motive
   method: new
+  resolve: false
 sections:
 - name: mainFormSection
   rootComponent: MainForm

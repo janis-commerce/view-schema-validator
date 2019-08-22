@@ -1,0 +1,6 @@
+{
+    "routerConfig": {
+        "endpoint": "http://router.janis.localhost:3014/api/endpoint"
+    },
+    "apiKey": "-"
+}

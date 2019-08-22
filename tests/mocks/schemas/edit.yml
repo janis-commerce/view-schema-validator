@@ -5,6 +5,7 @@ source:
   service: sac
   namespace: claim-motive
   method: edit
+  resolve: false
 sections:
 - name: mainFormSection
   rootComponent: MainForm
@@ -64,6 +65,7 @@ sections:
     service: sac
     namespace: claim-semaphore
     method: browse
+    resolve: false
   fields:
     - name: id
       component: BoldText

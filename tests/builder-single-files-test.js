@@ -19,6 +19,7 @@ const executeInstance = (build = true, file, minified = false) => {
 	const schemaValidator = new ViewSchemaValidator(
 		`/tests/schemas/fakeFolder/${file || ''}`,
 		'/tests/schemas/fakeBuildFolder',
+		undefined,
 		minified,
 		build ? 'build' : 'validate'
 	);

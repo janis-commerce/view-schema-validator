@@ -1,0 +1,4376 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "SAC Service",
+		"description": "SAC Service API",
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "https://sac.janis.in/api",
+			"description": "The PROD API server",
+			"variables": {
+				"environment": {
+					"enum": [
+						"prod"
+					],
+					"default": "prod"
+				}
+			}
+		},
+		{
+			"url": "https://sac.janisqa.in/api",
+			"description": "The QA API server",
+			"variables": {
+				"environment": {
+					"enum": [
+						"qa"
+					],
+					"default": "qa"
+				}
+			}
+		},
+		{
+			"url": "https://sac.janisdev.in/api",
+			"description": "The Beta API server",
+			"variables": {
+				"environment": {
+					"enum": [
+						"beta"
+					],
+					"default": "beta"
+				}
+			}
+		},
+		{
+			"url": "http://sac.janis.localhost:3009/api",
+			"description": "The DEV API server",
+			"variables": {
+				"environment": {
+					"enum": [
+						"local"
+					],
+					"default": "local"
+				}
+			}
+		}
+	],
+	"tags": [
+		{
+			"name": "Claims",
+			"description": "To manage claims"
+		},
+		{
+			"name": "Views",
+			"description": "To manage JANIS Views"
+		}
+	],
+	"paths": {
+		"/claim-areas": {
+			"x-janis-namespace": "claim-area",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim areas",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimArea"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-channels": {
+			"x-janis-namespace": "claim-channel",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim channels",
+				"description": "saraza",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimChannel"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-compensations": {
+			"x-janis-namespace": "claim-compensation",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim compensations",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "claimTypeId",
+						"description": "Search claim type id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimCompensation"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-management-status": {
+			"x-janis-namespace": "claim-management-status",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim management statuses",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "claimManagementId",
+						"description": "Search by claim management id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimManagementStatus"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-managements": {
+			"x-janis-namespace": "claim-management",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim managements",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "claimTypeId",
+						"description": "Search by claim type id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimManagement"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-motives": {
+			"x-janis-namespace": "claim-motive",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim motives",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimMotive"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-processes": {
+			"x-janis-namespace": "claim-process",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim process",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimProcess"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-status-transitions": {
+			"x-janis-namespace": "claim-status-transition",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim status transition",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimStatusTransition"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-status": {
+			"x-janis-namespace": "claim-status",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim status",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimStatus"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/claim-types": {
+			"x-janis-namespace": "claim-type",
+			"x-janis-method": "list",
+			"x-janis-allow-cors": true,
+			"get": {
+				"tags": [
+					"Claims"
+				],
+				"summary": "Get claim types",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/janisClientHeader"
+					},
+					{
+						"in": "query",
+						"name": "term",
+						"description": "Search by name",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "claimMotiveId",
+						"description": "Search by claim motive id",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "parent",
+						"description": "Search by claim type parent id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ClaimType"
+								}
+							},
+							"application/vnd.janis.options-v1+json": {
+								"schema": {
+									"$ref": "#/components/schemas/optionsForSelect"
+								}
+							}
+						}
+					},
+					"400": {
+						"$ref": "#/components/responses/400"
+					},
+					"401": {
+						"$ref": "#/components/responses/401"
+					},
+					"500": {
+						"$ref": "#/components/responses/500"
+					}
+				}
+			}
+		},
+		"/view/claim/browse/data/": {
+			"x-janis-namespace": "claim-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim/browse/schema": {
+			"x-janis-namespace": "claim-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"$ref": "../../view-schemas/claim/browse.yml"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-channel/browse/data/": {
+			"x-janis-namespace": "claim-channel-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim channels browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseChannelFilters"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimChannelData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-channel/browse/schema": {
+			"x-janis-namespace": "claim-channel-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim channels browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-channel-browse",
+										"root": "Browse",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-channel",
+											"method": "browse"
+										},
+										"fields": [
+											{
+												"name": "id",
+												"component": "BoldText",
+												"attributes": {
+													"sortable": true,
+													"isDefaultSort": true
+												},
+												"mapper": "addHashtag"
+											},
+											{
+												"name": "name",
+												"component": "MediumText",
+												"filter": {
+													"component": "Input"
+												},
+												"attributes": {
+													"sortable": true
+												}
+											},
+											{
+												"name": "description",
+												"component": "LightText"
+											},
+											{
+												"name": "appliesToLogistics",
+												"component": "Chip",
+												"mapper": "booleanToWord",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.boolean.yes",
+																"value": 1
+															},
+															{
+																"label": "common.boolean.no",
+																"value": 0
+															}
+														]
+													}
+												}
+											},
+											{
+												"name": "status",
+												"component": "StatusChip",
+												"attributes": {
+													"isStatus": true,
+													"sortable": true
+												},
+												"componentAttributes": {
+													"colorSource": "statusColor"
+												},
+												"mapper": "translate",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.status.active",
+																"value": 1
+															},
+															{
+																"label": "common.status.inactive",
+																"value": 0
+															}
+														]
+													}
+												}
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-foo/edit/data/{id}": {
+			"x-janis-namespace": "claim-foo-view",
+			"x-janis-method": "edit-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim foo edit data",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"minimum": 1
+						},
+						"description": "The Claim foo ID"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"name": "name test",
+										"permissions": [
+											{
+												"name": "sac",
+												"label": "sac.serviceName.sac",
+												"translateLabel": true,
+												"groups": [
+													{
+														"name": "claims",
+														"label": "Creado por el usuario",
+														"translateLabel": true,
+														"items": [
+															{
+																"name": "sac:claim-type:read",
+																"value": 1
+															},
+															{
+																"name": "sac:claim-type:write",
+																"value": 0
+															}
+														]
+													}
+												]
+											},
+											{
+												"name": "catalog",
+												"label": "catalog.serviceName.catalog",
+												"translateLabel": true,
+												"groups": [
+													{
+														"name": "products",
+														"label": "Creado por el usuario",
+														"translateLabel": true,
+														"items": [
+															{
+																"name": "catalog:product-stock:read",
+																"value": 1
+															},
+															{
+																"name": "catalog:product-stock:write",
+																"value": 0
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-foo/edit/schema": {
+			"x-janis-namespace": "claim-foo-view",
+			"x-janis-method": "edit-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim foo edit schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"$ref": "../../view-schemas/claim-foo/edit.yml"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-management/browse/data/": {
+			"x-janis-namespace": "claim-management-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim managements browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseManagementFilters"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimManagementData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-management/browse/schema": {
+			"x-janis-namespace": "claim-management-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim managements browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-management-browse",
+										"root": "Browse",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-management",
+											"method": "browse"
+										},
+										"fields": [
+											{
+												"name": "id",
+												"component": "BoldText",
+												"attributes": {
+													"sortable": true,
+													"isDefaultSort": true
+												},
+												"mapper": "addHashtag"
+											},
+											{
+												"name": "claimType",
+												"component": "MediumText"
+											},
+											{
+												"name": "name",
+												"component": "Text",
+												"filter": {
+													"component": "Input"
+												},
+												"attributes": {
+													"sortable": true
+												}
+											},
+											{
+												"name": "description",
+												"component": "LightText"
+											},
+											{
+												"name": "status",
+												"component": "StatusChip",
+												"attributes": {
+													"isStatus": true,
+													"sortable": true
+												},
+												"componentAttributes": {
+													"colorSource": "statusColor"
+												},
+												"mapper": "translate",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.status.active",
+																"value": 1
+															},
+															{
+																"label": "common.status.inactive",
+																"value": 0
+															}
+														]
+													}
+												}
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-management-status/browse/data/": {
+			"x-janis-namespace": "claim-management-status-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim managements status browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseManagementStatusFilters"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimManagementStatusData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-management-status/browse/schema": {
+			"x-janis-namespace": "claim-management-status-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim management status browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-management-status-browse",
+										"root": "Browse",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-management-status",
+											"method": "browse"
+										},
+										"fields": [
+											{
+												"name": "id",
+												"component": "BoldText",
+												"attributes": {
+													"sortable": true,
+													"isDefaultSort": true
+												},
+												"mapper": "addHashtag"
+											},
+											{
+												"name": "claimManagement",
+												"filter": {
+													"component": "Input"
+												},
+												"component": "MediumText"
+											},
+											{
+												"name": "name",
+												"component": "Text",
+												"filter": {
+													"component": "Input"
+												},
+												"attributes": {
+													"sortable": true
+												}
+											},
+											{
+												"name": "description",
+												"component": "LightText"
+											},
+											{
+												"name": "status",
+												"component": "StatusChip",
+												"attributes": {
+													"isStatus": true,
+													"sortable": true
+												},
+												"componentAttributes": {
+													"colorSource": "statusColor"
+												},
+												"mapper": "translate",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.status.active",
+																"value": 1
+															},
+															{
+																"label": "common.status.inactive",
+																"value": 0
+															}
+														]
+													}
+												}
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/browse/data/": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim motives browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimMotiveData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/browse/schema": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim motives browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-motive-browse",
+										"root": "Browse",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-motive",
+											"method": "browse"
+										},
+										"fields": [
+											{
+												"name": "id",
+												"component": "BoldText",
+												"attributes": {
+													"sortable": true,
+													"isDefaultSort": true
+												},
+												"mapper": "addHashtag"
+											},
+											{
+												"name": "name",
+												"component": "Text",
+												"filter": {
+													"component": "Input"
+												},
+												"attributes": {
+													"sortable": true
+												}
+											},
+											{
+												"name": "description",
+												"component": "LightText"
+											},
+											{
+												"name": "appliesToLogistics",
+												"component": "Chip",
+												"mapper": "booleanToWord",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.boolean.yes",
+																"value": 1
+															},
+															{
+																"label": "common.boolean.no",
+																"value": 0
+															}
+														]
+													}
+												}
+											},
+											{
+												"name": "status",
+												"component": "StatusChip",
+												"attributes": {
+													"isStatus": true,
+													"sortable": true
+												},
+												"componentAttributes": {
+													"colorSource": "statusColor"
+												},
+												"mapper": "translate",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.status.active",
+																"value": 1
+															},
+															{
+																"label": "common.status.inactive",
+																"value": 0
+															}
+														]
+													}
+												}
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/edit/data/{id}": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "edit-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim motives edit data",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"minimum": 1
+						},
+						"description": "The Claim motive ID"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"id": 577,
+										"name": "Felicitación",
+										"description": "Felicitación de un cliente",
+										"appliesToLogistics": 0,
+										"missingStockDefault": 0,
+										"status": 1,
+										"userCreated": {
+											"id": 133,
+											"firstname": "Pedro",
+											"email": "pedro@fizzmod.com"
+										},
+										"userModified": {
+											"id": 157,
+											"firstname": "juan",
+											"email": "juancho@fizzmod.com"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/edit/schema": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "edit-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim motive edit schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"$ref": "../../view-schemas/claim-motive/edit.yml"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/new/data": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "new-data",
+			"x-janis-allow-cors": true,
+			"post": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Create claim motive data",
+				"requestBody": {
+					"description": "Claim motive to save.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ClaimMotiveSaveNewDataSchema"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/new/schema": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "new-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim motives new schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"$ref": "../../view-schemas/claim-motive/new.yml"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-motive/save/data/{id}": {
+			"x-janis-namespace": "claim-motive-view",
+			"x-janis-method": "save-data",
+			"x-janis-allow-cors": true,
+			"put": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Save claim motive data",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"minimum": 1
+						},
+						"description": "The Claim motive ID"
+					}
+				],
+				"requestBody": {
+					"description": "Claim motive to save.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ClaimMotiveSaveNewDataSchema"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-semaphore/browse/data/": {
+			"x-janis-namespace": "claim-semaphore-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim semaphore browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimSemaphoreData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-semaphore/browse/schema": {
+			"x-janis-namespace": "claim-semaphore-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim semaphore browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"$ref": "../../view-schemas/claim-semaphore/browse.yml"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/browse/data/": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "browse-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim types browse data",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/viewBrowseSortBy"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowseSortDirection"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageNumber"
+					},
+					{
+						"$ref": "#/components/parameters/viewBrowsePageSize"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/viewBrowseClaimTypeData"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/browse/filters": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "browse-filters",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim types browse filters",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"filters": {
+											"flags": {
+												"options": [
+													{
+														"label": "sac.entities.claimType.appliesTo.orders",
+														"value": "1"
+													},
+													{
+														"label": "sac.entities.claimType.appliesTo.items",
+														"value": "2"
+													},
+													{
+														"label": "sac.entities.claimType.appliesTo.ordersAndItems",
+														"value": "3"
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/browse/schema": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "browse-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim types browse schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-type-browse",
+										"root": "Browse",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-type",
+											"method": "browse"
+										},
+										"fields": [
+											{
+												"name": "id",
+												"component": "BoldText",
+												"attributes": {
+													"sortable": true,
+													"isDefaultSort": true
+												},
+												"mapper": "addHashtag"
+											},
+											{
+												"name": "motiveName",
+												"component": "MediumText",
+												"filter": {
+													"component": "Input"
+												}
+											},
+											{
+												"name": "parentName",
+												"component": "Text"
+											},
+											{
+												"name": "name",
+												"component": "LightText",
+												"filter": {
+													"component": "Input"
+												},
+												"attributes": {
+													"sortable": true
+												}
+											},
+											{
+												"name": "appliesToLogistics",
+												"component": "Chip",
+												"mapper": "booleanToWord",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.boolean.yes",
+																"value": 1
+															},
+															{
+																"label": "common.boolean.no",
+																"value": 0
+															}
+														]
+													}
+												}
+											},
+											{
+												"name": "flags",
+												"component": "Chip",
+												"label": "sac.entities.claimType.fields.appliesTo",
+												"mapper": "translate",
+												"filter": {
+													"component": "Select",
+													"remote": true,
+													"componentAttributes": {
+														"translateLabels": true
+													}
+												}
+											},
+											{
+												"name": "areaInCharge",
+												"component": "Chip"
+											},
+											{
+												"name": "sla",
+												"component": "TimeChip",
+												"mapper": {
+													"name": "numberToTime",
+													"props": {
+														"type": "hour"
+													}
+												}
+											},
+											{
+												"name": "status",
+												"component": "StatusChip",
+												"attributes": {
+													"isStatus": true,
+													"sortable": true
+												},
+												"componentAttributes": {
+													"colorSource": "statusColor"
+												},
+												"mapper": "translate",
+												"filter": {
+													"component": "Select",
+													"componentAttributes": {
+														"translateLabels": true,
+														"options": [
+															{
+																"label": "common.status.active",
+																"value": 1
+															},
+															{
+																"label": "common.status.inactive",
+																"value": 0
+															}
+														]
+													}
+												}
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/edit/data/{id}": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "edit-data",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim types edit data",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"minimum": 1
+						},
+						"description": "The Claim type ID"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"id": 577,
+										"name": "Llamada Maliciosa",
+										"appliesToLogistics": 0,
+										"flags": {
+											"value": 1,
+											"label": "orders"
+										},
+										"status": 1,
+										"sla": 0,
+										"description": "Llamada Maliciosa",
+										"missingStockDefault": 0,
+										"userCreated": {
+											"id": 133,
+											"firstname": "Pamela",
+											"email": "pamela.corderoavaria@jumbo.cl"
+										},
+										"userModified": {
+											"id": 157,
+											"firstname": "Daniela",
+											"email": "daniela.jorquerabrito@cencosud.cl"
+										},
+										"motive": {
+											"label": "Aviso",
+											"value": 2
+										},
+										"areaInCharge": {
+											"label": "ejecutivo-atencion-front",
+											"value": 4
+										},
+										"parent": {
+											"label": null,
+											"value": null
+										},
+										"affectedProcesses": [],
+										"compensations": [],
+										"slaMeasuredIn": "weeks"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/edit/schema": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "edit-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim types edit schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-type-edit",
+										"root": "Edit",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-type",
+											"method": "edit"
+										},
+										"sections": [
+											{
+												"name": "mainFormSection",
+												"rootComponent": "MainForm",
+												"fieldsGroup": [
+													{
+														"name": "detail",
+														"icon": "catalogue",
+														"fields": [
+															{
+																"name": "claimMotive",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"namespace": "claim-motive",
+																			"method": "list"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "parent",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"namespace": "claim-type",
+																			"method": "list"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																}
+															},
+															{
+																"name": "name",
+																"component": "Input",
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	],
+																	[
+																		{
+																			"name": "maxLength",
+																			"options": {
+																				"length": 50
+																			}
+																		}
+																	]
+																]
+															},
+															{
+																"label": "description",
+																"name": "internalName",
+																"component": "Textarea",
+																"validations": [
+																	[
+																		{
+																			"name": "maxLength",
+																			"options": {
+																				"length": 255
+																			}
+																		}
+																	]
+																]
+															},
+															{
+																"name": "appliesToLogistics",
+																"component": "Switch",
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "missingStockDefault",
+																"component": "Switch"
+															},
+															{
+																"name": "flags",
+																"label": "sac.entities.claimType.fields.appliesTo",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": true,
+																	"options": {
+																		"scope": "local",
+																		"values": [
+																			{
+																				"label": "sac.entities.claimType.appliesTo.orders",
+																				"value": 1
+																			},
+																			{
+																				"label": "sac.entities.claimType.appliesTo.items",
+																				"value": 2
+																			},
+																			{
+																				"label": "sac.entities.claimType.appliesTo.ordersAndItems",
+																				"value": 3
+																			}
+																		]
+																	}
+																}
+															},
+															{
+																"name": "areaInCharge",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"method": "list",
+																			"namespace": "claim-area"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "affectedProcesses",
+																"component": "Multiselect",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"method": "list",
+																			"namespace": "claim-process"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																}
+															},
+															{
+																"name": "compensations",
+																"component": "Multiselect",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"method": "list",
+																			"namespace": "claim-compensation"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																}
+															}
+														]
+													},
+													{
+														"name": "other",
+														"fields": [
+															{
+																"name": "status",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": true,
+																	"options": {
+																		"scope": "local",
+																		"values": [
+																			{
+																				"label": "common.status.active",
+																				"value": 1
+																			},
+																			{
+																				"label": "common.status.inactive",
+																				"value": 0
+																			}
+																		]
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															}
+														]
+													},
+													{
+														"name": "sla",
+														"icon": "timer",
+														"fields": [
+															{
+																"name": "sla",
+																"component": "Input",
+																"componentAttributes": {
+																	"type": "number"
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	],
+																	[
+																		{
+																			"name": "numeric"
+																		}
+																	],
+																	[
+																		{
+																			"name": "integer"
+																		}
+																	],
+																	[
+																		{
+																			"name": "positive"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "slaMeasuredIn",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": true,
+																	"options": {
+																		"scope": "local",
+																		"values": [
+																			{
+																				"label": "sac.entities.claimType.slaMeasuredIn.hours",
+																				"value": "hours"
+																			},
+																			{
+																				"label": "sac.entities.claimType.slaMeasuredIn.days",
+																				"value": "days"
+																			},
+																			{
+																				"label": "sac.entities.claimType.slaMeasuredIn.weeks",
+																				"value": "weeks"
+																			}
+																		]
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/new/data": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "new-data",
+			"x-janis-allow-cors": true,
+			"post": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Create claim type data",
+				"requestBody": {
+					"description": "Claim type to save.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"appliesToLogistics": {
+										"type": "boolean"
+									},
+									"flags": {
+										"type": "integer",
+										"enum": [
+											1,
+											2,
+											3
+										]
+									},
+									"status": {
+										"type": "boolean"
+									},
+									"sla": {
+										"type": "integer"
+									},
+									"internalName": {
+										"type": "string"
+									},
+									"missingStockDefault": {
+										"type": "boolean"
+									},
+									"claimMotive": {
+										"type": "integer"
+									},
+									"areaInCharge": {
+										"type": "integer"
+									},
+									"parent": {
+										"type": "integer"
+									},
+									"affectedProcesses": {
+										"type": "array",
+										"items": {
+											"type": "integer"
+										}
+									},
+									"compensations": {
+										"type": "array",
+										"items": {
+											"type": "integer"
+										}
+									},
+									"slaMeasuredIn": {
+										"type": "string",
+										"enum": [
+											"hours",
+											"weeks",
+											"days"
+										]
+									}
+								},
+								"example": {
+									"name": "Cliente ausente",
+									"appliesToLogistics": 0,
+									"flags": 2,
+									"status": 1,
+									"sla": 1,
+									"description": "Eliminar producto de pedido.",
+									"missingStockDefault": 1,
+									"motive": 3,
+									"areaInCharge": 2,
+									"parent": 3,
+									"affectedProcesses": [
+										2,
+										3
+									],
+									"compensations": [
+										1,
+										2
+									],
+									"slaMeasuredIn": "days"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/new/schema": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "new-schema",
+			"get": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Get claim types new schema",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"service": "sac",
+										"name": "claim-type-edit",
+										"root": "Create",
+										"source": {
+											"service": "sac",
+											"namespace": "claim-type",
+											"method": "new"
+										},
+										"sections": [
+											{
+												"name": "mainFormSection",
+												"rootComponent": "MainForm",
+												"fieldsGroup": [
+													{
+														"name": "detail",
+														"icon": "catalogue",
+														"fields": [
+															{
+																"name": "claimMotive",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"namespace": "claim-motive",
+																			"method": "list"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "parent",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"namespace": "claim-type",
+																			"method": "list"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																}
+															},
+															{
+																"name": "name",
+																"component": "Input",
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	],
+																	[
+																		{
+																			"name": "maxLength",
+																			"options": {
+																				"length": 50
+																			}
+																		}
+																	]
+																]
+															},
+															{
+																"label": "description",
+																"name": "internalName",
+																"component": "Textarea",
+																"validations": [
+																	[
+																		{
+																			"name": "maxLength",
+																			"options": {
+																				"length": 255
+																			}
+																		}
+																	]
+																]
+															},
+															{
+																"name": "appliesToLogistics",
+																"component": "Switch",
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "missingStockDefault",
+																"component": "Switch"
+															},
+															{
+																"name": "flags",
+																"label": "sac.entities.claimType.fields.appliesTo",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": true,
+																	"options": {
+																		"scope": "local",
+																		"values": [
+																			{
+																				"label": "sac.entities.claimType.appliesTo.orders",
+																				"value": 1
+																			},
+																			{
+																				"label": "sac.entities.claimType.appliesTo.items",
+																				"value": 2
+																			},
+																			{
+																				"label": "sac.entities.claimType.appliesTo.ordersAndItems",
+																				"value": 3
+																			}
+																		]
+																	}
+																}
+															},
+															{
+																"name": "areaInCharge",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"method": "list",
+																			"namespace": "claim-area"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "affectedProcesses",
+																"component": "Multiselect",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"method": "list",
+																			"namespace": "claim-process"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																}
+															},
+															{
+																"name": "compensations",
+																"component": "Multiselect",
+																"componentAttributes": {
+																	"translateLabels": false,
+																	"options": {
+																		"scope": "remote",
+																		"endpoint": {
+																			"service": "sac",
+																			"method": "list",
+																			"namespace": "claim-compensation"
+																		},
+																		"searchParam": "term",
+																		"valuesMapper": {
+																			"label": "name",
+																			"value": "id"
+																		}
+																	}
+																}
+															}
+														]
+													},
+													{
+														"name": "other",
+														"fields": [
+															{
+																"name": "status",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": true,
+																	"options": {
+																		"scope": "local",
+																		"values": [
+																			{
+																				"label": "common.status.active",
+																				"value": 1
+																			},
+																			{
+																				"label": "common.status.inactive",
+																				"value": 0
+																			}
+																		]
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															}
+														]
+													},
+													{
+														"name": "sla",
+														"icon": "timer",
+														"fields": [
+															{
+																"name": "sla",
+																"component": "Input",
+																"componentAttributes": {
+																	"type": "number"
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	],
+																	[
+																		{
+																			"name": "numeric"
+																		}
+																	],
+																	[
+																		{
+																			"name": "integer"
+																		}
+																	],
+																	[
+																		{
+																			"name": "positive"
+																		}
+																	]
+																]
+															},
+															{
+																"name": "slaMeasuredIn",
+																"component": "Select",
+																"componentAttributes": {
+																	"translateLabels": true,
+																	"options": {
+																		"scope": "local",
+																		"values": [
+																			{
+																				"label": "sac.entities.claimType.slaMeasuredIn.hours",
+																				"value": "hours"
+																			},
+																			{
+																				"label": "sac.entities.claimType.slaMeasuredIn.days",
+																				"value": "days"
+																			},
+																			{
+																				"label": "sac.entities.claimType.slaMeasuredIn.weeks",
+																				"value": "weeks"
+																			}
+																		]
+																	}
+																},
+																"validations": [
+																	[
+																		{
+																			"name": "required"
+																		}
+																	]
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		},
+		"/view/claim-type/save/data/{id}": {
+			"x-janis-namespace": "claim-type-view",
+			"x-janis-method": "save-data",
+			"x-janis-allow-cors": true,
+			"put": {
+				"tags": [
+					"Views"
+				],
+				"summary": "Save claim type data",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"minimum": 1
+						},
+						"description": "The Claim type ID"
+					}
+				],
+				"requestBody": {
+					"description": "Claim type to save.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"appliesToLogistics": {
+										"type": "boolean"
+									},
+									"flags": {
+										"type": "integer",
+										"enum": [
+											1,
+											2,
+											3
+										]
+									},
+									"status": {
+										"type": "boolean"
+									},
+									"sla": {
+										"type": "integer"
+									},
+									"internalName": {
+										"type": "string"
+									},
+									"missingStockDefault": {
+										"type": "boolean"
+									},
+									"claimMotive": {
+										"type": "integer"
+									},
+									"areaInCharge": {
+										"type": "integer"
+									},
+									"parent": {
+										"type": "integer"
+									},
+									"affectedProcesses": {
+										"type": "array",
+										"items": {
+											"type": "integer"
+										}
+									},
+									"compensations": {
+										"type": "array",
+										"items": {
+											"type": "integer"
+										}
+									},
+									"slaMeasuredIn": {
+										"type": "string",
+										"enum": [
+											"hours",
+											"weeks",
+											"days"
+										]
+									}
+								},
+								"example": {
+									"name": "Cliente ausente",
+									"appliesToLogistics": 0,
+									"flags": 2,
+									"status": 1,
+									"sla": 1,
+									"description": "Eliminar producto de pedido.",
+									"missingStockDefault": 1,
+									"motive": 3,
+									"areaInCharge": 2,
+									"parent": 3,
+									"affectedProcesses": [
+										2,
+										3
+									],
+									"compensations": [
+										1,
+										2
+									],
+									"slaMeasuredIn": "days"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Invalid parameters"
+					},
+					"401": {
+						"description": "Invalid authentication"
+					},
+					"403": {
+						"description": "Invalid permissions"
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"400": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer",
+						"example": 99
+					},
+					"message": {
+						"type": "string",
+						"nullable": true,
+						"example": null
+					}
+				}
+			},
+			"ClaimArea": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"name": {
+							"type": "string",
+							"example": "logistics"
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1523913806
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 81
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimChannel": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"name": {
+							"type": "string",
+							"example": "channel for testing"
+						},
+						"description": {
+							"type": "string",
+							"example": "channel for testing"
+						},
+						"appliesToLogistics": {
+							"type": "integer",
+							"example": 1
+						},
+						"missingStockDefault": {
+							"type": "integer",
+							"example": 1
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1523913806
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 81
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimCompensation": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"name": {
+							"type": "string",
+							"example": "Discount voucher"
+						},
+						"description": {
+							"type": "string",
+							"example": "Discount voucher"
+						},
+						"color": {
+							"type": "string",
+							"example": "9c0ab8"
+						},
+						"hasComment": {
+							"type": "integer",
+							"example": 1
+						},
+						"isPublic": {
+							"type": "integer",
+							"example": 1
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1536333988
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimManagementStatus": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"claimManagement": {
+							"type": "integer",
+							"example": 4
+						},
+						"name": {
+							"type": "string",
+							"example": "Customer contacted"
+						},
+						"description": {
+							"type": "string",
+							"example": ""
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377291
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 0
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": 1536930843
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimManagement": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"claimType": {
+							"type": "integer",
+							"example": 4
+						},
+						"name": {
+							"type": "string",
+							"example": "Refund of money"
+						},
+						"description": {
+							"type": "string",
+							"example": ""
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377291
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": 1536930843
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": 4
+						}
+					}
+				}
+			},
+			"ClaimMotive": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"name": {
+							"type": "string",
+							"example": "Suggestion"
+						},
+						"description": {
+							"type": "string",
+							"example": "The customer proposes suggestions"
+						},
+						"appliesToLogistics": {
+							"type": "integer",
+							"example": 1
+						},
+						"missingStockDefault": {
+							"type": "integer",
+							"example": 0
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377544
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimProcess": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"name": {
+							"type": "string",
+							"example": "Active"
+						},
+						"description": {
+							"type": "string",
+							"example": ""
+						},
+						"color": {
+							"type": "string",
+							"example": "9c0ab8"
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377544
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimStatusTransition": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"claimMotive": {
+							"type": "integer",
+							"example": 1
+						},
+						"name": {
+							"type": "string",
+							"example": "New"
+						},
+						"description": {
+							"type": "string",
+							"example": "Is New"
+						},
+						"statusFrom": {
+							"type": "integer",
+							"example": 2
+						},
+						"statusTo": {
+							"type": "integer",
+							"example": 1
+						},
+						"color": {
+							"type": "string",
+							"example": "25a48fc"
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377544
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimStatus": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"name": {
+							"type": "string",
+							"example": "New"
+						},
+						"description": {
+							"type": "string",
+							"example": "Is New"
+						},
+						"isInitial": {
+							"type": "integer",
+							"example": 1
+						},
+						"isFinal": {
+							"type": "integer",
+							"example": 1
+						},
+						"missingStockDefault": {
+							"type": "integer",
+							"example": 0
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377544
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"ClaimType": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer",
+							"example": 5
+						},
+						"claimMotive": {
+							"type": "integer",
+							"example": 5
+						},
+						"parent": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"name": {
+							"type": "string",
+							"example": "Error de cobro"
+						},
+						"internalName": {
+							"type": "string",
+							"example": ""
+						},
+						"appliesToLogistics": {
+							"type": "integer",
+							"example": 1
+						},
+						"missingStockDefault": {
+							"type": "integer",
+							"example": 0
+						},
+						"flags": {
+							"type": "integer",
+							"example": 1
+						},
+						"areaInCharge": {
+							"type": "integer",
+							"example": 1
+						},
+						"sla": {
+							"type": "integer",
+							"example": 72
+						},
+						"status": {
+							"type": "integer",
+							"example": 1
+						},
+						"dateCreated": {
+							"type": "integer",
+							"example": 1535377544
+						},
+						"userCreated": {
+							"type": "integer",
+							"example": 72
+						},
+						"dateModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						},
+						"userModified": {
+							"type": "integer",
+							"nullable": true,
+							"example": null
+						}
+					}
+				}
+			},
+			"internalErrorResponse": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer"
+					},
+					"message": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"code": 99,
+					"message": "Internal server error"
+				}
+			},
+			"invalidJanisClientResponse": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer"
+					},
+					"message": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"code": 11,
+					"message": "Invalid Client"
+				}
+			},
+			"optionsForSelect": {
+				"type": "object",
+				"properties": {
+					"result": {
+						"type": "integer",
+						"example": 1
+					},
+					"message": {
+						"type": "string",
+						"example": "found_results"
+					},
+					"total": {
+						"type": "integer",
+						"example": 1
+					},
+					"items": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer",
+									"example": 1
+								},
+								"text": {
+									"type": "string",
+									"example": "Generic option name"
+								}
+							}
+						}
+					},
+					"more": {
+						"type": "boolean",
+						"example": false
+					}
+				}
+			},
+			"viewBrowseClaimData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimDataRow"
+						},
+						"example": [
+							{
+								"id": 595,
+								"repetitions": "0",
+								"dateCreated": "03/03/2017 5:00hs.",
+								"channel": "Call center",
+								"motive": "Reclamo",
+								"type": "Producto Roto",
+								"orderId": "0",
+								"store": "0",
+								"customerId": "0",
+								"escalated": true,
+								"assignee": "44",
+								"dateSolve": "45d 2h",
+								"priority": "common.priorities.noPriority",
+								"status": "Cerrada"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"repetitions": {
+						"type": "string"
+					},
+					"dateCreated": {
+						"type": "string"
+					},
+					"channel": {
+						"type": "string"
+					},
+					"motive": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"orderId": {
+						"type": "string"
+					},
+					"store": {
+						"type": "string"
+					},
+					"customerId": {
+						"type": "string"
+					},
+					"escalated": {
+						"type": "boolean"
+					},
+					"assignee": {
+						"type": "string"
+					},
+					"dateSolve": {
+						"type": "string"
+					},
+					"priority": {
+						"type": "string",
+						"enum": [
+							"common.priorities.noPriority",
+							"common.priorities.low",
+							"common.priorities.medium",
+							"common.priorities.high",
+							"common.priorities.urgent"
+						]
+					},
+					"status": {
+						"type": "string"
+					}
+				}
+			},
+			"viewBrowseClaimChannelData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimChannelDataRow"
+						},
+						"example": [
+							{
+								"id": 1,
+								"name": "Web",
+								"description": "Formulario de contacto en la web de ecommerce",
+								"appliesToLogistics": 0,
+								"statusColor": "green",
+								"status": "common.status.active"
+							},
+							{
+								"id": 2,
+								"name": "Call center",
+								"description": "Llamado al 0800 de atención al cliente",
+								"appliesToLogistics": 0,
+								"statusColor": "green",
+								"status": "common.status.active"
+							},
+							{
+								"id": 3,
+								"name": "Logistica",
+								"description": "APP de Logística",
+								"appliesToLogistics": 1,
+								"statusColor": "green",
+								"status": "common.status.active"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimChannelDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"name": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"common.status.active",
+							"common.status.inactive"
+						]
+					},
+					"statusColor": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"appliesToLogistics": {
+						"type": "boolean"
+					}
+				}
+			},
+			"viewBrowseClaimManagementData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimManagementDataRow"
+						},
+						"example": [
+							{
+								"id": 1,
+								"name": "Devolución del dinero",
+								"description": "Se procede a hacer la nota de crédito correspondie",
+								"claimType": "OP en estado abortado cliente y cupo retenido",
+								"statusColor": "green",
+								"status": "common.status.active"
+							},
+							{
+								"id": 2,
+								"name": "Test 2",
+								"description": "",
+								"claimType": "Costo de Servicio  Región Metropolitana",
+								"statusColor": "green",
+								"status": "common.status.active"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimManagementDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"name": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"common.status.active",
+							"common.status.inactive"
+						]
+					},
+					"statusColor": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"claimType": {
+						"type": "string"
+					}
+				}
+			},
+			"viewBrowseClaimManagementStatusData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimManagementStatusDataRow"
+						},
+						"example": [
+							{
+								"id": 3,
+								"name": "Test",
+								"description": "Test test test",
+								"claimManagement": "Devolución del dinero",
+								"statusColor": "red",
+								"status": "common.status.inactive"
+							},
+							{
+								"id": 1,
+								"name": "En averiguación de precio",
+								"description": "",
+								"claimManagement": "Test 2",
+								"statusColor": "green",
+								"status": "common.status.active"
+							},
+							{
+								"id": 2,
+								"name": "Precio comunicado al cliente",
+								"description": "",
+								"claimManagement": "Test 2",
+								"statusColor": "green",
+								"status": "common.status.active"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimManagementStatusDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"name": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"common.status.active",
+							"common.status.inactive"
+						]
+					},
+					"statusColor": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"claimManagement": {
+						"type": "string"
+					}
+				}
+			},
+			"viewBrowseClaimMotiveData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimMotiveDataRow"
+						},
+						"example": [
+							{
+								"id": 1,
+								"name": "Reclamo",
+								"description": "Reclamo de un cliente",
+								"appliesToLogistics": true,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"id": 2,
+								"name": "Consulta",
+								"description": "Consulta de un cliente",
+								"appliesToLogistics": false,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"id": 3,
+								"name": "Felicitación",
+								"description": "Felicitación de un cliente",
+								"appliesToLogistics": false,
+								"status": "common.status.inactive",
+								"statusColor": "red"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimMotiveDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"appliesToLogistics": {
+						"type": "boolean"
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"common.status.active",
+							"common.status.inactive"
+						]
+					},
+					"statusColor": {
+						"type": "string"
+					}
+				}
+			},
+			"ClaimMotiveSaveNewDataSchema": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"appliesToLogistics": {
+						"type": "boolean"
+					},
+					"missingStockDefault": {
+						"type": "boolean"
+					},
+					"status": {
+						"type": "boolean"
+					}
+				},
+				"example": {
+					"name": "Consulta",
+					"description": "Consultas de pedidos, productos, etc.",
+					"appliesToLogistics": 1,
+					"missingStockDefault": 0,
+					"status": 1
+				}
+			},
+			"viewBrowseClaimSemaphoreData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimSemaphoreDataRow"
+						},
+						"example": [
+							{
+								"id": 595,
+								"color": "#ffffff",
+								"name": "En curso",
+								"rangeLow": 0,
+								"rangeHigh": 50.5,
+								"alerts": true,
+								"status": "common.status.active",
+								"statusColor": "green"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimSemaphoreDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"color": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"rangeLow": {
+						"type": "number"
+					},
+					"rangeHigh": {
+						"type": "number"
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"common.status.active",
+							"common.status.inactive"
+						]
+					},
+					"statusColor": {
+						"type": "string"
+					},
+					"alerts": {
+						"type": "boolean"
+					}
+				}
+			},
+			"viewBrowseClaimTypeData": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number",
+						"example": 250
+					},
+					"rows": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/viewBrowseClaimTypeDataRow"
+						},
+						"example": [
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "sac",
+								"flags": "sac.entities.claimType.appliesTo.ordersAndItems",
+								"id": 595,
+								"motiveName": "Solicitud",
+								"name": "Prueba",
+								"parentName": null,
+								"sla": 1,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": true,
+								"areaInCharge": "Compliance",
+								"flags": "sac.entities.claimType.appliesTo.items",
+								"id": 594,
+								"motiveName": "Reclamo",
+								"name": "Broken products",
+								"parentName": null,
+								"sla": 4,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "Compliance",
+								"flags": "sac.entities.claimType.appliesTo.orders",
+								"id": 593,
+								"motiveName": "Reclamo",
+								"name": "Cliente inconforme con calidad de atención",
+								"parentName": null,
+								"sla": 24,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "sac",
+								"flags": "sac.entities.claimType.appliesTo.ordersAndItems",
+								"id": 592,
+								"motiveName": "Reclamo",
+								"name": "aaaaaa",
+								"parentName": null,
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "sac",
+								"flags": "sac.entities.claimType.appliesTo.ordersAndItems",
+								"id": 591,
+								"motiveName": "Reclamo",
+								"name": "Cliente ausente",
+								"parentName": null,
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "quiebres-de-stock",
+								"flags": "sac.entities.claimType.appliesTo.orders",
+								"id": 590,
+								"motiveName": "Solicitud",
+								"name": "Solicita disponibilizar producto en la web para co",
+								"parentName": "Retiro en Tienda",
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "ejecutivo-atencion-rtv",
+								"flags": "sac.entities.claimType.appliesTo.orders",
+								"id": 589,
+								"motiveName": "Solicitud",
+								"name": "Eliminar Producto de Pedido (hasta Validado)",
+								"parentName": "Despacho a domicilio",
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "ejecutivo-atencion-post-venta",
+								"flags": "sac.entities.claimType.appliesTo.orders",
+								"id": 588,
+								"motiveName": "Solicitud",
+								"name": "Carga de puntos por Promesa Jumbo.cl",
+								"parentName": "Retiro en Tienda",
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "ejecutivo-atencion-post-venta",
+								"flags": "sac.entities.claimType.appliesTo.orders",
+								"id": 587,
+								"motiveName": "Solicitud",
+								"name": "Solicitud de Contacto Post venta, dentro del plazo",
+								"parentName": "Retiro en Tienda",
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							},
+							{
+								"appliesToLogistics": false,
+								"areaInCharge": "quiebres-de-stock",
+								"flags": "sac.entities.claimType.appliesTo.orders",
+								"id": 586,
+								"motiveName": "Solicitud",
+								"name": "Solicita disponibilizar producto en la web para co",
+								"parentName": "Despacho a domicilio",
+								"sla": 2,
+								"status": "common.status.active",
+								"statusColor": "green"
+							}
+						]
+					}
+				}
+			},
+			"viewBrowseClaimTypeDataRow": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"name": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"common.status.active",
+							"common.status.inactive"
+						]
+					},
+					"statusColor": {
+						"type": "string"
+					},
+					"sla": {
+						"type": "number"
+					},
+					"motiveName": {
+						"type": "string"
+					},
+					"parentName": {
+						"type": "string"
+					},
+					"areaInCharge": {
+						"type": "string"
+					},
+					"appliesToLogistics": {
+						"type": "boolean"
+					},
+					"flags": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"parameters": {
+			"janisClientHeader": {
+				"name": "Janis-Client",
+				"in": "header",
+				"description": "Janis Client",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"contentTypeJsonHeader": {
+				"name": "Content-Type",
+				"in": "header",
+				"description": "Content Type",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"viewBrowseSortBy": {
+				"name": "sortBy",
+				"in": "query",
+				"description": "The field to sort by",
+				"required": false,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"viewBrowseSortDirection": {
+				"name": "sortDirection",
+				"in": "query",
+				"description": "The direction to sort by",
+				"required": false,
+				"schema": {
+					"type": "string",
+					"enum": [
+						"asc",
+						"desc"
+					]
+				}
+			},
+			"viewBrowsePageNumber": {
+				"name": "x-janis-page",
+				"in": "header",
+				"description": "The browse page to get",
+				"required": false,
+				"schema": {
+					"type": "number",
+					"default": 1
+				}
+			},
+			"viewBrowsePageSize": {
+				"name": "x-janis-page-size",
+				"in": "header",
+				"description": "The browse page size to get",
+				"required": false,
+				"schema": {
+					"type": "number",
+					"default": 60
+				}
+			},
+			"viewBrowseChannelFilters": {
+				"name": "filters",
+				"in": "query",
+				"required": false,
+				"description": "available filters for management browse page",
+				"schema": {
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"status": {
+							"type": "number",
+							"enum": [
+								1,
+								0
+							]
+						},
+						"appliesToLogistics": {
+							"type": "number",
+							"enum": [
+								1,
+								0
+							]
+						}
+					}
+				}
+			},
+			"viewBrowseManagementFilters": {
+				"name": "filters",
+				"in": "query",
+				"required": false,
+				"description": "available filters for management browse page",
+				"schema": {
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"status": {
+							"type": "number",
+							"enum": [
+								1,
+								0
+							]
+						}
+					}
+				}
+			},
+			"viewBrowseManagementStatusFilters": {
+				"name": "filters",
+				"in": "query",
+				"required": false,
+				"description": "available filters for management status browse page",
+				"schema": {
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"status": {
+							"type": "number",
+							"enum": [
+								1,
+								0
+							]
+						},
+						"claimManagement": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"responses": {
+			"400": {
+				"description": "Invalid parameters",
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/400"
+						}
+					}
+				}
+			},
+			"401": {
+				"description": "Janis Client header is missing or invalid",
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/invalidJanisClientResponse"
+						}
+					}
+				}
+			},
+			"500": {
+				"description": "A server error has ocurred.",
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/internalErrorResponse"
+						}
+					}
+				}
+			},
+			"internalError": {
+				"description": "A server error has ocurred.",
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/internalErrorResponse"
+						}
+					}
+				}
+			},
+			"invalidJanisClient": {
+				"description": "Janis Client header is missing or invalid",
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/invalidJanisClientResponse"
+						}
+					}
+				}
+			}
+		}
+	}
+}

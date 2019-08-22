@@ -18,6 +18,11 @@ const { argv } = require('yargs')
 		type: 'string',
 		describe: 'write a relative dir for outputs'
 	})
+	.option('service', {
+		alias: 's',
+		type: 'string',
+		describe: 'write a service local for resolve endpoints'
+	})
 	.option('minified', {
 		alias: 'm',
 		type: 'boolean',
@@ -29,10 +34,17 @@ const { argv } = require('yargs')
 const ViewSchemaValidator = require('./lib');
 
 (async () => {
-	const { input, output, minified, _: commands } = argv;
+	const {
+		input,
+		output,
+		minified,
+		service,
+		_: commands
+	} = argv;
+
 	const [command] = commands;
 
-	const schemaValidator = new ViewSchemaValidator(input, output, minified, command);
+	const schemaValidator = new ViewSchemaValidator(input, output, service, minified, command);
 	const execute = schemaValidator.execute.bind(schemaValidator);
 
 	try {

@@ -6,7 +6,7 @@
         "service": "sac",
         "namespace": "claim-type",
         "method": "browse",
-        "resolve": true
+        "resolve": false
     },
     "fields": [
         {

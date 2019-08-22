@@ -6,7 +6,7 @@
         "service": "sac",
         "namespace": "claim-motive",
         "method": "edit",
-        "resolve": true
+        "resolve": false
     },
     "sections": [
         {
@@ -134,7 +134,7 @@
                 "service": "sac",
                 "namespace": "claim-semaphore",
                 "method": "browse",
-                "resolve": true
+                "resolve": false
             },
             "fields": [
                 {
