@@ -24,6 +24,7 @@ validate     Validate if the file or files are valid schemas
 ```sh
 --input, -i   write a relative dir folder or dir file
 --output, -o  write a relative dir fordel for your outputs
+--service, -s write service local to resolve endpoints
 ```
 
 ## Examples
