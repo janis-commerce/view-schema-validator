@@ -85,7 +85,7 @@ sections:
           scope: remote
           endpoint:
             service: sac
-            namespace: claim-type
+            namespace: claim-motive
             method: list
           searchParam: term
           valuesMapper:
@@ -93,6 +93,20 @@ sections:
             value: id
       validations:
       - - name: required
+    - name: compensations
+      component: Multiselect
+      componentAttributes:
+        translateLabels: false
+        options:
+          scope: remote
+          endpoint:
+            service: sac
+            method: list
+            namespace: claim-compensation
+          searchParam: term
+          valuesMapper:
+            label: name
+            value: id
   - name: other
     fields:
     - name: status

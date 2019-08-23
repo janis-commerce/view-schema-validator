@@ -42,6 +42,16 @@ describe('Test execute commmand initials', () => {
 		assert(execSpy.calledOnce);
 	});
 
+	it('Should error if pass service invalid', async () => {
+		const execSpy = sandbox.spy(ViewSchemaValidator.prototype, 'execute');
+
+		const schemaValidatorOne = new ViewSchemaValidator('/mocks', '/build', ' ', false, 'build');
+		const executeOne = schemaValidatorOne.execute.bind(schemaValidatorOne);
+
+		await assert.rejects(async () => { await executeOne(); }, { message: 'Please add valid service' });
+		assert(execSpy.calledOnce);
+	});
+
 	it('Should pass validation if pass output empty or true in validation', async () => {
 		const executeBuilderStub = sandbox.stub(ViewSchemaValidator.prototype, 'executeBuilder');
 

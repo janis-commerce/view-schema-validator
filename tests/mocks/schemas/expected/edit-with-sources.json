@@ -59,7 +59,7 @@
                                         "namespace": "admin",
                                         "method": "list",
                                         "resolve": true,
-                                        "httpMethod": "GET",
+                                        "httpMethod": "get",
                                         "url": "http://id.janis.localhost:3019/api/admins"
                                     },
                                     "searchParam": "term",
@@ -157,11 +157,11 @@
                                     "scope": "remote",
                                     "endpoint": {
                                         "service": "sac",
-                                        "namespace": "claim-type",
+                                        "namespace": "claim-motive",
                                         "method": "list",
                                         "resolve": true,
                                         "httpMethod": "get",
-                                        "url": "http://sac.janis.localhost:3009/api/claim-types"
+                                        "url": "http://sac.janis.localhost:3009/api/claim-motives"
                                     },
                                     "searchParam": "term",
                                     "valuesMapper": {
@@ -177,6 +177,29 @@
                                     }
                                 ]
                             ]
+                        },
+                        {
+                            "name": "compensations",
+                            "component": "Multiselect",
+                            "componentAttributes": {
+                                "translateLabels": false,
+                                "options": {
+                                    "scope": "remote",
+                                    "endpoint": {
+                                        "service": "sac",
+                                        "method": "list",
+                                        "namespace": "claim-compensation",
+                                        "resolve": true,
+                                        "httpMethod": "get",
+                                        "url": "http://sac.janis.localhost:3009/api/claim-compensations"
+                                    },
+                                    "searchParam": "term",
+                                    "valuesMapper": {
+                                        "label": "name",
+                                        "value": "id"
+                                    }
+                                }
+                            }
                         }
                     ]
                 },
