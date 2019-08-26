@@ -42,10 +42,7 @@
     "fs-extra": "^8.1.0",
     "lllog": "^1.1.2",
     "lodash.get": "^4.4.2",
-    "lodash.isequal": "^4.5.0",
-    "lodash.ismatch": "^4.4.0",
     "lodash.set": "^4.3.2",
-    "lodash.uniqwith": "^4.5.0",
     "mock-fs": "^4.10.1",
     "yamljs": "^0.3.0",
     "yargs": "^13.3.0"

@@ -44,6 +44,11 @@ const mockRequest = (rejectOne = false) => {
 			httpMethod: 'get',
 			url: 'http://sac.janis.localhost:3009/api/claim-compensations'
 		});
+
+	return {
+		resolveStub,
+		getEndpointStub
+	};
 };
 
 const validateSchema = async (twice = false) => {
@@ -68,15 +73,23 @@ describe('Test endpoint resolver', () => {
 
 	// your tests here...
 	it('Should pass validation in resolve endpoints', async () => {
-		mockRequest();
+		const {
+			resolveStub,
+			getEndpointStub
+		} = mockRequest();
 
+		const callFetcherSpy = sandbox.spy(EndpointResolver.prototype, 'callFetcher');
 		const resolveEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'resolveEndpoints');
-		const addResolveDataToEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoints');
+		const addResolveDataToEndpointSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoint');
 
 		const schemaResolved = await validateSchema();
 
 		assert(resolveEndpointsSpy.calledOnce);
-		assert(addResolveDataToEndpointsSpy.calledOnce);
+		assert(addResolveDataToEndpointSpy.callCount === 4);
+		assert(callFetcherSpy.callCount === 4);
+		assert(resolveStub.callCount === 2);
+		assert(getEndpointStub.callCount === 1);
+
 		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), schemaExpectedExample.toString());
 	});
 
@@ -89,31 +102,23 @@ describe('Test endpoint resolver', () => {
 		});
 	});
 
+	it('should not repeat request called in multiple validation', async () => {
+		const {
+			resolveStub,
+			getEndpointStub
+		} = mockRequest();
 
-	it('should resolve uniq sources', async () => {
-		mockRequest();
-		const addResolveDataToEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoints');
-
-		await validateSchema();
-
-		const call = addResolveDataToEndpointsSpy.getCall(0);
-		const [first, second] = call.args;
-
-		assert(first.length === 4);
-		assert(second.length === 3);
-	});
-
-	it('should not repeat request called', async () => {
-		mockRequest();
 		const resolveEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'resolveEndpoints');
 		const callFetcherSpy = sandbox.spy(EndpointResolver.prototype, 'callFetcher');
-		const addResolveDataToEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoints');
+		const addResolveDataToEndpointSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoint');
 
 		await validateSchema(true);
 
 		assert(resolveEndpointsSpy.calledTwice);
-		assert(addResolveDataToEndpointsSpy.calledTwice);
-		assert(callFetcherSpy.calledThrice);
+		assert(addResolveDataToEndpointSpy.callCount === 8);
+		assert(resolveStub.callCount === 2);
+		assert(getEndpointStub.callCount === 1);
+		assert(callFetcherSpy.callCount === 8);
 	});
 
 });
