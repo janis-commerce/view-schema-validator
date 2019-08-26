@@ -52,16 +52,18 @@ const mockRequest = (rejectOne = false) => {
 };
 
 const validateSchema = async (twice = false) => {
-	const schema = ymljs.parse(schemaExampleYml.toString());
-	const schemaValidated = Validator.execute(schema, true, '/test/data.json');
+	const schemaOne = ymljs.parse(schemaExampleYml.toString());
+	const schemaTwo = ymljs.parse(schemaExampleYml.toString());
+	const schemaValidatedOne = Validator.execute(schemaOne, true, '/test/data.json');
+	const schemaValidatedTwo = Validator.execute(schemaTwo, true, '/test/data.json');
 
 	const endpointResolver = new EndpointResolver('sac');
 	endpointResolver.execute.bind(endpointResolver);
 
-	const schemaResolved = await endpointResolver.execute(schemaValidated);
+	const schemaResolved = await endpointResolver.execute(schemaValidatedOne);
 
 	if(twice)
-		await endpointResolver.execute(schemaValidated);
+		await endpointResolver.execute(schemaValidatedTwo);
 
 	return schemaResolved;
 };
