@@ -11,6 +11,7 @@ sections:
   rootComponent: MainForm
   fieldsGroup:
   - name: detail
+    position: left
     icon: catalogue
     fields:
     - name: name

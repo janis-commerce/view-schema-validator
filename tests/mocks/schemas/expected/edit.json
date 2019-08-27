@@ -16,6 +16,7 @@
                 {
                     "name": "detail",
                     "icon": "catalogue",
+                    "position": "left",
                     "fields": [
                         {
                             "name": "name",
