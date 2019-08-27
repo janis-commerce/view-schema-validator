@@ -186,7 +186,11 @@
                         "isDefaultSort": false,
                         "initialSortDirection": "desc"
                     },
-                    "componentAttributes": {}
+                    "componentAttributes": {
+                        "icon": "icon_test",
+                        "iconColor": "red",
+                        "borderColor": "red"
+                    }
                 },
                 {
                     "name": "rangeHigh",
@@ -197,7 +201,9 @@
                         "isDefaultSort": false,
                         "initialSortDirection": "desc"
                     },
-                    "componentAttributes": {}
+                    "componentAttributes": {
+                        "borderColor": "grey"
+                    }
                 },
                 {
                     "name": "alerts",
@@ -227,7 +233,9 @@
                         "type": "equal",
                         "remote": false
                     },
-                    "componentAttributes": {}
+                    "componentAttributes": {
+                        "borderColor": "grey"
+                    }
                 },
                 {
                     "name": "status",
