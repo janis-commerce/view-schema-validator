@@ -102,7 +102,9 @@
                 "isDefaultSort": false,
                 "initialSortDirection": "desc"
             },
-            "componentAttributes": {}
+            "componentAttributes": {
+                "borderColor": "grey"
+            }
         },
         {
             "name": "flags",
@@ -123,7 +125,10 @@
                 "isDefaultSort": false,
                 "initialSortDirection": "desc"
             },
-            "componentAttributes": {}
+            "componentAttributes": {
+                "icon": "icon_test",
+                "borderColor": "grey"
+            }
         },
         {
             "name": "areaInCharge",
@@ -134,7 +139,9 @@
                 "isDefaultSort": false,
                 "initialSortDirection": "desc"
             },
-            "componentAttributes": {}
+            "componentAttributes": {
+                "borderColor": "grey"
+            }
         },
         {
             "name": "sla",
@@ -163,7 +170,7 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {
-                "colorSource": "statusColor"
+                "useTheme": true
             },
             "mapper": "translate",
             "filter": {

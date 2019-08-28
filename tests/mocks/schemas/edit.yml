@@ -18,6 +18,7 @@ sections:
         path: /service/namespace/new
   fieldsGroup:
   - name: detail
+    position: left
     icon: catalogue
     fields:
     - name: name
@@ -51,6 +52,8 @@ sections:
       component: Switch
       validations:
         - - name: required
+    - name: test
+      component: Chip
   - name: others
     fields:
       - name: status
@@ -86,6 +89,10 @@ sections:
       component: MediumText
     - name: rangeLow
       component: Chip
+      componentAttributes:
+        icon: icon_test
+        iconColor: red
+        borderColor: red
     - name: rangeHigh
       component: Chip
     - name: alerts
