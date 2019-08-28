@@ -12,6 +12,17 @@
         {
             "name": "mainFormSection",
             "rootComponent": "MainForm",
+            "actions": [
+                {
+                    "name": "new",
+                    "icon": "star_light",
+                    "color": "fizzGreen",
+                    "type": "link",
+                    "options": {
+                        "path": "/service/namespace/new"
+                    }
+                }
+            ],
             "fieldsGroup": [
                 {
                     "name": "detail",
@@ -281,7 +292,8 @@
             "hasPreview": false,
             "canEdit": true,
             "canView": false,
-            "pageSize": 60
+            "pageSize": 60,
+            "actions": []
         }
     ]
 }
