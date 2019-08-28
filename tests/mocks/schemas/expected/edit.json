@@ -90,6 +90,13 @@
                                 ]
                             ],
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "test",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey"
+                            }
                         }
                     ]
                 },
