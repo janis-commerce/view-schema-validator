@@ -86,7 +86,7 @@
 			"sortable": true
 		},
 		"componentAttributes": {
-			"colorSource": "statusColor"
+			"useTheme": true
 		},
 		"mapper": "translate",
 		"filter": {
