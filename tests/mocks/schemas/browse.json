@@ -59,6 +59,9 @@
 		"component": "Chip",
 		"label": "sac.entities.claimType.fields.appliesTo",
 		"mapper": "translate",
+		"componentAttributes": {
+			"icon": "icon_test"
+		},
 		"filter": {
 			"component": "Select",
 			"remote": true,
