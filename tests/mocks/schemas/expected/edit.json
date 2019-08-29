@@ -23,6 +23,13 @@
                     }
                 }
             ],
+            "topComponents": {
+                "components": [
+                    {
+                        "component": "TestComponent"
+                    }
+                ]
+            },
             "fieldsGroup": [
                 {
                     "name": "detail",
@@ -154,6 +161,24 @@
                 "namespace": "claim-semaphore",
                 "method": "browse",
                 "resolve": false
+            },
+            "topComponents": {
+                "components": [
+                    {
+                        "component": "TestComponent",
+                        "attributes": {
+                            "name": "test",
+                            "sarasa": "test23"
+                        }
+                    },
+                    {
+                        "component": "TestComponent2",
+                        "attributes": {
+                            "name": "test",
+                            "sarasa": "test23"
+                        }
+                    }
+                ]
             },
             "fields": [
                 {
