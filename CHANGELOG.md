@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.0] - 2019-08-29
+### Added
+- Top components for edit sections
+- StatusChip now accept `useTheme` property
+- `Chip` component can now be used in Browses and Edits
+- Edit fields now can have the `noLabel` property
+- Form FieldGroups now accept the `position` property
+- Actions for edit sections
+
 ## [1.1.0] - 2019-08-26
 ### Added
 - Endpoint resolver
