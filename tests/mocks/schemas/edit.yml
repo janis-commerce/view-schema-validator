@@ -17,8 +17,7 @@ sections:
       options:
         path: /service/namespace/new
   topComponents:
-    components:
-      - component: TestComponent
+    - component: TestComponent
   fieldsGroup:
   - name: detail
     position: left
@@ -75,15 +74,14 @@ sections:
 - name: semaphoreBrowse
   rootComponent: BrowseSection
   topComponents:
-    components:
-      - component: TestComponent
-        attributes:
-          name: test
-          sarasa: test23
-      - component: TestComponent2
-        attributes:
-          name: test
-          sarasa: test23
+    - component: TestComponent
+      attributes:
+        name: test
+        sarasa: test23
+    - component: TestComponent2
+      attributes:
+        name: test
+        sarasa: test23
   source:
     service: sac
     namespace: claim-semaphore

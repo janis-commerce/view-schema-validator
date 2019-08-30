@@ -23,13 +23,11 @@
                     }
                 }
             ],
-            "topComponents": {
-                "components": [
-                    {
-                        "component": "TestComponent"
-                    }
-                ]
-            },
+            "topComponents": [
+                {
+                    "component": "TestComponent"
+                }
+            ],
             "fieldsGroup": [
                 {
                     "name": "detail",
@@ -162,24 +160,22 @@
                 "method": "browse",
                 "resolve": false
             },
-            "topComponents": {
-                "components": [
-                    {
-                        "component": "TestComponent",
-                        "attributes": {
-                            "name": "test",
-                            "sarasa": "test23"
-                        }
-                    },
-                    {
-                        "component": "TestComponent2",
-                        "attributes": {
-                            "name": "test",
-                            "sarasa": "test23"
-                        }
+            "topComponents": [
+                {
+                    "component": "TestComponent",
+                    "attributes": {
+                        "name": "test",
+                        "sarasa": "test23"
                     }
-                ]
-            },
+                },
+                {
+                    "component": "TestComponent2",
+                    "attributes": {
+                        "name": "test",
+                        "sarasa": "test23"
+                    }
+                }
+            ],
             "fields": [
                 {
                     "name": "id",
