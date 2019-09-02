@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.0] - 2019-09-02
+### Added
+- `UserChip` support in browse and edit
+
 ## [1.2.1] - 2019-08-30
 ### Fixed
 - Top components structure
