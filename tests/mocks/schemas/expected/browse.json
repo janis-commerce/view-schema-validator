@@ -56,6 +56,17 @@
             }
         },
         {
+            "name": "user",
+            "component": "UserChip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {}
+        },
+        {
             "name": "name",
             "component": "LightText",
             "filter": {

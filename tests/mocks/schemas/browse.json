@@ -25,6 +25,10 @@
 	}, {
 		"name": "parentName",
 		"component": "Text"
+	},
+	{
+		"name": "user",
+		"component": "UserChip"
 	}, {
 		"name": "name",
 		"component": "LightText",

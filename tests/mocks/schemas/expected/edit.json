@@ -114,6 +114,11 @@
                             "componentAttributes": {
                                 "borderColor": "grey"
                             }
+                        },
+                        {
+                            "name": "user",
+                            "component": "UserChip",
+                            "componentAttributes": {}
                         }
                     ]
                 },
@@ -203,6 +208,17 @@
                     "componentAttributes": {
                         "fontWeight": "normal"
                     }
+                },
+                {
+                    "name": "user",
+                    "component": "UserChip",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {}
                 },
                 {
                     "name": "name",
