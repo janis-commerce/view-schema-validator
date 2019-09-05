@@ -56,6 +56,25 @@
             }
         },
         {
+            "name": "date",
+            "component": "Text",
+            "mapper": {
+                "name": "date",
+                "props": {
+                    "format": "DD/MM/YYYY"
+                }
+            },
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "user",
             "component": "UserChip",
             "attributes": {
