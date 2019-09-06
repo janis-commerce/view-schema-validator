@@ -5,7 +5,13 @@
     "source": {
         "service": "sac",
         "namespace": "claim-motive",
-        "method": "edit",
+        "method": "get",
+        "resolve": false
+    },
+    "target": {
+        "service": "sac",
+        "namespace": "claim-motive",
+        "method": "save",
         "resolve": false
     },
     "sections": [

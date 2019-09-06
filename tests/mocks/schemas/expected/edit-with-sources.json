@@ -5,8 +5,18 @@
     "source": {
         "service": "sac",
         "namespace": "claim-type",
-        "method": "edit",
-        "resolve": false
+        "method": "get",
+        "resolve": true,
+        "httpMethod": "get",
+        "url": "http://sac.janis.localhost:3009/api/claim-type/{id}"
+    },
+    "target": {
+        "service": "sac",
+        "namespace": "claim-type",
+        "method": "save",
+        "resolve": true,
+        "httpMethod": "post",
+        "url": "http://sac.janis.localhost:3009/api/claim-type/{id}"
     },
     "sections": [
         {

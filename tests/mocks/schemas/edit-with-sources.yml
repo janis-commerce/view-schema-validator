@@ -4,8 +4,11 @@ root: Edit
 source:
   service: sac
   namespace: claim-type
-  method: edit
-  resolve: false
+  method: get
+target:
+  service: sac
+  namespace: claim-type
+  method: save
 sections:
 - name: mainFormSection
   rootComponent: MainForm
