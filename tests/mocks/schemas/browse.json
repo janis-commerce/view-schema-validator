@@ -8,13 +8,22 @@
 		"method": "browse",
 		"resolve": false
 	},
-	"staticFilters": [{
-		"name": "status",
-		"target": "path",
-		"value": {
-			"static": "statusId"
+	"staticFilters": [
+		{
+			"name": "status",
+			"target": "path",
+			"value": {
+				"static": "statusId"
+			}
+		},
+		{
+			"name": "status",
+			"target": "path",
+			"value": {
+				"static": [2, 4]
+			}
 		}
-	}],
+	],
 	"fields": [{
 		"name": "id",
 		"component": "BoldText",

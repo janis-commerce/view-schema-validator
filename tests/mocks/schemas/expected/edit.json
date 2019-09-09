@@ -178,6 +178,22 @@
                     "value": {
                         "dinamic": "statusId"
                     }
+                },
+                {
+                    "name": "status",
+                    "target": "query",
+                    "value": {
+                        "static": 1
+                    }
+                },
+                {
+                    "name": "status",
+                    "target": "query",
+                    "value": {
+                        "static": {
+                            "id": "string"
+                        }
+                    }
                 }
             ],
             "topComponents": [

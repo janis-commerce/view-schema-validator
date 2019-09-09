@@ -15,6 +15,13 @@
             "value": {
                 "static": "statusId"
             }
+        },
+        {
+            "name": "status",
+            "target": "path",
+            "value": {
+                "static": [2, 4]
+            }
         }
     ],
     "fields": [
