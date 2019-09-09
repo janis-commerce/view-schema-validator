@@ -5,7 +5,10 @@ source:
   service: sac
   namespace: claim-motive
   method: new
-  resolve: false
+target:
+  service: sac
+  namespace: claim-motive
+  method: save
 sections:
 - name: mainFormSection
   rootComponent: MainForm

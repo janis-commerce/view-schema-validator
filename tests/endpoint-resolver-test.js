@@ -39,6 +39,20 @@ const mockRequest = (rejectOne = false) => {
 		});
 
 	resolveStub
+		.withArgs('claim-type', 'save')
+		.returns({
+			httpMethod: 'post',
+			url: 'http://sac.janis.localhost:3009/api/claim-type/{id}'
+		});
+
+	resolveStub
+		.withArgs('claim-type', 'get')
+		.returns({
+			httpMethod: 'get',
+			url: 'http://sac.janis.localhost:3009/api/claim-type/{id}'
+		});
+
+	resolveStub
 		.withArgs('claim-compensation', 'list')
 		.returns({
 			httpMethod: 'get',
@@ -87,9 +101,9 @@ describe('Test endpoint resolver', () => {
 		const schemaResolved = await validateSchema();
 
 		assert(resolveEndpointsSpy.calledOnce);
-		assert(addResolveDataToEndpointSpy.callCount === 4);
-		assert(callFetcherSpy.callCount === 4);
-		assert(resolveStub.callCount === 2);
+		assert(addResolveDataToEndpointSpy.callCount === 6);
+		assert(callFetcherSpy.callCount === 6);
+		assert(resolveStub.callCount === 4);
 		assert(getEndpointStub.callCount === 1);
 
 		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), schemaExpectedExample.toString());
@@ -117,10 +131,10 @@ describe('Test endpoint resolver', () => {
 		await validateSchema(true);
 
 		assert(resolveEndpointsSpy.calledTwice);
-		assert(addResolveDataToEndpointSpy.callCount === 8);
-		assert(resolveStub.callCount === 2);
+		assert(addResolveDataToEndpointSpy.callCount === 12);
+		assert(resolveStub.callCount === 4);
 		assert(getEndpointStub.callCount === 1);
-		assert(callFetcherSpy.callCount === 8);
+		assert(callFetcherSpy.callCount === 12);
 	});
 
 });
