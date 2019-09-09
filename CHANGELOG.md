@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.5.0] - 2019-09-09
+### Added
+- `target` support for edit and create schemas
+- `staticFilters` support for browse
+
 ## [1.4.0] - 2019-09-05
 ### Added
 - `date` mapper support
