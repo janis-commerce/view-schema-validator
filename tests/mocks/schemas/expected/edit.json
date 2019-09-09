@@ -165,6 +165,15 @@
                 "method": "browse",
                 "resolve": false
             },
+            "staticFilters": [
+                {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                        "dinamic": "statusId"
+                    }
+                }
+            ],
             "topComponents": [
                 {
                     "component": "TestComponent",

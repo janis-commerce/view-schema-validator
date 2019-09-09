@@ -8,6 +8,15 @@
         "method": "browse",
         "resolve": false
     },
+    "staticFilters": [
+        {
+            "name": "status",
+            "target": "path",
+            "value": {
+                "static": "statusId"
+            }
+        }
+    ],
     "fields": [
         {
             "name": "id",
