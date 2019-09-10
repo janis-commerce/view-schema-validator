@@ -98,7 +98,7 @@ sections:
     - name: status
       target: path
       value:
-        dinamic: statusId
+        dynamic: statusId
     - name: status
       target: query
       value:

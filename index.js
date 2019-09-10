@@ -23,6 +23,12 @@ const { argv } = require('yargs')
 		type: 'string',
 		describe: 'write a service local for resolve endpoints'
 	})
+	.option('env', {
+		alias: 'e',
+		type: 'string',
+		describe: 'write a current environment',
+		default: 'local'
+	})
 	.option('minified', {
 		alias: 'm',
 		type: 'boolean',
@@ -38,13 +44,14 @@ const ViewSchemaValidator = require('./lib');
 		input,
 		output,
 		minified,
+		env,
 		service,
 		_: commands
 	} = argv;
 
 	const [command] = commands;
 
-	const schemaValidator = new ViewSchemaValidator(input, output, service, minified, command);
+	const schemaValidator = new ViewSchemaValidator(input, output, service, minified, command, env);
 	const execute = schemaValidator.execute.bind(schemaValidator);
 
 	try {

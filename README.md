@@ -25,6 +25,7 @@ validate     Validate if the file or files are valid schemas
 --input, -i   write a relative dir folder or dir file
 --output, -o  write a relative dir fordel for your outputs
 --service, -s write a service local for resolve endpoints
+--env, -e     write a current environment for resolve endpoints
 ```
 
 ## Examples
