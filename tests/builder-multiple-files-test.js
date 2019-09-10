@@ -23,7 +23,8 @@ const executeInstance = (build = true) => {
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		false,
-		build ? 'build' : 'validate'
+		build ? 'build' : 'validate',
+		'local'
 	);
 	return schemaValidator.execute.bind(schemaValidator);
 };

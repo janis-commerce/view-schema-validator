@@ -71,7 +71,8 @@ const validateSchema = async (twice = false) => {
 	const schemaValidatedOne = Validator.execute(schemaOne, true, '/test/data.json');
 	const schemaValidatedTwo = Validator.execute(schemaTwo, true, '/test/data.json');
 
-	const endpointResolver = new EndpointResolver('sac');
+	const endpointResolver = new EndpointResolver('sac', 'local');
+
 	endpointResolver.execute.bind(endpointResolver);
 
 	const schemaResolved = await endpointResolver.execute(schemaValidatedOne);
@@ -137,4 +138,10 @@ describe('Test endpoint resolver', () => {
 		assert(callFetcherSpy.callCount === 12);
 	});
 
+
+	it('should called EndpointResolverLocal with env beta ', () => {
+		const endpointResolver = new EndpointResolver('sac', 'beta');
+
+		assert(endpointResolver.endpointResolverLocal.environment === 'beta');
+	});
 });
