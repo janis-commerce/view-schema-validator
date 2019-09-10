@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.6.0] - 2019-09-10
+### Added
+- `environment` support added for local schema resolution
+
+### Fixed
+- `staticFilters` static type now can be anything
+
 ## [1.5.0] - 2019-09-09
 ### Added
 - `target` support for edit and create schemas
