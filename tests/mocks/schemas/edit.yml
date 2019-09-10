@@ -99,6 +99,15 @@ sections:
       target: path
       value:
         dynamic: statusId
+    - name: status
+      target: query
+      value:
+        static: 1
+    - name: status
+      target: query
+      value:
+        static:
+          id: "string"
   fields:
     - name: id
       component: BoldText
