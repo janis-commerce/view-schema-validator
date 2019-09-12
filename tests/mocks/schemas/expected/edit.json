@@ -45,6 +45,7 @@
                             "component": "Select",
                             "componentAttributes": {
                                 "translateLabels": true,
+                                "labelFieldName": "motiveName",
                                 "options": {
                                     "scope": "local",
                                     "values": [
