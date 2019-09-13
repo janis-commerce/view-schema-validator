@@ -35,6 +35,9 @@ sections:
         labelFieldName: motiveName
         options:
           scope: local
+          valuesMapper:
+            label: name
+            value: id
           values:
             - label: common.status.active
               value: 1
