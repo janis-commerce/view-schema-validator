@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.7.0] - 2019-09-10
+### Added
+- `labelFieldName` support added for Selects
+- `valuesMapper` support added for local Selects
+
 ## [1.6.0] - 2019-09-10
 ### Added
 - `environment` support added for local schema resolution
