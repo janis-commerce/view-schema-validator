@@ -130,6 +130,16 @@
                             "name": "user",
                             "component": "UserChip",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "linkTest",
+                            "component": "Link",
+                            "componentAttributes": {
+                                "target": "_blank",
+                                "translateLabels": true,
+                                "label": "test.test.test",
+                                "labelField": "asdasd"
+                            }
                         }
                     ]
                 },

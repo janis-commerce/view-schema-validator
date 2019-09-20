@@ -67,6 +67,13 @@ sections:
       component: Chip
     - name: user
       component: UserChip
+    - name: linkTest
+      component: Link
+      componentAttributes:
+        target: _blank
+        translateLabels: true
+        label: test.test.test
+        labelField: asdasd
   - name: others
     fields:
       - name: status
