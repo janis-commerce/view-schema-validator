@@ -67,6 +67,12 @@ sections:
       component: Chip
     - name: user
       component: UserChip
+    - name: exampleCode
+      component: Code
+    - name: exampleCodeTwo
+      component: Code
+      componentAttributes:
+        language: json
   - name: others
     fields:
       - name: status

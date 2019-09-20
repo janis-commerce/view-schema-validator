@@ -130,6 +130,18 @@
                             "name": "user",
                             "component": "UserChip",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleCode",
+                            "component": "Code",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleCodeTwo",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "language": "json"
+                            }
                         }
                     ]
                 },
