@@ -367,6 +367,10 @@
             "canView": false,
             "pageSize": 60,
             "actions": []
+        },
+        {
+            "name": "logsBrowseSection",
+            "rootComponent": "LogsBrowseSection"
         }
     ]
 }

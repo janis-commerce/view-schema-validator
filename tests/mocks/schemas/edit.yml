@@ -164,3 +164,5 @@ sections:
               value: 1
             - label: common.status.inactive
               value: 0
+- name: logsBrowseSection
+  rootComponent: LogsBrowseSection
