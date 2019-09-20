@@ -298,6 +298,30 @@
                     }
                 },
                 {
+                    "name": "colorTestOne",
+                    "component": "Color",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {}
+                },
+                {
+                    "name": "colorTestTwo",
+                    "component": "Color",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "showCode": true
+                    }
+                },
+                {
                     "name": "alerts",
                     "component": "Chip",
                     "attributes": {

@@ -133,6 +133,15 @@ sections:
         borderColor: red
     - name: rangeHigh
       component: Chip
+
+    - name: colorTestOne
+      component: Color
+
+    - name: colorTestTwo
+      component: Color
+      componentAttributes:
+        showCode: true
+
     - name: alerts
       component: Chip
       attributes:
