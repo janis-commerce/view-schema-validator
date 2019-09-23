@@ -53,7 +53,7 @@ describe('Test schema-modifier functions', () => {
 
 		const dataOne = schemaModifier.execute(schemaOne);
 
-		sandbox.assert.match(dataOne, schemaOne);
+		assert.deepEqual(dataOne, schemaOne);
 	});
 
 	it('should pass validation with out changes in edit.json compiled', async () => {
@@ -62,7 +62,7 @@ describe('Test schema-modifier functions', () => {
 		const dataOne = schemaModifier.execute(schemaOne);
 
 		assert(addBrowseActionsSpy.notCalled);
-		sandbox.assert.match(dataOne, schemaOne);
+		assert.deepEqual(dataOne, schemaOne);
 	});
 
 });
