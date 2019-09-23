@@ -20,7 +20,22 @@ describe('Test schema-modifier functions', () => {
 		const schemaOne = JSON.parse(schemaCompiled.toString());
 		const dataOne = schemaModifier.execute(schemaOne);
 
-		sandbox.assert.match(dataOne, JSON.parse(schemaExpectedOne.toString()));
+		assert.deepEqual(dataOne, JSON.parse(schemaExpectedOne.toString()));
+	});
+
+	it('should pass validation and not add actions default is has empty array', () => {
+		const schemaOne = JSON.parse(schemaCompiled.toString());
+		const schemaTwo = JSON.parse(schemaCompiled.toString());
+		const addBrowseActionsSpy = sandbox.spy(schemaModifier, 'addBrowseActions');
+
+		schemaOne.actions = [];
+
+		const dataOne = schemaModifier.execute(schemaOne);
+
+		schemaTwo.actions = [];
+
+		assert(addBrowseActionsSpy.notCalled);
+		assert.deepEqual(dataOne, schemaTwo);
 	});
 
 	it('should pass validation with out changes in browse.json compiled', async () => {
