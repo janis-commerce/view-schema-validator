@@ -6,7 +6,7 @@ const fs = require('fs-extra');
 const schemaModifier = require('../lib/schema-modifier');
 
 const schemaCompiled = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-not-actions.json');
-const schemaExpectedOne = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-not-actions.json');
+const schemaExpectedOne = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const schemaCompiledTwo = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
 
 const sandbox = sinon.createSandbox();
