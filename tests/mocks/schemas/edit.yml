@@ -67,6 +67,8 @@ sections:
       component: Chip
     - name: user
       component: UserChip
+    - name: color
+      component: ColorPicker
   - name: others
     fields:
       - name: status

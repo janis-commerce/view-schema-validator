@@ -130,6 +130,11 @@
                             "name": "user",
                             "component": "UserChip",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "color",
+                            "component": "ColorPicker",
+                            "componentAttributes": {}
                         }
                     ]
                 },
