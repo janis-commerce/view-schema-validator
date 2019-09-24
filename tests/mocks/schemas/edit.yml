@@ -69,6 +69,12 @@ sections:
       component: UserChip
     - name: color
       component: ColorPicker
+    - name: exampleCode
+      component: Code
+    - name: exampleCodeTwo
+      component: Code
+      componentAttributes:
+        language: json
   - name: others
     fields:
       - name: status

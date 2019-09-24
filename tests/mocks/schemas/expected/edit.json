@@ -135,6 +135,18 @@
                             "name": "color",
                             "component": "ColorPicker",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleCode",
+                            "component": "Code",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleCodeTwo",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "language": "json"
+                            }
                         }
                     ]
                 },
