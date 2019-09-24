@@ -97,6 +97,12 @@ sections:
               value: 1
             - label: common.status.inactive
               value: 0
+      - name: dateTime
+        component: DateTimePicker
+        componentAttributes:
+          selectDate: false
+          selectTime: true
+          selectRange: true
 - name: semaphoreBrowse
   rootComponent: BrowseSection
   topComponents:

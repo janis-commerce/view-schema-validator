@@ -189,6 +189,15 @@
                                     ]
                                 }
                             }
+                        },
+                        {
+                            "name": "dateTime",
+                            "component": "DateTimePicker",
+                            "componentAttributes": {
+                                "selectDate": false,
+                                "selectTime": true,
+                                "selectRange": true
+                            }
                         }
                     ]
                 }
