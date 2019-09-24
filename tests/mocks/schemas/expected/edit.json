@@ -417,6 +417,10 @@
             "canEdit": true,
             "canView": false,
             "pageSize": 60
+        },
+        {
+            "name": "logsBrowseSection",
+            "rootComponent": "LogsBrowseSection"
         }
     ]
 }
