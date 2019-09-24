@@ -190,6 +190,30 @@
             }
         },
         {
+            "name": "colorOne",
+            "component": "Color",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {}
+        },
+        {
+            "name": "colorTwo",
+            "component": "Color",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "showCode": true
+            }
+        },
+        {
             "name": "sla",
             "component": "TimeChip",
             "mapper": {

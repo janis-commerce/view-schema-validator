@@ -130,6 +130,33 @@
                             "name": "user",
                             "component": "UserChip",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "color",
+                            "component": "ColorPicker",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleCode",
+                            "component": "Code",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleCodeTwo",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "language": "json"
+                            }
+                        },
+                        {
+                            "name": "linkTest",
+                            "component": "Link",
+                            "componentAttributes": {
+                                "target": "_blank",
+                                "translateLabels": true,
+                                "label": "test.test.test",
+                                "labelField": "asdasd"
+                            }
                         }
                     ]
                 },
@@ -298,6 +325,30 @@
                     }
                 },
                 {
+                    "name": "colorTestOne",
+                    "component": "Color",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {}
+                },
+                {
+                    "name": "colorTestTwo",
+                    "component": "Color",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "showCode": true
+                    }
+                },
+                {
                     "name": "alerts",
                     "component": "Chip",
                     "attributes": {
@@ -365,8 +416,7 @@
             "hasPreview": false,
             "canEdit": true,
             "canView": false,
-            "pageSize": 60,
-            "actions": []
+            "pageSize": 60
         },
         {
             "name": "logsBrowseSection",

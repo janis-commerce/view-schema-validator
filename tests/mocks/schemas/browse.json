@@ -101,6 +101,15 @@
 		"name": "areaInCharge",
 		"component": "Chip"
 	}, {
+		"name": "colorOne",
+		"component": "Color"
+	},{
+		"name": "colorTwo",
+		"component": "Color",
+		"componentAttributes": {
+			"showCode": true
+		}
+	}, {
 		"name": "sla",
 		"component": "TimeChip",
 		"mapper": {

@@ -67,6 +67,21 @@ sections:
       component: Chip
     - name: user
       component: UserChip
+    - name: color
+      component: ColorPicker
+    - name: exampleCode
+      component: Code
+    - name: exampleCodeTwo
+      component: Code
+      componentAttributes:
+        language: json
+    - name: linkTest
+      component: Link
+      componentAttributes:
+        target: _blank
+        translateLabels: true
+        label: test.test.test
+        labelField: asdasd
   - name: others
     fields:
       - name: status
@@ -133,6 +148,15 @@ sections:
         borderColor: red
     - name: rangeHigh
       component: Chip
+
+    - name: colorTestOne
+      component: Color
+
+    - name: colorTestTwo
+      component: Color
+      componentAttributes:
+        showCode: true
+
     - name: alerts
       component: Chip
       attributes:
