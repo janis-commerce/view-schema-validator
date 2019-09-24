@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.8.0] - 2019-09-24
+### Added
+- Form fields components support added for `DateTimePicker`, `ColorPicker`, `Code` and `Link`
+- Browse now is capable of having no actions
+- Browse field component support added for `Color`
+
 ## [1.7.0] - 2019-09-10
 ### Added
 - `labelFieldName` support added for Selects
