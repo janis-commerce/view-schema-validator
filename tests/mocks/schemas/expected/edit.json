@@ -147,6 +147,16 @@
                             "componentAttributes": {
                                 "language": "json"
                             }
+                        },
+                        {
+                            "name": "linkTest",
+                            "component": "Link",
+                            "componentAttributes": {
+                                "target": "_blank",
+                                "translateLabels": true,
+                                "label": "test.test.test",
+                                "labelField": "asdasd"
+                            }
                         }
                     ]
                 },
