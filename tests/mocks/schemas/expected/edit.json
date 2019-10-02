@@ -358,6 +358,17 @@
                     }
                 },
                 {
+                    "name": "sacClaimChange",
+                    "component": "SacClaimChange",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {}
+                },
+                {
                     "name": "alerts",
                     "component": "Chip",
                     "attributes": {
