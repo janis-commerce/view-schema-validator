@@ -39,6 +39,7 @@
                     "name": "detail",
                     "icon": "catalogue",
                     "position": "left",
+                    "collapsible": true,
                     "fields": [
                         {
                             "name": "name",

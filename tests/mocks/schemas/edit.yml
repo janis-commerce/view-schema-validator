@@ -27,6 +27,7 @@ sections:
   - name: detail
     position: left
     icon: catalogue
+    collapsible: true
     fields:
     - name: name
       component: Select
