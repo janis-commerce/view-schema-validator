@@ -65,8 +65,16 @@ sections:
         - - name: required
     - name: test
       component: Chip
-    - name: user
+    - name: user1
       component: UserChip
+    - name: user2
+      component: UserChip
+      componentAttributes:
+        userDataSource:
+          email: email
+          firstname: firstname
+          lastname: lastname
+          images: images
     - name: color
       component: ColorPicker
     - name: exampleCode
