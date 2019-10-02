@@ -14,6 +14,22 @@
         "method": "save",
         "resolve": false
     },
+    "header": {
+        "title": {
+          "beforeId": [
+            {
+              "name": "test",
+              "component": "BadgeLetter"
+            }
+          ],
+          "afterId": [
+            {
+              "name": "test",
+              "component": "StatusChip"
+            }
+          ]
+        }
+    },
     "sections": [
         {
             "name": "mainFormSection",
