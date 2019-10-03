@@ -19,13 +19,19 @@
           "beforeId": [
             {
               "name": "test",
-              "component": "BadgeLetter"
+              "component": "BadgeLetter",
+              "componentAttributes": {
+                "translateLabels": true
+              }
             }
           ],
           "afterId": [
             {
               "name": "test",
-              "component": "StatusChip"
+              "component": "StatusChip",
+              "componentAttributes": {
+                "useTheme": true
+              }
             }
           ]
         }

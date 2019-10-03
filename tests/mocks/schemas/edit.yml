@@ -19,6 +19,8 @@ header:
     afterId:
       - name: test
         component: StatusChip
+        componentAttributes:
+          useTheme: true
 sections:
 - name: mainFormSection
   rootComponent: MainForm
