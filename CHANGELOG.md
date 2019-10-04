@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.9.0] - 2019-10-04
+### Added
+- Now form FieldGroups can be collapsible
+- Form field component support added for `FieldsArray`
+- UserChip now can receive data without fetching it
+- New Edit sections support added: `FilesSection` and `OrderItemsSection`
+- Browse field component support added for `SacClaimChange`
+- Create and Edit can now be customized with `berforeId` and `afterId` components
+- Browse ActionButtons now support `removeRow` and `refresh` callbacks
+
 ## [1.8.0] - 2019-09-24
 ### Added
 - Form fields components support added for `DateTimePicker`, `ColorPicker`, `Code` and `Link`
