@@ -159,5 +159,22 @@
 				]
 			}
 		}
+	}, {
+		"name": "actions",
+		"component": "ActionButtons",
+		"componentAttributes": {
+			"actionsData": [
+				{
+					"name": "new",
+					"icon": "star_light",
+					"color": "fizzGreen",
+					"type": "link",
+					"options": {
+						"path": "/sac/claim-type/new"
+					},
+					"callback": "removeRow"
+				}
+			]
+		}
 	}]
 }

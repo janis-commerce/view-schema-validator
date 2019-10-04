@@ -290,6 +290,30 @@
                 "type": "equal",
                 "remote": false
             }
+        },
+        {
+            "name": "actions",
+            "component": "ActionButtons",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "actionsData": [
+                    {
+                        "name": "new",
+                        "icon": "star_light",
+                        "color": "fizzGreen",
+                        "type": "link",
+                        "options": {
+                            "path": "/sac/claim-type/new"
+                        },
+                        "callback": "removeRow"
+                    }
+                ]
+            }
         }
     ],
     "hasPreview": false,
