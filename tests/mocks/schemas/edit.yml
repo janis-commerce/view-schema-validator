@@ -83,6 +83,14 @@ sections:
         translateLabels: true
         label: test.test.test
         labelField: asdasd
+    - name: fieldsArray
+      component: FieldsArray
+      componentAttributes:
+        canChangeElements: true
+        minElements: 1
+        fields:
+          - name: test
+            component: Text
   - name: others
     fields:
       - name: status
