@@ -11,6 +11,16 @@ target:
   namespace: claim-motive
   method: save
   resolve: false
+header:
+  title:
+    beforeId:
+      - name: test
+        component: BadgeLetter
+    afterId:
+      - name: test
+        component: StatusChip
+        componentAttributes:
+          useTheme: true
 sections:
 - name: mainFormSection
   rootComponent: MainForm
