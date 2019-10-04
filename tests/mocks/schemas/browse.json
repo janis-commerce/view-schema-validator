@@ -114,12 +114,15 @@
 	}, {
 		"name": "colorOne",
 		"component": "Color"
-	},{
+	}, {
 		"name": "colorTwo",
 		"component": "Color",
 		"componentAttributes": {
 			"showCode": true
 		}
+	}, {
+		"name": "sacClaimChange",
+		"component": "SacClaimChange"
 	}, {
 		"name": "sla",
 		"component": "TimeChip",
