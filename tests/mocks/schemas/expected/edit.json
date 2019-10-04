@@ -458,6 +458,14 @@
         {
             "name": "logsBrowseSection",
             "rootComponent": "LogsBrowseSection"
+        },
+        {
+            "name": "filesSection",
+            "rootComponent": "FilesSection"
+        },
+        {
+            "name": "orderItemsSection",
+            "rootComponent": "OrderItemsSection"
         }
     ]
 }
