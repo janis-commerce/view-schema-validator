@@ -130,6 +130,22 @@ sections:
           selectDate: false
           selectTime: true
           selectRange: true
+      - name: checklist
+        component: CheckList
+        componentAttributes:
+          optionsSource:
+            service: sac
+            namespace: claim-motive
+            method: list
+            resolve: false
+          sectionField: claimMotiveName
+          groupField: statusName
+          labelField: name
+          valueField: id
+          translateSectionLabel: true
+          translateGroupLabel: false
+          translateCheckboxLabel: false
+
 - name: semaphoreBrowse
   rootComponent: BrowseSection
   topComponents:
