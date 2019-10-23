@@ -499,6 +499,29 @@
         {
             "name": "orderItemsSection",
             "rootComponent": "OrderItemsSection"
-        }
+        },
+        {
+            "name": "apiKeysSection",
+            "rootComponent": "ApiKeysSection",
+            "parentIdField": "user",
+            "source": {
+              "service": "id",
+              "namespace": "user",
+              "method": "list-api-keys",
+              "resolve": false
+            },
+            "createEndpoint": {
+              "service": "id",
+              "namespace": "user",
+              "method": "create-api-key",
+              "resolve": false
+            },
+            "deleteEndpoint": {
+              "service": "id",
+              "namespace": "user",
+              "method": "delete-api-key",
+              "resolve": false
+            }
+          }
     ]
 }
