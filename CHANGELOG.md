@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.11.0] - 2019-11-01
+### Added
+- New Edit section support added: `FormSection`
+
 ## [1.10.0] - 2019-10-23
 ### Added
 - New Edit section support added: `ApiKeysSection`
