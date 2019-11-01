@@ -263,3 +263,41 @@ sections:
     namespace: user
     method: delete-api-key
     resolve: false
+- name: testFormSection
+  rootComponent: FormSection
+  source:
+    service: sac
+    namespace: claim-motive
+    method: get
+    resolve: false
+  target:
+    service: sac
+    namespace: claim-motive
+    method: save
+    resolve: false
+  fieldsGroup:
+  - name: detail
+    position: left
+    icon: catalogue
+    collapsible: true
+    fields:
+    - name: name
+      component: Select
+      componentAttributes:
+        translateLabels: true
+        labelFieldName: motiveName
+        options:
+          scope: local
+          valuesMapper:
+            label: name
+            value: id
+          values:
+            - label: common.status.active
+              value: 1
+            - label: common.status.inactive
+              value: 0
+      validations:
+        - - name: required
+        - - name: maxLength
+            options:
+              length: 50
