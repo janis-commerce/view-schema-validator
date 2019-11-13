@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.12.0] - 2019-11-13
+### Added
+- Input form fields now accept the `type` component attribute with value `'password'`
+
 ## [1.11.0] - 2019-11-01
 ### Added
 - New Edit section support added: `FormSection`
