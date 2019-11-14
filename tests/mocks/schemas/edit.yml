@@ -24,15 +24,21 @@ header:
 sections:
 - name: mainFormSection
   rootComponent: MainForm
-  actions:
-    - name: new
-      icon: star_light
-      color: fizzGreen
-      type: link
-      options:
-        path: /service/namespace/new
   topComponents:
     - component: TestComponent
+    - component: TestComponentLeft
+      position: left
+    - component: TestComponentRight
+      position: right
+    - component: ActionButtons
+      position: right
+      actions:
+        - name: new
+          icon: star_light
+          color: fizzGreen
+          type: link
+          options:
+            path: /service/namespace/new
   fieldsGroup:
   - name: detail
     position: left
