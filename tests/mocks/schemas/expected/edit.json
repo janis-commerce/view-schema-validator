@@ -54,6 +54,14 @@
             "topComponents": [
                 {
                     "component": "TestComponent"
+                },
+                {
+                    "component": "TestComponentLeft",
+                    "position": "left"
+                },
+                {
+                    "component": "TestComponentRight",
+                    "position": "right"
                 }
             ],
             "fieldsGroup": [

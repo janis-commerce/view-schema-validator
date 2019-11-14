@@ -33,6 +33,10 @@ sections:
         path: /service/namespace/new
   topComponents:
     - component: TestComponent
+    - component: TestComponentLeft
+      position: left
+    - component: TestComponentRight
+      position: right
   fieldsGroup:
   - name: detail
     position: left
