@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.0] - 2019-11-13
+### Added
+- `position` property added to section's `topComponents`
+
+### Removed
+- `actions` removed from sections properties. Use `topComponents` + `ActionButtons` instead. **BREAKING CHANGE**
+
 ## [1.12.0] - 2019-11-13
 ### Added
 - Input form fields now accept the `type` component attribute with value `'password'`
