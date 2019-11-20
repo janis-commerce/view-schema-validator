@@ -91,6 +91,33 @@
             }
         },
         {
+            "name": "linkTest",
+            "component": "Link",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {}
+        },
+        {
+            "name": "linkTest2",
+            "component": "Link",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "translateLabels": true,
+                "labelField": "label",
+                "label": "test",
+                "target": "_self"
+            }
+        },
+        {
             "name": "user1",
             "component": "UserChip",
             "attributes": {

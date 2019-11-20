@@ -1,180 +1,214 @@
 {
-	"service": "sac",
-	"name": "claim-type-browse",
-	"root": "Browse",
-	"source": {
-		"service": "sac",
-		"namespace": "claim-type",
-		"method": "browse",
-		"resolve": false
-	},
-	"staticFilters": [
-		{
-			"name": "status",
-			"target": "path",
-			"value": {
-				"static": "statusId"
-			}
+    "service": "sac",
+    "name": "claim-type-browse",
+    "root": "Browse",
+    "source": {
+        "service": "sac",
+        "namespace": "claim-type",
+        "method": "browse",
+        "resolve": false
+    },
+    "staticFilters": [
+        {
+            "name": "status",
+            "target": "path",
+            "value": {
+                "static": "statusId"
+            }
+        },
+        {
+            "name": "status",
+            "target": "path",
+            "value": {
+                "static": [
+                    2,
+                    4
+                ]
+            }
+        }
+    ],
+    "fields": [
+        {
+            "name": "id",
+            "component": "BoldText",
+            "attributes": {
+                "sortable": true,
+                "isDefaultSort": true
+            },
+            "mapper": "addHashtag"
+        },
+        {
+            "name": "motiveName",
+            "component": "MediumText",
+            "filter": {
+                "component": "Input"
+            }
+        },
+        {
+            "name": "parentName",
+            "component": "Text"
+        },
+        {
+            "name": "date",
+            "component": "Text",
+            "mapper": {
+                "name": "date",
+                "props": {
+                    "format": "DD/MM/YYYY"
+                }
+            }
 		},
 		{
-			"name": "status",
-			"target": "path",
-			"value": {
-				"static": [2, 4]
-			}
-		}
-	],
-	"fields": [{
-		"name": "id",
-		"component": "BoldText",
-		"attributes": {
-			"sortable": true,
-			"isDefaultSort": true
+            "name": "linkTest",
+            "component": "Link"
+        },
+        {
+            "name": "linkTest2",
+            "component": "Link",
+            "componentAttributes": {
+                "translateLabels": true,
+                "labelField": "label",
+                "label": "test",
+                "target": "_self"
+            }
+        },
+        {
+            "name": "user1",
+            "component": "UserChip"
 		},
-		"mapper": "addHashtag"
-	}, {
-		"name": "motiveName",
-		"component": "MediumText",
-		"filter": {
-			"component": "Input"
-		}
-	}, {
-		"name": "parentName",
-		"component": "Text"
-	}, {
-		"name": "date",
-		"component": "Text",
-		"mapper": {
-			"name": "date",
-			"props": {
-				"format": "DD/MM/YYYY"
-			}
-		}
-	}, {
-		"name": "user1",
-		"component": "UserChip"
-	}, {
-		"name": "user2",
-		"component": "UserChip",
-		"componentAttributes": {
-			"userDataSource": {
-				"email": "email",
-				"firstname": "firstname",
-				"lastname": "lastname",
-				"images": "images"
-			}
-		}
-	}, {
-		"name": "name",
-		"component": "LightText",
-		"filter": {
-			"component": "Input"
-		},
-		"attributes": {
-			"sortable": true
-		}
-	}, {
-		"name": "appliesToLogistics",
-		"component": "Chip",
-		"mapper": "booleanToWord",
-		"filter": {
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"options": [
-					{
-						"label": "common.boolean.yes",
-						"value": 1
-					},
-					{
-						"label": "common.boolean.no",
-						"value": 0
-					}
-				]
-			}
-		}
-	}, {
-		"name": "flags",
-		"component": "Chip",
-		"label": "sac.entities.claimType.fields.appliesTo",
-		"mapper": "translate",
-		"componentAttributes": {
-			"icon": "icon_test"
-		},
-		"filter": {
-			"component": "Select",
-			"remote": true,
-			"componentAttributes": {
-				"translateLabels": true
-			}
-		}
-	}, {
-		"name": "areaInCharge",
-		"component": "Chip"
-	}, {
-		"name": "colorOne",
-		"component": "Color"
-	}, {
-		"name": "colorTwo",
-		"component": "Color",
-		"componentAttributes": {
-			"showCode": true
-		}
-	}, {
-		"name": "sacClaimChange",
-		"component": "SacClaimChange"
-	}, {
-		"name": "sla",
-		"component": "TimeChip",
-		"mapper": {
-			"name": "numberToTime",
-			"props": {
-				"type": "hour"
-			}
-		}
-	}, {
-		"name": "status",
-		"component": "StatusChip",
-		"attributes": {
-			"isStatus": true,
-			"sortable": true
-		},
-		"componentAttributes": {
-			"useTheme": true
-		},
-		"mapper": "translate",
-		"filter": {
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"options": [
-					{
-						"label": "common.status.active",
-						"value": 1
-					},
-					{
-						"label": "common.status.inactive",
-						"value": 0
-					}
-				]
-			}
-		}
-	}, {
-		"name": "actions",
-		"component": "ActionButtons",
-		"componentAttributes": {
-			"actionsData": [
-				{
-					"name": "new",
-					"icon": "star_light",
-					"color": "fizzGreen",
-					"type": "link",
-					"options": {
-						"path": "/sac/claim-type/new"
-					},
-					"callback": "removeRow"
-				}
-			]
-		}
-	}]
+        {
+            "name": "user2",
+            "component": "UserChip",
+            "componentAttributes": {
+                "userDataSource": {
+                    "email": "email",
+                    "firstname": "firstname",
+                    "lastname": "lastname",
+                    "images": "images"
+                }
+            }
+        },
+        {
+            "name": "name",
+            "component": "LightText",
+            "filter": {
+                "component": "Input"
+            },
+            "attributes": {
+                "sortable": true
+            }
+        },
+        {
+            "name": "appliesToLogistics",
+            "component": "Chip",
+            "mapper": "booleanToWord",
+            "filter": {
+                "component": "Select",
+                "componentAttributes": {
+                    "translateLabels": true,
+                    "options": [
+                        {
+                            "label": "common.boolean.yes",
+                            "value": 1
+                        },
+                        {
+                            "label": "common.boolean.no",
+                            "value": 0
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "flags",
+            "component": "Chip",
+            "label": "sac.entities.claimType.fields.appliesTo",
+            "mapper": "translate",
+            "componentAttributes": {
+                "icon": "icon_test"
+            },
+            "filter": {
+                "component": "Select",
+                "remote": true,
+                "componentAttributes": {
+                    "translateLabels": true
+                }
+            }
+        },
+        {
+            "name": "areaInCharge",
+            "component": "Chip"
+        },
+        {
+            "name": "colorOne",
+            "component": "Color"
+        },
+        {
+            "name": "colorTwo",
+            "component": "Color",
+            "componentAttributes": {
+                "showCode": true
+            }
+        },
+        {
+            "name": "sacClaimChange",
+            "component": "SacClaimChange"
+        },
+        {
+            "name": "sla",
+            "component": "TimeChip",
+            "mapper": {
+                "name": "numberToTime",
+                "props": {
+                    "type": "hour"
+                }
+            }
+        },
+        {
+            "name": "status",
+            "component": "StatusChip",
+            "attributes": {
+                "isStatus": true,
+                "sortable": true
+            },
+            "componentAttributes": {
+                "useTheme": true
+            },
+            "mapper": "translate",
+            "filter": {
+                "component": "Select",
+                "componentAttributes": {
+                    "translateLabels": true,
+                    "options": [
+                        {
+                            "label": "common.status.active",
+                            "value": 1
+                        },
+                        {
+                            "label": "common.status.inactive",
+                            "value": 0
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "actions",
+            "component": "ActionButtons",
+            "componentAttributes": {
+                "actionsData": [
+                    {
+                        "name": "new",
+                        "icon": "star_light",
+                        "color": "fizzGreen",
+                        "type": "link",
+                        "options": {
+                            "path": "/sac/claim-type/new"
+                        },
+                        "callback": "removeRow"
+                    }
+                ]
+            }
+        }
+    ]
 }
