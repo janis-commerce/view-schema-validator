@@ -57,7 +57,17 @@
                     "format": "DD/MM/YYYY"
                 }
             }
-		},
+        },
+        {
+            "name": "nameTest",
+            "component": "Text",
+            "mapper": {
+                "name": "prefix",
+                "props": {
+                    "value": "common.names."
+                }
+            }
+        },
 		{
             "name": "linkTest",
             "component": "Link"
