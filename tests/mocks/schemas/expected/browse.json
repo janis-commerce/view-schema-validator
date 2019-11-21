@@ -91,6 +91,25 @@
             }
         },
         {
+            "name": "nameTest",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "prefix",
+                "props": {
+                    "value": "common.names."
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "linkTest",
             "component": "Link",
             "attributes": {
