@@ -217,6 +217,41 @@
             }
         },
         {
+            "name": "appliesToLogisticsRemote",
+            "component": "Chip",
+            "mapper": "booleanToWord",
+            "filter": {
+                "component": "Select",
+                "remote": true,
+                "componentAttributes": {
+                    "translateLabels": true,
+                    "options": {
+                        "endpoint": {
+                            "service": "view",
+                            "namespace": "menu",
+                            "method": "list",
+                            "resolve": false
+                        },
+                        "searchParam": "filters[name]",
+                        "valuesMapper": {
+                            "label": "name",
+                            "value": "id"
+                        }
+                    }
+                },
+                "type": "equal"
+            },
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "borderColor": "grey"
+            }
+        },
+        {
             "name": "flags",
             "component": "Chip",
             "label": "sac.entities.claimType.fields.appliesTo",
