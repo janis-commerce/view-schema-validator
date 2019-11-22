@@ -130,6 +130,31 @@
             }
         },
         {
+            "name": "appliesToLogisticsRemote",
+            "component": "Chip",
+            "mapper": "booleanToWord",
+            "filter": {
+                "component": "Select",
+                "remote": true,
+                "componentAttributes": {
+                    "translateLabels": true,
+                    "options": {
+                        "endpoint": {
+                          "service": "view",
+                          "namespace": "menu",
+                          "method": "list",
+                          "resolve": false
+                        },
+                        "searchParam": "filters[name]",
+                        "valuesMapper": {
+                          "label": "name",
+                          "value": "id"
+                        }
+                    }
+                }
+            }
+        },
+        {
             "name": "flags",
             "component": "Chip",
             "label": "sac.entities.claimType.fields.appliesTo",
