@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.2.1] - 2019-11-21
+### Fixed
+- Remote `Select` filters are now validated properly
+
 ## [2.2.0] - 2019-11-21
 ### Added
 - `prefix` mapper added
