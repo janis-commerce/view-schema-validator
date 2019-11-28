@@ -249,6 +249,28 @@ sections:
   rootComponent: LogsBrowseSection
 - name: filesSection
   rootComponent: FilesSection
+  fileUploadEndpoint:
+    service: sac
+    namespace: claim
+    method: upload
+    resolve: false
+  fileRelationEndpoint:
+    service: sac
+    namespace: claim
+    method: upload
+    resolve: false
+  fileListEndpoint:
+    service: sac
+    namespace: claim
+    method: upload
+    resolve: false
+  fileDeleteEndpoint:
+    service: sac
+    namespace: claim
+    method: upload
+    resolve: false
+  filesTypes:
+    - image/png
 - name: orderItemsSection
   rootComponent: OrderItemsSection
 - name: apiKeysSection
