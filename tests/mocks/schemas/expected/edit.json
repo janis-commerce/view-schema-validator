@@ -81,6 +81,7 @@
                             "componentAttributes": {
                                 "translateLabels": true,
                                 "labelFieldName": "motiveName",
+                                "labelPrefix": "common.status.",
                                 "options": {
                                     "scope": "local",
                                     "valuesMapper": {
@@ -89,11 +90,11 @@
                                     },
                                     "values": [
                                         {
-                                            "label": "common.status.active",
+                                            "label": "active",
                                             "value": 1
                                         },
                                         {
-                                            "label": "common.status.inactive",
+                                            "label": "inactive",
                                             "value": 0
                                         }
                                     ]
