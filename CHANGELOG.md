@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.0] - 2019-11-29
+### Added
+- Selects `labelPrefix` support added
+- `FilesSection` parameters validation added
+
 ## [2.2.1] - 2019-11-21
 ### Fixed
 - Remote `Select` filters are now validated properly
