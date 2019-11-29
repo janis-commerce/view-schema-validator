@@ -526,7 +526,32 @@
         },
         {
             "name": "filesSection",
-            "rootComponent": "FilesSection"
+            "rootComponent": "FilesSection",
+            "fileUploadEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "upload",
+                "resolve": false
+            },
+            "fileRelationEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "upload",
+                "resolve": false
+            },
+            "fileListEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "upload",
+                "resolve": false
+            },
+            "fileDeleteEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "upload",
+                "resolve": false
+            },
+            "filesTypes": ["image/png"]
         },
         {
             "name": "orderItemsSection",
