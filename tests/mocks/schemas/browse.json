@@ -116,13 +116,14 @@
                 "component": "Select",
                 "componentAttributes": {
                     "translateLabels": true,
+                    "labelPrefix": "common.boolean.",
                     "options": [
                         {
-                            "label": "common.boolean.yes",
+                            "label": "yes",
                             "value": 1
                         },
                         {
-                            "label": "common.boolean.no",
+                            "label": "no",
                             "value": 0
                         }
                     ]
