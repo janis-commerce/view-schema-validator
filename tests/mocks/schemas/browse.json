@@ -68,7 +68,7 @@
                 }
             }
         },
-		{
+        {
             "name": "linkTest",
             "component": "Link"
         },
@@ -85,7 +85,7 @@
         {
             "name": "user1",
             "component": "UserChip"
-		},
+        },
         {
             "name": "user2",
             "component": "UserChip",
@@ -141,15 +141,15 @@
                     "translateLabels": true,
                     "options": {
                         "endpoint": {
-                          "service": "view",
-                          "namespace": "menu",
-                          "method": "list",
-                          "resolve": false
+                            "service": "view",
+                            "namespace": "menu",
+                            "method": "list",
+                            "resolve": false
                         },
                         "searchParam": "filters[name]",
                         "valuesMapper": {
-                          "label": "name",
-                          "value": "id"
+                            "label": "name",
+                            "value": "id"
                         }
                     }
                 }
@@ -244,6 +244,54 @@
                         "callback": "removeRow"
                     }
                 ]
+            }
+        },
+        {
+            "name": "userCreated",
+            "component": "AsyncWrapper",
+            "componentAttributes": {
+                "source": {
+                    "service": "id",
+                    "namespace": "user",
+                    "method": "list",
+                    "resolve": false
+                },
+                "dataMapping": {
+                    "firstname": "firstname",
+                    "lastname": "lastname",
+                    "email": "email"
+                },
+                "field": {
+                    "name": "user",
+                    "component": "UserChip",
+                    "componentAttributes": {
+                        "userDataSource": {
+                            "email": "email",
+                            "firstname": "firstname",
+                            "lastname": "lastname",
+                            "images": "images"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "asyncUser",
+            "component": "AsyncWrapper",
+            "componentAttributes": {
+                "source": {
+                    "service": "id",
+                    "namespace": "user",
+                    "method": "list",
+                    "resolve": false
+                },
+                "dataMapping": {
+                    "firstname": "userTest"
+                },
+                "field": {
+                    "name": "userTest",
+                    "component": "Text"
+                }
             }
         }
     ]
