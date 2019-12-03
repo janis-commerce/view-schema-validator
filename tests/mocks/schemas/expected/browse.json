@@ -27,6 +27,7 @@
     "filters": [
         {
             "name": "filterInput",
+            "label": "test.test.test",
             "component": "Input",
             "componentAttributes": {}
         },
