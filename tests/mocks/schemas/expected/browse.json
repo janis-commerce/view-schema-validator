@@ -24,6 +24,59 @@
             }
         }
     ],
+    "filters": [
+        {
+            "name": "filterInput",
+            "component": "Input",
+            "componentAttributes": {}
+        },
+        {
+            "name": "localSelect",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "local",
+                    "values": [
+                        {
+                            "label": "test",
+                            "value": 1
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "remoteSelect",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "searchParam": "term",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim-type",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "valuesMapper": {
+                        "label": "name",
+                        "value": "id"
+                    }
+                }
+            }
+        },
+        {
+            "name": "dateTimePickerFilter",
+            "component": "DateTimePicker",
+            "componentAttributes": {
+                "selectDate": false,
+                "selectTime": true,
+                "selectRange": true
+            }
+        }
+    ],
     "fields": [
         {
             "name": "id",
