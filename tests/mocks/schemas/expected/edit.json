@@ -254,6 +254,42 @@
                             }
                         },
                         {
+                            "name": "selectRemote",
+                            "component": "Select",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {
+                                "translateLabels": true,
+                                "options": {
+                                    "scope": "remote",
+                                    "searchParam": "term",
+                                    "endpoint": {
+                                        "service": "sac",
+                                        "namespace": "claim",
+                                        "method": "list",
+                                        "resolve": false
+                                    },
+                                    "initialValuesEndpoint": {
+                                        "service": "sac",
+                                        "namespace": "claim",
+                                        "method": "list",
+                                        "resolve": false
+                                    },
+                                    "initialValuesFilterName": "id",
+                                    "initialValuesPathParam": "name",
+                                    "valuesMapper": {
+                                        "label": "name",
+                                        "value": "id"
+                                    }
+                                }
+                            }
+                        },
+                        {
                             "name": "dateTime",
                             "component": "DateTimePicker",
                             "componentAttributes": {
@@ -551,7 +587,9 @@
                 "method": "upload",
                 "resolve": false
             },
-            "filesTypes": ["image/png"]
+            "filesTypes": [
+                "image/png"
+            ]
         },
         {
             "name": "orderItemsSection",
