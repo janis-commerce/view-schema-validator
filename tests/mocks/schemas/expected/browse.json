@@ -396,6 +396,81 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "userCreated",
+            "component": "AsyncWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "source": {
+                    "service": "id",
+                    "namespace": "user",
+                    "method": "list",
+                    "resolve": false
+                },
+                "dataMapping": {
+                    "firstname": "firstname",
+                    "lastname": "lastname",
+                    "email": "email"
+                },
+                "field": {
+                    "name": "user",
+                    "component": "UserChip",
+                    "componentAttributes": {
+                        "userDataSource": {
+                            "email": "email",
+                            "firstname": "firstname",
+                            "lastname": "lastname",
+                            "images": "images"
+                        }
+                    },
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    }
+                }
+            }
+        },
+        {
+            "name": "asyncUser",
+            "component": "AsyncWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "source": {
+                    "service": "id",
+                    "namespace": "user",
+                    "method": "list",
+                    "resolve": false
+                },
+                "dataMapping": {
+                    "firstname": "userTest"
+                },
+                "field": {
+                    "name": "userTest",
+                    "component": "Text",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "fontWeight": "normal"
+                    }
+                }
+            }
         }
     ],
     "hasPreview": false,
