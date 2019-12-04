@@ -355,6 +355,7 @@
                     }
                 }
             ],
+            "filters": [],
             "topComponents": [
                 {
                     "component": "TestComponent",
