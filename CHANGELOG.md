@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.4.0] - 2019-12-04
+### Added
+- Remote selects can now define inital values parameters (#40)
+- AsyncWrapper validation (#42)
+- New filters structure validation (#41)
+- New filter component: DateTimePicker (#41)
+
 ## [2.3.0] - 2019-11-29
 ### Added
 - Selects `labelPrefix` support added
