@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.5.0] - 2019-12-17
+### Added
+- `fileGetEndpoint` property added to `FileSection` to download a file
+
 ## [2.4.0] - 2019-12-04
 ### Added
 - Remote selects can now define inital values parameters (#40)
