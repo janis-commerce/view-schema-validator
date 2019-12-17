@@ -116,6 +116,15 @@ sections:
         fields:
           - name: test
             component: Text
+    - name: fieldsArrayTwo
+      component: FieldsArray
+      componentAttributes:
+        canChangeElements: true
+        uniqueField: true
+        minElements: 1
+        fields:
+          - name: test
+            component: Text
   - name: others
     fields:
       - name: status
