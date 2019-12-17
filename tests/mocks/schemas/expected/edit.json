@@ -588,6 +588,12 @@
                 "method": "upload",
                 "resolve": false
             },
+            "fileGetEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "upload",
+                "resolve": false
+            },
             "filesTypes": [
                 "image/png"
             ]
