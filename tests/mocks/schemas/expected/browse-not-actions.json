@@ -525,6 +525,58 @@
                     }
                 }
             }
+        },
+        {
+            "name": "multiValueWrapperExample",
+            "component": "MultiValueWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "direction": "vertical",
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "borderColor": "grey"
+                    }
+                }
+            }
+        },
+        {
+            "name": "multiValueWrapperExampleTwo",
+            "component": "MultiValueWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "direction": "horizontal",
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "borderColor": "grey"
+                    }
+                }
+            }
         }
     ],
     "hasPreview": false,
