@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.6.1] - 2019-12-18
+### Fixed
+- `UserChip` userDataSource image property fixed
+
 ## [2.6.0] - 2019-12-18
 ### Added
 - `uniqueField` property in `FieldsArray` form component

@@ -87,7 +87,7 @@ sections:
           email: email
           firstname: firstname
           lastname: lastname
-          images: images
+          image: image
     - name: color
       component: ColorPicker
     - name: exampleCode

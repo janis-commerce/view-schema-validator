@@ -146,7 +146,7 @@
                     "email": "email",
                     "firstname": "firstname",
                     "lastname": "lastname",
-                    "images": "images"
+                    "image": "image"
                 }
             }
         },
@@ -321,7 +321,7 @@
                             "email": "email",
                             "firstname": "firstname",
                             "lastname": "lastname",
-                            "images": "images"
+                            "image": "image"
                         }
                     }
                 }

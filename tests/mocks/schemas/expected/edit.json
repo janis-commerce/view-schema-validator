@@ -169,7 +169,7 @@
                                     "email": "email",
                                     "firstname": "firstname",
                                     "lastname": "lastname",
-                                    "images": "images"
+                                    "image": "image"
                                 }
                             }
                         },
