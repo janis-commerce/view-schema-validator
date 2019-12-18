@@ -554,6 +554,7 @@
             ],
             "hasPreview": false,
             "canEdit": true,
+            "canCreate": true,
             "canView": false,
             "pageSize": 60
         },

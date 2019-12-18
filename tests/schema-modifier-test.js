@@ -38,6 +38,19 @@ describe('Test schema-modifier functions', () => {
 		assert.deepEqual(dataOne, schemaTwo);
 	});
 
+	it('should pass validation and not add actions default if canCreate property is false', () => {
+		const schemaOne = JSON.parse(schemaCompiled.toString());
+		const addBrowseActionsSpy = sandbox.spy(schemaModifier, 'addBrowseActions');
+
+		schemaOne.canCreate = false;
+
+		const dataOne = schemaModifier.execute(schemaOne);
+
+		assert(addBrowseActionsSpy.notCalled);
+
+		assert.deepEqual(dataOne, schemaOne);
+	});
+
 	it('should pass validation with out changes in browse.json compiled', async () => {
 		const schemaOne = JSON.parse(schemaCompiled.toString());
 
