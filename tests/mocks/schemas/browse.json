@@ -345,6 +345,27 @@
                     "component": "Text"
                 }
             }
+        },
+        {
+            "name": "multiValueWrapperExample",
+            "component": "MultiValueWrapper",
+            "componentAttributes": {
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip"
+                }
+            }
+        },
+        {
+            "name": "multiValueWrapperExampleTwo",
+            "component": "MultiValueWrapper",
+            "componentAttributes": {
+                "direction": "horizontal",
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip"
+                }
+            }
         }
     ]
 }
