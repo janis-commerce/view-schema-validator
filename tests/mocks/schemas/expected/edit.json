@@ -214,6 +214,22 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "name": "fieldsArrayTwo",
+                            "component": "FieldsArray",
+                            "componentAttributes": {
+                                "canChangeElements": true,
+                                "minElements": 1,
+                                "uniqueField": true,
+                                "fields": [
+                                    {
+                                        "name": "test",
+                                        "component": "Text",
+                                        "componentAttributes": {}
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
