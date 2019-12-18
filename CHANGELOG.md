@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.6.0] - 2019-12-18
+### Added
+- `uniqueField` property in `FieldsArray` form component
+- Browse component `MultiValueWrapper`
+- Browse `canCreate` property
+
+### Changed
+- Edit `target` is now optional
+
 ## [2.5.0] - 2019-12-17
 ### Added
 - `fileGetEndpoint` property added to `FileSection` to download a file
