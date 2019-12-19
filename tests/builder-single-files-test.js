@@ -21,6 +21,7 @@ const executeInstance = (build = true, file, minified = false) => {
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		minified,
+		false,
 		build ? 'build' : 'validate',
 		'local'
 	);
@@ -36,6 +37,7 @@ const mockfs = items => {
 };
 
 describe('test builder single files', () => {
+
 	afterEach(() => {
 		sandbox.restore();
 		mock.restore();
@@ -146,7 +148,6 @@ describe('test builder single files', () => {
 		const callRes = await call.returnValue;
 		assert(callRes);
 	});
-
 
 	it('Should pass validation with input file JSON path directory', async () => {
 

@@ -22,10 +22,12 @@ validate     Validate if the file or files are valid schemas
 
 ### Options:
 ```sh
---input, -i   write a relative dir folder or dir file
---output, -o  write a relative dir fordel for your outputs
---service, -s write a service local for resolve endpoints
---env, -e     write a current environment for resolve endpoints
+--input, -i     write a relative dir folder or dir file
+--output, -o    write a relative dir fordel for your outputs
+--service, -s   write a service local for resolve endpoints
+--env, -e       write a current environment for resolve endpoints
+--minified, -m  write build minified json files
+--watch, -w     watch input and execute on changes
 ```
 
 ## Examples
@@ -43,4 +45,11 @@ Accepts files json and Yaml
 ```sh
 npx @janiscommerce/view-schema-validator validate -i=/schemas/browse.json
 npx @janiscommerce/view-schema-validator build -i=/schemas/browse.yml -o=/build
+```
+
+### Recursively validating and building directory and watching for changes
+
+```sh
+npx @janiscommerce/view-schema-validator validate -i=/schemas -w
+npx @janiscommerce/view-schema-validator build -i=/schemas -o=/build -w
 ```

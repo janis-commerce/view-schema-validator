@@ -4,6 +4,11 @@ const assert = require('assert');
 const sinon = require('sinon');
 const fs = require('fs-extra');
 const mock = require('mock-fs');
+const chokidar = require('chokidar');
+
+const { EventEmitter } = require('events');
+
+
 const Builder = require('../lib/builder');
 const Validator = require('../lib/validator');
 
@@ -17,12 +22,14 @@ const sandbox = sinon.createSandbox();
 
 let writeFileStub;
 
-const executeInstance = (build = true) => {
+const executeInstance = (build = true, watch = false) => {
+
 	const schemaValidator = new ViewSchemaValidator(
 		'/tests/schemas/fakeFolder',
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		false,
+		watch,
 		build ? 'build' : 'validate',
 		'local'
 	);
@@ -73,6 +80,8 @@ describe('test builder multiple files', () => {
 
 		writeFileStub = sandbox.stub(fs, 'writeFile');
 		sandbox.stub(fs, 'emptyDir');
+
+		sandbox.stub(chokidar, 'watch');
 	});
 
 	it('should error if pass a inexist input ', async () => {
@@ -128,7 +137,6 @@ describe('test builder multiple files', () => {
 
 		assert(processOutputSpy.calledThrice);
 		assert(writeFileStub.calledThrice);
-
 	});
 
 	it('should warn if validate file invalid', async () => {
@@ -147,6 +155,45 @@ describe('test builder multiple files', () => {
 		assert(processOutputSpy.calledThrice);
 		assert(processInputSpy.calledTwice);
 		assert(processFileSpy.callCount === 4);
+	});
+
+	it('Should watch input path and execute on ready and change events', async () => {
+
+		sandbox.stub(process, 'exit');
+		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+
+		const buildSpy = sandbox.spy(Builder.prototype, 'execute');
+
+		class MyEventEmitter extends EventEmitter {}
+
+		const eventEmitter = new MyEventEmitter();
+
+		sandbox.spy(eventEmitter, 'on');
+
+		const on = (...args) => {
+			eventEmitter.on(...args);
+			return { on };
+		};
+		chokidar.watch.returns({ on });
+
+		mockfs();
+
+		const execute = executeInstance(true, true);
+		await execute();
+
+		sandbox.assert.calledOnce(chokidar.watch);
+		sandbox.assert.notCalled(buildSpy);
+
+		eventEmitter.emit('notWatchedEvent');
+		sandbox.assert.notCalled(buildSpy);
+
+		eventEmitter.emit('ready');
+		sandbox.assert.calledOnce(buildSpy);
+
+		eventEmitter.emit('change');
+		sandbox.assert.calledTwice(buildSpy);
+
+		sandbox.assert.alwaysCalledWith(buildSpy, true);
 	});
 
 });

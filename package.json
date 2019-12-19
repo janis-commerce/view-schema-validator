@@ -1,6 +1,6 @@
 {
   "name": "@janiscommerce/view-schema-validator",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "@janiscommerce/endpoint-resolver": "^1.0.0",
     "@janiscommerce/router-fetcher": "^2.0.0",
     "ajv": "^6.10.2",
+    "chokidar": "^3.3.1",
     "fs-extra": "^8.1.0",
     "lllog": "^1.1.2",
     "lodash.get": "^4.4.2",

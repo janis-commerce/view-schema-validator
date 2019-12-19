@@ -34,6 +34,11 @@ const { argv } = require('yargs')
 		type: 'boolean',
 		default: false
 	})
+	.option('watch', {
+		alias: 'w',
+		type: 'boolean',
+		default: false
+	})
 	.strict()
 	.help('help');
 
@@ -44,6 +49,7 @@ const ViewSchemaValidator = require('./lib');
 		input,
 		output,
 		minified,
+		watch,
 		env,
 		service,
 		_: commands
@@ -51,7 +57,7 @@ const ViewSchemaValidator = require('./lib');
 
 	const [command] = commands;
 
-	const schemaValidator = new ViewSchemaValidator(input, output, service, minified, command, env);
+	const schemaValidator = new ViewSchemaValidator(input, output, service, minified, watch, command, env);
 	const execute = schemaValidator.execute.bind(schemaValidator);
 
 	try {
