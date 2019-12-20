@@ -122,7 +122,10 @@
                                     [
                                         {
                                             "name": "isNotEmpty",
-                                            "field": "test"
+                                            "field": [
+                                                "test",
+                                                "name"
+                                            ]
                                         },
                                         {
                                             "name": "isNotEqualTo",
@@ -158,8 +161,11 @@
                                     [
                                         {
                                             "name": "isNotEqualTo",
-                                            "field": "user2",
-                                            "referenceValue": "test"
+                                            "field": [
+                                                "test",
+                                                "name"
+                                            ],
+                                            "referenceValue": true
                                         }
                                     ]
                                 ]
