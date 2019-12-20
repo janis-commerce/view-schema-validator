@@ -56,18 +56,35 @@ sections:
               value: 1
             - label: inactive
               value: 0
-
       validations:
         - - name: required
         - - name: maxLength
             options:
               length: 50
+      conditions:
+        enableWhen:
+          - - name: isEmpty
+              field: name
+        showWhen:
+          - - name: isNotEmpty
+              field: test
+            - name: isNotEqualTo
+              field: name
+              referenceValue: null
     - name: description
       component: Textarea
       validations:
         - - name: maxLength
             options:
               length: 50
+      conditions:
+        showWhen:
+          - - name: isEqualTo
+              field: user1
+              referenceValue: 1
+          - - name: isNotEqualTo
+              field: user2
+              referenceValue: test
     - name: appliesToLogistics
       component: Switch
       validations:
