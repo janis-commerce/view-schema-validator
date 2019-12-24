@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.9.0] - 2019-12-24
+### Added
+- Field `deviceDisplay` property to handle browse fields that only show on desktop or mobile
+
 ## [2.8.0] - 2019-12-24
 ### Added
 - Fields conditions to show/hide and enable/disable them based on other field's values
