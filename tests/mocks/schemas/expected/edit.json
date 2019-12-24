@@ -108,7 +108,33 @@
                                         }
                                     }
                                 ]
-                            ]
+                            ],
+                            "conditions": {
+                                "enableWhen": [
+                                    [
+                                        {
+                                            "name": "isEmpty",
+                                            "field": "name"
+                                        }
+                                    ]
+                                ],
+                                "showWhen": [
+                                    [
+                                        {
+                                            "name": "isNotEmpty",
+                                            "field": [
+                                                "test",
+                                                "name"
+                                            ]
+                                        },
+                                        {
+                                            "name": "isNotEqualTo",
+                                            "field": "name",
+                                            "referenceValue": null
+                                        }
+                                    ]
+                                ]
+                            }
                         },
                         {
                             "name": "description",
@@ -123,6 +149,27 @@
                                     }
                                 ]
                             ],
+                            "conditions": {
+                                "showWhen": [
+                                    [
+                                        {
+                                            "name": "isEqualTo",
+                                            "field": "user1",
+                                            "referenceValue": 1
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            "name": "isNotEqualTo",
+                                            "field": [
+                                                "test",
+                                                "name"
+                                            ],
+                                            "referenceValue": true
+                                        }
+                                    ]
+                                ]
+                            },
                             "componentAttributes": {}
                         },
                         {
