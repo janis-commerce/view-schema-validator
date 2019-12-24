@@ -87,11 +87,13 @@
                 "sortable": true,
                 "isDefaultSort": true
             },
+            "deviceDisplay": "desktop",
             "mapper": "addHashtag"
         },
         {
             "name": "motiveName",
             "component": "MediumText",
+            "deviceDisplay": "mobile",
             "filter": {
                 "component": "Input"
             }
