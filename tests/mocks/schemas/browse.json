@@ -294,6 +294,13 @@
             }
         },
         {
+            "name": "statusWithThemeCustom",
+            "component": "StatusChip",
+            "componentAttributes": {
+                "useTheme": "themeOne"
+            }
+        },
+        {
             "name": "actions",
             "component": "ActionButtons",
             "componentAttributes": {

@@ -26,6 +26,13 @@
                     "componentAttributes": {
                         "useTheme": true
                     }
+                },
+                {
+                    "name": "test2",
+                    "component": "StatusChip",
+                    "componentAttributes": {
+                        "useTheme": "themeOne"
+                    }
                 }
             ]
         }

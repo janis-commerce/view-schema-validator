@@ -441,6 +441,19 @@
             }
         },
         {
+            "name": "statusWithThemeCustom",
+            "component": "StatusChip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "useTheme": "themeOne"
+            }
+        },
+        {
             "name": "actions",
             "component": "ActionButtons",
             "attributes": {
