@@ -373,6 +373,19 @@
                                 "translateGroupLabel": false,
                                 "translateCheckboxLabel": false
                             }
+                        },
+                        {
+                            "name": "multiInputExample",
+                            "component": "MultiInput",
+                            "componentAttributes": {
+                                "labelsPrefix": "common.test.",
+                                "labelPrefix": "common.test.",
+                                "translateLabels": true,
+                                "requiredFields": [
+                                    "test",
+                                    "test2"
+                                ]
+                            }
                         }
                     ]
                 }
