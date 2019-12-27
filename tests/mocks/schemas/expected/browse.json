@@ -24,6 +24,23 @@
             }
         }
     ],
+    "sortableFields": [
+        {
+            "name": "test",
+            "isDefaultSort": false,
+            "initialSortDirection": "desc"
+        },
+        {
+            "name": "test1",
+            "isDefaultSort": true,
+            "initialSortDirection": "desc"
+        },
+        {
+            "name": "test2",
+            "isDefaultSort": false,
+            "initialSortDirection": "asc"
+        }
+    ],
     "filters": [
         {
             "name": "filterInput",

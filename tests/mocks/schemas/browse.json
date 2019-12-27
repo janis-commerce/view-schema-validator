@@ -27,6 +27,19 @@
             }
         }
     ],
+    "sortableFields": [
+        {
+            "name": "test"
+        },
+        {
+            "name": "test1",
+            "isDefaultSort": true
+        },
+        {
+            "name": "test2",
+            "initialSortDirection": "asc"
+        }
+    ],
     "filters": [
         {
             "name": "filterInput",
