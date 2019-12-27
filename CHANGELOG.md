@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.10.0] - 2019-12-27
+### Added
+- `sortableFields` property added to browse
+- `requiredFields` property added for `MultiInput` form component
+- `themes` compatibility added for browse and edits + Support for `StatusChip` `useTheme` attribute
+
 ## [2.9.0] - 2019-12-24
 ### Added
 - Field `deviceDisplay` property to handle browse fields that only show on desktop or mobile
