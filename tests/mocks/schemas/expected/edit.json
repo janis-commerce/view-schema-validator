@@ -26,8 +26,26 @@
                     "componentAttributes": {
                         "useTheme": true
                     }
+                },
+                {
+                    "name": "test2",
+                    "component": "StatusChip",
+                    "componentAttributes": {
+                        "useTheme": "themeOne"
+                    }
                 }
             ]
+        }
+    },
+    "themes": {
+        "themeOne": {
+            "new": "black",
+            "closed": "green",
+            "_default": "grey"
+        },
+        "themeTwo": {
+            "new": "grey",
+            "closed": "fizzgreen"
         }
     },
     "sections": [

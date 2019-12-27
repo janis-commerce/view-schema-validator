@@ -27,6 +27,17 @@
             }
         }
     ],
+    "themes": {
+        "themeOne": {
+            "new": "black",
+            "closed": "green",
+            "_default": "grey"
+        },
+        "themeTwo": {
+            "new": "grey",
+            "closed": "fizzgreen"
+        }
+    },
     "sortableFields": [
         {
             "name": "test"
@@ -293,6 +304,13 @@
                         }
                     ]
                 }
+            }
+        },
+        {
+            "name": "statusWithThemeCustom",
+            "component": "StatusChip",
+            "componentAttributes": {
+                "useTheme": "themeOne"
             }
         },
         {
