@@ -69,6 +69,34 @@
             }
         },
         {
+            "name": "remoteMultiselect",
+            "component": "Multiselect",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "searchParam": "term",
+                    "initialValuesEndpoint":{
+                        "service": "sac",
+                        "namespace": "claim-type",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "initialValuesFilterName": "id",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim-type",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "valuesMapper": {
+                        "label": "name",
+                        "value": "id"
+                    }
+                }
+            }
+        },
+        {
             "name": "dateTimePickerFilter",
             "component": "DateTimePicker",
             "componentAttributes": {
