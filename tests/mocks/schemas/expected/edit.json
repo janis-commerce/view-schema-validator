@@ -23,6 +23,7 @@
                 {
                     "name": "test",
                     "component": "StatusChip",
+                    "mapper": "translate",
                     "componentAttributes": {
                         "useTheme": true
                     }
