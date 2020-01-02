@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.11.0] - 2020-01-02
+### Added
+- Edit title components now accept mappers
+- Browse filters can now be multiselects
+- Select and multiselect filters now accept initial values
+
 ## [2.10.0] - 2019-12-27
 ### Added
 - `sortableFields` property added to browse
