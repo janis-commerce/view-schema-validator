@@ -247,9 +247,7 @@
                         {
                             "name": "exampleCode",
                             "component": "Code",
-                            "componentAttributes": {
-                                "canEdit": false
-                            }
+                            "componentAttributes": {}
                         },
                         {
                             "name": "exampleCodeTwo",

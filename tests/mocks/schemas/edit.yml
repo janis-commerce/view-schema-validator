@@ -127,8 +127,6 @@ sections:
 
     - name: exampleCode
       component: Code
-      componentAttributes:
-        canEdit: false
 
     - name: exampleCodeTwo
       component: Code
