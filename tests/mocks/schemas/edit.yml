@@ -134,6 +134,20 @@ sections:
         language: json
         canEdit: true
 
+    - name: asyncData
+      component: AsyncWrapper
+      componentAttributes:
+        source:
+          service: id
+          namespace: user
+          method: get
+          resolve: false
+        dataMapping:
+          firstname: userFirstname
+        field:
+          name: userFirstname
+          component: Text
+
     - name: linkTest
       component: Link
       componentAttributes:

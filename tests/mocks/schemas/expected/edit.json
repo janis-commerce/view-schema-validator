@@ -258,6 +258,26 @@
                             }
                         },
                         {
+                            "name": "asyncData",
+                            "component": "AsyncWrapper",
+                            "componentAttributes": {
+                                "source": {
+                                    "service": "id",
+                                    "namespace": "user",
+                                    "method": "get",
+                                    "resolve": false
+                                },
+                                "dataMapping": {
+                                    "firstname": "userFirstname"
+                                },
+                                "field": {
+                                    "name": "userFirstname",
+                                    "component": "Text",
+                                    "componentAttributes": {}
+                                }
+                            }
+                        },
+                        {
                             "name": "linkTest",
                             "component": "Link",
                             "componentAttributes": {
