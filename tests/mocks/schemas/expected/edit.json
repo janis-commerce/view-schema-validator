@@ -725,6 +725,10 @@
             ]
         },
         {
+            "name": "anotherOrderItemsSection",
+            "rootComponent": "OrderItemsSection"
+        },
+        {
             "name": "apiKeysSection",
             "rootComponent": "ApiKeysSection",
             "parentIdField": "user",
