@@ -253,7 +253,8 @@
                             "name": "exampleCodeTwo",
                             "component": "Code",
                             "componentAttributes": {
-                                "language": "json"
+                                "language": "json",
+                                "canEdit": true
                             }
                         },
                         {
