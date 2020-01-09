@@ -124,12 +124,18 @@ sections:
           image: image
     - name: color
       component: ColorPicker
+
     - name: exampleCode
       component: Code
+      componentAttributes:
+        canEdit: false
+
     - name: exampleCodeTwo
       component: Code
       componentAttributes:
         language: json
+        canEdit: true
+
     - name: linkTest
       component: Link
       componentAttributes:

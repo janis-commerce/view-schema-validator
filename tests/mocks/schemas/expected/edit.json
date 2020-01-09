@@ -247,13 +247,16 @@
                         {
                             "name": "exampleCode",
                             "component": "Code",
-                            "componentAttributes": {}
+                            "componentAttributes": {
+                                "canEdit": false
+                            }
                         },
                         {
                             "name": "exampleCodeTwo",
                             "component": "Code",
                             "componentAttributes": {
-                                "language": "json"
+                                "language": "json",
+                                "canEdit": true
                             }
                         },
                         {
