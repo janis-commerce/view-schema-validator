@@ -349,6 +349,26 @@ sections:
     - image/png
 - name: orderItemsSection
   rootComponent: OrderItemsSection
+  sourceField: items
+  source:
+    service: oms
+    namespace: order
+    method: get
+    resolve: false
+  staticFilters:
+    - name: status
+      target: path
+      value:
+        dynamic: statusId
+    - name: status
+      target: query
+      value:
+        static: 1
+    - name: status
+      target: query
+      value:
+        static:
+          id: "string"
 - name: apiKeysSection
   rootComponent: ApiKeysSection
   parentIdField: user
