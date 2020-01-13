@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.12.0] - 2020-01-13
+### Added
+- `AsyncWrapper` support for edits
+- `Code` component now can be editable with `canEdit` property
+- `OrderItemsSection` now can be configured to fetch data properly.
+
 ## [2.11.0] - 2020-01-02
 ### Added
 - Edit title components now accept mappers
