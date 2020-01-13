@@ -261,6 +261,22 @@
                             "name": "asyncData",
                             "component": "AsyncWrapper",
                             "componentAttributes": {
+                                "staticFilters": [
+                                    {
+                                        "name": "status",
+                                        "target": "path",
+                                        "value": {
+                                            "dynamic": "id"
+                                        }
+                                    },
+                                    {
+                                        "name": "status",
+                                        "target": "query",
+                                        "value": {
+                                            "static": 1
+                                        }
+                                    }
+                                ],
                                 "source": {
                                     "service": "id",
                                     "namespace": "user",
