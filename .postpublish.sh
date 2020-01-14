@@ -1,6 +1,8 @@
 #/!bin/bash
 
-source .env
+if [ -f .env ]; then
+	source .env
+fi
 
 echo "Running post publish hook to notify new version to Slack..."
 
