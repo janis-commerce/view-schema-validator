@@ -1,10 +1,6 @@
 service: sac
 name: claim-motive-new
 root: Create
-source:
-  service: sac
-  namespace: claim-motive
-  method: new
 target:
   service: sac
   namespace: claim-motive
