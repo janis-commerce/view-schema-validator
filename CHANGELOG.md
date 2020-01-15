@@ -6,8 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.12.1] - 2020-01-15
 ### Added
 - Post publish script to notify about new versions
+
+### Fixed
+- `source` property is now required only in Browse and Edit pages. Not any more in Create pages.
 
 ## [2.12.0] - 2020-01-13
 ### Added
