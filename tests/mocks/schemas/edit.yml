@@ -134,6 +134,23 @@ sections:
         language: json
         canEdit: true
 
+    - name: exampleMap
+      component: Map
+      componentAttributes:
+        fieldsMapping:
+          latitude: latitude
+          longitude: longitude
+
+    - name: exampleMapTwo
+      component: Map
+      componentAttributes:
+        showSearchBar: true
+        canAddMarkers: true
+        maxMarkersQuantity: 5
+        fieldsMapping:
+          latitude: latitude
+          longitude: longitude
+
     - name: asyncData
       component: AsyncWrapper
       componentAttributes:
