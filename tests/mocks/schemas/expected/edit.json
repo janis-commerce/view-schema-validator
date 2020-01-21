@@ -309,6 +309,7 @@
                             "componentAttributes": {
                                 "canChangeElements": true,
                                 "minElements": 1,
+                                "maxElements": 3,
                                 "fields": [
                                     {
                                         "name": "test",
