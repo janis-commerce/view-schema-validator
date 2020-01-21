@@ -196,6 +196,7 @@ sections:
               value: 1
             - label: common.status.inactive
               value: 0
+
       - name: selectRemote
         component: Select
         validations:
@@ -219,6 +220,34 @@ sections:
             valuesMapper:
               label: name
               value: id
+
+      - name: selectRemoteTwo
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          options:
+            scope: remote
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesEndpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesFilterName: id
+            initialValuesPathParam: name
+            valuesMapper:
+              label:
+                template: '{0} {1} - ({2})'
+                fields:
+                 - firstname
+                 - lastname
+                 - email
+              value: id
+
       - name: dateTime
         component: DateTimePicker
         componentAttributes:

@@ -90,7 +90,14 @@
                         "resolve": false
                     },
                     "valuesMapper": {
-                        "label": "name",
+                        "label": {
+                            "template": "{0} {1} - ({2})",
+                            "fields": [
+                                "firstname",
+                                "lastname",
+                                "email"
+                            ]
+                        },
                         "value": "id"
                     }
                 }
