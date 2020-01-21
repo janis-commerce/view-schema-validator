@@ -89,6 +89,22 @@
                         "method": "list",
                         "resolve": false
                     },
+                    "endpointParameters": [
+                        {
+                            "name": "status",
+                            "target": "path",
+                            "value": {
+                                "static": 2
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "target": "query",
+                            "value": {
+                                "static": 1
+                            }
+                        }
+                    ],
                     "valuesMapper": {
                         "label": "name",
                         "value": "id"

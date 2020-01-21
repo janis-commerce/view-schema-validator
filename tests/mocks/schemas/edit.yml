@@ -196,6 +196,7 @@ sections:
               value: 1
             - label: common.status.inactive
               value: 0
+
       - name: selectRemote
         component: Select
         validations:
@@ -216,9 +217,19 @@ sections:
               resolve: false
             initialValuesFilterName: id
             initialValuesPathParam: name
+            endpointParameters:
+              - name: status
+                target: path
+                value:
+                  dynamic: id
+              - name: status
+                target: query
+                value:
+                  static: 1
             valuesMapper:
               label: name
               value: id
+
       - name: dateTime
         component: DateTimePicker
         componentAttributes:
