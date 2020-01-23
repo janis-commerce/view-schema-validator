@@ -304,6 +304,52 @@
                             }
                         },
                         {
+                            "name": "fieldTriggers",
+                            "component": "Input",
+                            "componentAttributes": {},
+                            "triggers": [
+                                {
+                                    "endpoint": {
+                                        "service": "sac",
+                                        "namespace": "claim",
+                                        "method": "list",
+                                        "resolve": false
+                                    },
+                                    "endpointParameters": [
+                                        {
+                                            "name": "status",
+                                            "target": "path",
+                                            "value": {
+                                                "dynamic": "id"
+                                            }
+                                        },
+                                        {
+                                            "name": "status",
+                                            "target": "query",
+                                            "value": {
+                                                "static": 1
+                                            }
+                                        }
+                                    ],
+                                    "dataMapping": {
+                                        "name": "firstname"
+                                    },
+                                    "triggerOnLoad": true
+                                },
+                                {
+                                    "endpoint": {
+                                        "service": "sac",
+                                        "namespace": "claim",
+                                        "method": "list",
+                                        "resolve": false
+                                    },
+                                    "dataMapping": {
+                                        "name": "firstname"
+                                    }
+                                }
+                            ]
+                        },
+                        {
                             "name": "fieldsArray",
                             "component": "FieldsArray",
                             "componentAttributes": {
