@@ -164,14 +164,17 @@ sections:
         translateLabels: true
         label: test.test.test
         labelField: asdasd
+
     - name: fieldsArray
       component: FieldsArray
       componentAttributes:
         canChangeElements: true
         minElements: 1
+        maxElements: 3
         fields:
           - name: test
             component: Text
+
     - name: fieldsArrayTwo
       component: FieldsArray
       componentAttributes:
@@ -181,6 +184,7 @@ sections:
         fields:
           - name: test
             component: Text
+
   - name: others
     fields:
       - name: status
