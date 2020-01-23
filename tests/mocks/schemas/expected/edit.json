@@ -395,6 +395,22 @@
                                     },
                                     "initialValuesFilterName": "id",
                                     "initialValuesPathParam": "name",
+                                    "endpointParameters": [
+                                        {
+                                            "name": "status",
+                                            "target": "path",
+                                            "value": {
+                                                "dynamic": "id"
+                                            }
+                                        },
+                                        {
+                                            "name": "status",
+                                            "target": "query",
+                                            "value": {
+                                                "static": 1
+                                            }
+                                        }
+                                    ],
                                     "valuesMapper": {
                                         "label": "name",
                                         "value": "id"
