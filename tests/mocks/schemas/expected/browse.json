@@ -648,6 +648,77 @@
                     }
                 }
             }
+        },
+        {
+            "name": "exampleFieldWithConditions",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            },
+            "conditions": {
+                "showWhen": [
+                    [
+                        {
+                            "name": "isNotEmpty",
+                            "field": [
+                                "test",
+                                "tes2"
+                            ]
+                        },
+                        {
+                            "name": "isNotEqualTo",
+                            "field": "name",
+                            "referenceValue": null
+                        }
+                    ],
+                    [
+                        {
+                            "name": "isEmpty",
+                            "field": "someField"
+                        }
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "exampleFieldWithConditionsTwo",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            },
+            "conditions": {
+                "showWhen": [
+                    [
+                        {
+                            "name": "isEqualTo",
+                            "field": "user1",
+                            "referenceValue": 1
+                        }
+                    ],
+                    [
+                        {
+                            "name": "isNotEqualTo",
+                            "field": [
+                                "test",
+                                "name"
+                            ],
+                            "referenceValue": true
+                        }
+                    ]
+                ]
+            }
         }
     ],
     "hasPreview": false,

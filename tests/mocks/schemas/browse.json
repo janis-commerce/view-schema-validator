@@ -100,7 +100,7 @@
                 "translateLabels": true,
                 "options": {
                     "scope": "remote",
-                    "initialValuesEndpoint":{
+                    "initialValuesEndpoint": {
                         "service": "sac",
                         "namespace": "claim-type",
                         "method": "list",
@@ -425,6 +425,59 @@
                     "name": "areaInCharge",
                     "component": "Chip"
                 }
+            }
+        },
+        {
+            "name": "exampleFieldWithConditions",
+            "component": "Text",
+            "conditions": {
+                "showWhen": [
+                    [
+                        {
+                            "name": "isNotEmpty",
+                            "field": [
+                                "test",
+                                "tes2"
+                            ]
+                        },
+                        {
+                            "name": "isNotEqualTo",
+                            "field": "name",
+                            "referenceValue": null
+                        }
+                    ],
+                    [
+                        {
+                            "name": "isEmpty",
+                            "field": "someField"
+                        }
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "exampleFieldWithConditionsTwo",
+            "component": "Text",
+            "conditions": {
+                "showWhen": [
+                    [
+                        {
+                            "name": "isEqualTo",
+                            "field": "user1",
+                            "referenceValue": 1
+                        }
+                    ],
+                    [
+                        {
+                            "name": "isNotEqualTo",
+                            "field": [
+                                "test",
+                                "name"
+                            ],
+                            "referenceValue": true
+                        }
+                    ]
+                ]
             }
         }
     ]
