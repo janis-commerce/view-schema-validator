@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.13.0] - 2020-01-23
+### Added
+- Conditions for browse fields
+- Endpoint parameters for selects in browse filters and forms
+- FieldsArray component now accepts a `maxElements` property
+- Form fields now accept triggers to update data on change
+- Remote selects now accept a templated label
+- New form component `Map`
+
 ## [2.12.1] - 2020-01-15
 ### Added
 - Post publish script to notify about new versions
