@@ -230,6 +230,14 @@ sections:
           - name: test
             component: Text
 
+    - name: template
+      component: HTML
+      componentAttributes:
+        sourceField: '<div>hello world</div>'
+
+    - name: emptyTemplate
+      component: HTML
+
   - name: others
     fields:
       - name: status
