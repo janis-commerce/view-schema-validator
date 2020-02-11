@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.14.0] - 2020-02-11
+### Added
+- HTML component added in forms
+
 ## [2.13.0] - 2020-01-23
 ### Added
 - Conditions for browse fields
