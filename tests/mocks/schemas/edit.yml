@@ -233,7 +233,7 @@ sections:
     - name: template
       component: HTML
       componentAttributes:
-        sourceField: '<div>hello world</div>'
+        sourceField: template
 
     - name: emptyTemplate
       component: HTML
