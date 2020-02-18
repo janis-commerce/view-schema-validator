@@ -78,6 +78,11 @@ sections:
         enableWhen:
           - - name: isEmpty
               field: name
+            - name: isOneOf
+              field: someField
+              referenceValue:
+                - test1
+                - test2
         showWhen:
           - - name: isNotEmpty
               field:
@@ -97,6 +102,11 @@ sections:
           - - name: isEqualTo
               field: user1
               referenceValue: 1
+            - name: isNotOneOf
+              field: someField
+              referenceValue:
+                - test1
+                - test2
           - - name: isNotEqualTo
               field:
                 - test
