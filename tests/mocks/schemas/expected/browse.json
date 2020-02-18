@@ -697,6 +697,7 @@
                         {
                             "name": "isNotEqualTo",
                             "field": "name",
+                            "referenceValueType": "static",
                             "referenceValue": null
                         }
                     ],
@@ -735,7 +736,8 @@
                         {
                             "name": "isEqualTo",
                             "field": "user1",
-                            "referenceValue": 1
+                            "referenceValueType": "dynamic",
+                            "referenceValue": "name"
                         },
                         {
                             "name": "isNotOneOf",
