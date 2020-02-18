@@ -369,6 +369,53 @@
             "componentAttributes": {
                 "actionsData": [
                     {
+                        "name": "testAction",
+                        "icon": "star_light",
+                        "color": "fizzGreen",
+                        "type": "endpoint",
+                        "options": {
+                            "endpoint": {
+                                "service": "sac",
+                                "namespace": "claim",
+                                "method": "get",
+                                "resolve": false
+                            },
+                            "endpointParameters": {
+                                "id": "id"
+                            }
+                        }
+                    },
+                    {
+                        "name": "testAction2",
+                        "icon": "star_light",
+                        "color": "fizzGreen",
+                        "type": "endpoint",
+                        "options": {
+                            "endpoint": {
+                                "service": "sac",
+                                "namespace": "claim",
+                                "method": "get",
+                                "resolve": false
+                            },
+                            "endpointParameters": [
+                                {
+                                    "name": "status",
+                                    "target": "path",
+                                    "value": {
+                                        "dynamic": "id"
+                                    }
+                                },
+                                {
+                                    "name": "status",
+                                    "target": "query",
+                                    "value": {
+                                        "static": 1
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
                         "name": "new",
                         "icon": "star_light",
                         "color": "fizzGreen",
