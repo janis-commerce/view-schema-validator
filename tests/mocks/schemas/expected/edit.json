@@ -346,6 +346,11 @@
                             }
                         },
                         {
+                            "name": "exampleMapThree",
+                            "component": "Map",
+                            "componentAttributes": {}
+                        },
+                        {
                             "name": "asyncData",
                             "component": "AsyncWrapper",
                             "componentAttributes": {

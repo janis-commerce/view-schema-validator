@@ -197,6 +197,9 @@ sections:
           latitude: latitude
           longitude: longitude
 
+    - name: exampleMapThree
+      component: Map
+
     - name: asyncData
       component: AsyncWrapper
       componentAttributes:
