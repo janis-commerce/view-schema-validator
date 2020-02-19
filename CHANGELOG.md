@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.15.0] - 2020-02-19
+### Added
+- Actions now support enndpointParameters as an array of objects
+- Added new validations: `isOneOf` and `isNotOneOf`
+- Added `referenceValueType` in validations to validate against other fields
+
+### Changed
+- `Map` componentAttribute `fieldsMapping` is now optional
+
 ## [2.14.0] - 2020-02-11
 ### Added
 - HTML component added in forms
