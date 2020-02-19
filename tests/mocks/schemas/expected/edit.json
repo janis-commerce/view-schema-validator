@@ -134,6 +134,14 @@
                                         {
                                             "name": "isEmpty",
                                             "field": "name"
+                                        },
+                                        {
+                                            "name": "isOneOf",
+                                            "field": "someField",
+                                            "referenceValue": [
+                                                "test1",
+                                                "test2"
+                                            ]
                                         }
                                     ]
                                 ],
@@ -149,6 +157,7 @@
                                         {
                                             "name": "isNotEqualTo",
                                             "field": "name",
+                                            "referenceValueType": "static",
                                             "referenceValue": null
                                         }
                                     ]
@@ -174,7 +183,16 @@
                                         {
                                             "name": "isEqualTo",
                                             "field": "user1",
-                                            "referenceValue": 1
+                                            "referenceValueType": "dynamic",
+                                            "referenceValue": "name"
+                                        },
+                                        {
+                                            "name": "isNotOneOf",
+                                            "field": "someField",
+                                            "referenceValue": [
+                                                "test1",
+                                                "test2"
+                                            ]
                                         }
                                     ],
                                     [
