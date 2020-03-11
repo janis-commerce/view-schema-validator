@@ -2,6 +2,7 @@
     "service": "sac",
     "name": "claim-type-browse",
     "root": "Browse",
+    "canExport": true,
     "source": {
         "service": "sac",
         "namespace": "claim-type",
