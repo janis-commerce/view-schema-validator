@@ -222,6 +222,15 @@
                                             "length": 50
                                         }
                                     }
+                                ],
+                                [
+                                    {
+                                        "name": "literal",
+                                        "options": {
+                                            "value": "test",
+                                            "referenceValueType": "static"
+                                        }
+                                    }
                                 ]
                             ],
                             "conditions": {
@@ -263,6 +272,22 @@
                                 [
                                     {
                                         "name": "required"
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "appliesToLogisticsRepeat",
+                            "component": "Switch",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "literal",
+                                        "options": {
+                                            "value": "appliesToLogistics",
+                                            "referenceValueType": "dynamic"
+                                        }
                                     }
                                 ]
                             ],

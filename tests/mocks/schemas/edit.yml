@@ -132,6 +132,11 @@ sections:
         - - name: maxLength
             options:
               length: 50
+
+        - - name: literal
+            options:
+              value: test
+
       conditions:
         showWhen:
           - - name: isEqualTo
@@ -148,10 +153,20 @@ sections:
                 - test
                 - name
               referenceValue: true
+
     - name: appliesToLogistics
       component: Switch
       validations:
         - - name: required
+
+    - name: appliesToLogisticsRepeat
+      component: Switch
+      validations:
+        - - name: literal
+            options:
+              value: appliesToLogistics
+              referenceValueType: dynamic
+
     - name: missingStockDefault
       component: Switch
       validations:
