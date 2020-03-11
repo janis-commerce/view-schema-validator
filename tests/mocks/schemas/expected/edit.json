@@ -973,6 +973,7 @@
             "name": "apiKeysSection",
             "rootComponent": "ApiKeysSection",
             "parentIdField": "user",
+            "idField": "apiKey",
             "source": {
                 "service": "id",
                 "namespace": "user",
