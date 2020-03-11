@@ -62,6 +62,7 @@
             "component": "Select",
             "componentAttributes": {
                 "translateLabels": true,
+                "canClear": true,
                 "options": {
                     "scope": "local",
                     "values": [
