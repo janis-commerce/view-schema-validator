@@ -284,7 +284,11 @@
                             "name": "test",
                             "component": "Chip",
                             "componentAttributes": {
-                                "borderColor": "grey"
+                                "icon": "icon_test",
+                                "iconColor": "red",
+                                "borderColor": "red",
+                                "textColor": "grey",
+                                "backgroundColor": "grey"
                             }
                         },
                         {
@@ -767,7 +771,9 @@
                     "componentAttributes": {
                         "icon": "icon_test",
                         "iconColor": "red",
-                        "borderColor": "red"
+                        "borderColor": "red",
+                        "textColor": "grey",
+                        "backgroundColor": "grey"
                     }
                 },
                 {

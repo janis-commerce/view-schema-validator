@@ -158,6 +158,12 @@ sections:
         - - name: required
     - name: test
       component: Chip
+      componentAttributes:
+        icon: icon_test
+        iconColor: red
+        borderColor: red
+        textColor: grey
+        backgroundColor: grey
     - name: user1
       component: UserChip
     - name: user2
@@ -444,6 +450,8 @@ sections:
         icon: icon_test
         iconColor: red
         borderColor: red
+        textColor: grey
+        backgroundColor: grey
     - name: rangeHigh
       component: Chip
 
