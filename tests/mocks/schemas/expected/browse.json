@@ -812,6 +812,7 @@
     "hasPreview": false,
     "canEdit": true,
     "canCreate": true,
+    "canExport": true,
     "canView": false,
     "pageSize": 60,
     "actions": [
