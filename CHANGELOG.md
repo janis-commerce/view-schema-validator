@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.16.0] - 2020-03-17
+### Added
+- New prop `idField` in `ApiKeySection`
+- New prop `canExport` in Browses
+- New prop `canClear` in Selects and Multiselects
+- New props `textColor` and `backgroundColor` in Chips
+- New prop `referenceValueType` for dynamic validations
+
 ## [2.15.0] - 2020-02-19
 ### Added
 - Actions now support enndpointParameters as an array of objects
