@@ -21,6 +21,13 @@ header:
         component: StatusChip
         componentAttributes:
           useTheme: themeOne
+    identifier:
+      template: '{0} {1} - ({2})'
+      fields:
+        - test1
+        - test2
+        - test3
+
 themes:
   themeOne:
     new: black
