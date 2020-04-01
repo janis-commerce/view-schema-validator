@@ -59,6 +59,7 @@ sections:
           icon: star_light
           color: fizzGreen
           type: endpoint
+          callback: reloadSectionData
           options:
             endpoint:
               service: sac
@@ -72,6 +73,7 @@ sections:
           icon: star_light
           color: fizzGreen
           type: endpoint
+          callback: refresh
           options:
             endpoint:
               service: sac
