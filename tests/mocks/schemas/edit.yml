@@ -1,6 +1,7 @@
 service: sac
 name: claim-motive-edit
 root: Edit
+canCreate: true
 source:
   service: sac
   namespace: claim-motive
