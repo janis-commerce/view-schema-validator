@@ -6,6 +6,8 @@ source:
   namespace: claim-motive
   method: get
   resolve: false
+saveRedirectUrl: /some-path
+cancelRedirectUrl: /some-path
 header:
   title:
     beforeId:
