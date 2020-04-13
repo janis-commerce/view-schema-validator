@@ -6,6 +6,8 @@ target:
   service: sac
   namespace: claim-motive
   method: save
+saveRedirectUrl: /some-path
+cancelRedirectUrl: /some-path
 sections:
 - name: mainFormSection
   rootComponent: MainForm
