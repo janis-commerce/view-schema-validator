@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.18.0] - 2020-04-13
+### Added
+- New conditionals: `isDev` and `isNotDev`
+- New edit properties: `canCreate`, `saveRedirectUrl` and `cancelRedirectUrl`
+
 ## [2.17.0] - 2020-04-01
 ### Added
 - Edit header identifier can now be customized
