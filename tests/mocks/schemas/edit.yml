@@ -127,6 +127,7 @@ sections:
               referenceValue:
                 - test1
                 - test2
+            - name: isDev
         showWhen:
           - - name: isNotEmpty
               field:
