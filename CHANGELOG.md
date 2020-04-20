@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.19.0] - 2020-04-20
+### Added
+- New edit section: `ImageFilesSection`
+
 ## [2.18.0] - 2020-04-13
 ### Added
 - New conditionals: `isDev` and `isNotDev`
