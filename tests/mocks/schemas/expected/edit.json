@@ -706,6 +706,11 @@
                 "method": "browse",
                 "resolve": false
             },
+            "appearance": {
+                "desktop": {
+                    "rowMinHeight": 70
+                }
+            },
             "staticFilters": [
                 {
                     "name": "status",
