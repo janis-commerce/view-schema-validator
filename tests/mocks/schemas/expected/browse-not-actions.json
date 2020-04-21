@@ -203,6 +203,12 @@
                 "isDefaultSort": false,
                 "initialSortDirection": "desc"
             },
+            "mapper": {
+                "name": "suffix",
+                "props": {
+                    "value": ".test"
+                }
+            },
             "componentAttributes": {
                 "fontWeight": "normal"
             }

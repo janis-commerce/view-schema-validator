@@ -282,6 +282,17 @@
                             "componentAttributes": {}
                         },
                         {
+                            "name": "exampleTextSuffix",
+                            "component": "Text",
+                            "mapper": {
+                                "name": "suffix",
+                                "props": {
+                                    "value": ".test"
+                                }
+                            },
+                            "componentAttributes": {}
+                        },
+                        {
                             "name": "appliesToLogistics",
                             "component": "Switch",
                             "validations": [
