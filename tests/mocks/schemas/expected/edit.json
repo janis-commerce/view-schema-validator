@@ -18,7 +18,9 @@
                     "name": "test",
                     "component": "BadgeLetter",
                     "componentAttributes": {
-                        "translateLabels": true
+                        "translateLabels": true,
+                        "backgroundColorTheme": "backgroundThemeName",
+                        "fontColorTheme": "colorThemeName"
                     }
                 }
             ],

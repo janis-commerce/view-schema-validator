@@ -179,6 +179,19 @@
             "component": "Text"
         },
         {
+            "name": "exampleBadgeLetter",
+            "component": "BadgeLetter"
+        },
+        {
+            "name": "otherExampleBadgeLetter",
+            "component": "BadgeLetter",
+            "componentAttributes": {
+                "translateLabels": false,
+                "backgroundColorSource": "background",
+                "fontColorSource": "colorName"
+            }
+        },
+        {
             "name": "date",
             "component": "Text",
             "mapper": {

@@ -14,6 +14,9 @@ header:
     beforeId:
       - name: test
         component: BadgeLetter
+        componentAttributes:
+          backgroundColorTheme: backgroundThemeName
+          fontColorTheme: colorThemeName
     afterId:
       - name: test
         component: StatusChip
