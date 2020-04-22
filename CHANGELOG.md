@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.20.0] - 2020-04-22
+### Added
+- New field component for Forms: `SelectMultilevel`
+- New customizations for `BadgeLetter`: `backgroundColorTheme`, `backgroundColorSource`, `fontColorTheme`, `fontColorSource`
+- Browse section new property: `canRefresh`
+- New mapper `suffix`
+- `MultiValueWrapper` browse field new property `useDataField` to customize behaviour for object multivalues
+
 ## [2.19.0] - 2020-04-20
 ### Added
 - New edit section: `ImageFilesSection`
