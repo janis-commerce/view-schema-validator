@@ -214,6 +214,34 @@
             }
         },
         {
+            "name": "exampleBadgeLetter",
+            "component": "BadgeLetter",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "translateLabels": true
+            }
+        },
+        {
+            "name": "otherExampleBadgeLetter",
+            "component": "BadgeLetter",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "translateLabels": false,
+                "backgroundColorSource": "background",
+                "fontColorSource": "colorName"
+            }
+        },
+        {
             "name": "date",
             "component": "Text",
             "mapper": {
