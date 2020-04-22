@@ -482,6 +482,7 @@
             "name": "multiValueWrapperExample",
             "component": "MultiValueWrapper",
             "componentAttributes": {
+                "useDataField": true,
                 "field": {
                     "name": "areaInCharge",
                     "component": "Chip"
