@@ -825,6 +825,7 @@
     "canCreate": true,
     "canExport": true,
     "canView": false,
+    "canRefresh": false,
     "pageSize": 60,
     "actions": [
         {

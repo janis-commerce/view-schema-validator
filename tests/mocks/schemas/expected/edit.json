@@ -758,6 +758,7 @@
         {
             "name": "semaphoreBrowse",
             "rootComponent": "BrowseSection",
+            "canRefresh": true,
             "source": {
                 "service": "sac",
                 "namespace": "claim-semaphore",
