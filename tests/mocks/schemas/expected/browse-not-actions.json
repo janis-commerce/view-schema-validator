@@ -10,7 +10,8 @@
     },
     "appearance": {
         "desktop": {
-            "rowMinHeight": 70
+            "rowMinHeight": 70,
+            "rowVerticalAlign": "top"
         }
     },
     "staticFilters": [

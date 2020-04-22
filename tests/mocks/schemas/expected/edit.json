@@ -707,8 +707,15 @@
                 "resolve": false
             },
             "appearance": {
+                "default": {
+                    "rowMinHeight": 50
+                },
                 "desktop": {
-                    "rowMinHeight": 70
+                    "rowMinHeight": 70,
+                    "rowVerticalAlign": "middle"
+                },
+                "mobile": {
+                    "rowMinHeight": 100
                 }
             },
             "staticFilters": [
