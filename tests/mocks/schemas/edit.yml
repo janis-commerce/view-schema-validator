@@ -398,6 +398,39 @@ sections:
                  - email
               value: id
 
+      - name: selectMultilevelExample
+        component: SelectMultilevel
+        componentAttributes:
+          translateLabels: true
+          parentFilterName: parent
+          maxLevel: 3
+          options:
+            scope: remote
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesEndpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesFilterName: id
+            initialValuesPathParam: name
+            endpointParameters:
+              - name: status
+                target: path
+                value:
+                  dynamic: id
+              - name: status
+                target: query
+                value:
+                  static: 1
+            valuesMapper:
+              label: name
+              value: id
+
       - name: dateTime
         component: DateTimePicker
         componentAttributes:
