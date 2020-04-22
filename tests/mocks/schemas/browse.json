@@ -176,7 +176,13 @@
         },
         {
             "name": "parentName",
-            "component": "Text"
+            "component": "Text",
+            "mapper": {
+                "name": "suffix",
+                "props": {
+                    "value": ".test"
+                }
+            }
         },
         {
             "name": "date",

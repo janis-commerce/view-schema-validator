@@ -167,6 +167,13 @@ sections:
                 - name
               referenceValue: true
 
+    - name: exampleTextSuffix
+      component: Text
+      mapper:
+        name: suffix
+        props:
+         value: .test
+
     - name: appliesToLogistics
       component: Switch
       validations:
