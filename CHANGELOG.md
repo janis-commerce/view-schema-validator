@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.21.0] - 2020-04-23
+### Added
+- Browse sections appearance can now be customized with `rowMinHeight` and `rowVerticalAlign`
+
 ## [2.20.0] - 2020-04-22
 ### Added
 - New field component for Forms: `SelectMultilevel`
