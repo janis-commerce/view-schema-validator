@@ -10,6 +10,12 @@
         "method": "browse",
         "resolve": false
     },
+    "appearance": {
+        "desktop": {
+            "rowMinHeight": 70,
+            "rowVerticalAlign": "top"
+        }
+    },
     "staticFilters": [
         {
             "name": "status",
