@@ -10,6 +10,12 @@
         "method": "browse",
         "resolve": false
     },
+    "sortEndpoint": {
+        "service": "service",
+        "namespace": "namespace",
+        "method": "method",
+        "resolve": false
+    },
     "appearance": {
         "desktop": {
             "rowMinHeight": 70,
