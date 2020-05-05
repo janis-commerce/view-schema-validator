@@ -177,6 +177,22 @@ sections:
         props:
          value: .test
 
+    - name: exampleStatuChipOne
+      component: StatusChip
+      mapper: translate
+      componentAttributes:
+        useTheme: true
+
+    - name: exampleStatuChipTwo
+      component: StatusChip
+      componentAttributes:
+        useTheme: themeOne
+
+    - name: exampleStatuChipThree
+      component: StatusChip
+      componentAttributes:
+        colorSource: test
+
     - name: appliesToLogistics
       component: Switch
       validations:
