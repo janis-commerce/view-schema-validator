@@ -63,7 +63,10 @@
         {
             "name": "filterInput",
             "label": "test.test.test",
-            "component": "Input"
+            "component": "Input",
+            "componentAttributes": {
+                "icon": "iconName"
+            }
         },
         {
             "name": "localSelect",
@@ -71,6 +74,7 @@
             "componentAttributes": {
                 "translateLabels": true,
                 "canClear": true,
+                "icon": "iconName",
                 "options": {
                     "scope": "local",
                     "values": [
