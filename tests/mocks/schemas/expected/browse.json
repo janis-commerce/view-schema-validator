@@ -675,6 +675,17 @@
             }
         },
         {
+            "name": "userAsync",
+            "component": "UserAsyncWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {}
+        },
+        {
             "name": "asyncUser",
             "component": "AsyncWrapper",
             "attributes": {
