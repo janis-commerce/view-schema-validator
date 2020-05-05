@@ -505,7 +505,7 @@
             }
         },
         {
-            "name": "multiValueWrapperExample",
+            "name": "multiValueWrapperExampleOne",
             "component": "MultiValueWrapper",
             "componentAttributes": {
                 "useDataField": true,
@@ -519,7 +519,35 @@
             "name": "multiValueWrapperExampleTwo",
             "component": "MultiValueWrapper",
             "componentAttributes": {
+                "useDataField": true,
+                "isCollapsable": true,
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip"
+                }
+            }
+        },
+        {
+            "name": "multiValueWrapperExampleThree",
+            "component": "MultiValueWrapper",
+            "componentAttributes": {
                 "direction": "horizontal",
+                "isCollapsable": "onlyMobile",
+                "defaultStatus": "open",
+                "itemsToShowWhenClosed": 1,
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip"
+                }
+            }
+        },
+        {
+            "name": "multiValueWrapperExampleFour",
+            "component": "MultiValueWrapper",
+            "componentAttributes": {
+                "direction": "horizontal",
+                "isCollapsable": "onlyDesktop",
+                "defaultStatus": "closed",
                 "field": {
                     "name": "areaInCharge",
                     "component": "Chip"
