@@ -618,7 +618,13 @@
                 "desktop": {
                     "type": "Tooltip",
                     "label": "common.title",
-                    "translateLabels": true
+                    "translateLabels": true,
+                    "mapper": {
+                        "name": "suffix",
+                        "props":{
+                            "value": "comon.test."
+                        }
+                    }
                 }
             },
             "onClick": {
@@ -673,6 +679,25 @@
                 }
             },
             "onClick": {
+                "desktop": {
+                    "type": "Tooltip",
+                    "label": "common.title",
+                    "translateLabels": true,
+                    "mapper": [
+                        {
+                            "name": "suffix",
+                            "props":{
+                                "value": "comon.test."
+                            }
+                        },
+                        {
+                            "name": "prefix",
+                            "props":{
+                                "value": "comon.test."
+                            }
+                        }
+                    ]
+                },
                 "all": {
                     "type": "ListModal",
                     "title": "common.title",
