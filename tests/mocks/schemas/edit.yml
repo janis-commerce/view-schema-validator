@@ -475,6 +475,10 @@ sections:
 - name: semaphoreBrowse
   rootComponent: BrowseSection
   canRefresh: true
+  conditions:
+    showWhen:
+      - - name: isNotEmpty
+          field: order
   topComponents:
     - component: TestComponent
       attributes:
