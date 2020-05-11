@@ -767,6 +767,12 @@
                 "method": "browse",
                 "resolve": false
             },
+            "sortEndpoint":{
+                "service": "service",
+                "namespace": "namespace",
+                "method": "method",
+                "resolve": false
+            },
             "appearance": {
                 "default": {
                     "rowMinHeight": 50
