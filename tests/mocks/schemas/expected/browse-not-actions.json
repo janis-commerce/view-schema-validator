@@ -931,6 +931,145 @@
                     ]
                 ]
             }
+        },
+        {
+            "name": "interactionExampleOne",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "onHover": {
+                "mobile": {
+                    "type": "ListTooltip",
+                    "title": "common.title",
+                    "source": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "listFields": ["fieldName"]
+                },
+                "desktop": {
+                    "type": "Tooltip",
+                    "label": "common.title",
+                    "translateLabels": true,
+                    "mapper": {
+                        "name": "suffix",
+                        "props":{
+                            "value": "comon.test."
+                        }
+                    }
+                }
+            },
+            "onClick": {
+                "mobile": {
+                    "type": "ListTooltip",
+                    "title": "common.title",
+                    "source": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "listFields": ["fieldName"]
+                },
+                "desktop": {
+                    "type": "ListModal",
+                    "title": "common.title",
+                    "source": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "listFields": ["fieldName"]
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
+            "name": "interactionExampleTwo",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "onHover": {
+                "all": {
+                    "type": "ListModal",
+                    "title": "common.title",
+                    "source": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "listFields": ["fieldName"],
+                    "viewMoreLink": "/test/{id}",
+                    "viewMoreEndpointParameters": [
+                        {
+                            "name": "id",
+                            "target": "path",
+                            "value": {
+                                "static": "fieldId"
+                            }
+                        }
+                    ]
+                }
+            },
+            "onClick": {
+                "desktop": {
+                    "type": "Tooltip",
+                    "label": "common.title",
+                    "translateLabels": true,
+                    "mapper": [
+                        {
+                            "name": "suffix",
+                            "props":{
+                                "value": "comon.test."
+                            }
+                        },
+                        {
+                            "name": "prefix",
+                            "props":{
+                                "value": "comon.test."
+                            }
+                        }
+                    ]
+                },
+                "all": {
+                    "type": "ListModal",
+                    "title": "common.title",
+                    "source": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "listFields": ["fieldName"],
+                    "viewMoreLink": "/test/{id}",
+                    "viewMoreEndpointParameters": [
+                        {
+                            "name": "id",
+                            "target": "path",
+                            "value": {
+                                "static": "fieldId"
+                            }
+                        }
+                    ]
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
         }
     ],
     "hasPreview": false,
