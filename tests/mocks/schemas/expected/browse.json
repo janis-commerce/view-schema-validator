@@ -726,7 +726,7 @@
             }
         },
         {
-            "name": "multiValueWrapperExample",
+            "name": "multiValueWrapperExampleOne",
             "component": "MultiValueWrapper",
             "attributes": {
                 "isStatus": false,
@@ -762,7 +762,66 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {
+                "useDataField": true,
+                "direction": "vertical",
+                "isCollapsable": true,
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "borderColor": "grey"
+                    }
+                }
+            }
+        },
+        {
+            "name": "multiValueWrapperExampleThree",
+            "component": "MultiValueWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
                 "direction": "horizontal",
+                "isCollapsable": "onlyMobile",
+                "defaultStatus": "open",
+                "itemsToShowWhenClosed": 1,
+                "field": {
+                    "name": "areaInCharge",
+                    "component": "Chip",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "borderColor": "grey"
+                    }
+                }
+            }
+        },
+        {
+            "name": "multiValueWrapperExampleFour",
+            "component": "MultiValueWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "direction": "horizontal",
+                "isCollapsable": "onlyDesktop",
+                "defaultStatus": "closed",
                 "field": {
                     "name": "areaInCharge",
                     "component": "Chip",
