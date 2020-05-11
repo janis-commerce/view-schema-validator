@@ -108,6 +108,7 @@ sections:
         translateLabels: true
         labelFieldName: motiveName
         labelPrefix: common.status.
+        icon: iconName
         options:
           scope: local
           valuesMapper:
@@ -302,6 +303,11 @@ sections:
             resolve: false
           dataMapping:
             name: firstname
+
+    - name: someInput
+      component: Input
+      componentAttributes:
+        icon: iconName
 
     - name: fieldsArray
       component: FieldsArray

@@ -157,6 +157,7 @@
                                 "translateLabels": true,
                                 "labelFieldName": "motiveName",
                                 "labelPrefix": "common.status.",
+                                "icon": "iconName",
                                 "options": {
                                     "scope": "local",
                                     "valuesMapper": {
@@ -499,6 +500,13 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "name": "someInput",
+                            "component": "Input",
+                            "componentAttributes": {
+                                "icon": "iconName"
+                            }
                         },
                         {
                             "name": "fieldsArray",
