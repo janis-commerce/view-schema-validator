@@ -486,6 +486,10 @@
             }
         },
         {
+            "name": "userAsync",
+            "component": "UserAsyncWrapper"
+        },
+        {
             "name": "asyncUser",
             "component": "AsyncWrapper",
             "componentAttributes": {
