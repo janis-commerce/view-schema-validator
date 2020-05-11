@@ -115,6 +115,16 @@
                             "color": "fizzGreen",
                             "type": "endpoint",
                             "callback": "refresh",
+                            "conditions": {
+                                "showWhen": [
+                                    [
+                                        {
+                                            "name": "isNotEmpty",
+                                            "field": "order"
+                                        }
+                                    ]
+                                ]
+                            },
                             "options": {
                                 "endpoint": {
                                     "service": "sac",
