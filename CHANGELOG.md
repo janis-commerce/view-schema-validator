@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.22.0] - 2020-05-11
+### Added
+- New browse component `UserAsyncWrapper`, to replace AsyncWrappers with UserChips
+- Browses can now be sorted, defining `sortEndpoint` property
+- New properties `fileUpdateEndpoint` and `fileUpdateEndpointParameters` to update image custom fields in `ImageFilesSection`
+- `MultiValueWrapper` can now be defined as collapsable and customize it's behaviour
+- Inputs, Selects and MultiSelects now accept an icon property that will be shown inside them
+- StatusChip can now be used as a field in forms
+- Edit sections can now be hidden using conditions
+- Edit top component actions can now be hidden using conditions
+- Browse fields improved, now they accept user interactions in hover and click events!
+
 ## [2.21.0] - 2020-04-23
 ### Added
 - Browse sections appearance can now be customized with `rowMinHeight` and `rowVerticalAlign`
