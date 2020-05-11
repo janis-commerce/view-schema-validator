@@ -1090,6 +1090,28 @@
                 "method": "upload",
                 "resolve": false
             },
+            "fileUpdateEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "update",
+                "resolve": false
+            },
+            "fileUpdateEndpointParameters": [
+                {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                        "dynamic": "statusId"
+                    }
+                },
+                {
+                    "name": "status",
+                    "target": "query",
+                    "value": {
+                        "static": 1
+                    }
+                }
+            ],
             "filesTypes": [
                 "image/png",
                 "image/jpg",
