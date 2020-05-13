@@ -497,7 +497,7 @@
         },
         {
             "name": "userAsync",
-            "component": "UserAsyncWrapper"
+            "component": "AsyncUserChip"
         },
         {
             "name": "asyncUser",
