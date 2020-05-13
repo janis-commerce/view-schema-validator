@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.22.1] - 2020-05-13
+### Fixed
+- `UserAsyncWrapper` name fixed to `AsyncUserChip`
+
 ## [2.22.0] - 2020-05-11
 ### Added
 - New browse component `UserAsyncWrapper`, to replace AsyncWrappers with UserChips
