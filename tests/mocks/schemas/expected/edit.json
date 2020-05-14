@@ -1103,6 +1103,12 @@
                 "method": "upload",
                 "resolve": false
             },
+            "fileSortEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "sort",
+                "resolve": false
+            },
             "filesTypes": [
                 "image/png"
             ]
@@ -1138,6 +1144,12 @@
                 "service": "sac",
                 "namespace": "claim",
                 "method": "upload",
+                "resolve": false
+            },
+            "fileSortEndpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "sort",
                 "resolve": false
             },
             "fileUpdateEndpoint": {
