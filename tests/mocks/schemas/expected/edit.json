@@ -1067,6 +1067,10 @@
             "pageSize": 60
         },
         {
+            "name": "order",
+            "rootComponent": "OmsOrderInfo"
+        },
+        {
             "name": "logsBrowseSection",
             "rootComponent": "LogsBrowseSection"
         },
