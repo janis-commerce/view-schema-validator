@@ -611,6 +611,8 @@ sections:
               value: 1
             - label: common.status.inactive
               value: 0
+- name: order
+  rootComponent: OmsOrderInfo
 - name: logsBrowseSection
   rootComponent: LogsBrowseSection
 - name: filesSection
