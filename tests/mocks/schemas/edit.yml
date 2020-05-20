@@ -42,6 +42,7 @@ themes:
   themeTwo:
     new: grey
     closed: fizzgreen
+collapseSections: true
 sections:
 - name: mainFormSection
   rootComponent: MainForm
@@ -724,6 +725,7 @@ sections:
 
 - name: anotherOrderItemsSection
   rootComponent: OrderItemsSection
+  collapse: false
 
 - name: apiKeysSection
   rootComponent: ApiKeysSection
