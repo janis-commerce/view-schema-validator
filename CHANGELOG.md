@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.24.0] - 2020-05-20
+### Added
+- `OmsOrderInfo` section added
+
 ## [2.23.0] - 2020-05-14
 ### Added
 - `FilesSection` and `ImageFilesSection` can now be sorted
