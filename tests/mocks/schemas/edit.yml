@@ -488,6 +488,7 @@ sections:
           translateSectionLabel: true
           translateGroupLabel: false
           translateCheckboxLabel: false
+
       - name: multiInputExample
         component: MultiInput
         componentAttributes:
@@ -497,6 +498,15 @@ sections:
           requiredFields:
             - test
             - test2
+
+      - name: userAssigned
+        component: UserSelector
+
+      - name: members
+        component: UserSelector
+        componentAttributes:
+          isMulti: true
+
 
 - name: semaphoreBrowse
   rootComponent: BrowseSection

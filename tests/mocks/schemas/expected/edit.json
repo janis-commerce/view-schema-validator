@@ -792,6 +792,18 @@
                                     "test2"
                                 ]
                             }
+                        },
+                        {
+                            "name": "userAssigned",
+                            "component": "UserSelector",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "members",
+                            "component": "UserSelector",
+                            "componentAttributes": {
+                                "isMulti": true
+                            }
                         }
                     ]
                 }
