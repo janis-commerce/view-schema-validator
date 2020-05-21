@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.26.0] - 2020-05-21
+### Added
+- Create and Edit sections now accept an icon to display in the tab
+
 ## [2.25.0] - 2020-05-21
 ### Added
 - `hideTitle` property to hide Edit views default title
