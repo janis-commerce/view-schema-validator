@@ -170,6 +170,17 @@
                 "selectTime": true,
                 "selectRange": true
             }
+        },
+        {
+            "name": "userAssigned",
+            "component": "UserSelector"
+        },
+        {
+            "name": "members",
+            "component": "UserSelector",
+            "componentAttributes": {
+                "isMulti": true
+            }
         }
     ],
     "fields": [
