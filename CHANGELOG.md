@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.25.0] - 2020-05-21
+### Added
+- `hideTitle` property to hide Edit views default title
+- Browse fields `appearance` object
+- Edit sections tabs can now be collapsed globally or individually
+- New browse filter component to easily filter by users
+
 ## [2.24.0] - 2020-05-20
 ### Added
 - `OmsOrderInfo` section added
