@@ -11,6 +11,7 @@ saveRedirectUrl: /some-path
 cancelRedirectUrl: /some-path
 header:
   title:
+    hideTitle: true
     beforeId:
       - name: test
         component: BadgeLetter
