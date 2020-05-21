@@ -62,6 +62,7 @@
             "closed": "fizzgreen"
         }
     },
+    "collapseSections": true,
     "sections": [
         {
             "name": "mainFormSection",
@@ -1222,7 +1223,8 @@
         },
         {
             "name": "anotherOrderItemsSection",
-            "rootComponent": "OrderItemsSection"
+            "rootComponent": "OrderItemsSection",
+            "collapse": false
         },
         {
             "name": "apiKeysSection",
