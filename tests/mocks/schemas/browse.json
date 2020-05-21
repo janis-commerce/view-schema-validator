@@ -176,6 +176,24 @@
         {
             "name": "id",
             "component": "BoldText",
+            "appearance": {
+                "desktop": {
+                    "fontSize": "base",
+                    "align": "left",
+                    "verticalAlign": "center"
+                },
+                "mobile": {
+                    "fontSize": "baseSmall",
+                    "align": "center",
+                    "verticalAlign": "top"
+                },
+                "default": {
+                    "fontColor": "blue",
+                    "fontSize": "small",
+                    "align": "right",
+                    "verticalAlign": "bottom"
+                }
+            },
             "attributes": {
                 "sortable": true,
                 "isDefaultSort": true
@@ -186,6 +204,17 @@
         {
             "name": "motiveName",
             "component": "MediumText",
+            "appearance": {
+                "desktop": {
+                    "fontSize": "xsmall"
+                },
+                "mobile": {
+                    "fontSize": "large"
+                },
+                "default": {
+                    "fontSize": "xlarge"
+                }
+            },
             "deviceDisplay": "mobile",
             "filter": {
                 "component": "Input"
@@ -194,6 +223,11 @@
         {
             "name": "parentName",
             "component": "Text",
+            "appearance": {
+                "default": {
+                    "fontSize": "xxlarge"
+                }
+            },
             "mapper": {
                 "name": "suffix",
                 "props": {
