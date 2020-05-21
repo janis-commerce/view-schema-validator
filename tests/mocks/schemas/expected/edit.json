@@ -68,6 +68,7 @@
         {
             "name": "mainFormSection",
             "rootComponent": "MainForm",
+            "icon": "catalogue",
             "topComponents": [
                 {
                     "component": "TestComponent"

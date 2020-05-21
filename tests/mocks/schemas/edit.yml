@@ -47,6 +47,7 @@ collapseSections: true
 sections:
 - name: mainFormSection
   rootComponent: MainForm
+  icon: catalogue
   topComponents:
     - component: TestComponent
     - component: TestComponentLeft
