@@ -700,6 +700,15 @@
                         "method": "methodName",
                         "resolve": false
                     },
+                    "endpointParameters": [
+                        {
+                            "name": "id",
+                            "target": "path",
+                            "value": {
+                                "static": "fieldId"
+                            }
+                        }
+                    ],
                     "listFields": ["fieldName"]
                 },
                 "desktop": {
