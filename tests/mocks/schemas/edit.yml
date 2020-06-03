@@ -218,6 +218,7 @@ sections:
       component: Switch
       validations:
         - - name: required
+
     - name: test
       component: Chip
       componentAttributes:
@@ -226,6 +227,16 @@ sections:
         borderColor: red
         textColor: grey
         backgroundColor: grey
+
+    - name: testMediumChip
+      component: MediumChip
+      componentAttributes:
+        icon: icon_test
+        iconColor: red
+        borderColor: red
+        textColor: grey
+        backgroundColor: grey
+
     - name: user1
       component: UserChip
     - name: user2

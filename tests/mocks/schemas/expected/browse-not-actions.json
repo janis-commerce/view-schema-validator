@@ -521,6 +521,23 @@
             }
         },
         {
+            "name": "testMediumChip",
+            "component": "MediumChip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": "icon_test",
+                "iconColor": "red",
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey"
+            }
+        },
+        {
             "name": "colorOne",
             "component": "Color",
             "attributes": {
