@@ -1089,13 +1089,15 @@
                         {
                             "name": "suffix",
                             "props":{
-                                "value": "comon.test."
+                                "value": "comon.test.",
+                                "translate": true
                             }
                         },
                         {
                             "name": "prefix",
                             "props":{
-                                "value": "comon.test."
+                                "value": "comon.test.",
+                                "translate": false
                             }
                         }
                     ]

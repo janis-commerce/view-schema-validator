@@ -303,7 +303,20 @@
                             "mapper": {
                                 "name": "suffix",
                                 "props": {
-                                    "value": ".test"
+                                    "value": ".test",
+                                    "translate": true
+                                }
+                            },
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleTextPrefix",
+                            "component": "Text",
+                            "mapper": {
+                                "name": "prefix",
+                                "props": {
+                                    "value": ".test",
+                                    "translate": false
                                 }
                             },
                             "componentAttributes": {}
