@@ -832,7 +832,7 @@
                 "method": "browse",
                 "resolve": false
             },
-            "sortEndpoint":{
+            "sortEndpoint": {
                 "service": "service",
                 "namespace": "namespace",
                 "method": "method",
@@ -1279,6 +1279,31 @@
                 "method": "save",
                 "resolve": false
             },
+            "sourceEndpointParameters": [
+                {
+                    "name": "service",
+                    "target": "path",
+                    "value": {
+                        "static": "serviceName"
+                    }
+                }
+            ],
+            "targetEndpointParameters": [
+                {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                        "dynamic": "id"
+                    }
+                },
+                {
+                    "name": "status",
+                    "target": "query",
+                    "value": {
+                        "static": 1
+                    }
+                }
+            ],
             "fieldsGroup": [
                 {
                     "name": "detail",
