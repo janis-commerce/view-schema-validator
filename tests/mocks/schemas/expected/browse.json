@@ -508,6 +508,38 @@
             }
         },
         {
+            "name": "iconExampleOne",
+            "component": "Icon",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": "iconName",
+                "color": "iconColor"
+            }
+        },
+        {
+            "name": "iconExampleTwo",
+            "component": "Icon",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": {
+                    "useTheme": "someTheme"
+                },
+                "color": {
+                    "useTheme": "someTheme"
+                }
+            }
+        },
+        {
             "name": "areaInCharge",
             "component": "Chip",
             "attributes": {

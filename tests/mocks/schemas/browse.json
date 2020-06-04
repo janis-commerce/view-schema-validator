@@ -383,6 +383,26 @@
             }
         },
         {
+            "name": "iconExampleOne",
+            "component": "Icon",
+            "componentAttributes": {
+                "icon": "iconName",
+                "color": "iconColor"
+            }
+        },
+        {
+            "name": "iconExampleTwo",
+            "component": "Icon",
+            "componentAttributes": {
+                "icon": {
+                    "useTheme": "someTheme"
+                },
+                "color": {
+                    "useTheme": "someTheme"
+                }
+            }
+        },
+        {
             "name": "areaInCharge",
             "component": "Chip"
         },
