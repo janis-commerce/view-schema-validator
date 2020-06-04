@@ -564,6 +564,30 @@
             }
         },
         {
+            "name": "asyncWrapperNewExample",
+            "component": "AsyncWrapper",
+            "componentAttributes": {
+                "source": {
+                    "service": "id",
+                    "namespace": "user",
+                    "method": "list",
+                    "resolve": false
+                },
+                "dataMapping": {
+                    "firstname": "userTest"
+                },
+                "dataMatching": {
+                    "local": "id",
+                    "remote": "someId"
+                },
+                "targetField": "fieldName",
+                "field": {
+                    "name": "userTest",
+                    "component": "Text"
+                }
+            }
+        },
+        {
             "name": "multiValueWrapperExampleOne",
             "component": "MultiValueWrapper",
             "componentAttributes": {

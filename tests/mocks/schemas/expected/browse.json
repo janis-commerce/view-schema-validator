@@ -775,6 +775,45 @@
             }
         },
         {
+            "name": "asyncWrapperNewExample",
+            "component": "AsyncWrapper",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "source": {
+                    "service": "id",
+                    "namespace": "user",
+                    "method": "list",
+                    "resolve": false
+                },
+                "dataMapping": {
+                    "firstname": "userTest"
+                },
+                "dataMatching": {
+                    "local": "id",
+                    "remote": "someId"
+                },
+                "targetField": "fieldName",
+                "field": {
+                    "name": "userTest",
+                    "component": "Text",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "fontWeight": "normal"
+                    }
+                }
+            }
+        },
+        {
             "name": "multiValueWrapperExampleOne",
             "component": "MultiValueWrapper",
             "attributes": {
