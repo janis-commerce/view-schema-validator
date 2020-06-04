@@ -382,6 +382,17 @@
                             }
                         },
                         {
+                            "name": "testMediumChip",
+                            "component": "MediumChip",
+                            "componentAttributes": {
+                                "icon": "icon_test",
+                                "iconColor": "red",
+                                "borderColor": "red",
+                                "textColor": "grey",
+                                "backgroundColor": "grey"
+                            }
+                        },
+                        {
                             "name": "user1",
                             "component": "UserChip",
                             "componentAttributes": {}
