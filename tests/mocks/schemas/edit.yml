@@ -178,6 +178,14 @@ sections:
                 - name
               referenceValue: true
 
+    - name: exampleTextCurrency
+      component: Text
+      mapper:
+        name: currency
+        props:
+          currencyCode: USD
+          currencyField: someField
+
     - name: exampleTextSuffix
       component: Text
       mapper:

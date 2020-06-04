@@ -298,6 +298,18 @@
                             "componentAttributes": {}
                         },
                         {
+                            "name": "exampleTextCurrency",
+                            "component": "Text",
+                            "mapper": {
+                                "name": "currency",
+                                "props": {
+                                    "currencyCode": "USD",
+                                    "currencyField": "someField"
+                                }
+                            },
+                            "componentAttributes": {}
+                        },
+                        {
                             "name": "exampleTextSuffix",
                             "component": "Text",
                             "mapper": {
