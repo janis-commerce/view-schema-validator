@@ -280,6 +280,17 @@
             }
         },
         {
+            "name": "currencyTest",
+            "component": "Text",
+            "mapper": {
+                "name": "currency",
+                "props": {
+                    "currencyCode": "USD",
+                    "currencyField": "someField"
+                }
+            }
+        },
+        {
             "name": "linkTest",
             "component": "Link"
         },
