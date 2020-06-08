@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.28.0] - 2020-06-08
+### Added
+- Prefix and Suffix mappers can now be translated
+- Currency mapper can get currencyCode from the data
+- `source` is not required for edit pages without a main form
+
 ## [2.27.0] - 2020-05-26
 ### Added
 - Added `endpointParameters` to browse fields interactions
