@@ -280,6 +280,17 @@
             }
         },
         {
+            "name": "currencyTest",
+            "component": "Text",
+            "mapper": {
+                "name": "currency",
+                "props": {
+                    "currencyCode": "USD",
+                    "currencyField": "someField"
+                }
+            }
+        },
+        {
             "name": "linkTest",
             "component": "Link"
         },
@@ -783,13 +794,15 @@
                         {
                             "name": "suffix",
                             "props":{
-                                "value": "comon.test."
+                                "value": "comon.test.",
+                                "translate": true
                             }
                         },
                         {
                             "name": "prefix",
                             "props":{
-                                "value": "comon.test."
+                                "value": "comon.test.",
+                                "translate": false
                             }
                         }
                     ]

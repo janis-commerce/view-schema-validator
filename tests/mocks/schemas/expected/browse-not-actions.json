@@ -341,6 +341,26 @@
             }
         },
         {
+            "name": "currencyTest",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "currency",
+                "props": {
+                    "currencyCode": "USD",
+                    "currencyField": "someField"
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "linkTest",
             "component": "Link",
             "attributes": {
@@ -1089,13 +1109,15 @@
                         {
                             "name": "suffix",
                             "props":{
-                                "value": "comon.test."
+                                "value": "comon.test.",
+                                "translate": true
                             }
                         },
                         {
                             "name": "prefix",
                             "props":{
-                                "value": "comon.test."
+                                "value": "comon.test.",
+                                "translate": false
                             }
                         }
                     ]
