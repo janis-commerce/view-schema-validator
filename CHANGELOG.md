@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - New properties `sourceEndpointParameters` and `targetEndpointParameters` for the source and target in the `FormSection`.
 - New componentnt `MediumChip`
 - Now in the `Chip` component you can set a theme for the icon and color property
+- New propierty `addWhitespace` for suffix and prefix mappers
 
 ## [2.28.0] - 2020-06-08
 ### Added
