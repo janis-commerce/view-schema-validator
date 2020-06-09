@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.29.0] - 2020-06-09
+### Added
+- New dataMatching and targetField for AsyncWrapper component
+- New properties `sourceEndpointParameters` and `targetEndpointParameters` for the source and target in the `FormSection`.
+- New componentnt `MediumChip`
+- Now in the `Chip` component you can set a theme for the icon and color property
+
 ## [2.28.0] - 2020-06-08
 ### Added
 - Prefix and Suffix mappers can now be translated
