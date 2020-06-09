@@ -528,6 +528,38 @@
             }
         },
         {
+            "name": "iconExampleOne",
+            "component": "Icon",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": "iconName",
+                "color": "iconColor"
+            }
+        },
+        {
+            "name": "iconExampleTwo",
+            "component": "Icon",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": {
+                    "useTheme": "someTheme"
+                },
+                "color": {
+                    "useTheme": "someTheme"
+                }
+            }
+        },
+        {
             "name": "areaInCharge",
             "component": "Chip",
             "attributes": {
@@ -538,6 +570,61 @@
             },
             "componentAttributes": {
                 "borderColor": "grey"
+            }
+        },
+        {
+            "name": "testChip",
+            "component": "Chip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": "icon_test",
+                "iconColor": "red",
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey"
+            }
+        },
+        {
+            "name": "testChipWithThemes",
+            "component": "Chip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": {
+                    "useTheme": "themeName"
+                },
+                "iconColor": {
+                    "useTheme": "themeName"
+                },
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey"
+            }
+        },
+        {
+            "name": "testMediumChip",
+            "component": "MediumChip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": "icon_test",
+                "iconColor": "red",
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey"
             }
         },
         {

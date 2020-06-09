@@ -396,8 +396,34 @@
                             "componentAttributes": {}
                         },
                         {
-                            "name": "test",
+                            "name": "testChip",
                             "component": "Chip",
+                            "componentAttributes": {
+                                "icon": "icon_test",
+                                "iconColor": "red",
+                                "borderColor": "red",
+                                "textColor": "grey",
+                                "backgroundColor": "grey"
+                            }
+                        },
+                        {
+                            "name": "testChipWithThemes",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "icon": {
+                                    "useTheme": "themeName"
+                                },
+                                "iconColor": {
+                                    "useTheme": "themeName"
+                                },
+                                "borderColor": "red",
+                                "textColor": "grey",
+                                "backgroundColor": "grey"
+                            }
+                        },
+                        {
+                            "name": "testMediumChip",
+                            "component": "MediumChip",
                             "componentAttributes": {
                                 "icon": "icon_test",
                                 "iconColor": "red",
