@@ -316,6 +316,7 @@
                                 "name": "suffix",
                                 "props": {
                                     "value": ".test",
+                                    "addWhitespace": false,
                                     "translate": true
                                 }
                             },
@@ -328,6 +329,7 @@
                                 "name": "prefix",
                                 "props": {
                                     "value": ".test",
+                                    "addWhitespace": true,
                                     "translate": false
                                 }
                             },

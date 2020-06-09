@@ -192,6 +192,7 @@ sections:
         name: suffix
         props:
           value: .test
+          addWhitespace: false
           translate: true
 
     - name: exampleTextPrefix
@@ -200,6 +201,7 @@ sections:
         name: prefix
         props:
           value: .test
+          addWhitespace: true
           translate: false
 
     - name: exampleStatuChipOne
