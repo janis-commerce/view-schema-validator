@@ -818,6 +818,7 @@ sections:
       target: path
       value:
         static: serviceName
+
   targetEndpointParameters:
     - name: status
       target: path
@@ -827,6 +828,9 @@ sections:
       target: query
       value:
         static: 1
+
+  includeDataFrom:
+    - someSection
 
   fieldsGroup:
   - name: detail
