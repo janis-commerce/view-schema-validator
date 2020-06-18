@@ -1,0 +1,73 @@
+{
+    "service": "serviceName",
+    "name": "example-dashboard",
+    "root": "Dashboard",
+    "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+    },
+    "filters": [
+        {
+            "name": "filterInput",
+            "label": "someLabel",
+            "component": "Input",
+            "componentAttributes": {
+                "icon": "iconName"
+            }
+        }
+    ],
+    "graphs": [
+        {
+            "component": "Table",
+            "filters": [],
+            "name": "graphName",
+            "title": "someTitleForGraph",
+            "source": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
+            "endpointParameters": [
+                {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                        "dynamic": "id"
+                    }
+                },
+                {
+                    "name": "status",
+                    "target": "query",
+                    "value": {
+                        "static": 1
+                    }
+                }
+            ],
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 3
+        },
+        {
+            "component": "BarChart",
+            "filters": [],
+            "name": "graphName",
+            "title": "someTitleForGraph",
+            "translateTitle": true,
+            "subtitle": "someSubtitleForGraph",
+            "translateSubtitle": true,
+            "componentAttributes": {
+                "options": {
+                    "width": "100%"
+                }
+            },
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 3
+        }
+    ]
+}
