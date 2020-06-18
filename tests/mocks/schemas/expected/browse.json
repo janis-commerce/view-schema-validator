@@ -193,12 +193,14 @@
                 "desktop": {
                     "fontSize": "base",
                     "align": "left",
-                    "verticalAlign": "center"
+                    "verticalAlign": "center",
+                    "width": "auto"
                 },
                 "mobile": {
                     "fontSize": "baseSmall",
                     "align": "center",
-                    "verticalAlign": "top"
+                    "verticalAlign": "top",
+                    "width": 50
                 },
                 "default": {
                     "fontColor": "blue",
