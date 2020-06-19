@@ -2,12 +2,6 @@
     "service": "serviceName",
     "name": "example-dashboard",
     "root": "Dashboard",
-    "source": {
-        "service": "serviceName",
-        "namespace": "namespaceName",
-        "method": "methodName",
-        "resolve": false
-    },
     "filters": [
         {
             "name": "filterInput",

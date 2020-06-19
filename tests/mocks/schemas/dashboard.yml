@@ -1,18 +1,12 @@
 service: serviceName
 name: example-dashboard
 root: Dashboard
-source:
-  service: serviceName
-  namespace: namespaceName
-  method: methodName
-  resolve: false
 filters:
   - name: filterInput
     label: someLabel
     component: Input
     componentAttributes:
       icon: iconName
-
 graphs:
   - component: Table
     name: graphName
