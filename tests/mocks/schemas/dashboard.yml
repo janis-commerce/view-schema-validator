@@ -36,6 +36,11 @@ graphs:
     translateTitle: true
     subtitle: someSubtitleForGraph
     translateSubtitle: true
+    source:
+      service: serviceName
+      namespace: namespaceName
+      method: methodName
+      resolve: false
     componentAttributes:
       options:
         width: 100%

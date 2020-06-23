@@ -52,6 +52,12 @@
             "title": "someTitleForGraph",
             "translateTitle": true,
             "subtitle": "someSubtitleForGraph",
+            "source": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
             "translateSubtitle": true,
             "componentAttributes": {
                 "options": {
