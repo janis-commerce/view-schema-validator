@@ -215,7 +215,8 @@
             "name": "members",
             "component": "UserSelector",
             "componentAttributes": {
-                "isMulti": true
+                "isMulti": true,
+                "onlyActiveUsers": true
             }
         }
     ],

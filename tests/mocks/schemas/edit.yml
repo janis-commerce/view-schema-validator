@@ -550,6 +550,8 @@ sections:
         component: UserSelector
         componentAttributes:
           isMulti: true
+          onlyActiveUsers: true
+
 
 
 - name: semaphoreBrowse
