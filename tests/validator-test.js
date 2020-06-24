@@ -11,6 +11,8 @@ const schemaExampleOne = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/b
 const schemaExpectedExampleOne = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const schemaExampleYmlTwo = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const schemaExpectedExampleTwo = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
+const schemaExampleYmlThree = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
+const schemaExpectedExampleThree = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
 
 const sandbox = sinon.createSandbox();
 
@@ -76,12 +78,15 @@ describe('Test validation functions', () => {
 	it('should schema builded is a expected', () => {
 		const schemaOne = JSON.parse(schemaExampleOne.toString());
 		const schemaTwo = ymljs.parse(schemaExampleYmlTwo.toString());
+		const schemaThree = ymljs.parse(schemaExampleYmlThree.toString());
 
 		const dataOne = Validator.execute(schemaOne, true, '/test/data1.json');
 		const dataTwo = Validator.execute(schemaTwo, true, '/test/data2.json');
+		const dataThree = Validator.execute(schemaThree, true, '/test/data3.json');
 
 		sandbox.assert.match(dataOne, JSON.parse(schemaExpectedExampleOne.toString()));
 		sandbox.assert.match(dataTwo, JSON.parse(schemaExpectedExampleTwo.toString()));
+		sandbox.assert.match(dataThree, JSON.parse(schemaExpectedExampleThree.toString()));
 	});
 
 	it('should error with default schema', () => {
