@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.30.0] - 2020-06-25
+### Added
+- New property `includeDataFrom` in form sections to use other section data
+- New Schema `Dashboard` and graphs property in browse schema
+- New property `width` in apperance property
+
 ## [2.29.0] - 2020-06-09
 ### Added
 - New dataMatching and targetField for AsyncWrapper component
