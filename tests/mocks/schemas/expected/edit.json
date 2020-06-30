@@ -474,8 +474,10 @@
                             "component": "Map",
                             "componentAttributes": {
                                 "fieldsMapping": {
-                                    "latitude": "latitude",
-                                    "longitude": "longitude"
+                                    "lat": "latitude",
+                                    "lng": "longitude",
+                                    "city": "city",
+                                    "number": "streetNumber"
                                 }
                             }
                         },
@@ -487,8 +489,8 @@
                                 "canAddMarkers": true,
                                 "maxMarkersQuantity": 5,
                                 "fieldsMapping": {
-                                    "latitude": "latitude",
-                                    "longitude": "longitude"
+                                    "lat": "latitude",
+                                    "lng": "longitude"
                                 }
                             }
                         },
