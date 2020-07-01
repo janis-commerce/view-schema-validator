@@ -43,7 +43,27 @@ themes:
   themeTwo:
     new: grey
     closed: fizzgreen
+
 collapseSections: true
+
+remoteActions:
+  title: some.title
+  translateTitle: true
+  source:
+    service: serviceName
+    namespace: namespaceName
+    method: methodName
+    resolve: false
+  sourceEndpointParameters:
+    - name: status
+      target: path
+      value:
+        dynamic: id
+    - name: status
+      target: query
+      value:
+        static: 1
+
 sections:
 - name: mainFormSection
   rootComponent: MainForm
