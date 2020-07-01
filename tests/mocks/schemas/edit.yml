@@ -373,6 +373,11 @@ sections:
       componentAttributes:
         icon: iconName
 
+    - name: someInputHidden
+      component: Input
+      componentAttributes:
+        type: hidden
+
     - name: fieldsArray
       component: FieldsArray
       componentAttributes:
