@@ -207,6 +207,16 @@
             }
         },
         {
+            "name": "otherDateTime",
+            "component": "DateTimePicker",
+            "componentAttributes": {
+                "selectDate": true,
+                "selectRange": true,
+                "setStartOfDay": true,
+                "setEndOfDay": true
+            }
+        },
+        {
             "name": "userAssigned",
             "component": "UserSelector",
             "componentAttributes": {}

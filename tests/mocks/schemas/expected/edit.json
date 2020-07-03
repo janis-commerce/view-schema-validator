@@ -844,6 +844,16 @@
                             }
                         },
                         {
+                            "name": "otherDateTime",
+                            "component": "DateTimePicker",
+                            "componentAttributes": {
+                                "selectDate": true,
+                                "selectRange": true,
+                                "setStartOfDay": true,
+                                "setEndOfDay": true
+                            }
+                        },
+                        {
                             "name": "checklist",
                             "component": "CheckList",
                             "componentAttributes": {
