@@ -313,8 +313,10 @@ sections:
       component: Map
       componentAttributes:
         fieldsMapping:
-          latitude: latitude
-          longitude: longitude
+          latitude: lat
+          longitude: lng
+          city: city
+          number: streetNumber
 
     - name: exampleMapTwo
       component: Map
@@ -323,8 +325,8 @@ sections:
         canAddMarkers: true
         maxMarkersQuantity: 5
         fieldsMapping:
-          latitude: latitude
-          longitude: longitude
+          latitude: lat
+          longitude: lng
 
     - name: exampleMapThree
       component: Map
