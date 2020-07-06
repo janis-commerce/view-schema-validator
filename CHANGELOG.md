@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.31.0] - 2020-07-06
+### Added
+- New prop `remoteActions` in Edit schema, for management remote actions
+- New props `setStartOfDay` and `setEndOfDay` for DateTimePicker component
+- New type hidden for component Input
+- New props for fieldsMapping in Map componenet: `country`, `city`, `street`, `number`, etc
+
 ## [2.30.0] - 2020-06-25
 ### Added
 - New property `includeDataFrom` in form sections to use other section data
