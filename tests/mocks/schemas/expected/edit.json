@@ -1185,6 +1185,10 @@
             "rootComponent": "OmsOrderInfo"
         },
         {
+            "name": "orderControls",
+            "rootComponent": "OmsControls"
+        },
+        {
             "name": "logsBrowseSection",
             "rootComponent": "LogsBrowseSection"
         },
