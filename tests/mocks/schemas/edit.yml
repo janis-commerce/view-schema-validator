@@ -705,8 +705,13 @@ sections:
               value: 0
 - name: order
   rootComponent: OmsOrderInfo
+
+- name: orderControls
+  rootComponent: OmsControls
+
 - name: logsBrowseSection
   rootComponent: LogsBrowseSection
+
 - name: filesSection
   rootComponent: FilesSection
   fileUploadEndpoint:
