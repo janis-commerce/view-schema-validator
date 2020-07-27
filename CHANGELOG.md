@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.32.0] - 2020-07-27
+### Added
+- `OmsControls` section added
+
 ## [2.31.0] - 2020-07-06
 ### Added
 - New prop `remoteActions` in Edit schema, for management remote actions
