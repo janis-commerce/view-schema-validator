@@ -844,6 +844,7 @@ sections:
     namespace: user
     method: delete-api-key
     resolve: false
+
 - name: testFormSection
   rootComponent: FormSection
   source:
@@ -861,7 +862,6 @@ sections:
       target: path
       value:
         static: serviceName
-
   targetEndpointParameters:
     - name: status
       target: path
@@ -871,7 +871,6 @@ sections:
       target: query
       value:
         static: 1
-
   includeDataFrom:
     - someSection
 
@@ -901,3 +900,21 @@ sections:
         - - name: maxLength
             options:
               length: 50
+
+- name: multiSectionExample
+  rootComponent: MultiSection
+  subSections:
+    - name: someBrowse
+      rootComponent: BrowseSection
+      source:
+        service: service
+        namespace: namespace
+        method: method
+        resolve: false
+      fields:
+        - name: id
+          component: BoldText
+        - name: color
+          component: Text
+        - name: user
+          component: UserChip
