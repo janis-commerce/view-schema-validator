@@ -386,6 +386,7 @@
                         {
                             "name": "appliesToLogistics",
                             "component": "Switch",
+                            "defaultValue": true,
                             "validations": [
                                 [
                                     {
@@ -426,6 +427,7 @@
                         {
                             "name": "testChip",
                             "component": "Chip",
+                            "defaultValue": "someValue",
                             "componentAttributes": {
                                 "icon": "icon_test",
                                 "iconColor": "red",
@@ -683,6 +685,7 @@
                         {
                             "name": "status",
                             "component": "Select",
+                            "defaultValue": "active",
                             "validations": [
                                 [
                                     {
