@@ -242,6 +242,7 @@ sections:
 
     - name: appliesToLogistics
       component: Switch
+      defaultValue: true
       validations:
         - - name: required
 
@@ -260,6 +261,7 @@ sections:
 
     - name: testChip
       component: Chip
+      defaultValue: someValue
       componentAttributes:
         icon: icon_test
         iconColor: red
@@ -432,6 +434,7 @@ sections:
     fields:
       - name: status
         component: Select
+        defaultValue: active
         validations:
           - - name: required
         componentAttributes:
