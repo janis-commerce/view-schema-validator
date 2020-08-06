@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.33.0] - 2020-08-06
+### Added
+- New section `MultiSection`
+- New prop `defaultValue` for input components
+
 ## [2.32.0] - 2020-07-27
 ### Added
 - `OmsControls` section added
