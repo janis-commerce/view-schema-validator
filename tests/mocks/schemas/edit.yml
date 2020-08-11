@@ -822,7 +822,12 @@ sections:
       target: query
       value:
         static:
-          id: "string"
+          id: string
+  showPickingSessions: true
+  showPurchasedItems: false
+  showPickedItems: true
+  showClaimItems: false
+  canEditPrice: true
 
 - name: anotherOrderItemsSection
   rootComponent: OrderItemsSection

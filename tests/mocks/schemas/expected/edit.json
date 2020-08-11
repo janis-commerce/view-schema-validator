@@ -1339,7 +1339,12 @@
                         }
                     }
                 }
-            ]
+            ],
+            "showPickingSessions": true,
+            "showPurchasedItems": false,
+            "showPickedItems": true,
+            "showClaimItems": false,
+            "canEditPrice": true
         },
         {
             "name": "anotherOrderItemsSection",
