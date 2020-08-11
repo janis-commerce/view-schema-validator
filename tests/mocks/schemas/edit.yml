@@ -291,14 +291,21 @@ sections:
 
     - name: user1
       component: UserChip
+
     - name: user2
       component: UserChip
       componentAttributes:
+        source:
+          service: service
+          namespace: namespace
+          method: method
+          resolve: false
         userDataSource:
           email: email
           firstname: firstname
           lastname: lastname
           image: image
+
     - name: color
       component: ColorPicker
 
@@ -590,6 +597,11 @@ sections:
         componentAttributes:
           isMulti: true
           onlyActiveUsers: true
+          source:
+            service: service
+            namespace: namespace
+            method: method
+            resolve: false
 
 
 
