@@ -123,6 +123,38 @@ sections:
                 value:
                   static: 1
 
+    - component: ActionForm
+      name: someForm
+      conditions:
+        showWhen:
+          - - name: isNotEmpty
+              field:
+                - test
+                - name
+            - name: isNotEqualTo
+              field: name
+              referenceValueType: static
+              referenceValue: null
+      fields:
+        - component: Input
+          name: someInput
+        - component: Switch
+          name: someSwitch
+      target:
+        service: service
+        namespace: namespace
+        method: method
+        resolve: false
+      targetEndpointParameters:
+        - name: status
+          target: path
+          value:
+            dynamic: id
+        - name: status
+          target: query
+          value:
+            static: 1
+
   fieldsGroup:
   - name: detail
     position: left
