@@ -226,7 +226,13 @@
             "component": "UserSelector",
             "componentAttributes": {
                 "isMulti": true,
-                "onlyActiveUsers": true
+                "onlyActiveUsers": true,
+                "source": {
+                    "service": "service",
+                    "namespace": "namespace",
+                    "method": "method",
+                    "resolve": false
+                }
             }
         }
     ],
@@ -455,6 +461,12 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {
+                "source": {
+                    "service": "service",
+                    "namespace": "namespace",
+                    "method": "method",
+                    "resolve": false
+                },
     			"userDataSource": {
                     "email": "email",
                     "firstname": "firstname",
@@ -893,6 +905,24 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {}
+        },
+        {
+            "name": "userAsyncTwo",
+            "component": "AsyncUserChip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "source": {
+                    "service": "service",
+                    "namespace": "namespace",
+                    "method": "method",
+                    "resolve": false
+                }
+            }
         },
         {
             "name": "asyncUser",
