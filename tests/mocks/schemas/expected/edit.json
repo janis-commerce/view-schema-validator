@@ -180,6 +180,63 @@
                             }
                         }
                     ]
+                },
+                {
+                    "component": "ActionForm",
+                    "name": "someForm",
+                    "conditions": {
+                        "showWhen": [
+                            [
+                                {
+                                    "name": "isNotEmpty",
+                                    "field": [
+                                        "test",
+                                        "name"
+                                    ]
+                                },
+                                {
+                                    "name": "isNotEqualTo",
+                                    "field": "name",
+                                    "referenceValueType": "static",
+                                    "referenceValue": null
+                                }
+                            ]
+                        ]
+                    },
+                    "fields": [
+                        {
+                            "component": "Input",
+                            "name": "someInput",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "component": "Switch",
+                            "name": "someSwitch",
+                            "componentAttributes": {}
+                        }
+                    ],
+                    "target": {
+                        "service": "service",
+                        "namespace": "namespace",
+                        "method": "method",
+                        "resolve": false
+                    },
+                    "targetEndpointParameters": [
+                        {
+                            "name": "status",
+                            "target": "path",
+                            "value": {
+                                "dynamic": "id"
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "target": "query",
+                            "value": {
+                                "static": 1
+                            }
+                        }
+                    ]
                 }
             ],
             "fieldsGroup": [
@@ -471,6 +528,12 @@
                             "name": "user2",
                             "component": "UserChip",
                             "componentAttributes": {
+                                "source": {
+                                    "service": "service",
+                                    "namespace": "namespace",
+                                    "method": "method",
+                                    "resolve": false
+                                },
                                 "userDataSource": {
                                     "email": "email",
                                     "firstname": "firstname",
@@ -907,7 +970,13 @@
                             "component": "UserSelector",
                             "componentAttributes": {
                                 "isMulti": true,
-                                "onlyActiveUsers": true
+                                "onlyActiveUsers": true,
+                                "source": {
+                                    "service": "service",
+                                    "namespace": "namespace",
+                                    "method": "method",
+                                    "resolve": false
+                                }
                             }
                         }
                     ]
@@ -1339,7 +1408,12 @@
                         }
                     }
                 }
-            ]
+            ],
+            "showPickingSessions": true,
+            "showPurchasedItems": false,
+            "showPickedItems": true,
+            "showClaimItems": false,
+            "canEditPrice": true
         },
         {
             "name": "anotherOrderItemsSection",
