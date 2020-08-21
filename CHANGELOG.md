@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.34.0] - 2020-08-21
+### Added
+- New props `showPickingSessions` `showPurchasedItems` `showPickedItems` `showClaimItems` `canEditPrice` for section `OrderItemsSection`
+- New prop `source` for `userSelector` `userChip` `asyncUserChip`
+- New component `actionForm` for `topComponents`
+
 ## [2.33.0] - 2020-08-06
 ### Added
 - New section `MultiSection`
