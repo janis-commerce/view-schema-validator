@@ -419,6 +419,23 @@
                             "componentAttributes": {}
                         },
                         {
+                            "name": "exampleImage",
+                            "component": "Image",
+                            "componentAttributes": {
+                                "roundBorders": false,
+                                "width": "auto",
+                                "height": "auto"
+                            }
+                        },
+                        {
+                            "name": "exampleUserImage",
+                            "component": "UserImage",
+                            "componentAttributes": {
+                                "roundBorders": true,
+                                "size": "medium"
+                            }
+                        },
+                        {
                             "name": "exampleStatuChipOne",
                             "component": "StatusChip",
                             "mapper": "translate",

@@ -312,6 +312,27 @@
             }
         },
         {
+            "name": "exampleImage",
+            "component": "Image",
+            "componentAttributes": {}
+        },
+        {
+            "name": "exampleImageWithProps",
+            "component": "Image",
+            "componentAttributes": {
+                "roundBorders": 50,
+                "width": 50,
+                "height": 50
+            }
+        },
+        {
+            "name": "exampleUserImage",
+            "component": "UserImage",
+            "componentAttributes": {
+                "size": "medium"
+            }
+        },
+        {
             "name": "date",
             "component": "Text",
             "mapper": {

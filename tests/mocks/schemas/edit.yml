@@ -256,6 +256,14 @@ sections:
           addWhitespace: true
           translate: false
 
+    - name: exampleImage
+      component: Image
+
+    - name: exampleUserImage
+      component: UserImage
+      componentAttributes:
+        size: medium
+
     - name: exampleStatuChipOne
       component: StatusChip
       mapper: translate
