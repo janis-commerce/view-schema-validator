@@ -428,6 +428,15 @@
                             }
                         },
                         {
+                            "name": "exampleImageWithProps",
+                            "component": "Image",
+                            "componentAttributes": {
+                                "roundBorders": 50,
+                                "width": 50,
+                                "height": 50
+                            }
+                        },
+                        {
                             "name": "exampleUserImage",
                             "component": "UserImage",
                             "componentAttributes": {
