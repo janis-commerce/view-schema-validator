@@ -594,6 +594,20 @@ sections:
           selectRange: true
           setStartOfDay: true
           setEndOfDay: true
+          presets: true
+
+      - name: dateTimePickerPresets
+        component: DateTimePicker
+        componentAttributes:
+          selectDate: true
+          selectRange: true
+          presets:
+            today: true
+            yesterday: false
+            nextWeek: true
+            lastWeek: false
+            lastMonth: true
+            nextMonth: false
 
       - name: checklist
         component: CheckList
