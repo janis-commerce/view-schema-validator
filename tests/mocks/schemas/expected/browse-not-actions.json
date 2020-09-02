@@ -356,6 +356,50 @@
             }
         },
         {
+            "name": "exampleImage",
+            "component": "Image",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "roundBorders": false,
+                "width": "auto",
+                "height": "auto"
+            }
+        },
+        {
+            "name": "exampleImageWithProps",
+            "component": "Image",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "roundBorders": 50,
+                "width": 50,
+                "height": 50
+            }
+        },
+        {
+            "name": "exampleUserImage",
+            "component": "UserImage",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "roundBorders": true,
+                "size": "medium"
+            }
+        },
+        {
             "name": "date",
             "component": "Text",
             "mapper": {
