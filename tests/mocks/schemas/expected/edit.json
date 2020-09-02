@@ -184,6 +184,10 @@
                 {
                     "component": "ActionForm",
                     "name": "someForm",
+                    "icon": "iconName",
+                    "iconColor": "colorName",
+                    "color": "colorName",
+                    "backgroundColor": "colorName",
                     "conditions": {
                         "showWhen": [
                             [
