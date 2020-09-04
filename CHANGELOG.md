@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.35.0] - 2020-09-04
+### Added
+- New presets for the component DatePicker: `today`, `yesterday`, `nextWeek`, `lastWeek`, `lastMonth`, `nextMonth`
+- New optionals props `icon`, `iconColor`, `color`, `backgroundColor` for the componente `ActionForm` in `TopComponents`
+- Added `Image` and `UserImage` components in Edits schemas. Also the Image has add a optional value `roundBorders`
+
 ## [2.34.0] - 2020-08-21
 ### Added
 - New props `showPickingSessions` `showPurchasedItems` `showPickedItems` `showClaimItems` `canEditPrice` for section `OrderItemsSection`
