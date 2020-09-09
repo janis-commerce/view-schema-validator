@@ -1646,6 +1646,33 @@
                     "pageSize": 60
                 }
             ]
+        },
+        {
+            "name": "orderHistory",
+            "rootComponent": "OmsOrderHistory",
+            "milestones": {
+                "oneSomeMilestone": {
+                    "component": "SomeComponent",
+                    "fields": [
+                        {
+                            "component": "Text",
+                            "name": "someName"
+                        }
+                    ]
+                },
+                "twoSomeMilestone": {
+                    "component": "SomeComponent",
+                    "fields": [
+                        {
+                            "component": "Text",
+                            "name": "someName"
+                        }
+                    ]
+                },
+                "threeSomeMilestone": {
+                    "component": "SomeComponent"
+                }
+            }
         }
     ]
 }
