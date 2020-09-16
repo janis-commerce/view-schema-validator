@@ -1656,7 +1656,23 @@
                     "fields": [
                         {
                             "component": "Text",
-                            "name": "someName"
+                            "name": "someName",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "component": "Link",
+                            "name": "someNameLink",
+                            "noLabel": true,
+                            "mapper": {
+                                "name": "suffix",
+                                "props": {
+                                    "value": "/path/"
+                                }
+                            },
+                            "componentAttributes": {
+                                "label": "common.action.viewMore",
+                                "translateLabels": true
+                            }
                         }
                     ]
                 },
@@ -1665,12 +1681,13 @@
                     "fields": [
                         {
                             "component": "Text",
-                            "name": "someName"
+                            "name": "someName",
+                            "componentAttributes": {}
                         }
                     ]
                 },
                 "threeSomeMilestone": {
-                    "component": "SomeComponent"
+                    "component": "SomeComponentTwo"
                 }
             }
         }
