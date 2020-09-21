@@ -1646,6 +1646,10 @@
                     "pageSize": 60
                 }
             ]
+        },
+        {
+            "name": "commentsSection",
+            "rootComponent": "Comments"
         }
     ]
 }

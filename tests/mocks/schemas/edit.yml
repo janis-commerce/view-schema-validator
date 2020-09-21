@@ -1003,3 +1003,6 @@ sections:
           component: Text
         - name: user
           component: UserChip
+
+- name: commentsSection
+  rootComponent: Comments
