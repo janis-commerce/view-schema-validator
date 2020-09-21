@@ -68,7 +68,7 @@
     "graphs": [
         {
             "component": "Table",
-            "name": "graphName",
+            "name": "graphNameOne",
             "title": "someTitleForGraph",
             "source": {
                 "service": "serviceName",
@@ -96,6 +96,47 @@
             "y": 0,
             "width": 6,
             "height": 3
+        },
+        {
+            "component": "LineChart",
+            "name": "graphNameTwo",
+            "title": "someTitleForGraph",
+            "source": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 3,
+            "label": {
+                "title": {
+                    "value": "common.title",
+                    "mapper": "translate"
+                },
+                "source": {
+                    "field": "someField",
+                    "mapper": "booleanToWord"
+                }
+            },
+            "values": [
+                {
+                    "title": {
+                        "value": "common.title",
+                        "mapper": "translate"
+                    },
+                    "source": {
+                        "field": "someField"
+                    }
+                },
+                {
+                    "source": {
+                        "field": "otherSomeField"
+                    }
+                }
+            ]
         }
     ],
     "filters": [
