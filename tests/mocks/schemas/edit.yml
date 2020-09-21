@@ -1006,3 +1006,30 @@ sections:
 
 - name: commentsSection
   rootComponent: Comments
+
+- name: orderHistory
+  rootComponent: OmsOrderHistory
+  milestones:
+    oneSomeMilestone:
+      component: SomeComponent
+      fields:
+        - component: Text
+          name: someName
+        - component: Link
+          name: someNameLink
+          noLabel: true
+          mapper:
+            name: suffix
+            props:
+              value: /path/
+          componentAttributes:
+            label: common.action.viewMore
+            translateLabels: true
+
+    twoSomeMilestone:
+      component: SomeComponent
+      fields:
+        - component: Text
+          name: someName
+    threeSomeMilestone:
+      component: SomeComponentTwo

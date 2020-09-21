@@ -1650,6 +1650,50 @@
         {
             "name": "commentsSection",
             "rootComponent": "Comments"
+        },
+        {
+            "name": "orderHistory",
+            "rootComponent": "OmsOrderHistory",
+            "milestones": {
+                "oneSomeMilestone": {
+                    "component": "SomeComponent",
+                    "fields": [
+                        {
+                            "component": "Text",
+                            "name": "someName",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "component": "Link",
+                            "name": "someNameLink",
+                            "noLabel": true,
+                            "mapper": {
+                                "name": "suffix",
+                                "props": {
+                                    "value": "/path/"
+                                }
+                            },
+                            "componentAttributes": {
+                                "label": "common.action.viewMore",
+                                "translateLabels": true
+                            }
+                        }
+                    ]
+                },
+                "twoSomeMilestone": {
+                    "component": "SomeComponent",
+                    "fields": [
+                        {
+                            "component": "Text",
+                            "name": "someName",
+                            "componentAttributes": {}
+                        }
+                    ]
+                },
+                "threeSomeMilestone": {
+                    "component": "SomeComponentTwo"
+                }
+            }
         }
     ]
 }
