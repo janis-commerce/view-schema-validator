@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.36.0] - 2020-09-21
+### Added
+- New section `Comments`
+- New section `OmsOrderHistory`
+- New poperty value in component `graphs`
+- GitHub Actions for build, coverage and publish
+
 ## [2.35.0] - 2020-09-04
 ### Added
 - New presets for the component DatePicker: `today`, `yesterday`, `nextWeek`, `lastWeek`, `lastMonth`, `nextMonth`
