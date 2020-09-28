@@ -34,6 +34,20 @@ header:
         - test1
         - test2
         - test3
+    components:
+      - name: id
+        component: IdText
+      - name: test
+        component: StatusChip
+        mapper: translate
+        componentAttributes:
+          useTheme: true
+      - name: test
+        component: BadgeLetter
+        componentAttributes:
+          backgroundColorTheme: backgroundThemeName
+          fontColorTheme: colorThemeName
+
 
 themes:
   themeOne:

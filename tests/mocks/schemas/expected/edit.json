@@ -49,7 +49,31 @@
                     "test2",
                     "test3"
                 ]
-            }
+            },
+            "components": [
+                {
+                    "name": "id",
+                    "component": "IdText",
+                    "componentAttributes": {}
+                },
+                {
+                    "name": "test",
+                    "component": "StatusChip",
+                    "mapper": "translate",
+                    "componentAttributes": {
+                        "useTheme": true
+                    }
+                },
+                {
+                    "name": "test",
+                    "component": "BadgeLetter",
+                    "componentAttributes": {
+                        "translateLabels": true,
+                        "backgroundColorTheme": "backgroundThemeName",
+                        "fontColorTheme": "colorThemeName"
+                    }
+                }
+            ]
         }
     },
     "themes": {
