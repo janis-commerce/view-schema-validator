@@ -37,7 +37,7 @@ header:
     components:
       - name: id
         component: IdText
-      - name: test
+      - name: status
         component: StatusChip
         mapper: translate
         componentAttributes:
@@ -47,7 +47,11 @@ header:
         componentAttributes:
           backgroundColorTheme: backgroundThemeName
           fontColorTheme: colorThemeName
-
+      - name: title
+        component: CustomTitle
+        componentAttributes:
+          value: some.traduction
+          color: red
 
 themes:
   themeOne:

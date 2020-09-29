@@ -57,7 +57,7 @@
                     "componentAttributes": {}
                 },
                 {
-                    "name": "test",
+                    "name": "status",
                     "component": "StatusChip",
                     "mapper": "translate",
                     "componentAttributes": {
@@ -71,6 +71,14 @@
                         "translateLabels": true,
                         "backgroundColorTheme": "backgroundThemeName",
                         "fontColorTheme": "colorThemeName"
+                    }
+                },
+                {
+                    "name": "title",
+                    "component": "CustomTitle",
+                    "componentAttributes": {
+                        "value": "some.traduction",
+                        "color": "red"
                     }
                 }
             ]
