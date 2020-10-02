@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.37.0] - 2020-10-02
+### Added
+- New property `components` in schema edit header title
+
 ## [2.36.0] - 2020-09-21
 ### Added
 - New section `Comments`
