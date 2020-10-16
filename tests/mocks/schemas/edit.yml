@@ -468,6 +468,23 @@ sections:
           dataMapping:
             name: firstname
 
+    - name: fieldTriggersTwo
+      component: Input
+      triggers:
+        - endpoint:
+            service: sac
+            namespace: claim
+            method: list
+            resolve: false
+          componentMapping:
+            details:
+              someField: someField
+            other:
+              someField: someField
+              root:
+                - fieldOne
+                - fieldTwo
+
     - name: someInput
       component: Input
       componentAttributes:
