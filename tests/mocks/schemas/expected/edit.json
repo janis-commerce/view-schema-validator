@@ -1072,6 +1072,11 @@
                             "componentAttributes": {}
                         },
                         {
+                            "name": "fieldIconSelector",
+                            "component": "IconSelector",
+                            "componentAttributes": {}
+                        },
+                        {
                             "name": "members",
                             "component": "UserSelector",
                             "componentAttributes": {

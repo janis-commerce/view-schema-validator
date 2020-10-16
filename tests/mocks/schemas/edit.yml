@@ -692,6 +692,9 @@ sections:
       - name: userAssigned
         component: UserSelector
 
+      - name: fieldIconSelector
+        component: IconSelector
+
       - name: members
         component: UserSelector
         componentAttributes:
