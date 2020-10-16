@@ -1089,6 +1089,18 @@
                                     "resolve": false
                                 }
                             }
+                        },
+                        {
+                            "name": "someFieldPreview",
+                            "component": "Preview",
+                            "componentAttributes": {
+                                "image": "fieldTitle",
+                                "title": "fieldTitle",
+                                "subtitle": "fieldSubtitle",
+                                "description": "fieldDescription",
+                                "price": "fieldPrice",
+                                "listPrice": "fieldPrice"
+                            }
                         }
                     ]
                 }
