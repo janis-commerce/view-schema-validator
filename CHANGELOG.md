@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.38.0] - 2020-10-16
+### Added
+- New property `componentMapping` in trigger schemas. Now dataMappding is no longer required
+- New component `IconSelector`
+- New component `Preview`
+
 ## [2.37.0] - 2020-10-02
 ### Added
 - New property `components` in schema edit header title
