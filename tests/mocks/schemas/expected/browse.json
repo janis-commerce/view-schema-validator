@@ -517,7 +517,7 @@
             }
         },
         {
-            "name": "linkTest",
+            "name": "linkTest1",
             "component": "Link",
             "attributes": {
                 "isStatus": false,
@@ -541,6 +541,40 @@
                 "labelField": "label",
                 "label": "test",
                 "target": "_self"
+            }
+        },
+        {
+            "name": "linkTest3",
+            "component": "Link",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "urlTarget": {
+                    "service": "service",
+                    "namespace": "namespace",
+                    "method": "method",
+                    "resolve": false
+                },
+                "endpointParameters": [
+                    {
+                        "name": "status",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "target": "query",
+                        "value": {
+                            "static": 1
+                        }
+                    }
+                ]
             }
         },
         {

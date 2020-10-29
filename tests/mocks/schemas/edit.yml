@@ -432,13 +432,34 @@ sections:
           name: userFirstname
           component: Text
 
-    - name: linkTest
+    - name: linkTest1
+      component: Link
+
+    - name: linkTest2
       component: Link
       componentAttributes:
         target: _blank
         translateLabels: true
         label: test.test.test
         labelField: asdasd
+
+    - name: linkTest3
+      component: Link
+      componentAttributes:
+        urlTarget:
+          service: service
+          namespace: namespace
+          method: method
+          resolve: false
+        endpointParameters:
+        - name: status
+          target: path
+          value:
+            dynamic: id
+        - name: status
+          target: query
+          value:
+            static: 1
 
     - name: fieldTriggers
       component: Input
