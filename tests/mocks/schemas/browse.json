@@ -551,7 +551,8 @@
                 },
                 "color": {
                     "useTheme": "someTheme"
-                }
+                },
+                "useTheme": "someTheme"
             }
         },
         {
