@@ -352,6 +352,7 @@ sections:
         borderColor: red
         textColor: grey
         backgroundColor: grey
+        useTheme: themeName
 
     - name: testMediumChip
       component: MediumChip

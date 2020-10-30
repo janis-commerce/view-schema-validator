@@ -571,7 +571,8 @@
                                 },
                                 "borderColor": "red",
                                 "textColor": "grey",
-                                "backgroundColor": "grey"
+                                "backgroundColor": "grey",
+                                "useTheme": "themeName"
                             }
                         },
                         {
