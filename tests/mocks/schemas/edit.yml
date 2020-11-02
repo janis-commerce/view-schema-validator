@@ -102,6 +102,26 @@ sections:
           options:
             path: /service/namespace/new
 
+        - name: testLink
+          icon: star_light
+          color: fizzGreen
+          type: link
+          options:
+            target:
+              service: serviceName
+              namespace: namespaceName
+              method: methodName
+              resolve: false
+            endpointParameters:
+              - name: status
+                target: path
+                value:
+                  dynamic: id
+              - name: status
+                target: query
+                value:
+                  static: 1
+
         - name: testAction
           icon: star_light
           color: fizzGreen
