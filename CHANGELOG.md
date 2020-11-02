@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.39.0] - 2020-11-02
+### Added
+- New properties `urlTarget` and `endpointParameters` for the compoonent Link in edit/create pages
+- New type `sourceEndpoint` property `target` for `Action` schema of the actionButtons
+- Now `themes` schemas can receive an `object` and a `string` as it was already has been doing
+- Now the `Icon` component doesn\`t require the `icon` property and it has been added `useTheme`, a new property
+
 ## [2.38.0] - 2020-10-16
 ### Added
 - New property `componentMapping` in trigger schemas. Now dataMappding is no longer required
