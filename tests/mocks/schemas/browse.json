@@ -564,6 +564,10 @@
         },
         {
             "name": "iconExampleOne",
+            "component": "Icon"
+        },
+        {
+            "name": "iconExampleTwo",
             "component": "Icon",
             "componentAttributes": {
                 "icon": "iconName",
@@ -571,7 +575,7 @@
             }
         },
         {
-            "name": "iconExampleTwo",
+            "name": "iconExampleThree",
             "component": "Icon",
             "componentAttributes": {
                 "icon": {
@@ -579,7 +583,8 @@
                 },
                 "color": {
                     "useTheme": "someTheme"
-                }
+                },
+                "useTheme": "someTheme"
             }
         },
         {

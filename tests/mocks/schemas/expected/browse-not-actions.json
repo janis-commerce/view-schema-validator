@@ -736,13 +736,24 @@
                 "isDefaultSort": false,
                 "initialSortDirection": "desc"
             },
+            "componentAttributes": {}
+        },
+        {
+            "name": "iconExampleTwo",
+            "component": "Icon",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
             "componentAttributes": {
                 "icon": "iconName",
                 "color": "iconColor"
             }
         },
         {
-            "name": "iconExampleTwo",
+            "name": "iconExampleThree",
             "component": "Icon",
             "attributes": {
                 "isStatus": false,
@@ -756,7 +767,8 @@
                 },
                 "color": {
                     "useTheme": "someTheme"
-                }
+                },
+                "useTheme": "someTheme"
             }
         },
         {
