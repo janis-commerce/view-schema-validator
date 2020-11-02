@@ -44,7 +44,11 @@
         },
         "themeTwo": {
             "new": "grey",
-            "closed": "fizzgreen"
+            "closed": "fizzgreen",
+            "warning": {
+                "somePropOne": "someValue",
+                "somePropTwo": "someValue"
+            }
         }
     },
     "sortableFields": [
@@ -803,7 +807,8 @@
                 },
                 "borderColor": "red",
                 "textColor": "grey",
-                "backgroundColor": "grey"
+                "backgroundColor": "grey",
+                "useTheme": "themeName"
             }
         },
         {

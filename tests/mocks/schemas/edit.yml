@@ -61,6 +61,10 @@ themes:
   themeTwo:
     new: grey
     closed: fizzgreen
+    warning:
+      somePropOne: someValue
+      somePropTwo: someValue
+
 
 collapseSections: true
 
@@ -368,6 +372,7 @@ sections:
         borderColor: red
         textColor: grey
         backgroundColor: grey
+        useTheme: themeName
 
     - name: testMediumChip
       component: MediumChip
