@@ -422,7 +422,7 @@
             }
         },
         {
-            "name": "linkTest",
+            "name": "linkTest1",
             "component": "Link"
         },
         {
@@ -433,6 +433,34 @@
                 "labelField": "label",
                 "label": "test",
                 "target": "_self"
+            }
+        },
+        {
+            "name": "linkTest3",
+            "component": "Link",
+            "componentAttributes": {
+                "urlTarget": {
+                    "service": "service",
+                    "namespace": "namespace",
+                    "method": "method",
+                    "resolve": false
+                },
+                "endpointParameters": [
+                    {
+                        "name": "status",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "target": "query",
+                        "value": {
+                            "static": 1
+                        }
+                    }
+                ]
             }
         },
         {
