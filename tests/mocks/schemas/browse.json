@@ -443,6 +443,13 @@
             "name": "linkTest3",
             "component": "Link",
             "componentAttributes": {
+                "path": "/some/path/{id}"
+            }
+        },
+        {
+            "name": "linkTest4",
+            "component": "Link",
+            "componentAttributes": {
                 "urlTarget": {
                     "service": "service",
                     "namespace": "namespace",
