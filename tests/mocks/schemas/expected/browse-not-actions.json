@@ -557,6 +557,19 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {
+                "path": "/some/path/{id}"
+            }
+        },
+        {
+            "name": "linkTest4",
+            "component": "Link",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
                 "urlTarget": {
                     "service": "service",
                     "namespace": "namespace",
