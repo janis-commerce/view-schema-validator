@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.40.0] - 2020-11-06
+### Added
+- New properties `path` for the compoonent Link in edit/create pages
+
 ## [2.39.0] - 2020-11-02
 ### Added
 - New properties `urlTarget` and `endpointParameters` for the compoonent Link in edit/create pages
