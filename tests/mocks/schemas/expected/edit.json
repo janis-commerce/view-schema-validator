@@ -673,6 +673,20 @@
                             }
                         },
                         {
+                            "name": "exampleCodeFive",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "medium"
+                            }
+                        },
+                        {
+                            "name": "exampleCodeSix",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "large"
+                            }
+                        },
+                        {
                             "name": "exampleMap",
                             "component": "Map",
                             "componentAttributes": {
