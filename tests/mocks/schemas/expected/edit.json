@@ -537,6 +537,43 @@
                             }
                         },
                         {
+                            "name": "exampleStatuChipFour",
+                            "component": "StatusChip",
+                            "componentAttributes": {
+                                "useTheme": "themeOne",
+                                "themeConditionals": {
+                                    "warning": [
+                                        [
+                                            {
+                                                "name": "lowerThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "lowerOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ],
+                                    "error": [
+                                        [
+                                            {
+                                                "name": "greaterThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "greaterOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        },
+                        {
                             "name": "appliesToLogistics",
                             "component": "Switch",
                             "defaultValue": true,
@@ -603,6 +640,44 @@
                                 "textColor": "grey",
                                 "backgroundColor": "grey",
                                 "useTheme": "themeName"
+                            }
+                        },
+                        {
+                            "name": "testChipWithThemesConditionals",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey",
+                                "useTheme": "themeName",
+                                "themeConditionals": {
+                                    "warning": [
+                                        [
+                                            {
+                                                "name": "lowerThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "lowerOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ],
+                                    "error": [
+                                        [
+                                            {
+                                                "name": "greaterThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "greaterOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ]
+                                }
                             }
                         },
                         {
