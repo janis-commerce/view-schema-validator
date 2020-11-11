@@ -14,6 +14,7 @@
         "method": "method",
         "resolve": false
     },
+    "fieldSortEndpoint": "id",
     "appearance": {
         "desktop": {
             "rowMinHeight": 70,
