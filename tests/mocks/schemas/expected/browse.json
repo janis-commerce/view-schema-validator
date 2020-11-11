@@ -1523,6 +1523,7 @@
     "canEdit": true,
     "canCreate": true,
     "canExport": true,
+    "canImport": true,
     "canView": false,
     "canRefresh": false,
     "pageSize": 60,
