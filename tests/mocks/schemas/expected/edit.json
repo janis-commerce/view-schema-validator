@@ -733,6 +733,35 @@
                             }
                         },
                         {
+                            "name": "exampleCodeThree",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "width": 300,
+                                "height": 350
+                            }
+                        },
+                        {
+                            "name": "exampleCodeFour",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "full"
+                            }
+                        },
+                        {
+                            "name": "exampleCodeFive",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "medium"
+                            }
+                        },
+                        {
+                            "name": "exampleCodeSix",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "large"
+                            }
+                        },
+                        {
                             "name": "exampleMap",
                             "component": "Map",
                             "componentAttributes": {
