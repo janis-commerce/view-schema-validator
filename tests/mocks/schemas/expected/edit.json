@@ -1311,6 +1311,7 @@
                 "method": "method",
                 "resolve": false
             },
+            "fieldSortEndpoint": "id",
             "appearance": {
                 "default": {
                     "rowMinHeight": 50
