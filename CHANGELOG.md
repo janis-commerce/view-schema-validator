@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.41.0] - 2020-11-11
+### Added
+- New properties `Width` and `Height` in `Code` component.
+- New Conditionals types: `greaterThan`, `greaterOrEqual`, `lowerThan`, `lowerOrEqual`
+- New property `themeConditionals` inside `componentAttributes` in `Chip`, `StatusChip` and `Icon` components.
+
 ## [2.40.0] - 2020-11-06
 ### Added
 - New properties `path` for the compoonent Link in edit/create pages

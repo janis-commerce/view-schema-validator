@@ -537,6 +537,43 @@
                             }
                         },
                         {
+                            "name": "exampleStatuChipFour",
+                            "component": "StatusChip",
+                            "componentAttributes": {
+                                "useTheme": "themeOne",
+                                "themeConditionals": {
+                                    "warning": [
+                                        [
+                                            {
+                                                "name": "lowerThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "lowerOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ],
+                                    "error": [
+                                        [
+                                            {
+                                                "name": "greaterThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "greaterOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        },
+                        {
                             "name": "appliesToLogistics",
                             "component": "Switch",
                             "defaultValue": true,
@@ -606,6 +643,44 @@
                             }
                         },
                         {
+                            "name": "testChipWithThemesConditionals",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey",
+                                "useTheme": "themeName",
+                                "themeConditionals": {
+                                    "warning": [
+                                        [
+                                            {
+                                                "name": "lowerThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "lowerOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ],
+                                    "error": [
+                                        [
+                                            {
+                                                "name": "greaterThan",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            },
+                                            {
+                                                "name": "greaterOrEqual",
+                                                "field": "quantity",
+                                                "referenceValue": 10
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        },
+                        {
                             "name": "testMediumChip",
                             "component": "MediumChip",
                             "componentAttributes": {
@@ -655,6 +730,35 @@
                             "componentAttributes": {
                                 "language": "json",
                                 "canEdit": true
+                            }
+                        },
+                        {
+                            "name": "exampleCodeThree",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "width": 300,
+                                "height": 350
+                            }
+                        },
+                        {
+                            "name": "exampleCodeFour",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "full"
+                            }
+                        },
+                        {
+                            "name": "exampleCodeFive",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "medium"
+                            }
+                        },
+                        {
+                            "name": "exampleCodeSix",
+                            "component": "Code",
+                            "componentAttributes": {
+                                "height": "large"
                             }
                         },
                         {
