@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.42.0] - 2020-11-13
 - New property in BrowseSchema `fieldSortEndpoint`
-_ New property in BrowseSchema `canImport`
+- New property in BrowseSchema `canImport`
 
 ## [2.41.0] - 2020-11-11
 ### Added
