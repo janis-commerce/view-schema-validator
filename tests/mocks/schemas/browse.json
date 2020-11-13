@@ -3,6 +3,7 @@
     "name": "claim-type-browse",
     "root": "Browse",
     "canExport": true,
+    "canImport": true,
     "canRefresh": false,
     "source": {
         "service": "sac",
