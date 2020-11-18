@@ -609,7 +609,7 @@
                                 "referenceValue": 10
                             },
                             {
-                                "name": "lowerOrEqual",
+                                "name": "lowerOrEqualThan",
                                 "field": "quantity",
                                 "referenceValue": 10
                             }
@@ -623,7 +623,7 @@
                                 "referenceValue": 10
                             },
                             {
-                                "name": "greaterOrEqual",
+                                "name": "greaterOrEqualThan",
                                 "field": "quantity",
                                 "referenceValue": 10
                             }
@@ -677,7 +677,7 @@
                                 "referenceValue": 10
                             },
                             {
-                                "name": "lowerOrEqual",
+                                "name": "lowerOrEqualThan",
                                 "field": "quantity",
                                 "referenceValue": 10
                             }
@@ -691,7 +691,7 @@
                                 "referenceValue": 10
                             },
                             {
-                                "name": "greaterOrEqual",
+                                "name": "greaterOrEqualThan",
                                 "field": "quantity",
                                 "referenceValue": 10
                             }
@@ -785,7 +785,7 @@
                                 "referenceValue": 10
                             },
                             {
-                                "name": "lowerOrEqual",
+                                "name": "lowerOrEqualThan",
                                 "field": "quantity",
                                 "referenceValue": 10
                             }
@@ -799,7 +799,7 @@
                                 "referenceValue": 10
                             },
                             {
-                                "name": "greaterOrEqual",
+                                "name": "greaterOrEqualThan",
                                 "field": "quantity",
                                 "referenceValue": 10
                             }
