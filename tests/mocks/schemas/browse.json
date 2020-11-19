@@ -364,7 +364,10 @@
         },
         {
             "name": "exampleBadgeLetter",
-            "component": "BadgeLetter"
+            "component": "BadgeLetter",
+            "componentAttributes": {
+                "useTheme": "someTheme"
+            }
         },
         {
             "name": "otherExampleBadgeLetter",
