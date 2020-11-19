@@ -206,6 +206,7 @@ sections:
     position: left
     icon: catalogue
     collapsible: true
+    defaultOpen: true
     fields:
     - name: name
       component: Select

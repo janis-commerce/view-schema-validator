@@ -315,6 +315,7 @@
                     "icon": "catalogue",
                     "position": "left",
                     "collapsible": true,
+                    "defaultOpen": true,
                     "fields": [
                         {
                             "name": "name",
