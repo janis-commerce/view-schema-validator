@@ -70,7 +70,8 @@
                     "componentAttributes": {
                         "translateLabels": true,
                         "backgroundColorTheme": "backgroundThemeName",
-                        "fontColorTheme": "colorThemeName"
+                        "fontColorTheme": "colorThemeName",
+                        "useTheme": "someTheme"
                     }
                 },
                 {

@@ -47,6 +47,7 @@ header:
         componentAttributes:
           backgroundColorTheme: backgroundThemeName
           fontColorTheme: colorThemeName
+          useTheme: someTheme
       - name: title
         component: CustomTitle
         componentAttributes:

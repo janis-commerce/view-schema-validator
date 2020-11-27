@@ -401,7 +401,8 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {
-                "translateLabels": true
+                "translateLabels": true,
+                "useTheme": "someTheme"
             }
         },
         {
