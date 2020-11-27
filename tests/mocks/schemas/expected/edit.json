@@ -734,35 +734,7 @@
                                 "canEdit": true
                             }
                         },
-                        {
-                            "name": "exampleCodeThree",
-                            "component": "Code",
-                            "componentAttributes": {
-                                "width": 300,
-                                "height": 350
-                            }
-                        },
-                        {
-                            "name": "exampleCodeFour",
-                            "component": "Code",
-                            "componentAttributes": {
-                                "height": "full"
-                            }
-                        },
-                        {
-                            "name": "exampleCodeFive",
-                            "component": "Code",
-                            "componentAttributes": {
-                                "height": "medium"
-                            }
-                        },
-                        {
-                            "name": "exampleCodeSix",
-                            "component": "Code",
-                            "componentAttributes": {
-                                "height": "large"
-                            }
-                        },
+
                         {
                             "name": "exampleMap",
                             "component": "Map",
@@ -999,16 +971,45 @@
                             }
                         },
                         {
-                            "name": "template",
+                            "name": "exampleHTMLOne",
                             "component": "HTML",
                             "componentAttributes": {
                                 "sourceField": "template"
                             }
                         },
                         {
-                            "name": "emptyTemplate",
+                            "name": "exampleHTMLTwo",
                             "component": "HTML",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "exampleHTMLThree",
+                            "component": "HTML",
+                            "componentAttributes": {
+                                "width": 300,
+                                "height": 350
+                            }
+                        },
+                        {
+                            "name": "exampleHTMLFour",
+                            "component": "HTML",
+                            "componentAttributes": {
+                                "height": "full"
+                            }
+                        },
+                        {
+                            "name": "exampleHTMLFive",
+                            "component": "HTML",
+                            "componentAttributes": {
+                                "height": "medium"
+                            }
+                        },
+                        {
+                            "name": "exampleHTMLSix",
+                            "component": "HTML",
+                            "componentAttributes": {
+                                "height": "large"
+                            }
                         }
                     ]
                 },
