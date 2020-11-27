@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.43.1] - 2020-11-27
+### Fixed
+- Fix properties `Width` and `Height` in `HTML` component, not `Code`
+
 ## [2.43.0] - 2020-11-27
 ### Added
 - Add new property `useTheme` in `BadgeLetter` componente
