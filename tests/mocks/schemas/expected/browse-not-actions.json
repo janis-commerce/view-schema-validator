@@ -1650,7 +1650,7 @@
             }
         }
     ],
-    "hasPreview": false,
+    "canPreview": false,
     "canEdit": true,
     "canCreate": true,
     "canExport": true,

@@ -1551,7 +1551,7 @@
                     }
                 }
             ],
-            "hasPreview": false,
+            "canPreview": false,
             "canEdit": true,
             "canCreate": true,
             "canExport": false,
@@ -1897,7 +1897,7 @@
                             "componentAttributes": {}
                         }
                     ],
-                    "hasPreview": false,
+                    "canPreview": false,
                     "canEdit": true,
                     "canCreate": true,
                     "canExport": false,
