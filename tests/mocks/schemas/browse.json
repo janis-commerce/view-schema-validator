@@ -333,10 +333,12 @@
             "component": "MediumText",
             "appearance": {
                 "desktop": {
-                    "fontSize": "xsmall"
+                    "fontSize": "xsmall",
+                    "width": "60px"
                 },
                 "mobile": {
-                    "fontSize": "large"
+                    "fontSize": "large",
+                    "width": "80%"
                 },
                 "default": {
                     "fontSize": "xlarge"
