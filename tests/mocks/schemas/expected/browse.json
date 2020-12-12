@@ -373,6 +373,9 @@
             "name": "parentName",
             "component": "Text",
             "appearance": {
+                "desktop": {
+                    "fontSize": "medium"
+                },
                 "default": {
                     "fontSize": "xxlarge"
                 }
