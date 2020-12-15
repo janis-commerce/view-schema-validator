@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.44.0] - 2020-12-15
+### Added
+- New fontSize option `medium` for the appearance for the browse fields
+
+### Changed
+- Now the appearance property can receive a one of this three string options `auto`, a `px` value `(20px)` or a `%` value `(30%)`.
+- The property `hasPreview` has change the name to `canPreview` the default value is false.
+
 ## [2.43.1] - 2020-11-27
 ### Fixed
 - Fix properties `Width` and `Height` in `HTML` component, not `Code`
