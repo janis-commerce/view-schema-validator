@@ -177,6 +177,7 @@
             "component": "Select",
             "componentAttributes": {
                 "translateLabels": true,
+                "preloadOptions": true,
                 "options": {
                     "scope": "remote",
                     "endpoint": {
