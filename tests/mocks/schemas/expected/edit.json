@@ -1185,6 +1185,8 @@
                             "component": "SelectForm",
                             "componentAttributes": {
                                 "translateLabels": true,
+                                "canEdit": false,
+                                "canCreate": true,
                                 "fields": [
                                     {
                                         "name": "firstname",
