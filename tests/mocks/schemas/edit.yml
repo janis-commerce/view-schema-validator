@@ -755,6 +755,7 @@ sections:
           selectDate: false
           selectTime: true
           selectRange: true
+          format: hh:mm
 
       - name: otherDateTime
         component: DateTimePicker

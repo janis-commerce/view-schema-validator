@@ -250,7 +250,8 @@
             "componentAttributes": {
                 "selectDate": false,
                 "selectTime": true,
-                "selectRange": true
+                "selectRange": true,
+                "format": "hh:mm"
             }
         },
         {
