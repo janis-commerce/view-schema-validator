@@ -750,6 +750,32 @@ sections:
               label: name
               value: id
 
+      - name: selectFormExample
+        component: SelectForm
+        componentAttributes:
+          translateLabels: true
+          canEdit: false
+          canCreate: true
+          fields:
+            - name: firstname
+              component: Input
+          options:
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesEndpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesFilterName: id
+            initialValuesPathParam: name
+            valuesMapper:
+              label: name
+              value: id
+
       - name: dateTime
         component: DateTimePicker
         componentAttributes:
