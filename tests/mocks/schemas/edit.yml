@@ -662,6 +662,7 @@ sections:
           - - name: required
         componentAttributes:
           translateLabels: true
+          preloadOptions: true
           options:
             scope: remote
             endpoint:
