@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.45.0] - 2020-12-30
+### Added
+- New component `selectForm`. A new select that you can create or edit a related entity
+- New property `preloadOptions` in selects that preload the options on load
+- New property `format` in DateTimePicker componente that format the value when send the data on the request
+
 ## [2.44.0] - 2020-12-15
 ### Added
 - New fontSize option `medium` for the appearance for the browse fields
