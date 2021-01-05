@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.46.0] - 2021-01-05
+### Added
+- New property `canPrint` in edit Schemas
+
 ## [2.45.0] - 2020-12-30
 ### Added
 - New component `selectForm`. A new select that you can create or edit a related entity
