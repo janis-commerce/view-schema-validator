@@ -306,6 +306,7 @@
         {
             "name": "id",
             "component": "BoldText",
+            "showOnPreview": true,
             "appearance": {
                 "desktop": {
                     "fontSize": "base",
@@ -341,6 +342,7 @@
         {
             "name": "motiveName",
             "component": "MediumText",
+            "showOnPreview": true,
             "appearance": {
                 "desktop": {
                     "fontSize": "xsmall",
