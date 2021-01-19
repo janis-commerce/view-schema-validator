@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.47.0] - 2021-01-19
+### Added
+- New property `showOnPreview` in browse schema to show columns on preview mode
+
 ## [2.46.0] - 2021-01-05
 ### Added
 - New property `canPrint` in edit Schemas
