@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const { makeComponent, makeSection } = require('../lib/schemas/utils');
+const { makeComponent, modifySchemaThenProperties } = require('../lib/schemas/utils');
 
 
 describe('test schema utils functons', () => {
@@ -199,7 +199,7 @@ describe('test schema utils functons', () => {
 			}
 		};
 
-		assert.deepEqual(obj, makeSection(obj));
+		assert.deepEqual(obj, modifySchemaThenProperties(obj));
 	});
 
 	it('should return object expected with custom properties', () => {
@@ -246,7 +246,7 @@ describe('test schema utils functons', () => {
 			}
 		};
 
-		assert.deepEqual(expectedObj, makeSection(obj, {
+		assert.deepEqual(expectedObj, modifySchemaThenProperties(obj, {
 			properties: {
 				actions: {
 					type: 'array',
@@ -306,7 +306,68 @@ describe('test schema utils functons', () => {
 			}
 		};
 
-		assert.deepEqual(expectedObj, makeSection(obj, {
+		assert.deepEqual(expectedObj, modifySchemaThenProperties(obj, {
+			properties: {
+				actions: {
+					type: 'array',
+					items: {
+						type: 'object',
+						properties: {
+							name: { type: 'string' }
+						}
+					}
+				},
+				sarasa: { type: 'string' }
+			},
+			requiredProperties: ['actions']
+		}));
+	});
+
+	it('should return object expected with custom required properties (2)', () => {
+		const obj = {
+			if: {
+				properties: {
+					rootComponent: { const: 'MainForm' }
+				}
+			},
+			then: {
+				properties: {
+					title: { type: 'string' },
+					name: { type: 'string', const: 'mainFormSection' },
+					rootComponent: { type: 'string', const: 'MainForm' }
+				},
+				additionalProperties: false
+			}
+		};
+
+		const expectedObj = {
+			if: {
+				properties: {
+					rootComponent: { const: 'MainForm' }
+				}
+			},
+			then: {
+				properties: {
+					title: { type: 'string' },
+					name: { type: 'string', const: 'mainFormSection' },
+					rootComponent: { type: 'string', const: 'MainForm' },
+					actions: {
+						type: 'array',
+						items: {
+							type: 'object',
+							properties: {
+								name: { type: 'string' }
+							}
+						}
+					},
+					sarasa: { type: 'string' }
+				},
+				required: ['actions'],
+				additionalProperties: false
+			}
+		};
+
+		assert.deepEqual(expectedObj, modifySchemaThenProperties(obj, {
 			properties: {
 				actions: {
 					type: 'array',

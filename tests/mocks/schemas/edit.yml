@@ -1229,3 +1229,30 @@ sections:
           name: someName
     threeSomeMilestone:
       component: SomeComponentTwo
+
+- name: summary
+  rootComponent: Summary
+
+  source:
+    service: service
+    namespace: namespace
+    method: method
+    resolve: false
+
+  cards:
+    - name: firstCard
+      component: BaseCard
+      x: 0
+      y: 3
+      width: 4
+      height: 4
+      fieldsGroup:
+        - name: details
+          fields:
+            - name: someField
+              component: Text
+
+            - name: linkField
+              component: Link
+              componentAttributes:
+                path: /some/path/{id}
