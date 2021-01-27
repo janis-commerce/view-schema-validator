@@ -2,6 +2,7 @@
     "service": "sac",
     "name": "claim-type-browse",
     "root": "Browse",
+    "rowLinkPath": "/route/{id}/edit",
     "source": {
         "service": "sac",
         "namespace": "claim-type",

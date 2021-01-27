@@ -5,6 +5,7 @@
     "canExport": true,
     "canImport": true,
     "canRefresh": false,
+    "rowLinkPath": "/route/{id}/edit",
     "source": {
         "service": "sac",
         "namespace": "claim-type",
