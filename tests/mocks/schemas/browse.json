@@ -5,7 +5,25 @@
     "canExport": true,
     "canImport": true,
     "canRefresh": false,
-    "rowLinkPath": "/route/{id}/edit",
+    "rowLink": {
+        "path": "/route/{id}/edit",
+        "endpointParameters": [
+            {
+                "name": "status",
+                "target": "path",
+                "value": {
+                    "dynamic": "statusId"
+                }
+            },
+            {
+                "name": "status",
+                "target": "query",
+                "value": {
+                    "static": 1
+                }
+            }
+        ]
+    },
     "source": {
         "service": "sac",
         "namespace": "claim-type",

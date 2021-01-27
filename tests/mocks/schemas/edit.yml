@@ -864,6 +864,9 @@ sections:
   rootComponent: BrowseSection
   canRefresh: true
 
+  rowLink:
+    path: /route/{id}/edit
+
   conditions:
     showWhen:
       - - name: isNotEmpty
