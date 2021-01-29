@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.48.0] - 2021-01-29
+### Added
+- New section `Summary` for edits
+- New property `rowLinkPath` in `browseSection`. Now with this property you will be able to change the path where are going to redirect
+
 ## [2.47.0] - 2021-01-19
 ### Added
 - New property `showOnPreview` in browse schema to show columns on preview mode
