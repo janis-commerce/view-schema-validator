@@ -889,7 +889,8 @@
                                     }
                                 }
                             ]
-                        }
+                        },
+                        "callback": "reloadRow"
                     },
                     {
                         "name": "new",
