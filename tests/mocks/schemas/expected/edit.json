@@ -769,7 +769,7 @@
                             "name": "asyncData",
                             "component": "AsyncWrapper",
                             "componentAttributes": {
-                                "staticFilters": [
+                                "endpointParameters": [
                                     {
                                         "name": "status",
                                         "target": "path",
@@ -1369,7 +1369,7 @@
                     "rowMinHeight": 100
                 }
             },
-            "staticFilters": [
+            "endpointParameters": [
                 {
                     "name": "status",
                     "target": "path",
@@ -1732,7 +1732,7 @@
                 "method": "get",
                 "resolve": false
             },
-            "staticFilters": [
+            "endpointParameters": [
                 {
                     "name": "status",
                     "target": "path",

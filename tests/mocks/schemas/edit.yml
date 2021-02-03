@@ -481,7 +481,7 @@ sections:
     - name: asyncData
       component: AsyncWrapper
       componentAttributes:
-        staticFilters:
+        endpointParameters:
         - name: status
           target: path
           value:
@@ -903,7 +903,7 @@ sections:
       rowVerticalAlign: middle
     mobile:
       rowMinHeight: 100
-  staticFilters:
+  endpointParameters:
     - name: status
       target: path
       value:
@@ -1085,7 +1085,7 @@ sections:
     namespace: order
     method: get
     resolve: false
-  staticFilters:
+  endpointParameters:
     - name: status
       target: path
       value:
