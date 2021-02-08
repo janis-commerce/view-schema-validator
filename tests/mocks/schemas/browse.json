@@ -391,6 +391,29 @@
             }
         },
         {
+            "name": "customerList",
+            "component": "Text",
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": "firstname"
+                }
+            }
+        },
+        {
+            "name": "customerListTwo",
+            "component": "Text",
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": {
+                        "template": "{0} {1}",
+                        "fields": ["firstname", "lastname"]
+                    }
+                }
+            }
+        },
+        {
             "name": "exampleBadgeLetter",
             "component": "BadgeLetter",
             "componentAttributes": {
