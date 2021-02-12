@@ -40,7 +40,7 @@
             "rowVerticalAlign": "top"
         }
     },
-    "staticFilters": [
+    "endpointParameters": [
         {
             "name": "status",
             "target": "path",
