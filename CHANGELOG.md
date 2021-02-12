@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.49.0] - 2021-01-29
+### Added
+- New mapper `arrayMap` for fields
+- New callbalck en ActionButtos `reloadRow`
+- New properties in Edit Schemas `hideUserCreated` and `hideUserModified`
+
+### Changed
+- Now the default value of the `searchParam` in the remote select is: `filters[search]`
+- Now the default value of the `valuesMapper` in the remote select is: `label: name` and `value: id`
+
+### Deprecated
+- Now the the `staticFilters` are replaced with the `endpointParameters`. Within 1 month the property will be **removed**.
+
 ## [2.48.0] - 2021-01-29
 ### Added
 - New section `Summary` for edits
