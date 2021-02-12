@@ -463,6 +463,47 @@
             }
         },
         {
+            "name": "customerList",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": "firstname"
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
+            "name": "customerListTwo",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": {
+                        "template": "{0} {1}",
+                        "fields": ["firstname", "lastname"]
+                    }
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "exampleBadgeLetter",
             "component": "BadgeLetter",
             "attributes": {
