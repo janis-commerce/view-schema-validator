@@ -718,6 +718,31 @@ sections:
                  - email
               value: id
 
+      - name: selectRemoteThree
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          options:
+            scope: remote
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+
+      - name: selectRemoteFour
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          options:
+            scope: remote
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesEndpoint: false
+
       - name: selectMultilevelExample
         component: SelectMultilevel
         componentAttributes:

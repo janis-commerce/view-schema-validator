@@ -26,7 +26,6 @@ sections:
             service: sac
             namespace: claim-motive
             method: list
-          searchParam: term
           valuesMapper:
             label: name
             value: id
@@ -42,7 +41,6 @@ sections:
             service: id
             namespace: admin
             method: list
-          searchParam: term
           valuesMapper:
             label: name
             value: id
@@ -90,7 +88,6 @@ sections:
             service: sac
             namespace: claim-motive
             method: list
-          searchParam: term
           valuesMapper:
             label: name
             value: id
@@ -106,7 +103,6 @@ sections:
             service: sac
             method: list
             namespace: claim-compensation
-          searchParam: term
           valuesMapper:
             label: name
             value: id

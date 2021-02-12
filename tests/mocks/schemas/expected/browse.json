@@ -199,7 +199,7 @@
                 "preloadOptions": true,
                 "options": {
                     "scope": "remote",
-                    "searchParam": "term",
+                    "searchParam": "filters[search]",
                     "endpoint": {
                         "service": "sac",
                         "namespace": "claim-type",
@@ -237,13 +237,56 @@
             }
         },
         {
+            "name": "remoteSelectTwo",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "searchParam": "filters[search]",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "valuesMapper": {
+                        "label": "name",
+                        "value": "id"
+                    }
+                }
+            }
+        },
+        {
+            "name": "remoteSelectThree",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "searchParam": "filters[search]",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "valuesMapper": {
+                        "label": "name",
+                        "value": "id"
+                    },
+                    "initialValuesEndpoint": false
+                }
+            }
+        },
+        {
             "name": "remoteMultiselect",
             "component": "Multiselect",
             "componentAttributes": {
                 "translateLabels": true,
                 "options": {
                     "scope": "remote",
-                    "searchParam": "term",
+                    "searchParam": "filters[search]",
                     "initialValuesEndpoint":{
                         "service": "sac",
                         "namespace": "claim-type",

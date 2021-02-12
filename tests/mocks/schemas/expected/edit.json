@@ -1060,7 +1060,7 @@
                                 "preloadOptions": true,
                                 "options": {
                                     "scope": "remote",
-                                    "searchParam": "term",
+                                    "searchParam": "filters[search]",
                                     "endpoint": {
                                         "service": "sac",
                                         "namespace": "claim",
@@ -1105,7 +1105,7 @@
                                 "translateLabels": true,
                                 "options": {
                                     "scope": "remote",
-                                    "searchParam": "term",
+                                    "searchParam": "filters[search]",
                                     "endpoint": {
                                         "service": "sac",
                                         "namespace": "claim",
@@ -1135,6 +1135,49 @@
                             }
                         },
                         {
+                            "name": "selectRemoteThree",
+                            "component": "Select",
+                            "componentAttributes": {
+                                "translateLabels": true,
+                                "options": {
+                                    "scope": "remote",
+                                    "searchParam": "filters[search]",
+                                    "endpoint": {
+                                        "service": "sac",
+                                        "namespace": "claim",
+                                        "method": "list",
+                                        "resolve": false
+                                    },
+                                    "valuesMapper": {
+                                        "label": "name",
+                                        "value": "id"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "selectRemoteFour",
+                            "component": "Select",
+                            "componentAttributes": {
+                                "translateLabels": true,
+                                "options": {
+                                    "scope": "remote",
+                                    "searchParam": "filters[search]",
+                                    "endpoint": {
+                                        "service": "sac",
+                                        "namespace": "claim",
+                                        "method": "list",
+                                        "resolve": false
+                                    },
+                                    "valuesMapper": {
+                                        "label": "name",
+                                        "value": "id"
+                                    },
+                                    "initialValuesEndpoint": false
+                                }
+                            }
+                        },
+                        {
                             "name": "selectMultilevelExample",
                             "component": "SelectMultilevel",
                             "componentAttributes": {
@@ -1143,7 +1186,7 @@
                                 "maxLevel": 3,
                                 "options": {
                                     "scope": "remote",
-                                    "searchParam": "term",
+                                    "searchParam": "filters[search]",
                                     "endpoint": {
                                         "service": "sac",
                                         "namespace": "claim",
@@ -1196,7 +1239,7 @@
                                     }
                                 ],
                                 "options": {
-                                    "searchParam": "term",
+                                    "searchParam": "filters[search]",
                                     "endpoint": {
                                         "service": "sac",
                                         "namespace": "claim",
