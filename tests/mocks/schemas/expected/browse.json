@@ -199,7 +199,7 @@
                 "preloadOptions": true,
                 "options": {
                     "scope": "remote",
-                    "searchParam": "term",
+                    "searchParam": "filters[search]",
                     "endpoint": {
                         "service": "sac",
                         "namespace": "claim-type",
@@ -237,13 +237,56 @@
             }
         },
         {
+            "name": "remoteSelectTwo",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "searchParam": "filters[search]",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "valuesMapper": {
+                        "label": "name",
+                        "value": "id"
+                    }
+                }
+            }
+        },
+        {
+            "name": "remoteSelectThree",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "searchParam": "filters[search]",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "valuesMapper": {
+                        "label": "name",
+                        "value": "id"
+                    },
+                    "initialValuesEndpoint": false
+                }
+            }
+        },
+        {
             "name": "remoteMultiselect",
             "component": "Multiselect",
             "componentAttributes": {
                 "translateLabels": true,
                 "options": {
                     "scope": "remote",
-                    "searchParam": "term",
+                    "searchParam": "filters[search]",
                     "initialValuesEndpoint":{
                         "service": "sac",
                         "namespace": "claim-type",
@@ -413,6 +456,47 @@
                 "name": "suffix",
                 "props": {
                     "value": ".test"
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
+            "name": "customerList",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": "firstname"
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
+            "name": "customerListTwo",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": {
+                        "template": "{0} {1}",
+                        "fields": ["firstname", "lastname"]
+                    }
                 }
             },
             "componentAttributes": {
@@ -1165,7 +1249,8 @@
                                     }
                                 }
                             ]
-                        }
+                        },
+                        "callback": "reloadRow"
                     },
                     {
                         "name": "new",

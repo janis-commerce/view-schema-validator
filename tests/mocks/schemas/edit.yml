@@ -92,6 +92,8 @@ sections:
 - name: mainFormSection
   rootComponent: MainForm
   icon: catalogue
+  hideUserModified: false
+  hideUserCreated: true
   topComponents:
     - component: TestComponent
     - component: TestComponentLeft
@@ -718,6 +720,31 @@ sections:
                  - email
               value: id
 
+      - name: selectRemoteThree
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          options:
+            scope: remote
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+
+      - name: selectRemoteFour
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          options:
+            scope: remote
+            endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            initialValuesEndpoint: false
+
       - name: selectMultilevelExample
         component: SelectMultilevel
         componentAttributes:
@@ -1131,6 +1158,8 @@ sections:
 
 - name: testFormSection
   rootComponent: FormSection
+  hideUserModified: false
+  hideUserCreated: true
   source:
     service: sac
     namespace: claim-motive

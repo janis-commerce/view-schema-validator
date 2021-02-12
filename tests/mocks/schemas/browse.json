@@ -236,6 +236,39 @@
             }
         },
         {
+            "name": "remoteSelectTwo",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim",
+                        "method": "list",
+                        "resolve": false
+                    }
+                }
+            }
+        },
+        {
+            "name": "remoteSelectThree",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "remote",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "initialValuesEndpoint": false
+                }
+            }
+        },
+        {
             "name": "remoteMultiselect",
             "component": "Multiselect",
             "componentAttributes": {
@@ -387,6 +420,29 @@
                 "name": "suffix",
                 "props": {
                     "value": ".test"
+                }
+            }
+        },
+        {
+            "name": "customerList",
+            "component": "Text",
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": "firstname"
+                }
+            }
+        },
+        {
+            "name": "customerListTwo",
+            "component": "Text",
+            "mapper": {
+                "name": "arrayMap",
+                "props": {
+                    "value": {
+                        "template": "{0} {1}",
+                        "fields": ["firstname", "lastname"]
+                    }
                 }
             }
         },
@@ -889,7 +945,8 @@
                                     }
                                 }
                             ]
-                        }
+                        },
+                        "callback": "reloadRow"
                     },
                     {
                         "name": "new",

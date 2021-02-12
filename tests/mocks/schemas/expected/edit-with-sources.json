@@ -42,11 +42,11 @@
                                         "httpMethod": "get",
                                         "url": "http://sac.janis.localhost:3009/api/claim-motives"
                                     },
-                                    "searchParam": "term",
                                     "valuesMapper": {
                                         "label": "name",
                                         "value": "id"
-                                    }
+                                    },
+                                    "searchParam": "filters[search]"
                                 }
                             },
                             "validations": [
@@ -72,11 +72,11 @@
                                         "httpMethod": "get",
                                         "url": "http://id.janis.localhost:3019/api/admins"
                                     },
-                                    "searchParam": "term",
                                     "valuesMapper": {
                                         "label": "name",
                                         "value": "id"
-                                    }
+                                    },
+                                    "searchParam": "filters[search]"
                                 }
                             }
                         },
@@ -173,11 +173,11 @@
                                         "httpMethod": "get",
                                         "url": "http://sac.janis.localhost:3009/api/claim-motives"
                                     },
-                                    "searchParam": "term",
                                     "valuesMapper": {
                                         "label": "name",
                                         "value": "id"
-                                    }
+                                    },
+                                    "searchParam": "filters[search]"
                                 }
                             },
                             "validations": [
@@ -203,11 +203,11 @@
                                         "httpMethod": "get",
                                         "url": "http://sac.janis.localhost:3009/api/claim-compensations"
                                     },
-                                    "searchParam": "term",
                                     "valuesMapper": {
                                         "label": "name",
                                         "value": "id"
-                                    }
+                                    },
+                                    "searchParam": "filters[search]"
                                 }
                             }
                         }
