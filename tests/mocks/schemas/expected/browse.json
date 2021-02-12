@@ -1165,7 +1165,8 @@
                                     }
                                 }
                             ]
-                        }
+                        },
+                        "callback": "reloadRow"
                     },
                     {
                         "name": "new",
