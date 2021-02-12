@@ -133,6 +133,8 @@
             "name": "mainFormSection",
             "rootComponent": "MainForm",
             "icon": "catalogue",
+            "hideUserModified": false,
+            "hideUserCreated": true,
             "topComponents": [
                 {
                     "component": "TestComponent"
@@ -1838,6 +1840,8 @@
         {
             "name": "testFormSection",
             "rootComponent": "FormSection",
+            "hideUserModified": false,
+            "hideUserCreated": true,
             "source": {
                 "service": "sac",
                 "namespace": "claim-motive",

@@ -92,6 +92,8 @@ sections:
 - name: mainFormSection
   rootComponent: MainForm
   icon: catalogue
+  hideUserModified: false
+  hideUserCreated: true
   topComponents:
     - component: TestComponent
     - component: TestComponentLeft
@@ -1156,6 +1158,8 @@ sections:
 
 - name: testFormSection
   rootComponent: FormSection
+  hideUserModified: false
+  hideUserCreated: true
   source:
     service: sac
     namespace: claim-motive
