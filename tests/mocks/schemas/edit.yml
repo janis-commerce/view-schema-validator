@@ -480,7 +480,7 @@ sections:
     - name: exampleMapThree
       component: Map
 
-    - name: asyncData
+    - name: asyncWrapperExampleOne
       component: AsyncWrapper
       componentAttributes:
         endpointParameters:
@@ -501,6 +501,24 @@ sections:
           firstname: userFirstname
         field:
           name: userFirstname
+          component: Text
+
+    - name: asyncWrapperExampleTwo
+      component: AsyncWrapper
+      componentAttributes:
+        endpointParameters:
+          - name: id
+            target: query
+            value:
+              dynamic: userIds
+        source:
+          service: id
+          namespace: user
+          method: list
+          resolve: false
+        targetField: users
+        field:
+          name: users
           component: Text
 
     - name: linkTest1
