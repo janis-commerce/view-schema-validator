@@ -77,6 +77,37 @@
             }
         }
     },
+    "topComponents": [
+        {
+            "component": "TestComponent",
+            "attributes": {
+                "name": "test",
+                "sarasa": "test23"
+            }
+        },
+        {
+            "component": "TestComponent2",
+            "attributes": {
+                "name": "test",
+                "sarasa": "test23"
+            }
+        },
+        {
+            "component": "ActionButtons",
+            "position": "right",
+            "actions": [
+                {
+                    "name": "new",
+                    "icon": "star_light",
+                    "color": "fizzGreen",
+                    "type": "link",
+                    "options": {
+                        "path": "/service/namespace/new"
+                    }
+                }
+            ]
+        }
+    ],
     "sortableFields": [
         {
             "name": "test"
