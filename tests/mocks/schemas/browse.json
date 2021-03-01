@@ -62,6 +62,25 @@
             }
         }
     ],
+    "massiveActions": {
+        "title": "common.title",
+        "translateTitle": true,
+        "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+        },
+        "endpointParameters": [
+            {
+                "name": "status",
+                "target": "query",
+                "value": {
+                    "static": "active"
+                }
+            }
+        ]
+    },
     "themes": {
         "themeOne": {
             "new": "black",
