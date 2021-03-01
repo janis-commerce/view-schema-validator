@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.50.0] - 2021-03-01
+### Added
+- Now the component `TopComponents` can use in the Browse pages
+- Now in the Browse pages you can add a `massiveActions`
+- The component `AsyncWrapper` in the Edit Pages, now you can use the property `targetField`
+
 ## [2.49.0] - 2021-01-29
 ### Added
 - New mapper `arrayMap` for fields
@@ -37,7 +43,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - New component `selectForm`. A new select that you can create or edit a related entity
 - New property `preloadOptions` in selects that preload the options on load
-- New property `format` in DateTimePicker componente that format the value when send the data on the request
+- New property `format` in DateTimePicker component that format the value when send the data on the request
 
 ## [2.44.0] - 2020-12-15
 ### Added
@@ -53,7 +59,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.43.0] - 2020-11-27
 ### Added
-- Add new property `useTheme` in `BadgeLetter` componente
+- Add new property `useTheme` in `BadgeLetter` component
 - Add new property `defaultOpen` in fieldsGroup
 
 ## [2.42.1] - 2020-11-18
@@ -102,7 +108,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.35.0] - 2020-09-04
 ### Added
 - New presets for the component DatePicker: `today`, `yesterday`, `nextWeek`, `lastWeek`, `lastMonth`, `nextMonth`
-- New optionals props `icon`, `iconColor`, `color`, `backgroundColor` for the componente `ActionForm` in `TopComponents`
+- New optionals props `icon`, `iconColor`, `color`, `backgroundColor` for the component `ActionForm` in `TopComponents`
 - Added `Image` and `UserImage` components in Edits schemas. Also the Image has add a optional value `roundBorders`
 
 ## [2.34.0] - 2020-08-21
