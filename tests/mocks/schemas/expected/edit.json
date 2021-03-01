@@ -768,7 +768,7 @@
                             "componentAttributes": {}
                         },
                         {
-                            "name": "asyncData",
+                            "name": "asyncWrapperExampleOne",
                             "component": "AsyncWrapper",
                             "componentAttributes": {
                                 "endpointParameters": [
@@ -798,6 +798,33 @@
                                 },
                                 "field": {
                                     "name": "userFirstname",
+                                    "component": "Text",
+                                    "componentAttributes": {}
+                                }
+                            }
+                        },
+                        {
+                            "name": "asyncWrapperExampleTwo",
+                            "component": "AsyncWrapper",
+                            "componentAttributes": {
+                                "endpointParameters": [
+                                    {
+                                        "name": "id",
+                                        "target": "query",
+                                        "value": {
+                                            "dynamic": "userIds"
+                                        }
+                                    }
+                                ],
+                                "source": {
+                                    "service": "id",
+                                    "namespace": "user",
+                                    "method": "list",
+                                    "resolve": false
+                                },
+                                "targetField": "users",
+                                "field": {
+                                    "name": "users",
                                     "component": "Text",
                                     "componentAttributes": {}
                                 }
