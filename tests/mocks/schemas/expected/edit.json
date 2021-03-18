@@ -990,6 +990,9 @@
                                 "canChangeElements": true,
                                 "minElements": 1,
                                 "uniqueField": true,
+                                "addButtonText": "some.traduction",
+                                "addButtonColor": "colorName",
+                                "addButtonIcon": "iconName",
                                 "fields": [
                                     {
                                         "name": "test",
