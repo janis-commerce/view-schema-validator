@@ -258,6 +258,21 @@
                     "iconColor": "colorName",
                     "color": "colorName",
                     "backgroundColor": "colorName",
+                    "callback": {
+                        "name": "redirect",
+                        "props": {
+                            "path": "/some/path/{id}",
+                            "endpointParameters": [
+                                {
+                                    "name": "status",
+                                    "target": "path",
+                                    "value": {
+                                        "dynamic": "id"
+                                    }
+                                }
+                            ]
+                        }
+                    },
                     "conditions": {
                         "showWhen": [
                             [
