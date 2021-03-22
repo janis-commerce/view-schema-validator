@@ -262,6 +262,7 @@
                         "name": "redirect",
                         "props": {
                             "path": "/some/path/{id}",
+                            "target": "_blank",
                             "endpointParameters": [
                                 {
                                     "name": "status",
