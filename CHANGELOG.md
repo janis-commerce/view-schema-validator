@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.51.0] - 2021-03-29
+### Added
+- New properties `addButtonText`, `addButtonTextColor`, `addButtonBackgoundColor`, `addButtonIcon` in `FieldsArray` component
+- New callback `redirect` for the `ActionButtons` and `ActionForm` components
+
 ## [2.50.0] - 2021-03-01
 ### Added
 - Now the component `TopComponents` can use in the Browse pages
