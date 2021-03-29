@@ -636,6 +636,10 @@ sections:
         canChangeElements: true
         uniqueField: true
         minElements: 1
+        addButtonText: some.traduction
+        addButtonTextColor: colorName
+        addButtonBackgroundColor: colorName
+        addButtonIcon: iconName
         fields:
           - name: test
             component: Text
