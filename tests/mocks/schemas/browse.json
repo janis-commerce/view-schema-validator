@@ -122,7 +122,8 @@
                     "type": "link",
                     "options": {
                         "path": "/service/namespace/new"
-                    }
+                    },
+                    "callback": "reloadBrowse"
                 }
             ]
         }
