@@ -263,6 +263,7 @@ sections:
               field: name
               referenceValueType: static
               referenceValue: null
+
     - name: description
       component: Textarea
       validations:
@@ -273,7 +274,6 @@ sections:
         - - name: literal
             options:
               value: test
-
       conditions:
         showWhen:
           - - name: isEqualTo
@@ -290,6 +290,11 @@ sections:
                 - test
                 - name
               referenceValue: true
+
+    - name: descriptionTwo
+      component: Textarea
+      componentAttributes:
+        autoComplete: false
 
     - name: exampleTextCurrency
       component: Text
@@ -371,6 +376,8 @@ sections:
     - name: appliesToLogistics
       component: Switch
       defaultValue: true
+      componentAttributes:
+        autoComplete: false
       validations:
         - - name: required
 
@@ -386,6 +393,15 @@ sections:
       component: Switch
       validations:
         - - name: required
+
+
+    - name: missingStock
+      component: Checkbox
+
+    - name: missingStockTwo
+      component: Checkbox
+      componentAttributes:
+        autoComplete: true
 
     - name: testChip
       component: Chip
@@ -613,6 +629,7 @@ sections:
     - name: someInput
       component: Input
       componentAttributes:
+        autoComplete: true
         icon: iconName
 
     - name: someInputHidden
