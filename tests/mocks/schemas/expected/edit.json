@@ -472,6 +472,13 @@
                             "componentAttributes": {}
                         },
                         {
+                            "name": "descriptionTwo",
+                            "component": "Textarea",
+                            "componentAttributes": {
+                                "autoComplete": false
+                            }
+                        },
+                        {
                             "name": "exampleTextCurrency",
                             "component": "Text",
                             "dependency": "dependencyName",
@@ -599,14 +606,16 @@
                             "name": "appliesToLogistics",
                             "component": "Switch",
                             "defaultValue": true,
+                            "componentAttributes": {
+                                "autoComplete": false
+                            },
                             "validations": [
                                 [
                                     {
                                         "name": "required"
                                     }
                                 ]
-                            ],
-                            "componentAttributes": {}
+                            ]
                         },
                         {
                             "name": "appliesToLogisticsRepeat",
@@ -635,6 +644,18 @@
                                 ]
                             ],
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "missingStock",
+                            "component": "Checkbox",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "missingStockTwo",
+                            "component": "Checkbox",
+                            "componentAttributes": {
+                                "autoComplete": true
+                            }
                         },
                         {
                             "name": "testChip",
@@ -979,6 +1000,7 @@
                             "name": "someInput",
                             "component": "Input",
                             "componentAttributes": {
+                                "autoComplete": true,
                                 "icon": "iconName"
                             }
                         },
