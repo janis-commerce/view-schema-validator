@@ -531,6 +531,9 @@ sections:
           name: users
           component: Text
 
+    - name: objectCreatorField
+      component: ObjectCreator
+
     - name: linkTest1
       component: Link
 

@@ -847,6 +847,11 @@
                             }
                         },
                         {
+                            "name": "objectCreatorField",
+                            "component": "ObjectCreator",
+                            "componentAttributes": {}
+                        },
+                        {
                             "name": "linkTest1",
                             "component": "Link",
                             "componentAttributes": {}
