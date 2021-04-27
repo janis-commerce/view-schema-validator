@@ -474,6 +474,7 @@
                         {
                             "name": "exampleTextCurrency",
                             "component": "Text",
+                            "dependency": "dependencyName",
                             "mapper": {
                                 "name": "currency",
                                 "props": {
