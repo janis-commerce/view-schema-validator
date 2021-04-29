@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.52.0] - 2021-04-29
+### Added
+- Add new property `dependency` in each field to complements with dependecies property.
+- New property `autocomplete` in fields `Input`, `Textarea`, `Switch` and `Checkbox` to set the autocomplete value.
+- New componente `ObjectCreator`
+
 ## [2.51.0] - 2021-03-29
 ### Added
 - New properties `addButtonText`, `addButtonTextColor`, `addButtonBackgoundColor`, `addButtonIcon` in `FieldsArray` component
