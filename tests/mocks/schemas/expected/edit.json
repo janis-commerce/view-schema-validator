@@ -806,6 +806,27 @@
                             "componentAttributes": {}
                         },
                         {
+                            "name": "exampleLocationOne",
+                            "component": "Location",
+                            "componentAttributes": {
+                                "label": "some.traduction.label",
+                                "fieldsMapping": {
+                                    "latitude": "lat",
+                                    "longitude": "lng"
+                                }
+                            }
+                        },
+                        {
+                            "name": "exampleLocationTwo",
+                            "component": "Location",
+                            "componentAttributes": {
+                                "label": {
+                                    "template": "{0} {1}",
+                                    "fields": ["address", "country"]
+                                }
+                            }
+                        },
+                        {
                             "name": "asyncWrapperExampleOne",
                             "component": "AsyncWrapper",
                             "componentAttributes": {
