@@ -94,6 +94,57 @@ sections:
   icon: catalogue
   hideUserModified: false
   hideUserCreated: true
+  dependencies:
+    - name: dependencyOne
+      source:
+        service: serviceName
+        namespace: namespaceName
+        method: methodName
+        resolve: false
+      endpointParameters:
+        - name: status
+          target: path
+          value:
+            dynamic: id
+        - name: status
+          target: query
+          value:
+            static: active
+      targetField: fieldNameOne
+    - name: dependencyTwo
+      source:
+        service: serviceName
+        namespace: namespaceName
+        method: methodName
+        resolve: false
+      endpointParameters:
+        - name: status
+          target: path
+          value:
+            dynamic: id
+        - name: status
+          target: query
+          value:
+            static: active
+      targetField: fieldNameTwo
+      dependencies:
+        - name: dependencyThree
+          source:
+            service: serviceName
+            namespace: namespaceName
+            method: methodName
+            resolve: false
+          endpointParameters:
+            - name: status
+              target: path
+              value:
+                dynamic: id
+            - name: status
+              target: query
+              value:
+                static: active
+          targetField: fieldNameThree
+
   topComponents:
     - component: TestComponent
     - component: TestComponentLeft
