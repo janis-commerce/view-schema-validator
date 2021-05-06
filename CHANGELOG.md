@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.52.0] - 2021-04-29
+## [2.52.0] - 2021-05-06
 ### Added
 - Add new property `dependency` in each field to complements with dependecies property.
+- Add new property `dependencies` in form and browses
 - New property `autocomplete` in fields `Input`, `Textarea`, `Switch` and `Checkbox` to set the autocomplete value.
-- New componente `ObjectCreator`
+- New component `ObjectCreator`
+- New component `Location`
 
 ## [2.51.0] - 2021-03-29
 ### Added
