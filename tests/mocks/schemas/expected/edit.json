@@ -904,7 +904,10 @@
                             "componentAttributes": {
                                 "label": {
                                     "template": "{0} {1}",
-                                    "fields": ["address", "country"]
+                                    "fields": [
+                                        "address",
+                                        "country"
+                                    ]
                                 }
                             }
                         },
@@ -2272,6 +2275,54 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "name": "totals",
+                    "component": "OMSOrderTotalsCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4
+                },
+                {
+                    "name": "steps",
+                    "component": "OMSOrderStepsCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4
+                },
+                {
+                    "name": "shipping",
+                    "component": "OMSOrderShippingCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4
+                },
+                {
+                    "name": "picking",
+                    "component": "OMSOrderPickingCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4
+                },
+                {
+                    "name": "customer",
+                    "component": "OMSOrderCustomerCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4
+                },
+                {
+                    "name": "payment",
+                    "component": "OMSOrderPaymentsCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4
                 }
             ]
         }
