@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.53.0] - 2021-05-12
+### Added
+- Add new Cards for a summary `OMSOrderShippingCard` `OMSOrderPickingCard` `OMSOrderStepsCard` `OMSOrderTotalsCard` `OMSOrderCustomerCard` `OMSOrderPaymentsCard`
+
 ## [2.52.0] - 2021-05-06
 ### Added
 - Add new property `dependency` in each field to complements with dependecies property.
