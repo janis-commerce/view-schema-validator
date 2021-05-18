@@ -998,6 +998,17 @@ sections:
             method: method
             resolve: false
 
+      - name: newStatusOne
+        component: StatusSelector
+
+      - name: newStatusTwo
+        component: StatusSelector
+        componentAttributes:
+          values:
+            - active
+            - inactive
+            - procesing
+
       - name: someFieldPreview
         component: Preview
         componentAttributes:
