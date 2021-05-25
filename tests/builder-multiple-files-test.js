@@ -8,17 +8,14 @@ const chokidar = require('chokidar');
 
 const { EventEmitter } = require('events');
 
-
 const Builder = require('../lib/builder');
 const Validator = require('../lib/validator');
 
 const ViewSchemaValidator = require('./../lib');
 
-const schemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
-const schemaExampleTwoYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
-const schemaExampleJSON = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
-
-const sandbox = sinon.createSandbox();
+const editSchemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
+const newSchemaExampleTwoYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
+const browseSchemaExampleJSON = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
 
 let writeFileStub;
 
@@ -40,11 +37,11 @@ const mockfs = () => {
 	mock({
 		'tests/schemas/fakeFolder': mock.directory({
 			items: {
-				'edit.yml': mock.file({ content: schemaExampleYML.toString() }),
-				'browse.json': mock.file({ content: schemaExampleJSON.toString() }),
+				'edit.yml': mock.file({ content: editSchemaExampleYML.toString() }),
+				'browse.json': mock.file({ content: browseSchemaExampleJSON.toString() }),
 				more: mock.directory({
 					items: {
-						'new.yml': mock.file({ content: schemaExampleTwoYML.toString() }),
+						'new.yml': mock.file({ content: newSchemaExampleTwoYML.toString() }),
 						'test.js': mock.file({ content: 'file js' })
 					}
 				})
@@ -55,7 +52,7 @@ const mockfs = () => {
 
 describe('test builder multiple files', () => {
 	afterEach(() => {
-		sandbox.restore();
+		sinon.restore();
 		mock.restore();
 	});
 
@@ -63,7 +60,7 @@ describe('test builder multiple files', () => {
 		const firstPath = process.cwd() + '/tests/schemas/fakeFolder';
 		const secondPath = process.cwd() + '/tests/schemas/fakeFolder/more';
 
-		const readdirStub = sandbox.stub(fs, 'readdir');
+		const readdirStub = sinon.stub(fs, 'readdir');
 
 		readdirStub.withArgs(firstPath)
 			.returns([
@@ -78,16 +75,16 @@ describe('test builder multiple files', () => {
 				{ name: 'test.js', isFile: () => true }
 			]);
 
-		writeFileStub = sandbox.stub(fs, 'writeFile');
-		sandbox.stub(fs, 'emptyDir');
+		writeFileStub = sinon.stub(fs, 'writeFile');
+		sinon.stub(fs, 'emptyDir');
 
-		sandbox.stub(chokidar, 'watch');
+		sinon.stub(chokidar, 'watch');
 	});
 
 	it('should error if pass a inexist input ', async () => {
-		sandbox.stub(process, 'exit');
+		sinon.stub(process, 'exit');
 
-		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
+		const isFileSpy = sinon.spy(Builder.prototype, 'isFile');
 
 		const execute = executeInstance();
 
@@ -100,11 +97,11 @@ describe('test builder multiple files', () => {
 	});
 
 	it('Should exec clearOutputFolder if is build and before processInputs', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute');
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute');
 
-		const clearOutputFolderStub = sandbox.stub(Builder.prototype, 'clearOutputFolder');
-		const processInputStub = sandbox.stub(Builder.prototype, 'processInput');
+		const clearOutputFolderStub = sinon.stub(Builder.prototype, 'clearOutputFolder');
+		const processInputStub = sinon.stub(Builder.prototype, 'processInput');
 
 		mockfs();
 
@@ -125,10 +122,10 @@ describe('test builder multiple files', () => {
 	});
 
 	it('Should pass validation with path directory', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data: 'test' });
 
-		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
+		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
 
 		mockfs();
 
@@ -140,12 +137,12 @@ describe('test builder multiple files', () => {
 	});
 
 	it('should warn if validate file invalid', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data: 'test' });
 
-		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
-		const processInputSpy = sandbox.spy(Builder.prototype, 'processInput');
-		const processFileSpy = sandbox.spy(Builder.prototype, 'processFile');
+		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
+		const processInputSpy = sinon.spy(Builder.prototype, 'processInput');
+		const processFileSpy = sinon.spy(Builder.prototype, 'processFile');
 
 		mockfs();
 
@@ -159,16 +156,16 @@ describe('test builder multiple files', () => {
 
 	it('Should watch input path and execute on ready and change events', async () => {
 
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data: 'test' });
 
-		const buildSpy = sandbox.spy(Builder.prototype, 'execute');
+		const buildSpy = sinon.spy(Builder.prototype, 'execute');
 
 		class MyEventEmitter extends EventEmitter {}
 
 		const eventEmitter = new MyEventEmitter();
 
-		sandbox.spy(eventEmitter, 'on');
+		sinon.spy(eventEmitter, 'on');
 
 		const on = (...args) => {
 			eventEmitter.on(...args);
@@ -181,19 +178,19 @@ describe('test builder multiple files', () => {
 		const execute = executeInstance(true, true);
 		await execute();
 
-		sandbox.assert.calledOnce(chokidar.watch);
-		sandbox.assert.notCalled(buildSpy);
+		sinon.assert.calledOnce(chokidar.watch);
+		sinon.assert.notCalled(buildSpy);
 
 		eventEmitter.emit('notWatchedEvent');
-		sandbox.assert.notCalled(buildSpy);
+		sinon.assert.notCalled(buildSpy);
 
 		eventEmitter.emit('ready');
-		sandbox.assert.calledOnce(buildSpy);
+		sinon.assert.calledOnce(buildSpy);
 
 		eventEmitter.emit('change');
-		sandbox.assert.calledTwice(buildSpy);
+		sinon.assert.calledTwice(buildSpy);
 
-		sandbox.assert.alwaysCalledWith(buildSpy, true);
+		sinon.assert.alwaysCalledWith(buildSpy, true);
 	});
 
 });

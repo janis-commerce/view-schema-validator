@@ -1,3 +1,3 @@
 'use strict';
 
-require('lllog')().setMinLevel('none');
+require('lllog')('none');

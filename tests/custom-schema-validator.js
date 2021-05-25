@@ -5,20 +5,18 @@ const sinon = require('sinon');
 const fs = require('fs-extra');
 const schemaModifier = require('../lib/custom-schema-validator');
 
-const schemaCompiled = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
-const schemaCompiledTwo = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
-
-const sandbox = sinon.createSandbox();
+const editSchemaCompiled = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
+const browseSchemaCompiled = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 
 describe('custom-schema-validator', () => {
 	beforeEach(() => {
-		sandbox.restore();
+		sinon.restore();
 	});
 
 	it('should pass validation if exist source prop and MainForm Section', async () => {
-		const validateMainFormSourceSpy = sandbox.spy(schemaModifier, 'validateMainFormSource');
+		const validateMainFormSourceSpy = sinon.spy(schemaModifier, 'validateMainFormSource');
 
-		const schemaOne = JSON.parse(schemaCompiled.toString());
+		const schemaOne = JSON.parse(editSchemaCompiled.toString());
 
 		const dataOne = schemaModifier.execute(schemaOne);
 
@@ -28,9 +26,9 @@ describe('custom-schema-validator', () => {
 	});
 
 	it('should pass validation if not is a Edit Schema', async () => {
-		const validateMainFormSourceSpy = sandbox.spy(schemaModifier, 'validateMainFormSource');
+		const validateMainFormSourceSpy = sinon.spy(schemaModifier, 'validateMainFormSource');
 
-		const schemaOne = JSON.parse(schemaCompiledTwo.toString());
+		const schemaOne = JSON.parse(browseSchemaCompiled.toString());
 
 		const dataOne = schemaModifier.execute(schemaOne);
 
@@ -40,9 +38,9 @@ describe('custom-schema-validator', () => {
 	});
 
 	it('should return an error if not exist source prop and exist MainForm section', async () => {
-		const validateMainFormSourceSpy = sandbox.spy(schemaModifier, 'validateMainFormSource');
+		const validateMainFormSourceSpy = sinon.spy(schemaModifier, 'validateMainFormSource');
 
-		const schemaOne = JSON.parse(schemaCompiled.toString());
+		const schemaOne = JSON.parse(editSchemaCompiled.toString());
 
 		delete schemaOne.source;
 
@@ -53,9 +51,9 @@ describe('custom-schema-validator', () => {
 	});
 
 	it('should pass validation if not exist source prop and not exist MainForm section', async () => {
-		const validateMainFormSourceSpy = sandbox.spy(schemaModifier, 'validateMainFormSource');
+		const validateMainFormSourceSpy = sinon.spy(schemaModifier, 'validateMainFormSource');
 
-		const schemaOne = JSON.parse(schemaCompiled.toString());
+		const schemaOne = JSON.parse(editSchemaCompiled.toString());
 
 		delete schemaOne.source;
 
