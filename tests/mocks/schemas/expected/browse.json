@@ -21,6 +21,52 @@
             }
         ]
     },
+    "rowCollapse": {
+        "source": {
+            "service": "service",
+            "namespace": "namespace",
+            "method": "method",
+            "resolve": false
+        },
+        "endpointParameters": [
+            {
+                "name": "id",
+                "target": "path",
+                "value": {
+                    "dynamic": "id"
+                }
+            }
+        ],
+        "sourceField": "fieldName",
+        "fields": [
+            {
+                "name": "textField",
+                "component": "Text",
+                "componentAttributes": {
+                    "fontWeight": "normal"
+                }
+            },
+            {
+                "name": "chipField",
+                "component": "Chip",
+                "componentAttributes": {
+                    "borderColor": "grey"
+                }
+            },
+            {
+                "name": "iconField",
+                "component": "Icon",
+                "componentAttributes": {}
+            },
+            {
+                "name": "linkField",
+                "component": "Link",
+                "componentAttributes": {
+                    "path": "/some/path/{id}"
+                }
+            }
+        ]
+    },
     "source": {
         "service": "sac",
         "namespace": "claim-type",
