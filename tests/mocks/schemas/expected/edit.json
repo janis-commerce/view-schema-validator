@@ -1538,6 +1538,23 @@
                             }
                         },
                         {
+                            "name": "newStatusOne",
+                            "component": "StatusSelector",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "newStatusTwo",
+                            "component": "StatusSelector",
+                            "componentAttributes": {
+                                "canClear": true,
+                                "values": [
+                                    "active",
+                                    "inactive",
+                                    "procesing"
+                                ]
+                            }
+                        },
+                        {
                             "name": "someFieldPreview",
                             "component": "Preview",
                             "componentAttributes": {

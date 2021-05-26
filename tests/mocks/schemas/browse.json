@@ -521,6 +521,21 @@
                     "resolve": false
                 }
             }
+        },
+        {
+            "name": "newStatusOne",
+            "component": "StatusSelector"
+        },
+        {
+            "name": "newStatusTwo",
+            "component": "StatusSelector",
+            "componentAttributes": {
+                "values": [
+                    "active",
+                    "inactive",
+                    "procesing"
+                ]
+            }
         }
     ],
     "fields": [
