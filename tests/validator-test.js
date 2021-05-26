@@ -6,12 +6,15 @@ const fs = require('fs-extra');
 const ymljs = require('yamljs');
 const Validator = require('../lib/validator');
 
+
 const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
 const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
 const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
 const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
+const previeSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
+const previeSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
 
 describe('Test validation functions', () => {
 	beforeEach(() => {
@@ -72,17 +75,21 @@ describe('Test validation functions', () => {
 	});
 
 	it('should schema builded is a expected', () => {
-		const schemaOne = JSON.parse(browseSchemaJson.toString());
-		const schemaTwo = ymljs.parse(editSchemaYml.toString());
-		const schemaThree = ymljs.parse(dashboardSchemaYml.toString());
 
-		const dataOne = Validator.execute(schemaOne, true, '/test/data1.json');
-		const dataTwo = Validator.execute(schemaTwo, true, '/test/data2.json');
-		const dataThree = Validator.execute(schemaThree, true, '/test/data3.json');
+		const browseSchema = JSON.parse(browseSchemaJson.toString());
+		const editSchema = ymljs.parse(editSchemaYml.toString());
+		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
+		const previeSchema = ymljs.parse(previeSchemaYml.toString());
 
-		sinon.assert.match(dataOne, JSON.parse(browseSchemaExpectedJson.toString()));
-		sinon.assert.match(dataTwo, JSON.parse(editSchemaExpectedJson.toString()));
-		sinon.assert.match(dataThree, JSON.parse(dashboardSchemaExpectedJson.toString()));
+		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
+		const editData = Validator.execute(editSchema, true, '/test/data2.json');
+		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
+		const previewData = Validator.execute(previeSchema, true, '/test/data4.json');
+
+		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
+		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
+		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
+		sinon.assert.match(previewData, JSON.parse(previeSchemaExpected.toString()));
 	});
 
 	it('should error with default schema', () => {
