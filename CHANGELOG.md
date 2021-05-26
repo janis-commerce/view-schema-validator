@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- New component `StatusSelector`
+- New property `rowCollapse` in BrowseSchema
+- New section `ReadOnlySection`
+- New Schema Page `Preview`
+
 ## [2.53.0] - 2021-05-12
 ### Added
 - Add new Cards for a summary `OMSOrderShippingCard` `OMSOrderPickingCard` `OMSOrderStepsCard` `OMSOrderTotalsCard` `OMSOrderCustomerCard` `OMSOrderPaymentsCard`
