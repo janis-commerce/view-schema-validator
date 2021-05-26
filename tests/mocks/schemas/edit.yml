@@ -1004,6 +1004,7 @@ sections:
       - name: newStatusTwo
         component: StatusSelector
         componentAttributes:
+          canClear: true
           values:
             - active
             - inactive
