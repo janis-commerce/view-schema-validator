@@ -1,0 +1,291 @@
+service: picking
+name: views-demo-preview
+root: Preview
+source:
+  service: playground
+  namespace: views-demo
+  method: get
+  resolve: false
+
+sourceEndpointParameters:
+- name: id
+  target: path
+  value:
+    dynamic: id
+
+themes:
+  themeOne:
+    new: black
+    closed: green
+    _default: grey
+  themeTwo:
+    new: grey
+    closed: fizzgreen
+    warning:
+      somePropOne: someValue
+      somePropTwo: someValue
+
+sections:
+- name: mainFormSection
+  icon: catalogue
+  rootComponent: ReadOnlySection
+  fieldsGroup:
+  - name: detail
+    icon: catalogue
+    fields:
+    - name: image
+      component: UserImage
+      componentAttributes:
+        size: large
+
+    - name: firstname
+      component: Text
+      conditions:
+        showWhen:
+          - - name: isNotEmpty
+              field: someField
+
+    - name: link
+      component: Link
+      componentAttributes:
+        translateLabels: false
+        path: "/playground/views-demo/{id}"
+        endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
+
+    - name: fullname
+      component: AsyncWrapper
+      componentAttributes:
+        source:
+          service: playground
+          namespace: views-demo-async-wrapper
+          method: get
+          resolve: false
+        endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
+        dataMapping:
+          fullname: userFullname
+        field:
+          name: userFullname
+          component: Text
+
+    - name: preview
+      component: Preview
+      componentAttributes:
+        image: image
+        title: productName
+        subtitle: productDescription
+        description: productDescription
+        price: price
+        listPrice: listPrice
+
+    - name: friends
+      component: Code
+
+  - name: others
+    position: right
+    fields:
+    - name: text
+      component: Text
+
+    - name: link
+      component: Link
+      componentAttributes:
+        translateLabels: false
+        path: "/playground/views-demo/{id}"
+        endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: fieldTen
+
+    - name: coordinates
+      component: Location
+      componentAttributes:
+        label: some.label.translation
+
+    - name: coordinates
+      component: Location
+      componentAttributes:
+        label:
+          template: "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}"
+          fields:
+          - address.street
+          - address.number
+          - address.complement
+          - address.neighborhood
+          - address.postalCode
+          - address.state
+          - address.city
+          - address.country
+
+    - name: address
+      component: Location
+      componentAttributes:
+        label:
+          template: "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}"
+          fields:
+          - address.street
+          - address.number
+          - address.complement
+          - address.neighborhood
+          - address.postalCode
+          - address.state
+          - address.city
+          - address.country
+        fieldsMapping:
+          latitude: lat
+          longitude: lng
+
+  - name: chips
+    position: right
+    fields:
+    - name: chip
+      component: Chip
+    - name: mediumChip
+      component: MediumChip
+    - name: userRelated
+      component: UserChip
+      componentAttributes:
+        userDataSource:
+          firstname: firstname
+          lastname: lastname
+          email: email
+          image: image
+    - name: status
+      component: StatusChip
+      componentAttributes:
+        useTheme: true
+
+- name: summary
+  rootComponent: Summary
+  icon: summary
+  cards:
+  - component: BaseCard
+    name: detail
+    x: 0
+    y: 0
+    width: 5
+    height: 3
+    fieldsGroup:
+    - name: detail
+      icon: catalogue
+      fields:
+      - name: text
+        component: Text
+      - name: chip
+        component: Chip
+        conditions:
+          showWhen:
+            - - name: isNotEmpty
+                field: someField
+      - name: mediumChip
+        component: MediumChip
+      - name: userRelated
+        component: UserChip
+        componentAttributes:
+          userDataSource:
+            firstname: firstname
+            lastname: lastname
+            email: email
+            image: image
+      - name: status
+        component: StatusChip
+        componentAttributes:
+          useTheme: true
+      - name: dateCreated
+        component: Text
+        mapper:
+          name: date
+          props:
+            format: DD/MM/YYYY
+      - name: friends
+        component: Text
+        mapper: join
+      - name: gender
+        component: Text
+        mapper:
+        - name: prefix
+          props:
+            value: common.gender.
+        - translate
+
+  - component: BaseCard
+    name: Links
+    x: 5
+    y: 0
+    width: 5
+    height: 3
+    fieldsGroup:
+    - name: Links
+      icon: catalogue
+      fields:
+      - name: link
+        component: Link
+        componentAttributes:
+          translateLabels: false
+          path: "/playground/views-demo/edit/{id}"
+          endpointParameters:
+          - name: id
+            target: path
+            value:
+              dynamic: id
+
+      - name: coordinates
+        component: Location
+        componentAttributes:
+          label: some.label.translation
+
+      - name: coordinates
+        component: Location
+        componentAttributes:
+          label:
+            template: "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}"
+            fields:
+            - address.street
+            - address.number
+            - address.complement
+            - address.neighborhood
+            - address.postalCode
+            - address.state
+            - address.city
+            - address.country
+
+      - name: address
+        component: Location
+        componentAttributes:
+          label:
+            template: "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}"
+            fields:
+            - address.street
+            - address.number
+            - address.complement
+            - address.neighborhood
+            - address.postalCode
+            - address.state
+            - address.city
+            - address.country
+          fieldsMapping:
+            latitude: lat
+            longitude: lng
+
+  - name: totals
+    component: OMSOrderTotalsCard
+    x: 0
+    y: 3
+    width: 4
+    height: 4
+
+- name: comments
+  icon: message
+  rootComponent: Comments
+
+- name: logs
+  icon: clock
+  rootComponent: LogsBrowseSection
