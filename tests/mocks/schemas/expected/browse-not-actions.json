@@ -699,6 +699,26 @@
             }
         },
         {
+            "name": "templateText",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "template",
+                "props": {
+                    "template": "{0} {1}",
+                    "fields": ["firstname", "lastname"]
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "exampleBadgeLetter",
             "component": "BadgeLetter",
             "attributes": {
