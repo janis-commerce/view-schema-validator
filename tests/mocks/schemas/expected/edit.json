@@ -1113,6 +1113,7 @@
                         {
                             "name": "someInputHidden",
                             "component": "Input",
+                            "position": "right",
                             "componentAttributes": {
                                 "type": "hidden"
                             }
@@ -1126,8 +1127,15 @@
                                 "maxElements": 3,
                                 "fields": [
                                     {
-                                        "name": "test",
+                                        "name": "test1",
                                         "component": "Text",
+                                        "position": "left",
+                                        "componentAttributes": {}
+                                    },
+                                    {
+                                        "name": "test2",
+                                        "component": "Text",
+                                        "position": "right",
                                         "componentAttributes": {}
                                     }
                                 ]

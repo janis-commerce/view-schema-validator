@@ -706,6 +706,7 @@ sections:
 
     - name: someInputHidden
       component: Input
+      position: right
       componentAttributes:
         type: hidden
 
@@ -716,8 +717,12 @@ sections:
         minElements: 1
         maxElements: 3
         fields:
-          - name: test
+          - name: test1
             component: Text
+            position: left
+          - name: test2
+            component: Text
+            position: right
 
     - name: fieldsArrayTwo
       component: FieldsArray
