@@ -556,6 +556,7 @@
                         {
                             "name": "descriptionTwo",
                             "component": "Textarea",
+                            "placeholder": "some.traduction.placeholder",
                             "componentAttributes": {
                                 "autoComplete": false
                             }
