@@ -634,6 +634,17 @@
             }
         },
         {
+            "name": "templateText",
+            "component": "Text",
+            "mapper": {
+                "name": "template",
+                "props": {
+                    "template": "{0} {1}",
+                    "fields": ["firstname", "lastname"]
+                }
+            }
+        },
+        {
             "name": "exampleBadgeLetter",
             "component": "BadgeLetter",
             "componentAttributes": {
