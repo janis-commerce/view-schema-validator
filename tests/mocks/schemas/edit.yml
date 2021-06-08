@@ -144,6 +144,7 @@ sections:
               value:
                 static: active
           targetField: fieldNameThree
+          searchMethod: filter
 
   topComponents:
     - component: TestComponent
