@@ -107,9 +107,13 @@ sections:
           value:
             dynamic: id
         - name: status
-          target: query
+          target: filter
           value:
             static: active
+        - name: sortBy
+          target: queryString
+          value:
+            static: status
       targetField: fieldNameOne
     - name: dependencyTwo
       source:
@@ -123,7 +127,7 @@ sections:
           value:
             dynamic: id
         - name: status
-          target: query
+          target: filter
           value:
             static: active
       targetField: fieldNameTwo
@@ -262,9 +266,9 @@ sections:
           value:
             dynamic: id
         - name: status
-          target: query
+          target: body
           value:
-            static: 1
+            static: procesing
 
   fieldsGroup:
   - name: detail

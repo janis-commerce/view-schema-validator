@@ -154,9 +154,16 @@
                         },
                         {
                             "name": "status",
-                            "target": "query",
+                            "target": "filter",
                             "value": {
                                 "static": "active"
+                            }
+                        },
+                        {
+                            "name": "sortBy",
+                            "target": "queryString",
+                            "value": {
+                                "static": "status"
                             }
                         }
                     ],
@@ -180,7 +187,7 @@
                         },
                         {
                             "name": "status",
-                            "target": "query",
+                            "target": "filter",
                             "value": {
                                 "static": "active"
                             }
@@ -403,9 +410,9 @@
                         },
                         {
                             "name": "status",
-                            "target": "query",
+                            "target": "body",
                             "value": {
-                                "static": 1
+                                "static": "procesing"
                             }
                         }
                     ]
