@@ -1016,6 +1016,30 @@ sections:
             - inactive
             - procesing
 
+      - name: creatableStatusSelector
+        component: StatusSelector
+        componentAttributes:
+          creatable: true
+
+      - name: creatableUserSelector
+        component: UserSelector
+        componentAttributes:
+          creatable: true
+
+      - name: creatableSelect
+        component: Select
+        componentAttributes:
+          creatable: true
+          labelPrefix: common.status.
+          translateLabels: true
+          options:
+            scope: local
+            values:
+            - label: active
+              value: active
+            - label: inactive
+              value: inactive
+
       - name: someFieldPreview
         component: Preview
         componentAttributes:
