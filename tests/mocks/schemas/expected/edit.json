@@ -2269,9 +2269,9 @@
             "name": "summary",
             "rootComponent": "Summary",
             "source": {
-                "service": "service",
-                "namespace": "namespace",
-                "method": "method",
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
                 "resolve": false
             },
             "cards": [
@@ -2351,6 +2351,42 @@
                     "height": 4
                 }
             ]
+        },
+        {
+            "name": "remoteSection",
+            "rootComponent": "RemoteSection",
+            "source": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
+            "target": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
+            "sourceField": "someField",
+            "overwriteName": "someName",
+            "schemaSource": {
+                "type": "dynamic",
+                "endpoint": {
+                    "service": "serviceName",
+                    "namespace": "namespaceName",
+                    "method": "methodName",
+                    "resolve": false
+                },
+                "endpointParameters": [
+                    {
+                        "name": "id",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    }
+                ]
+            }
         }
     ]
 }
