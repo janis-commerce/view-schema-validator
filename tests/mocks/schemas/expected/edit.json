@@ -212,7 +212,8 @@
                                     }
                                 }
                             ],
-                            "targetField": "fieldNameThree"
+                            "targetField": "fieldNameThree",
+                            "searchMethod": "filter"
                         }
                     ]
                 }
