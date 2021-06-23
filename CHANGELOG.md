@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.57.0] - 2021-06-23
+### Added
+- Add new property `canCreate` in all `Select` components.
+- New section `RemoteSection` for edit pages
+
 ## [2.56.0] - 2021-06-09
 ### Added
 - New targets `body`, `queryString`, `filter` for empointParameter property
