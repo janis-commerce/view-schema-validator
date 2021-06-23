@@ -1572,24 +1572,24 @@
                             }
                         },
                         {
-                            "name": "creatableStatusSelector",
+                            "name": "canCreateStatusSelector",
                             "component": "StatusSelector",
                             "componentAttributes": {
-                                "creatable": true
+                                "canCreate": true
                             }
                         },
                         {
-                            "name": "creatableUserSelector",
+                            "name": "canCreateUserSelector",
                             "component": "UserSelector",
                             "componentAttributes": {
-                                "creatable": true
+                                "canCreate": true
                             }
                         },
                         {
-                            "name": "creatableSelect",
+                            "name": "canCreateSelect",
                             "component": "Select",
                             "componentAttributes": {
-                                "creatable": true,
+                                "canCreate": true,
                                 "labelPrefix": "common.status.",
                                 "translateLabels": true,
                                 "options": {
