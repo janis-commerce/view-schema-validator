@@ -2412,7 +2412,7 @@
                 "resolve": false
             },
             "sourceField": "someField",
-            "overwriteName": "someName",
+            "overwriteName": true,
             "schemaSource": {
                 "type": "dynamic",
                 "endpoint": {
