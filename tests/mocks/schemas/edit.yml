@@ -380,6 +380,13 @@ sections:
           addWhitespace: true
           translate: false
 
+    - name: exampleTextWithIcon
+      component: Text
+      componentAttributes:
+        icon: iconName
+        iconColor: colorName
+        fontWeight: normal
+
     - name: exampleImage
       component: Image
 

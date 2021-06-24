@@ -645,6 +645,15 @@
             }
         },
         {
+            "name": "exampleTextWithIcon",
+            "component": "Text",
+            "componentAttributes": {
+                "icon": "iconName",
+                "iconColor": "colorName",
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "exampleBadgeLetter",
             "component": "BadgeLetter",
             "componentAttributes": {
