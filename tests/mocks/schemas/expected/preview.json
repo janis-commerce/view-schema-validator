@@ -32,6 +32,79 @@
             }
         }
     },
+    "actions": [
+        {
+            "name": "someActionOne",
+            "type": "link",
+            "componentAttributes": {
+                "path": "/playground/views-demo/{id}",
+                "target": {
+                    "service": "playground",
+                    "namespace": "views-demo",
+                    "method": "create",
+                    "resolve": false
+                },
+                "endpointParameters": [
+                    {
+                        "name": "id",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "someActionTwo",
+            "type": "endpoint",
+            "componentAttributes": {
+                "endpoint": {
+                    "service": "playground",
+                    "namespace": "views-demo",
+                    "method": "create",
+                    "resolve": false
+                },
+                "endpointParameters": [
+                    {
+                        "name": "id",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "someActionThree",
+            "type": "form",
+            "componentAttributes": {
+                "fields": [
+                    {
+                        "name": "someField",
+                        "component": "Input",
+                        "componentAttributes": {}
+                    }
+                ],
+                "endpoint": {
+                    "service": "playground",
+                    "namespace": "views-demo",
+                    "method": "create",
+                    "resolve": false
+                },
+                "endpointParameters": [
+                    {
+                        "name": "id",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
     "sections": [
         {
             "name": "mainFormSection",
