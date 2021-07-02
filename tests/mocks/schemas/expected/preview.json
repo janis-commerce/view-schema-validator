@@ -38,6 +38,7 @@
             "type": "link",
             "componentAttributes": {
                 "path": "/playground/views-demo/{id}",
+                "linkTarget": "_blank",
                 "target": {
                     "service": "playground",
                     "namespace": "views-demo",
@@ -58,6 +59,17 @@
         {
             "name": "someActionTwo",
             "type": "endpoint",
+            "conditions": {
+                "showWhen": [
+                    [
+                        {
+                            "name": "isNotEmpty",
+                            "field": "order"
+                        }
+                    ]
+                ]
+            },
+            "callback": "reloadBrowse",
             "componentAttributes": {
                 "endpoint": {
                     "service": "playground",
