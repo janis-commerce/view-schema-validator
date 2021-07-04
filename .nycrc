@@ -4,7 +4,7 @@
     "coverage/",
     "tests/",
     "mocks/",
-    "lib/deprecation/example-deprecation.js",
+    "lib/deprecation-validators/example-deprecation.js",
     ".eslintrc.js",
     ".travis.yml",
     "index.js"

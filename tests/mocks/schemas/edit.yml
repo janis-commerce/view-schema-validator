@@ -13,28 +13,6 @@ cancelRedirectUrl: /some-path
 header:
   title:
     hideTitle: true
-    beforeId:
-      - name: test
-        component: BadgeLetter
-        componentAttributes:
-          backgroundColorTheme: backgroundThemeName
-          fontColorTheme: colorThemeName
-    afterId:
-      - name: test
-        component: StatusChip
-        mapper: translate
-        componentAttributes:
-          useTheme: true
-      - name: test2
-        component: StatusChip
-        componentAttributes:
-          useTheme: themeOne
-    identifier:
-      template: '{0} {1} - ({2})'
-      fields:
-        - test1
-        - test2
-        - test3
     components:
       - name: id
         component: IdText
