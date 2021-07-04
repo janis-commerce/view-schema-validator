@@ -521,6 +521,21 @@
                     "resolve": false
                 }
             }
+        },
+        {
+            "name": "newStatusOne",
+            "component": "StatusSelector"
+        },
+        {
+            "name": "newStatusTwo",
+            "component": "StatusSelector",
+            "componentAttributes": {
+                "values": [
+                    "active",
+                    "inactive",
+                    "procesing"
+                ]
+            }
         }
     ],
     "fields": [
@@ -615,6 +630,17 @@
                         "template": "{0} {1}",
                         "fields": ["firstname", "lastname"]
                     }
+                }
+            }
+        },
+        {
+            "name": "templateText",
+            "component": "Text",
+            "mapper": {
+                "name": "template",
+                "props": {
+                    "template": "{0} {1}",
+                    "fields": ["firstname", "lastname"]
                 }
             }
         },

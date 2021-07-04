@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.57.0] - 2021-06-23
+### Added
+- Add new property `canCreate` in all `Select` components.
+- New section `RemoteSection` for edit pages
+
+## [2.56.0] - 2021-06-09
+### Added
+- New targets `body`, `queryString`, `filter` for empointParameter property
+- New property `searchMethod` in dependencies with two possible values `find` and `filter`
+
+### Deprecated
+- Now the target `query` in enpointParameters is deprecated
+
+## [2.55.0] - 2021-06-07
+### Added
+- New property position in all fields
+- New mapper `template` for all fields
+- New property `placeholder`  in `Input`, `Textarea` and `Select` components
+
+## [2.54.0] - 2021-05-26
+### Added
+- New component `StatusSelector`
+- New property `rowCollapse` in BrowseSchema
+- New section `ReadOnlySection`
+- New Schema Page `Preview`
+
 ## [2.53.0] - 2021-05-12
 ### Added
 - Add new Cards for a summary `OMSOrderShippingCard` `OMSOrderPickingCard` `OMSOrderStepsCard` `OMSOrderTotalsCard` `OMSOrderCustomerCard` `OMSOrderPaymentsCard`

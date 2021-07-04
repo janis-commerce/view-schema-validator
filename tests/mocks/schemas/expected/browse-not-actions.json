@@ -541,6 +541,22 @@
                     "resolve": false
                 }
             }
+        },
+        {
+            "name": "newStatusOne",
+            "component": "StatusSelector",
+            "componentAttributes": {}
+        },
+        {
+            "name": "newStatusTwo",
+            "component": "StatusSelector",
+            "componentAttributes": {
+                "values": [
+                    "active",
+                    "inactive",
+                    "procesing"
+                ]
+            }
         }
     ],
     "fields": [
@@ -676,6 +692,26 @@
                         "template": "{0} {1}",
                         "fields": ["firstname", "lastname"]
                     }
+                }
+            },
+            "componentAttributes": {
+                "fontWeight": "normal"
+            }
+        },
+        {
+            "name": "templateText",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "mapper": {
+                "name": "template",
+                "props": {
+                    "template": "{0} {1}",
+                    "fields": ["firstname", "lastname"]
                 }
             },
             "componentAttributes": {

@@ -85,9 +85,13 @@ sections:
           value:
             dynamic: id
         - name: status
-          target: query
+          target: filter
           value:
             static: active
+        - name: sortBy
+          target: queryString
+          value:
+            static: status
       targetField: fieldNameOne
     - name: dependencyTwo
       source:
@@ -101,7 +105,7 @@ sections:
           value:
             dynamic: id
         - name: status
-          target: query
+          target: filter
           value:
             static: active
       targetField: fieldNameTwo
@@ -122,6 +126,7 @@ sections:
               value:
                 static: active
           targetField: fieldNameThree
+          searchMethod: filter
 
   topComponents:
     - component: TestComponent
@@ -240,9 +245,9 @@ sections:
           value:
             dynamic: id
         - name: status
-          target: query
+          target: body
           value:
-            static: 1
+            static: procesing
 
   fieldsGroup:
   - name: detail
@@ -322,6 +327,7 @@ sections:
 
     - name: descriptionTwo
       component: Textarea
+      placeholder: some.traduction.placeholder
       componentAttributes:
         autoComplete: false
 
@@ -684,6 +690,7 @@ sections:
 
     - name: someInputHidden
       component: Input
+      position: right
       componentAttributes:
         type: hidden
 
@@ -694,8 +701,12 @@ sections:
         minElements: 1
         maxElements: 3
         fields:
-          - name: test
+          - name: test1
             component: Text
+            position: left
+          - name: test2
+            component: Text
+            position: right
 
     - name: fieldsArrayTwo
       component: FieldsArray
@@ -975,6 +986,42 @@ sections:
             namespace: namespace
             method: method
             resolve: false
+
+      - name: newStatusOne
+        component: StatusSelector
+
+      - name: newStatusTwo
+        component: StatusSelector
+        componentAttributes:
+          canClear: true
+          values:
+            - active
+            - inactive
+            - procesing
+
+      - name: canCreateStatusSelector
+        component: StatusSelector
+        componentAttributes:
+          canCreate: true
+
+      - name: canCreateUserSelector
+        component: UserSelector
+        componentAttributes:
+          canCreate: true
+
+      - name: canCreateSelect
+        component: Select
+        componentAttributes:
+          canCreate: true
+          labelPrefix: common.status.
+          translateLabels: true
+          options:
+            scope: local
+            values:
+            - label: active
+              value: active
+            - label: inactive
+              value: inactive
 
       - name: someFieldPreview
         component: Preview
@@ -1376,9 +1423,9 @@ sections:
   rootComponent: Summary
 
   source:
-    service: service
-    namespace: namespace
-    method: method
+    service: serviceName
+    namespace: namespaceName
+    method: methodName
     resolve: false
 
   cards:
@@ -1441,3 +1488,29 @@ sections:
       width: 4
       height: 4
 
+- name: remoteSection
+  rootComponent: RemoteSection
+  source:
+    service: serviceName
+    namespace: namespaceName
+    method: methodName
+    resolve: false
+  target:
+    service: serviceName
+    namespace: namespaceName
+    method: methodName
+    resolve: false
+  sourceField: someField
+  overwriteName: someName
+  schemaSource:
+    type: dynamic
+    endpoint:
+      service: serviceName
+      namespace: namespaceName
+      method: methodName
+      resolve: false
+    endpointParameters:
+      - name: id
+        target: path
+        value:
+          dynamic: id
