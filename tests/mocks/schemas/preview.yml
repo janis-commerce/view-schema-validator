@@ -25,6 +25,61 @@ themes:
       somePropOne: someValue
       somePropTwo: someValue
 
+actions:
+  - name: someActionOne
+    type: link
+    sections:
+      - sectionName
+    componentAttributes:
+      path: /playground/views-demo/{id}
+      linkTarget: _blank
+      target:
+        service: playground
+        namespace: views-demo
+        method: create
+        resolve: false
+      endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
+
+  - name: someActionTwo
+    type: endpoint
+    conditions:
+      showWhen:
+        - - name: isNotEmpty
+            field: order
+    callback: reloadBrowse
+    componentAttributes:
+      endpoint:
+        service: playground
+        namespace: views-demo
+        method: create
+        resolve: false
+      endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
+
+  - name: someActionThree
+    type: form
+    componentAttributes:
+      fields:
+        - name: someField
+          component: Input
+      endpoint:
+        service: playground
+        namespace: views-demo
+        method: create
+        resolve: false
+      endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
+
 sections:
 - name: mainFormSection
   icon: catalogue
