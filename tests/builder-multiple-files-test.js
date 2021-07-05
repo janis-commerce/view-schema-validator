@@ -44,6 +44,11 @@ const mockfs = () => {
 						'new.yml': mock.file({ content: newSchemaExampleTwoYML.toString() }),
 						'test.js': mock.file({ content: 'file js' })
 					}
+				}),
+				sections: mock.directory({
+					items: {
+						'section.yml': mock.file({ content: schemaExampleTwoYML.toString() })
+					}
 				})
 			}
 		})
@@ -59,6 +64,7 @@ describe('test builder multiple files', () => {
 	beforeEach(() => {
 		const firstPath = process.cwd() + '/tests/schemas/fakeFolder';
 		const secondPath = process.cwd() + '/tests/schemas/fakeFolder/more';
+		const thirdPath = process.cwd() + '/tests/schemas/fakeFolder/sections';
 
 		const readdirStub = sinon.stub(fs, 'readdir');
 
@@ -66,7 +72,8 @@ describe('test builder multiple files', () => {
 			.returns([
 				{ name: 'edit.yml', isFile: () => true },
 				{ name: 'browse.json', isFile: () => true },
-				{ name: 'more', isFile: () => false }
+				{ name: 'more', isFile: () => false },
+				{ name: 'sections', isFile: () => false }
 			]);
 
 		readdirStub.withArgs(secondPath)
@@ -75,8 +82,14 @@ describe('test builder multiple files', () => {
 				{ name: 'test.js', isFile: () => true }
 			]);
 
-		writeFileStub = sinon.stub(fs, 'writeFile');
-		sinon.stub(fs, 'emptyDir');
+		readdirStub.withArgs(thirdPath)
+			.returns([
+				{ name: 'section.yml', isFile: () => true }
+			]);
+
+		writeFileStub = sandbox.stub(fs, 'writeFile');
+
+		sandbox.stub(fs, 'emptyDir');
 
 		sinon.stub(chokidar, 'watch');
 	});
@@ -132,8 +145,8 @@ describe('test builder multiple files', () => {
 		const execute = executeInstance();
 		await execute();
 
-		assert(processOutputSpy.calledThrice);
-		assert(writeFileStub.calledThrice);
+		assert(processOutputSpy.callCount === 4);
+		assert(writeFileStub.callCount === 4);
 	});
 
 	it('should warn if validate file invalid', async () => {
@@ -149,9 +162,10 @@ describe('test builder multiple files', () => {
 		const execute = executeInstance();
 
 		await execute();
-		assert(processOutputSpy.calledThrice);
-		assert(processInputSpy.calledTwice);
-		assert(processFileSpy.callCount === 4);
+
+		assert(processOutputSpy.callCount === 4);
+		assert(processInputSpy.calledThrice);
+		assert(processFileSpy.callCount === 5);
 	});
 
 	it('Should watch input path and execute on ready and change events', async () => {
