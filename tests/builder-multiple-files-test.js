@@ -39,6 +39,8 @@ const mockfs = () => {
 			items: {
 				'edit.yml': mock.file({ content: editSchemaExampleYML.toString() }),
 				'browse.json': mock.file({ content: browseSchemaExampleJSON.toString() }),
+				'fields.partial.json': mock.file({ content: 'section' }),
+				'fields2.partial.yml': mock.file({ content: browseSchemaExampleJSON.toString() }),
 				more: mock.directory({
 					items: {
 						'new.yml': mock.file({ content: newSchemaExampleTwoYML.toString() }),
@@ -47,7 +49,7 @@ const mockfs = () => {
 				}),
 				sections: mock.directory({
 					items: {
-						'section.yml': mock.file({ content: schemaExampleTwoYML.toString() })
+						'section.yml': mock.file({ content: newSchemaExampleTwoYML.toString() })
 					}
 				})
 			}
@@ -73,7 +75,9 @@ describe('test builder multiple files', () => {
 				{ name: 'edit.yml', isFile: () => true },
 				{ name: 'browse.json', isFile: () => true },
 				{ name: 'more', isFile: () => false },
-				{ name: 'sections', isFile: () => false }
+				{ name: 'sections', isFile: () => false },
+				{ name: 'fields.partial.json', isFile: () => true },
+				{ name: 'fields2.partial.yml', isFile: () => true }
 			]);
 
 		readdirStub.withArgs(secondPath)
@@ -87,9 +91,9 @@ describe('test builder multiple files', () => {
 				{ name: 'section.yml', isFile: () => true }
 			]);
 
-		writeFileStub = sandbox.stub(fs, 'writeFile');
+		writeFileStub = sinon.stub(fs, 'writeFile');
 
-		sandbox.stub(fs, 'emptyDir');
+		sinon.stub(fs, 'emptyDir');
 
 		sinon.stub(chokidar, 'watch');
 	});
