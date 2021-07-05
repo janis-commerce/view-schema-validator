@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export TEST_ENV=true; mocha --timeout 4000 --exit -R nyan --require tests/bootstrap.js --recursive tests/",
+    "test": "export TEST_ENV=true; mocha --timeout 6000 --exit -R nyan --require tests/bootstrap.js --recursive tests/",
     "test-ci": "nyc --reporter=lcov --reporter=text-summary mocha --exit --recursive tests/",
     "coverage:report-html": "export MS_PATH=src; export TEST_ENV=true; nyc --reporter=html --reporter=text mocha --recursive tests/",
-    "watch-test": "export TEST_ENV=true; mocha --timeout 4000 --exit -R nyan -w --recursive tests/",
+    "watch-test": "export TEST_ENV=true; mocha --timeout 6000 --exit -R nyan -w --recursive tests/",
     "coverage": "nyc npm test",
     "lint": "eslint index.js lib/ tests/",
     "postpublish": "./.postpublish.sh"
