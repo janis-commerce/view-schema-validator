@@ -8,10 +8,8 @@ const Builder = require('../lib/builder');
 const Validator = require('../lib/validator');
 const ViewSchemaValidator = require('./../lib');
 
-const schemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
-const schemaExampleJSON = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
-
-const sandbox = sinon.createSandbox();
+const editSchemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
+const browseSchemaExampleJSON = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
 
 let writeFileStub;
 
@@ -31,7 +29,7 @@ const executeInstance = (build = true, file, minified = false) => {
 const mockfs = items => {
 	mock({
 		'tests/schemas/fakeFolder': mock.directory({
-			items: items || { 'edit.yml': mock.file({ content: schemaExampleYML.toString() }) }
+			items: items || { 'edit.yml': mock.file({ content: editSchemaExampleYML.toString() }) }
 		})
 	}, { createCwd: true, createTmp: false });
 };
@@ -39,20 +37,20 @@ const mockfs = items => {
 describe('test builder single files', () => {
 
 	afterEach(() => {
-		sandbox.restore();
+		sinon.restore();
 		mock.restore();
 	});
 
 	beforeEach(() => {
-		sandbox.stub(fs, 'readdir').returns([{ name: 'edit.yml', isFile: () => true }]);
-		writeFileStub = sandbox.stub(fs, 'writeFile');
-		sandbox.stub(fs, 'emptyDir');
+		sinon.stub(fs, 'readdir').returns([{ name: 'edit.yml', isFile: () => true }]);
+		writeFileStub = sinon.stub(fs, 'writeFile');
+		sinon.stub(fs, 'emptyDir');
 	});
 
 	it('should error if pass a inexist input ', async () => {
-		sandbox.stub(process, 'exit');
+		sinon.stub(process, 'exit');
 
-		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
+		const isFileSpy = sinon.spy(Builder.prototype, 'isFile');
 
 		const execute = executeInstance();
 
@@ -65,11 +63,11 @@ describe('test builder single files', () => {
 	});
 
 	it('should error if exist validation error', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').throws();
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').throws();
 
-		const processInputSpy = sandbox.spy(Builder.prototype, 'processInput');
-		const processFileSpy = sandbox.spy(Builder.prototype, 'processFile');
+		const processInputSpy = sinon.spy(Builder.prototype, 'processInput');
+		const processFileSpy = sinon.spy(Builder.prototype, 'processFile');
 
 		mockfs();
 
@@ -82,11 +80,11 @@ describe('test builder single files', () => {
 	});
 
 	it('Should exec clearOutputFolder if is build and before processInputs', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute');
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute');
 
-		const clearOutputFolderStub = sandbox.stub(Builder.prototype, 'clearOutputFolder');
-		const processInputStub = sandbox.stub(Builder.prototype, 'processInput');
+		const clearOutputFolderStub = sinon.stub(Builder.prototype, 'clearOutputFolder');
+		const processInputStub = sinon.stub(Builder.prototype, 'processInput');
 
 		mockfs();
 
@@ -107,10 +105,10 @@ describe('test builder single files', () => {
 	});
 
 	it('Should pass validation with input path directory', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
-		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
+		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
 
 		mockfs();
 
@@ -126,11 +124,11 @@ describe('test builder single files', () => {
 	});
 
 	it('Should pass validation with input file yml path directory', async () => {
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
-		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
-		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
+		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
+		const isFileSpy = sinon.spy(Builder.prototype, 'isFile');
 
 		mockfs();
 
@@ -151,13 +149,13 @@ describe('test builder single files', () => {
 
 	it('Should pass validation with input file JSON path directory', async () => {
 
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
-		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
-		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
+		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
+		const isFileSpy = sinon.spy(Builder.prototype, 'isFile');
 
-		mockfs({ 'browse.json': mock.file({ content: schemaExampleJSON.toString() }) });
+		mockfs({ 'browse.json': mock.file({ content: browseSchemaExampleJSON.toString() }) });
 
 		const execute = executeInstance(true, 'browse.json');
 		await execute();
@@ -177,13 +175,13 @@ describe('test builder single files', () => {
 
 	it('Should pass validation with input file minified', async () => {
 
-		sandbox.stub(process, 'exit');
-		sandbox.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
+		sinon.stub(process, 'exit');
+		sinon.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
-		const processOutputSpy = sandbox.spy(Builder.prototype, 'processOutput');
-		const isFileSpy = sandbox.spy(Builder.prototype, 'isFile');
+		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
+		const isFileSpy = sinon.spy(Builder.prototype, 'isFile');
 
-		mockfs({ 'browse.json': mock.file({ content: schemaExampleJSON.toString() }) });
+		mockfs({ 'browse.json': mock.file({ content: browseSchemaExampleJSON.toString() }) });
 
 		const execute = executeInstance(true, 'browse.json', true);
 		await execute();

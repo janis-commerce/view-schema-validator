@@ -7,25 +7,22 @@ const ymljs = require('yamljs');
 const Validator = require('../lib/validator');
 
 
-const schemaExampleOne = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
-const schemaExpectedExampleOne = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
-const schemaExampleYmlTwo = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
-const schemaExpectedExampleTwo = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
-const schemaExampleYmlThree = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
-const schemaExpectedExampleThree = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
-const schemaExampleYmlFour = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
-const schemaExpectedExampleFour = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
-
-const sandbox = sinon.createSandbox();
+const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
+const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
+const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
+const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
+const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
+const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
+const previeSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
+const previeSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
 
 describe('Test validation functions', () => {
 	beforeEach(() => {
-		sandbox.restore();
+		sinon.restore();
 	});
 
-	// your tests here...
 	it('Should error if pass schema with root not defined', () => {
-		const schema = JSON.parse(schemaExampleOne.toString());
+		const schema = JSON.parse(browseSchemaJson.toString());
 		delete schema.root;
 
 		assert.throws(
@@ -35,16 +32,16 @@ describe('Test validation functions', () => {
 	});
 
 	it('Should error if has a error validation', () => {
-		const schema = JSON.parse(schemaExampleOne.toString());
+		const schema = JSON.parse(browseSchemaJson.toString());
 		delete schema.name;
 
 		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
 	});
 
 	it('Should validate only', () => {
-		const schema = JSON.parse(schemaExampleOne.toString());
-		const validateSpy = sandbox.spy(Validator, 'validate');
-		const compileSpy = sandbox.spy(Validator, 'compile');
+		const schema = JSON.parse(browseSchemaJson.toString());
+		const validateSpy = sinon.spy(Validator, 'validate');
+		const compileSpy = sinon.spy(Validator, 'compile');
 
 		const data = Validator.execute(schema, false, '/test/data.json');
 
@@ -54,9 +51,9 @@ describe('Test validation functions', () => {
 	});
 
 	it('Should compile and validate', () => {
-		const schema = JSON.parse(schemaExampleOne.toString());
-		const validateSpy = sandbox.spy(Validator, 'validate');
-		const compileSpy = sandbox.spy(Validator, 'compile');
+		const schema = JSON.parse(browseSchemaJson.toString());
+		const validateSpy = sinon.spy(Validator, 'validate');
+		const compileSpy = sinon.spy(Validator, 'compile');
 
 		Validator.execute(schema, true, '/test/data.json');
 
@@ -65,11 +62,11 @@ describe('Test validation functions', () => {
 	});
 
 	it('Should compile if schema is valid', () => {
-		const schema = JSON.parse(schemaExampleOne.toString());
+		const schema = JSON.parse(browseSchemaJson.toString());
 		delete schema.name;
 
-		const validateSpy = sandbox.spy(Validator, 'validate');
-		const compileSpy = sandbox.spy(Validator, 'compile');
+		const validateSpy = sinon.spy(Validator, 'validate');
+		const compileSpy = sinon.spy(Validator, 'compile');
 
 		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
 
@@ -78,20 +75,21 @@ describe('Test validation functions', () => {
 	});
 
 	it('should schema builded is a expected', () => {
-		const schemaOne = JSON.parse(schemaExampleOne.toString());
-		const schemaTwo = ymljs.parse(schemaExampleYmlTwo.toString());
-		const schemaThree = ymljs.parse(schemaExampleYmlThree.toString());
-		const schemaFour = ymljs.parse(schemaExampleYmlFour.toString());
 
-		const dataOne = Validator.execute(schemaOne, true, '/test/data1.json');
-		const dataTwo = Validator.execute(schemaTwo, true, '/test/data2.json');
-		const dataThree = Validator.execute(schemaThree, true, '/test/data3.json');
-		const dataFour = Validator.execute(schemaFour, true, '/test/data4.json');
+		const browseSchema = JSON.parse(browseSchemaJson.toString());
+		const editSchema = ymljs.parse(editSchemaYml.toString());
+		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
+		const previeSchema = ymljs.parse(previeSchemaYml.toString());
 
-		sandbox.assert.match(dataOne, JSON.parse(schemaExpectedExampleOne.toString()));
-		sandbox.assert.match(dataTwo, JSON.parse(schemaExpectedExampleTwo.toString()));
-		sandbox.assert.match(dataThree, JSON.parse(schemaExpectedExampleThree.toString()));
-		sandbox.assert.match(dataFour, JSON.parse(schemaExpectedExampleFour.toString()));
+		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
+		const editData = Validator.execute(editSchema, true, '/test/data2.json');
+		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
+		const previewData = Validator.execute(previeSchema, true, '/test/data4.json');
+
+		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
+		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
+		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
+		sinon.assert.match(previewData, JSON.parse(previeSchemaExpected.toString()));
 	});
 
 	it('should error with default schema', () => {
@@ -103,8 +101,8 @@ describe('Test validation functions', () => {
 	});
 
 	it('should pass validation and build data with default schema', () => {
-		const validateSpy = sandbox.spy(Validator, 'validate');
-		const compileSpy = sandbox.spy(Validator, 'compile');
+		const validateSpy = sinon.spy(Validator, 'validate');
+		const compileSpy = sinon.spy(Validator, 'compile');
 
 		const schema = { root: 'Terminal', url: 'http://janis.in' };
 

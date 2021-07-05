@@ -3,7 +3,6 @@
 const assert = require('assert');
 const { makeComponent, modifySchemaThenProperties } = require('../lib/schemas/utils');
 
-
 describe('test schema utils functons', () => {
 	it('should return object expected, without properties ', () => {
 		const obj = {
