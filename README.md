@@ -53,3 +53,14 @@ npx @janiscommerce/view-schema-validator build -i=/schemas/browse.yml -o=/build
 npx @janiscommerce/view-schema-validator validate -i=/schemas -w
 npx @janiscommerce/view-schema-validator build -i=/schemas -o=/build -w
 ```
+
+### Reference resolving
+
+All files ending with `.partial.yml` or `.partial.json` will not be validated or builded and may be used to resolve references in other schemas
+
+```
+/schemas
+/schemas/browse.yml
+/schemas/section.partial.yml
+/schemas/anotherSection.partial.json
+```

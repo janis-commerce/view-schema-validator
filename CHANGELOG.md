@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add new properties `icon` and `iconColor` in Text component
 - New deprecation messages if a schemas has a deprecated property
 - Now you can add `$ref` in you schemas and the package will resolve it for you
+- New actions in `preview` page
 
 ### Fixed
 - fix `overwritename` value type
