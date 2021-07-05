@@ -36,6 +36,9 @@
         {
             "name": "someActionOne",
             "type": "link",
+            "sections": [
+                "sectionName"
+            ],
             "componentAttributes": {
                 "path": "/playground/views-demo/{id}",
                 "linkTarget": "_blank",
