@@ -9,14 +9,12 @@ const EndpointResolverLocal = require('@janiscommerce/endpoint-resolver');
 const Validator = require('../lib/validator');
 const EndpointResolver = require('../lib/endpoint-resolver');
 
-const schemaExampleYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-sources.yml');
-const schemaExpectedExample = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-sources.json');
-
-const sandbox = sinon.createSandbox();
+const editWithSorceSchemaExampleYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-sources.yml');
+const editWithSorceSchemaExampleJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-sources.json');
 
 const mockRequest = (rejectOne = false) => {
-	const getEndpointStub = sandbox.stub(RouterFetcher.prototype, 'getEndpoint');
-	const resolveStub = sandbox.stub(EndpointResolverLocal.prototype, 'resolve');
+	const getEndpointStub = sinon.stub(RouterFetcher.prototype, 'getEndpoint');
+	const resolveStub = sinon.stub(EndpointResolverLocal.prototype, 'resolve');
 
 	if(rejectOne) {
 		getEndpointStub
@@ -66,8 +64,8 @@ const mockRequest = (rejectOne = false) => {
 };
 
 const validateSchema = async (twice = false) => {
-	const schemaOne = ymljs.parse(schemaExampleYml.toString());
-	const schemaTwo = ymljs.parse(schemaExampleYml.toString());
+	const schemaOne = ymljs.parse(editWithSorceSchemaExampleYml.toString());
+	const schemaTwo = ymljs.parse(editWithSorceSchemaExampleYml.toString());
 	const schemaValidatedOne = Validator.execute(schemaOne, true, '/test/data.json');
 	const schemaValidatedTwo = Validator.execute(schemaTwo, true, '/test/data.json');
 
@@ -85,19 +83,18 @@ const validateSchema = async (twice = false) => {
 
 describe('Test endpoint resolver', () => {
 	beforeEach(() => {
-		sandbox.restore();
+		sinon.restore();
 	});
 
-	// your tests here...
 	it('Should pass validation in resolve endpoints', async () => {
 		const {
 			resolveStub,
 			getEndpointStub
 		} = mockRequest();
 
-		const callFetcherSpy = sandbox.spy(EndpointResolver.prototype, 'callFetcher');
-		const resolveEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'resolveEndpoints');
-		const addResolveDataToEndpointSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoint');
+		const callFetcherSpy = sinon.spy(EndpointResolver.prototype, 'callFetcher');
+		const resolveEndpointsSpy = sinon.spy(EndpointResolver.prototype, 'resolveEndpoints');
+		const addResolveDataToEndpointSpy = sinon.spy(EndpointResolver.prototype, 'addResolveDataToEndpoint');
 
 		const schemaResolved = await validateSchema();
 
@@ -107,7 +104,7 @@ describe('Test endpoint resolver', () => {
 		assert(resolveStub.callCount === 4);
 		assert(getEndpointStub.callCount === 1);
 
-		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), schemaExpectedExample.toString());
+		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), editWithSorceSchemaExampleJson.toString());
 	});
 
 
@@ -125,9 +122,9 @@ describe('Test endpoint resolver', () => {
 			getEndpointStub
 		} = mockRequest();
 
-		const resolveEndpointsSpy = sandbox.spy(EndpointResolver.prototype, 'resolveEndpoints');
-		const callFetcherSpy = sandbox.spy(EndpointResolver.prototype, 'callFetcher');
-		const addResolveDataToEndpointSpy = sandbox.spy(EndpointResolver.prototype, 'addResolveDataToEndpoint');
+		const resolveEndpointsSpy = sinon.spy(EndpointResolver.prototype, 'resolveEndpoints');
+		const callFetcherSpy = sinon.spy(EndpointResolver.prototype, 'callFetcher');
+		const addResolveDataToEndpointSpy = sinon.spy(EndpointResolver.prototype, 'addResolveDataToEndpoint');
 
 		await validateSchema(true);
 

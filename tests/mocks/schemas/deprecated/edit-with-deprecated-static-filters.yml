@@ -1,0 +1,932 @@
+service: sac
+name: claim-motive-edit
+root: Edit
+canPrint: true
+canCreate: true
+source:
+  service: sac
+  namespace: claim-motive
+  method: get
+  resolve: false
+saveRedirectUrl: /some-path
+cancelRedirectUrl: /some-path
+
+sections:
+  - name: mainFormSection
+    rootComponent: MainForm
+    icon: catalogue
+    hideUserModified: false
+    hideUserCreated: true
+    dependencies:
+      - name: dependencyOne
+        source:
+          service: serviceName
+          namespace: namespaceName
+          method: methodName
+          resolve: false
+        endpointParameters:
+          - name: status
+            target: path
+            value:
+              dynamic: id
+          - name: status
+            target: query
+            value:
+              static: active
+        targetField: fieldNameOne
+      - name: dependencyTwo
+        source:
+          service: serviceName
+          namespace: namespaceName
+          method: methodName
+          resolve: false
+        endpointParameters:
+          - name: status
+            target: path
+            value:
+              dynamic: id
+          - name: status
+            target: query
+            value:
+              static: active
+        targetField: fieldNameTwo
+        dependencies:
+          - name: dependencyThree
+            source:
+              service: serviceName
+              namespace: namespaceName
+              method: methodName
+              resolve: false
+            endpointParameters:
+              - name: status
+                target: path
+                value:
+                  dynamic: id
+              - name: status
+                target: query
+                value:
+                  static: active
+            targetField: fieldNameThree
+
+    topComponents:
+      - component: TestComponent
+      - component: TestComponentLeft
+        position: left
+      - component: TestComponentRight
+        position: right
+      - component: ActionButtons
+        position: right
+        actions:
+          - name: new
+            icon: star_light
+            color: fizzGreen
+            type: link
+            options:
+              path: /service/namespace/new
+
+          - name: testLink
+            icon: star_light
+            color: fizzGreen
+            type: link
+            options:
+              target:
+                service: serviceName
+                namespace: namespaceName
+                method: methodName
+                resolve: false
+              staticFilters:
+                - name: status
+                  target: path
+                  value:
+                    dynamic: id
+                - name: status
+                  target: query
+                  value:
+                    static: 1
+
+          - name: testAction
+            icon: star_light
+            color: fizzGreen
+            type: endpoint
+            callback: reloadSectionData
+            options:
+              endpoint:
+                service: sac
+                namespace: claim
+                method: get
+                resolve: false
+              endpointParameters:
+                id: id
+
+          - name: testAction2
+            icon: star_light
+            color: fizzGreen
+            type: endpoint
+            callback: refresh
+            conditions:
+              showWhen:
+                - - name: isNotEmpty
+                    field: order
+            options:
+              endpoint:
+                service: sac
+                namespace: claim
+                method: get
+                resolve: false
+              endpointParameters:
+                - name: status
+                  target: path
+                  value:
+                    dynamic: id
+                - name: status
+                  target: query
+                  value:
+                    static: 1
+
+      - component: ActionForm
+        name: someForm
+        icon: iconName
+        iconColor: colorName
+        color: colorName
+        backgroundColor: colorName
+        callback:
+          name: redirect
+          props:
+            path: /some/path/{id}
+            target: _blank
+            endpointParameters:
+              - name: status
+                target: path
+                value:
+                  dynamic: id
+        conditions:
+          showWhen:
+            - - name: isNotEmpty
+                field:
+                  - test
+                  - name
+              - name: isNotEqualTo
+                field: name
+                referenceValueType: static
+                referenceValue: null
+        fields:
+          - component: Input
+            name: someInput
+          - component: Switch
+            name: someSwitch
+        target:
+          service: service
+          namespace: namespace
+          method: method
+          resolve: false
+        targetEndpointParameters:
+          - name: status
+            target: path
+            value:
+              dynamic: id
+          - name: status
+            target: query
+            value:
+              static: 1
+
+    fieldsGroup:
+    - name: detail
+      position: left
+      icon: catalogue
+      collapsible: true
+      defaultOpen: true
+      fields:
+      - name: name
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          labelFieldName: motiveName
+          labelPrefix: common.status.
+          icon: iconName
+          options:
+            scope: local
+            valuesMapper:
+              label: name
+              value: id
+            values:
+              - label: active
+                value: 1
+              - label: inactive
+                value: 0
+        validations:
+          - - name: required
+          - - name: maxLength
+              options:
+                length: 50
+        conditions:
+          enableWhen:
+            - - name: isEmpty
+                field: name
+              - name: isOneOf
+                field: someField
+                referenceValue:
+                  - test1
+                  - test2
+              - name: isDev
+          showWhen:
+            - - name: isNotEmpty
+                field:
+                  - test
+                  - name
+              - name: isNotEqualTo
+                field: name
+                referenceValueType: static
+                referenceValue: null
+
+      - name: description
+        component: Textarea
+        validations:
+          - - name: maxLength
+              options:
+                length: 50
+
+          - - name: literal
+              options:
+                value: test
+        conditions:
+          showWhen:
+            - - name: isEqualTo
+                field: user1
+                referenceValueType: dynamic
+                referenceValue: name
+              - name: isNotOneOf
+                field: someField
+                referenceValue:
+                  - test1
+                  - test2
+            - - name: isNotEqualTo
+                field:
+                  - test
+                  - name
+                referenceValue: true
+
+      - name: descriptionTwo
+        component: Textarea
+        componentAttributes:
+          autoComplete: false
+
+      - name: exampleTextCurrency
+        component: Text
+        dependency: dependencyName
+        mapper:
+          name: currency
+          props:
+            currencyCode: USD
+            currencyField: someField
+
+      - name: exampleTextSuffix
+        component: Text
+        mapper:
+          name: suffix
+          props:
+            value: .test
+            addWhitespace: false
+            translate: true
+
+      - name: exampleTextPrefix
+        component: Text
+        mapper:
+          name: prefix
+          props:
+            value: .test
+            addWhitespace: true
+            translate: false
+
+      - name: exampleImage
+        component: Image
+
+      - name: exampleImageWithProps
+        component: Image
+        componentAttributes:
+          roundBorders: 50
+          width: 50
+          height: 50
+
+      - name: exampleUserImage
+        component: UserImage
+        componentAttributes:
+          size: medium
+
+      - name: exampleStatuChipOne
+        component: StatusChip
+        mapper: translate
+        componentAttributes:
+          useTheme: true
+
+      - name: exampleStatuChipTwo
+        component: StatusChip
+        componentAttributes:
+          useTheme: themeOne
+
+      - name: exampleStatuChipThree
+        component: StatusChip
+        componentAttributes:
+          colorSource: test
+
+      - name: exampleStatuChipFour
+        component: StatusChip
+        componentAttributes:
+          useTheme: themeOne
+          themeConditionals:
+            warning:
+              - - name: lowerThan
+                  field: quantity
+                  referenceValue: 10
+                - name: lowerOrEqualThan
+                  field: quantity
+                  referenceValue: 10
+            error:
+              - - name: greaterThan
+                  field: quantity
+                  referenceValue: 10
+                - name: greaterOrEqualThan
+                  field: quantity
+                  referenceValue: 10
+
+      - name: appliesToLogistics
+        component: Switch
+        defaultValue: true
+        componentAttributes:
+          autoComplete: false
+        validations:
+          - - name: required
+
+      - name: appliesToLogisticsRepeat
+        component: Switch
+        validations:
+          - - name: literal
+              options:
+                value: appliesToLogistics
+                referenceValueType: dynamic
+
+      - name: missingStockDefault
+        component: Switch
+        validations:
+          - - name: required
+
+
+      - name: missingStock
+        component: Checkbox
+
+      - name: missingStockTwo
+        component: Checkbox
+        componentAttributes:
+          autoComplete: true
+
+      - name: testChip
+        component: Chip
+        defaultValue: someValue
+        componentAttributes:
+          icon: icon_test
+          iconColor: red
+          borderColor: red
+          textColor: grey
+          backgroundColor: grey
+
+      - name: testChipWithThemes
+        component: Chip
+        componentAttributes:
+          icon:
+            useTheme: themeName
+          iconColor:
+            useTheme: themeName
+          borderColor: red
+          textColor: grey
+          backgroundColor: grey
+          useTheme: themeName
+
+      - name: testChipWithThemesConditionals
+        component: Chip
+        componentAttributes:
+          borderColor: grey
+          useTheme: themeName
+          themeConditionals:
+            warning:
+              - - name: lowerThan
+                  field: quantity
+                  referenceValue: 10
+                - name: lowerOrEqualThan
+                  field: quantity
+                  referenceValue: 10
+            error:
+              - - name: greaterThan
+                  field: quantity
+                  referenceValue: 10
+                - name: greaterOrEqualThan
+                  field: quantity
+                  referenceValue: 10
+
+      - name: testMediumChip
+        component: MediumChip
+        componentAttributes:
+          icon: icon_test
+          iconColor: red
+          borderColor: red
+          textColor: grey
+          backgroundColor: grey
+
+      - name: user1
+        component: UserChip
+
+      - name: user2
+        component: UserChip
+        componentAttributes:
+          source:
+            service: service
+            namespace: namespace
+            method: method
+            resolve: false
+          userDataSource:
+            email: email
+            firstname: firstname
+            lastname: lastname
+            image: image
+
+      - name: color
+        component: ColorPicker
+
+      - name: exampleCode
+        component: Code
+
+      - name: exampleCodeTwo
+        component: Code
+        componentAttributes:
+          language: json
+          canEdit: true
+
+      - name: exampleMap
+        component: Map
+        componentAttributes:
+          fieldsMapping:
+            latitude: lat
+            longitude: lng
+            city: city
+            number: streetNumber
+
+      - name: exampleMapTwo
+        component: Map
+        componentAttributes:
+          showSearchBar: true
+          canAddMarkers: true
+          maxMarkersQuantity: 5
+          fieldsMapping:
+            latitude: lat
+            longitude: lng
+
+      - name: exampleMapThree
+        component: Map
+
+      - name: exampleLocationOne
+        component: Location
+        componentAttributes:
+          label: some.traduction.label
+          fieldsMapping:
+            latitude: lat
+            longitude: lng
+
+      - name: exampleLocationTwo
+        component: Location
+        componentAttributes:
+          label:
+            template: '{0} {1}'
+            fields:
+              - address
+              - country
+
+      - name: asyncWrapperExampleOne
+        component: AsyncWrapper
+        componentAttributes:
+          endpointParameters:
+          - name: status
+            target: path
+            value:
+              dynamic: id
+          - name: status
+            target: query
+            value:
+              static: 1
+          source:
+            service: id
+            namespace: user
+            method: get
+            resolve: false
+          dataMapping:
+            firstname: userFirstname
+          field:
+            name: userFirstname
+            component: Text
+
+      - name: asyncWrapperExampleTwo
+        component: AsyncWrapper
+        componentAttributes:
+          endpointParameters:
+            - name: id
+              target: query
+              value:
+                dynamic: userIds
+          source:
+            service: id
+            namespace: user
+            method: list
+            resolve: false
+          targetField: users
+          field:
+            name: users
+            component: Text
+
+      - name: objectCreatorField
+        component: ObjectCreator
+
+      - name: linkTest1
+        component: Link
+
+      - name: linkTest2
+        component: Link
+        componentAttributes:
+          target: _blank
+          translateLabels: true
+          label: test.test.test
+          labelField: asdasd
+
+      - name: linkTest3
+        component: Link
+        componentAttributes:
+          path: /some/path/{id}
+
+      - name: linkTest4
+        component: Link
+        componentAttributes:
+          urlTarget:
+            service: service
+            namespace: namespace
+            method: method
+            resolve: false
+          endpointParameters:
+          - name: status
+            target: path
+            value:
+              dynamic: id
+          - name: status
+            target: query
+            value:
+              static: 1
+
+      - name: fieldTriggers
+        component: Input
+        triggers:
+          - endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            endpointParameters:
+              - name: status
+                target: path
+                value:
+                  dynamic: id
+              - name: status
+                target: query
+                value:
+                  static: 1
+            dataMapping:
+              name: firstname
+            triggerOnLoad: true
+          - endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            dataMapping:
+              name: firstname
+
+      - name: fieldTriggersTwo
+        component: Input
+        triggers:
+          - endpoint:
+              service: sac
+              namespace: claim
+              method: list
+              resolve: false
+            componentMapping:
+              details:
+                someField: someField
+              other:
+                someField: someField
+                root:
+                  - fieldOne
+                  - fieldTwo
+
+      - name: someInput
+        component: Input
+        componentAttributes:
+          autoComplete: true
+          icon: iconName
+
+      - name: someInputHidden
+        component: Input
+        componentAttributes:
+          type: hidden
+
+      - name: fieldsArray
+        component: FieldsArray
+        componentAttributes:
+          canChangeElements: true
+          minElements: 1
+          maxElements: 3
+          fields:
+            - name: test
+              component: Text
+
+      - name: fieldsArrayTwo
+        component: FieldsArray
+        componentAttributes:
+          canChangeElements: true
+          uniqueField: true
+          minElements: 1
+          addButtonText: some.traduction
+          addButtonTextColor: colorName
+          addButtonBackgroundColor: colorName
+          addButtonIcon: iconName
+          fields:
+            - name: test
+              component: Text
+
+      - name: exampleHTMLOne
+        component: HTML
+        componentAttributes:
+          sourceField: template
+
+      - name: exampleHTMLTwo
+        component: HTML
+
+      - name: exampleHTMLThree
+        component: HTML
+        componentAttributes:
+          width: 300
+          height: 350
+
+      - name: exampleHTMLFour
+        component: HTML
+        componentAttributes:
+          height: full
+
+      - name: exampleHTMLFive
+        component: HTML
+        componentAttributes:
+          height: medium
+
+      - name: exampleHTMLSix
+        component: HTML
+        componentAttributes:
+          height: large
+
+    - name: others
+      fields:
+        - name: status
+          component: Select
+          defaultValue: active
+          validations:
+            - - name: required
+          componentAttributes:
+            translateLabels: true
+            canClear: true
+            options:
+              scope: local
+              values:
+              - label: common.status.active
+                value: 1
+              - label: common.status.inactive
+                value: 0
+
+        - name: selectRemote
+          component: Select
+          validations:
+            - - name: required
+          componentAttributes:
+            translateLabels: true
+            preloadOptions: true
+            options:
+              scope: remote
+              endpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesEndpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesFilterName: id
+              initialValuesPathParam: name
+              endpointParameters:
+                - name: status
+                  target: path
+                  value:
+                    dynamic: id
+                - name: status
+                  target: query
+                  value:
+                    static: 1
+              valuesMapper:
+                label: name
+                value: id
+
+        - name: selectRemoteTwo
+          component: Select
+          componentAttributes:
+            translateLabels: true
+            options:
+              scope: remote
+              endpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesEndpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesFilterName: id
+              initialValuesPathParam: name
+              valuesMapper:
+                label:
+                  template: '{0} {1} - ({2})'
+                  fields:
+                   - firstname
+                   - lastname
+                   - email
+                value: id
+
+        - name: selectRemoteThree
+          component: Select
+          componentAttributes:
+            translateLabels: true
+            options:
+              scope: remote
+              endpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+
+        - name: selectRemoteFour
+          component: Select
+          componentAttributes:
+            translateLabels: true
+            options:
+              scope: remote
+              endpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesEndpoint: false
+
+        - name: selectMultilevelExample
+          component: SelectMultilevel
+          componentAttributes:
+            translateLabels: true
+            parentFilterName: parent
+            maxLevel: 3
+            options:
+              scope: remote
+              endpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesEndpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesFilterName: id
+              initialValuesPathParam: name
+              endpointParameters:
+                - name: status
+                  target: path
+                  value:
+                    dynamic: id
+                - name: status
+                  target: query
+                  value:
+                    static: 1
+              valuesMapper:
+                label: name
+                value: id
+
+        - name: selectFormExample
+          component: SelectForm
+          componentAttributes:
+            translateLabels: true
+            canEdit: false
+            canCreate: true
+            fields:
+              - name: firstname
+                component: Input
+            options:
+              endpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesEndpoint:
+                service: sac
+                namespace: claim
+                method: list
+                resolve: false
+              initialValuesFilterName: id
+              initialValuesPathParam: name
+              valuesMapper:
+                label: name
+                value: id
+
+        - name: dateTime
+          component: DateTimePicker
+          componentAttributes:
+            selectDate: false
+            selectTime: true
+            selectRange: true
+            format: hh:mm
+
+        - name: otherDateTime
+          component: DateTimePicker
+          componentAttributes:
+            selectDate: true
+            selectRange: true
+            setStartOfDay: true
+            setEndOfDay: true
+            presets: true
+
+        - name: dateTimePickerPresets
+          component: DateTimePicker
+          componentAttributes:
+            selectDate: true
+            selectRange: true
+            presets:
+              today: true
+              yesterday: false
+              nextWeek: true
+              lastWeek: false
+              lastMonth: true
+              nextMonth: false
+
+        - name: checklist
+          component: CheckList
+          componentAttributes:
+            optionsSource:
+              service: sac
+              namespace: claim-motive
+              method: list
+              resolve: false
+            sectionField: claimMotiveName
+            groupField: statusName
+            labelField: name
+            valueField: id
+            translateSectionLabel: true
+            translateGroupLabel: false
+            translateCheckboxLabel: false
+
+        - name: multiInputExample
+          component: MultiInput
+          componentAttributes:
+            labelsPrefix: common.test.
+            labelPrefix: common.test.
+            translateLabels: true
+            requiredFields:
+              - test
+              - test2
+
+        - name: userAssigned
+          component: UserSelector
+
+        - name: fieldIconSelector
+          component: IconSelector
+
+        - name: members
+          component: UserSelector
+          componentAttributes:
+            isMulti: true
+            onlyActiveUsers: true
+            source:
+              service: service
+              namespace: namespace
+              method: method
+              resolve: false
+
+        - name: someFieldPreview
+          component: Preview
+          componentAttributes:
+            image: fieldTitle
+            title: fieldTitle
+            subtitle: fieldSubtitle
+            description: fieldDescription
+            price: fieldPrice
+            listPrice: fieldPrice
