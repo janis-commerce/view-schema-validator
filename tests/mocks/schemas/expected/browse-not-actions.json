@@ -719,6 +719,21 @@
             }
         },
         {
+            "name": "exampleTextWithIcon",
+            "component": "Text",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "icon": "iconName",
+                "iconColor": "colorName",
+                "fontWeight": "normal"
+            }
+        },
+        {
             "name": "exampleBadgeLetter",
             "component": "BadgeLetter",
             "attributes": {
