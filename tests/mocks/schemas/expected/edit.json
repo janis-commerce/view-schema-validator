@@ -2302,6 +2302,16 @@
                     "fieldsGroup": [
                         {
                             "name": "details",
+                            "conditions": {
+                                "showWhen": [
+                                    [
+                                        {
+                                            "name": "isNotEmpty",
+                                            "field": "order"
+                                        }
+                                    ]
+                                ]
+                            },
                             "fields": [
                                 {
                                     "name": "someField",
