@@ -1444,6 +1444,11 @@ sections:
       height: 4
       fieldsGroup:
         - name: details
+          conditions:
+            showWhen:
+              - - name: isNotEmpty
+                  field: order
+
           fields:
             - name: someField
               component: Text
