@@ -1495,6 +1495,39 @@ sections:
       width: 4
       height: 4
 
+    - name: graphs
+      component: GraphCard
+      title: some.traduction.title
+      hideTitle: true
+      x: 0
+      y: 3
+      width: 4
+      height: 4
+      graphs:
+        - component: Table
+          name: graphName
+          title: someTitleForGraph
+          x: 0
+          y: 0
+          width: 6
+          height: 3
+          source:
+            service: serviceName
+            namespace: namespaceName
+            method: methodName
+            resolve: false
+          endpointParameters:
+            - name: status
+              target: path
+              value:
+                dynamic: id
+            - name: status
+              target: query
+              value:
+                static: 1
+
+
+
 - name: remoteSection
   rootComponent: RemoteSection
   source:
