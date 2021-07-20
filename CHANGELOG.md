@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.59.0] - 2021-07-19
+### Added
+- New Summary Card `GraphCard`
+- Add conditionals in fieldsGroups
+
 ## [2.58.0] - 2021-07-05
 ### Added
 - Add new properties `icon` and `iconColor` in Text component
