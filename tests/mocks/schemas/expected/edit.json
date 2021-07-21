@@ -1087,6 +1087,7 @@
                         {
                             "name": "someInput",
                             "component": "Input",
+                            "width": 50,
                             "componentAttributes": {
                                 "autoComplete": true,
                                 "icon": "iconName"
