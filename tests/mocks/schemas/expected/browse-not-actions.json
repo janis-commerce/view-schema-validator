@@ -67,6 +67,11 @@
             }
         ]
     },
+    "statusBar": {
+        "field": "statusFieldName",
+        "hide": true,
+        "useTheme": true
+    },
     "source": {
         "service": "sac",
         "namespace": "claim-type",
