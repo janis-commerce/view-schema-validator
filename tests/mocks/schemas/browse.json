@@ -1512,5 +1512,14 @@
                 }
             }
         }
+    ],
+    "actions": [
+        {
+            "name": "someAction",
+            "type": "link",
+            "options": {
+                "path": "/some/path"
+            }
+        }
     ]
 }

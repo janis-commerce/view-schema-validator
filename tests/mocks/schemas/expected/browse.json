@@ -2003,12 +2003,10 @@
     "pageSize": 60,
     "actions": [
         {
-            "name": "new",
-            "icon": "star_light",
-            "color": "fizzGreen",
+            "name": "someAction",
             "type": "link",
             "options": {
-                "path": "/sac/claim-type/new"
+                "path": "/some/path"
             }
         }
     ]
