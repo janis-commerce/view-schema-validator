@@ -1601,6 +1601,39 @@
             "name": "semaphoreBrowse",
             "rootComponent": "BrowseSection",
             "canRefresh": true,
+            "statusBar": {
+                "useTheme": "themeName",
+                "themeConditionals": {
+                    "warning": [
+                        [
+                            {
+                                "name": "lowerThan",
+                                "field": "quantity",
+                                "referenceValue": 10
+                            },
+                            {
+                                "name": "lowerOrEqualThan",
+                                "field": "quantity",
+                                "referenceValue": 10
+                            }
+                        ]
+                    ],
+                    "error": [
+                        [
+                            {
+                                "name": "greaterThan",
+                                "field": "quantity",
+                                "referenceValue": 10
+                            },
+                            {
+                                "name": "greaterOrEqualThan",
+                                "field": "quantity",
+                                "referenceValue": 10
+                            }
+                        ]
+                    ]
+                }
+            },
             "rowLink": {
                 "path": "/route/{id}/edit"
             },
