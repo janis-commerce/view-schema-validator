@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.60.0] - 2021-07-29
+### Added
+- New property `statusBar` in the Browse Page
+- New property width in fields
+
+### Removed
+- The New Action button in the browse is removed
+
 ## [2.59.0] - 2021-07-19
 ### Added
 - New Summary Card `GraphCard`
