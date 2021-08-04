@@ -620,6 +620,7 @@ sections:
         translateLabels: true
         label: test.test.test
         labelField: asdasd
+        labelMapper: addHashtag
 
     - name: linkTest3
       component: Link

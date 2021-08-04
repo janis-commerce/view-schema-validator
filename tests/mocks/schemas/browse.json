@@ -737,7 +737,8 @@
                 "translateLabels": true,
                 "labelField": "label",
                 "label": "test",
-                "target": "_self"
+                "target": "_self",
+                "labelMapper": "addHashtag"
             }
         },
         {

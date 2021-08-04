@@ -158,6 +158,7 @@
                             "component": "Link",
                             "componentAttributes": {
                                 "translateLabels": false,
+                                "labelMapper": "addHashtag",
                                 "path": "/playground/views-demo/{id}",
                                 "endpointParameters": [
                                     {

@@ -973,7 +973,8 @@
                                 "target": "_blank",
                                 "translateLabels": true,
                                 "label": "test.test.test",
-                                "labelField": "asdasd"
+                                "labelField": "asdasd",
+                                "labelMapper": "addHashtag"
                             }
                         },
                         {
