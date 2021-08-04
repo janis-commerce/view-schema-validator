@@ -159,10 +159,10 @@ sections:
                 target: path
                 value:
                   dynamic: id
-              - name: status
-                target: query
+              - name: withData
+                target: body
                 value:
-                  static: 1
+                  static: true
 
         - name: testAction
           icon: star_light
