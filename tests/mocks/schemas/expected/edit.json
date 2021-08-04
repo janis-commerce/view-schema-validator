@@ -46,6 +46,13 @@
                         "value": "some.traduction",
                         "color": "red"
                     }
+                },
+                {
+                    "name": "someTitle",
+                    "component": "DefaultTitle",
+                    "componentAttributes": {
+                        "identifier": "someFieldName"
+                    }
                 }
             ]
         }
