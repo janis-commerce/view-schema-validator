@@ -235,10 +235,10 @@
                                         }
                                     },
                                     {
-                                        "name": "status",
-                                        "target": "query",
+                                        "name": "withData",
+                                        "target": "body",
                                         "value": {
-                                            "static": 1
+                                            "static": true
                                         }
                                     }
                                 ]
