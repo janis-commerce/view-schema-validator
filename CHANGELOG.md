@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.60.1] - 2021-08-05
+### Fixed
+- `EndopointParameters` now accept booleans as static values
+
 ## [2.60.0] - 2021-07-29
 ### Added
 - New property `statusBar` in the Browse Page
