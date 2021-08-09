@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.61.0] - 2021-08-09
+### Added
+- New property `LabelMapper` in `Link` component
+- New component `DefaultTitle` in Header
+- Add property `targetEndpointParameters` in RemoteSection
+
 ## [2.60.1] - 2021-08-05
 ### Fixed
 - `EndopointParameters` now accept booleans as static values
