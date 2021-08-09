@@ -1570,6 +1570,11 @@ sections:
     namespace: namespaceName
     method: methodName
     resolve: false
+  targetEndpointParameters:
+    - name: id
+      target: body
+      value:
+        dynamic: id
   sourceField: someField
   overwriteName: true
   schemaSource:
