@@ -26,7 +26,7 @@ const { argv } = require('yargs')
 	.option('schemasFolder', {
 		alias: 'f',
 		type: 'string',
-		describe: 'write a folder name where contain schemas',
+		describe: 'write the name of the folder where the partials schemes are',
 		default: 'view-schemas'
 	})
 	.option('env', {

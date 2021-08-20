@@ -25,6 +25,7 @@ validate     Validate if the file or files are valid schemas
 --input, -i     write a relative dir folder or dir file
 --output, -o    write a relative dir fordel for your outputs
 --service, -s   write a service local for resolve endpoints
+--schemasFolder, -f  write the name of the folder where the partials schemes are
 --env, -e       write a current environment for resolve endpoints
 --minified, -m  write build minified json files
 --watch, -w     watch input and execute on changes
@@ -63,4 +64,69 @@ All files ending with `.partial.yml` or `.partial.json` will not be validated or
 /schemas/browse.yml
 /schemas/section.partial.yml
 /schemas/anotherSection.partial.json
+```
+
+### Usage partials references
+
+```yaml
+sections:
+  - name: mainFormSection
+    rootComponent: MainForm
+    icon: catalogue
+
+    fieldsGroup:
+      - name: detail
+        position: left
+        icon: catalogue
+        collapsible: true
+        defaultOpen: true
+        fields:
+          - $ref: fields/idText.partial.yml
+
+          - name: name
+            component: Input
+
+          - name: descriptionTwo
+            component: Textarea
+
+  - $ref: sections/browse.partial.yml
+```
+
+The final paths would be like this
+
+`view-schemas/fields/idText.partial.json`
+
+`view-schemas/sections/browse.partial.yml`
+
+
+### Usage partials into other partials
+
+Example folder with partials
+
+```
+view-schemas
+|__fields
+|____idText.partial.yml
+|__sections
+|____browse.partial.yml
+```
+
+Example of use in `view-schemas/sections/browse.partial.yml`
+
+```yaml
+name: someBrowse
+rootComponent: BrowseSection
+source:
+  service: sac
+  namespace: claim-semaphore
+  method: browse
+  resolve: false
+fields:
+  - $ref: ../fields/idText.partial.json
+
+  - name: name
+    component: BoldText
+
+  - name: color
+    component: Text
 ```
