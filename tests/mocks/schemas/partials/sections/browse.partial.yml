@@ -1,0 +1,15 @@
+name: someBrowse
+rootComponent: BrowseSection
+source:
+  service: sac
+  namespace: claim-semaphore
+  method: browse
+  resolve: false
+fields:
+  - $ref: ../fields/idText.partial.json
+
+  - name: name
+    component: BoldText
+
+  - name: color
+    component: Text
