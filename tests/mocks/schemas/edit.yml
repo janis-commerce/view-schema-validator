@@ -182,7 +182,24 @@ sections:
             endpointParameters:
               id: id
 
-        - name: testAction2
+        - name: testActionTwo
+          icon: star_light
+          color: fizzGreen
+          type: endpoint
+          callback:
+            name: openLink
+            props:
+              fieldName: url
+          options:
+            endpoint:
+              service: sac
+              namespace: claim
+              method: get
+              resolve: false
+            endpointParameters:
+              id: id
+
+        - name: testActionThree
           icon: star_light
           color: fizzGreen
           type: endpoint
