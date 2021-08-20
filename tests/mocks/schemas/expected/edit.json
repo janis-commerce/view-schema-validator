@@ -1608,6 +1608,7 @@
         {
             "name": "semaphoreBrowse",
             "rootComponent": "BrowseSection",
+            "sourceField": "fieldName",
             "canRefresh": true,
             "statusBar": {
                 "useTheme": "themeName",
@@ -2121,6 +2122,7 @@
         {
             "name": "testFormSection",
             "rootComponent": "FormSection",
+            "sourceField": "fieldName",
             "hideUserModified": false,
             "hideUserCreated": true,
             "source": {

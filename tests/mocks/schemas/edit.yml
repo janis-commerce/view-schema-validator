@@ -1048,6 +1048,7 @@ sections:
 
 - name: semaphoreBrowse
   rootComponent: BrowseSection
+  sourceField: fieldName
   canRefresh: true
 
   statusBar:
@@ -1347,6 +1348,7 @@ sections:
 
 - name: testFormSection
   rootComponent: FormSection
+  sourceField: fieldName
   hideUserModified: false
   hideUserCreated: true
   source:
