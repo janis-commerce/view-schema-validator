@@ -1405,6 +1405,17 @@ sections:
             options:
               length: 50
 
+- name: someBrowse
+  rootComponent: BrowseSection
+  sourceField: someFieldName
+  fields:
+    - name: id
+      component: BoldText
+    - name: color
+      component: Text
+    - name: user
+      component: UserChip
+
 - name: multiSectionExample
   rootComponent: MultiSection
   subSections:

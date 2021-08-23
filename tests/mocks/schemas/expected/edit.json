@@ -2217,6 +2217,57 @@
             ]
         },
         {
+            "name": "someBrowse",
+            "rootComponent": "BrowseSection",
+            "filters": [],
+            "sourceField": "someFieldName",
+            "fields": [
+                {
+                    "name": "id",
+                    "component": "BoldText",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "fontWeight": "bold"
+                    }
+                },
+                {
+                    "name": "color",
+                    "component": "Text",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {
+                        "fontWeight": "normal"
+                    }
+                },
+                {
+                    "name": "user",
+                    "component": "UserChip",
+                    "attributes": {
+                        "isStatus": false,
+                        "sortable": false,
+                        "isDefaultSort": false,
+                        "initialSortDirection": "desc"
+                    },
+                    "componentAttributes": {}
+                }
+            ],
+            "canPreview": false,
+            "canEdit": true,
+            "canCreate": true,
+            "canExport": false,
+            "canView": false,
+            "pageSize": 60
+        },
+        {
             "name": "multiSectionExample",
             "rootComponent": "MultiSection",
             "subSections": [
