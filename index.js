@@ -23,6 +23,12 @@ const { argv } = require('yargs')
 		type: 'string',
 		describe: 'write a service local for resolve endpoints'
 	})
+	.option('schemasFolder', {
+		alias: 'f',
+		type: 'string',
+		describe: 'write the name of the folder where the partials schemes are',
+		default: 'view-schemas'
+	})
 	.option('env', {
 		alias: 'e',
 		type: 'string',
@@ -51,13 +57,24 @@ const ViewSchemaValidator = require('./lib');
 		minified,
 		watch,
 		env,
+		schemasFolder,
 		service,
 		_: commands
 	} = argv;
 
 	const [command] = commands;
 
-	const schemaValidator = new ViewSchemaValidator(input, output, service, minified, watch, command, env);
+	const schemaValidator = new ViewSchemaValidator(
+		input,
+		output,
+		service,
+		minified,
+		schemasFolder,
+		watch,
+		command,
+		env
+	);
+
 	const execute = schemaValidator.execute.bind(schemaValidator);
 
 	try {

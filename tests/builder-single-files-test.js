@@ -19,6 +19,7 @@ const executeInstance = (build = true, file, minified = false) => {
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		minified,
+		undefined,
 		false,
 		build ? 'build' : 'validate',
 		'local'
