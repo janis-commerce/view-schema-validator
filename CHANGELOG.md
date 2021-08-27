@@ -7,8 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.61.0] - 2021-08-09
+## [2.62.0] - 2021-08-27
 ### Added
+- New callback openLink
+- The current path (view-schemas) from the source of the references will be taken by default
+- Now you can add themes in the seactions `FromSection` and `BrowseSection`
+
+### Fixed
+- Now nested `$ref` work as they should
+
+## [2.61.0] - 2021-08-09
 - New property `LabelMapper` in `Link` component
 - New component `DefaultTitle` in Header
 - Add property `targetEndpointParameters` in RemoteSection
