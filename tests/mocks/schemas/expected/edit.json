@@ -18,8 +18,7 @@
             "components": [
                 {
                     "name": "id",
-                    "component": "IdText",
-                    "componentAttributes": {}
+                    "component": "IdText"
                 },
                 {
                     "name": "status",
@@ -33,7 +32,6 @@
                     "name": "test",
                     "component": "BadgeLetter",
                     "componentAttributes": {
-                        "translateLabels": true,
                         "backgroundColorTheme": "backgroundThemeName",
                         "fontColorTheme": "colorThemeName",
                         "useTheme": "someTheme"
