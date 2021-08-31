@@ -13,6 +13,22 @@ sourceEndpointParameters:
   value:
     dynamic: id
 
+header:
+  title:
+    - name: id
+      component: IdText
+    - name: title
+      component: MainTitle
+      componentAttributes:
+        value: someField
+        color: colorName
+        identifier: someFieldName
+    - name: status
+      component: StatusChip
+      mapper: translate
+      componentAttributes:
+        useTheme: true
+
 themes:
   themeOne:
     new: black
