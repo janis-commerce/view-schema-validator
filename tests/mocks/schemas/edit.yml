@@ -1065,6 +1065,7 @@ sections:
 
 - name: semaphoreBrowse
   rootComponent: BrowseSection
+  sourceField: fieldName
   canRefresh: true
 
   themes:
@@ -1369,6 +1370,7 @@ sections:
 
 - name: testFormSection
   rootComponent: FormSection
+  sourceField: fieldName
   hideUserModified: false
   hideUserCreated: true
   themes:
@@ -1428,6 +1430,17 @@ sections:
         - - name: maxLength
             options:
               length: 50
+
+- name: someBrowse
+  rootComponent: BrowseSection
+  sourceField: someFieldName
+  fields:
+    - name: id
+      component: BoldText
+    - name: color
+      component: Text
+    - name: user
+      component: UserChip
 
 - name: multiSectionExample
   rootComponent: MultiSection
