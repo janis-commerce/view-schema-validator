@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.63.0] - 2021-08-31
+### Added
+- New Component `MainTitle`
+- New property `sourceField` in `Browse` y `Form` sections
+
+### Deprecated
+- Property `components` inside `hedaer.title`
+- Components `IdText`, `DefaultTitle` and `CustomTitle`
+
 ## [2.62.0] - 2021-08-27
 ### Added
 - New callback openLink
