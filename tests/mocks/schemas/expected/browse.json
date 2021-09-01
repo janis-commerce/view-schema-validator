@@ -664,6 +664,7 @@
         },
         {
             "name": "customerList",
+            "translateLabels": false,
             "component": "Text",
             "attributes": {
                 "isStatus": false,

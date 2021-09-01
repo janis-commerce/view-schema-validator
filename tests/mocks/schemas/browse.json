@@ -617,6 +617,7 @@
         },
         {
             "name": "customerList",
+            "translateLabels": false,
             "component": "Text",
             "mapper": {
                 "name": "arrayMap",
