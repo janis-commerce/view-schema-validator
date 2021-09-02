@@ -12,30 +12,52 @@ saveRedirectUrl: /some-path
 cancelRedirectUrl: /some-path
 header:
   title:
-    hideTitle: true
-    components:
-      - name: id
-        component: IdText
-      - name: status
-        component: StatusChip
-        mapper: translate
-        componentAttributes:
-          useTheme: true
-      - name: test
-        component: BadgeLetter
-        componentAttributes:
-          backgroundColorTheme: backgroundThemeName
-          fontColorTheme: colorThemeName
-          useTheme: someTheme
-      - name: title
-        component: CustomTitle
-        componentAttributes:
-          value: some.traduction
-          color: red
-      - name: someTitle
-        component: DefaultTitle
-        componentAttributes:
-          identifier: someFieldName
+    - name: id
+      component: MainTitle
+      componentAttributes:
+        identifier: someFieldName
+
+    - name: status
+      component: StatusChip
+      mapper: translate
+      componentAttributes:
+        useTheme: true
+
+    - name: badgeField
+      component: BadgeLetter
+      componentAttributes:
+        backgroundColorTheme: backgroundThemeName
+        fontColorTheme: colorThemeName
+        useTheme: someTheme
+
+    - name: chipField
+      component: Chip
+      componentAttributes:
+        textColor: colorName
+
+    - name: mediumChipField
+      component: MediumChip
+
+    - name: smallChipField
+      component: SmallChip
+
+    - name: iconField
+      component: Icon
+      componentAttributes:
+        icon: iconName
+
+    - name: colorField
+      component: Color
+
+    - name: imageField
+      component: Image
+
+    - name: userImageField
+      component: UserImage
+
+    - name: userChipField
+      component: UserChip
+
 
 themes:
   themeOne:
