@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.64.0] - 2021-09-02
+### Added
+- New property `previewSource` in `rowCollapse`
+- Now you can use the components `Icon`, `Image`, `UserImage`, `Color` in the `Header`
+- Now you can use the `mappers` in the `endpointParameters`
+- New property `translateLabel` in every field
+
 ## [2.63.0] - 2021-08-31
 ### Added
 - New Component `MainTitle`
