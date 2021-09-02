@@ -28,6 +28,12 @@
             "method": "method",
             "resolve": false
         },
+        "previewSource": {
+            "service": "service",
+            "namespace": "namespace",
+            "method": "method",
+            "resolve": false
+        },
         "endpointParameters": [
             {
                 "name": "id",
