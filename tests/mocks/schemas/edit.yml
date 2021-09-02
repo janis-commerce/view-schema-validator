@@ -410,6 +410,7 @@ sections:
         fontWeight: normal
 
     - name: exampleImage
+      translateLabel: false
       component: Image
 
     - name: exampleImageWithProps
@@ -1538,6 +1539,7 @@ sections:
 
           fields:
             - name: someField
+              translateLabel: false
               component: Text
 
             - name: linkField

@@ -670,6 +670,7 @@
         },
         {
             "name": "customerList",
+            "translateLabel": false,
             "component": "Text",
             "attributes": {
                 "isStatus": false,

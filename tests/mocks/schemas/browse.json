@@ -623,6 +623,7 @@
         },
         {
             "name": "customerList",
+            "translateLabel": false,
             "component": "Text",
             "mapper": {
                 "name": "arrayMap",

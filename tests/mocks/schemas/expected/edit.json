@@ -636,6 +636,7 @@
                         {
                             "name": "exampleImage",
                             "component": "Image",
+                            "translateLabel": false,
                             "componentAttributes": {
                                 "roundBorders": false,
                                 "width": "auto",
@@ -2468,6 +2469,7 @@
                                 {
                                     "name": "someField",
                                     "component": "Text",
+                                    "translateLabel": false,
                                     "componentAttributes": {}
                                 },
                                 {
