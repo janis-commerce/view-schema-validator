@@ -67,8 +67,9 @@ remoteActions:
         dynamic: id
     - name: status
       target: query
+      mapper: booleanToStatus
       value:
-        static: 1
+        static: true
 
 sections:
 - name: mainFormSection
