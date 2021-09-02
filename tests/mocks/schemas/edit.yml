@@ -38,6 +38,9 @@ header:
     - name: mediumChipField
       component: MediumChip
 
+    - name: smallChipField
+      component: SmallChip
+
     - name: iconField
       component: Icon
       componentAttributes:
@@ -51,6 +54,9 @@ header:
 
     - name: userImageField
       component: UserImage
+
+    - name: userChipField
+      component: UserChip
 
 
 themes:

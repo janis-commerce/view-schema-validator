@@ -50,6 +50,10 @@
                 "component": "MediumChip"
             },
             {
+                "name": "smallChipField",
+                "component": "SmallChip"
+            },
+            {
                 "name": "iconField",
                 "component": "Icon",
                 "componentAttributes": {
@@ -67,6 +71,10 @@
             {
                 "name": "userImageField",
                 "component": "UserImage"
+            },
+            {
+                "name": "userChipField",
+                "component": "UserChip"
             }
         ]
     },
