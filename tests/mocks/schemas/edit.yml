@@ -914,6 +914,7 @@ sections:
         componentAttributes:
           translateLabels: true
           parentFilterName: parent
+          canClear: true
           maxLevel: 3
           options:
             scope: remote
@@ -1027,13 +1028,19 @@ sections:
       - name: userAssigned
         component: UserSelector
 
-      - name: fieldIconSelector
+      - name: fieldIconSelectorOne
         component: IconSelector
+
+      - name: fieldIconSelectorTwo
+        component: IconSelector
+        componentAttributes:
+          canClear: true
 
       - name: members
         component: UserSelector
         componentAttributes:
           isMulti: true
+          canClear: true
           onlyActiveUsers: true
           source:
             service: service

@@ -1411,6 +1411,7 @@
                             "componentAttributes": {
                                 "translateLabels": true,
                                 "parentFilterName": "parent",
+                                "canClear": true,
                                 "maxLevel": 3,
                                 "options": {
                                     "scope": "remote",
@@ -1564,15 +1565,23 @@
                             "componentAttributes": {}
                         },
                         {
-                            "name": "fieldIconSelector",
+                            "name": "fieldIconSelectorOne",
                             "component": "IconSelector",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "fieldIconSelectorTwo",
+                            "component": "IconSelector",
+                            "componentAttributes": {
+                                "canClear": true
+                            }
                         },
                         {
                             "name": "members",
                             "component": "UserSelector",
                             "componentAttributes": {
                                 "isMulti": true,
+                                "canClear": true,
                                 "onlyActiveUsers": true,
                                 "source": {
                                     "service": "service",
