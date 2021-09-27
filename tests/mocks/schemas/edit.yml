@@ -968,6 +968,12 @@ sections:
               label: name
               value: id
 
+      - name: dateTimeNew
+        component: NewDatePicker
+        componentAttributes:
+          selectDate: true
+          selectTime: false
+
       - name: dateTime
         component: DateTimePicker
         componentAttributes:
