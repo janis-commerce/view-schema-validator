@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.65.0] - 2021-09-26
+### Changed
+- Now all the select has de property `canClear`
+
 ## [2.64.0] - 2021-09-02
 ### Added
 - New property `previewSource` in `rowCollapse`
