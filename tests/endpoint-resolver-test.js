@@ -107,7 +107,6 @@ describe('Test endpoint resolver', () => {
 		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), editWithSorceSchemaExampleJson.toString());
 	});
 
-
 	it('should error if fail some request', async () => {
 		mockRequest(true);
 
@@ -134,7 +133,6 @@ describe('Test endpoint resolver', () => {
 		assert(getEndpointStub.callCount === 1);
 		assert(callFetcherSpy.callCount === 12);
 	});
-
 
 	it('should called EndpointResolverLocal with env beta ', () => {
 		const endpointResolver = new EndpointResolver('sac', 'beta');

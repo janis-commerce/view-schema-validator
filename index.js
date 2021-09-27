@@ -49,8 +49,12 @@ const { argv } = require('yargs')
 	.help('help');
 
 const ViewSchemaValidator = require('./lib');
+const packageJson = require('./package.json');
 
 (async () => {
+
+	logger.info(`Package version: ${packageJson.version}`);
+
 	const {
 		input,
 		output,

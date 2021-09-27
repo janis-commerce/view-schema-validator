@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.65.1] - 2021-09-27
+### Added
+- Add logger info with the current package version
+
 ## [2.65.0] - 2021-09-26
 ### Changed
 - Now all the select has de property `canClear`

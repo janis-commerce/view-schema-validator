@@ -6,7 +6,6 @@ const fs = require('fs-extra');
 const ymljs = require('yamljs');
 const Validator = require('../lib/validator');
 
-
 const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
 const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
@@ -17,6 +16,7 @@ const previeSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/pr
 const previeSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
 
 describe('Test validation functions', () => {
+
 	beforeEach(() => {
 		sinon.restore();
 	});
