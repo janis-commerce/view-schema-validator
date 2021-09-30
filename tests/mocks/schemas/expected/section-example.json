@@ -1,0 +1,216 @@
+{
+	"name": "readOnlySectionExample",
+	"icon": "catalogue",
+	"rootComponent": "ReadOnlySection",
+	"fieldsGroup": [
+		{
+			"name": "detail",
+			"icon": "catalogue",
+			"fields": [
+				{
+					"name": "image",
+					"component": "UserImage",
+					"componentAttributes": {
+						"size": "large",
+						"roundBorders": true
+					}
+				},
+				{
+					"name": "firstname",
+					"component": "Text",
+					"componentAttributes": {},
+					"conditions": {
+						"showWhen": [
+							[
+								{
+									"name": "isNotEmpty",
+									"field": "someField"
+								}
+							]
+						]
+					}
+				},
+				{
+					"name": "link",
+					"component": "Link",
+					"componentAttributes": {
+						"translateLabels": false,
+						"labelMapper": "addHashtag",
+						"path": "/playground/views-demo/{id}",
+						"endpointParameters": [
+							{
+								"name": "id",
+								"target": "path",
+								"value": {
+									"dynamic": "id"
+								}
+							}
+						]
+					}
+				},
+				{
+					"name": "fullname",
+					"component": "AsyncWrapper",
+					"componentAttributes": {
+						"source": {
+							"service": "playground",
+							"namespace": "views-demo-async-wrapper",
+							"method": "get",
+							"resolve": false
+						},
+						"endpointParameters": [
+							{
+								"name": "id",
+								"target": "path",
+								"value": {
+									"dynamic": "id"
+								}
+							}
+						],
+						"dataMapping": {
+							"fullname": "userFullname"
+						},
+						"field": {
+							"name": "userFullname",
+							"component": "Text",
+							"componentAttributes": {}
+						}
+					}
+				},
+				{
+					"name": "preview",
+					"component": "Preview",
+					"componentAttributes": {
+						"image": "image",
+						"title": "productName",
+						"subtitle": "productDescription",
+						"description": "productDescription",
+						"price": "price",
+						"listPrice": "listPrice"
+					}
+				},
+				{
+					"name": "friends",
+					"component": "Code",
+					"componentAttributes": {}
+				}
+			]
+		},
+		{
+			"name": "others",
+			"position": "right",
+			"fields": [
+				{
+					"name": "text",
+					"component": "Text",
+					"componentAttributes": {}
+				},
+				{
+					"name": "link",
+					"component": "Link",
+					"componentAttributes": {
+						"translateLabels": false,
+						"path": "/playground/views-demo/{id}",
+						"endpointParameters": [
+							{
+								"name": "id",
+								"target": "path",
+								"value": {
+									"dynamic": "fieldTen"
+								}
+							}
+						]
+					}
+				},
+				{
+					"name": "coordinates",
+					"component": "Location",
+					"componentAttributes": {
+						"label": "some.label.translation"
+					}
+				},
+				{
+					"name": "coordinates",
+					"component": "Location",
+					"componentAttributes": {
+						"label": {
+							"template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
+							"fields": [
+								"address.street",
+								"address.number",
+								"address.complement",
+								"address.neighborhood",
+								"address.postalCode",
+								"address.state",
+								"address.city",
+								"address.country"
+							]
+						}
+					}
+				},
+				{
+					"name": "address",
+					"component": "Location",
+					"componentAttributes": {
+						"label": {
+							"template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
+							"fields": [
+								"address.street",
+								"address.number",
+								"address.complement",
+								"address.neighborhood",
+								"address.postalCode",
+								"address.state",
+								"address.city",
+								"address.country"
+							]
+						},
+						"fieldsMapping": {
+							"latitude": "lat",
+							"longitude": "lng"
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "chips",
+			"position": "right",
+			"fields": [
+				{
+					"name": "chip",
+					"component": "Chip",
+					"componentAttributes": {
+						"borderColor": "grey"
+					}
+				},
+				{
+					"name": "mediumChip",
+					"component": "MediumChip",
+					"componentAttributes": {
+						"borderColor": "grey"
+					}
+				},
+				{
+					"name": "userRelated",
+					"component": "UserChip",
+					"componentAttributes": {
+						"userDataSource": {
+							"firstname": "firstname",
+							"lastname": "lastname",
+							"email": "email",
+							"image": "image"
+						}
+					}
+				},
+				{
+					"name": "status",
+					"component": "StatusChip",
+					"componentAttributes": {
+						"useTheme": true
+					}
+				}
+			]
+		}
+	]
+}
