@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.67.0] - 2021-10-08
+### Added
+- Now the deafult value of canExport is true on browses
+
 ## [2.66.0] - 2021-10-07
 ### Added
 - Now we validate and build the sections as well

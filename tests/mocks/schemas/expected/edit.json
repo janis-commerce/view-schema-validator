@@ -1992,7 +1992,7 @@
             "canPreview": false,
             "canEdit": true,
             "canCreate": true,
-            "canExport": false,
+            "canExport": true,
             "canView": false,
             "pageSize": 60
         },
@@ -2338,7 +2338,7 @@
             "canPreview": false,
             "canEdit": true,
             "canCreate": true,
-            "canExport": false,
+            "canExport": true,
             "canView": false,
             "pageSize": 60
         },
@@ -2398,7 +2398,7 @@
                     "canPreview": false,
                     "canEdit": true,
                     "canCreate": true,
-                    "canExport": false,
+                    "canExport": true,
                     "canView": false,
                     "pageSize": 60
                 }
