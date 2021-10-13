@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.68.0] - 2021-10-13
+### Added
+- New value `auto` in height property for summary cards and graphs
+
 ## [2.67.0] - 2021-10-08
 ### Added
 - Now the deafult value of canExport is true on browses
