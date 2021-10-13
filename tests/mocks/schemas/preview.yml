@@ -293,7 +293,7 @@ sections:
     x: 5
     y: 0
     width: 5
-    height: 3
+    height: auto
     fieldsGroup:
     - name: Links
       icon: catalogue
