@@ -9,10 +9,13 @@
         "resolve": false
     },
     "schemaSource": {
-        "service": "playground",
-        "namespace": "views-demo",
-        "method": "monitor",
-        "resolve": false
+        "type": "dynamic",
+        "endpoint": {
+            "service": "playground",
+            "namespace": "views-demo",
+            "method": "monitor",
+            "resolve": false
+        }
     },
     "filters": [
         {
