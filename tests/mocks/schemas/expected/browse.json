@@ -2007,7 +2007,6 @@
         }
     ],
     "canPreview": false,
-    "canEdit": true,
     "canCreate": true,
     "canExport": true,
     "canImport": true,
