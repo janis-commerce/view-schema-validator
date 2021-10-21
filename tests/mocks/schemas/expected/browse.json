@@ -2008,8 +2008,32 @@
     ],
     "canPreview": false,
     "canCreate": true,
-    "canExport": true,
-    "canImport": true,
+    "canExport": {
+        "entities": [
+            {
+                "name": "entityName",
+                "format": [
+                    "exel",
+                    "csv",
+                    "json"
+                ],
+                "type": [
+                    "report",
+                    "for-import"
+                ],
+                "fields": [
+                    "id",
+                    "name"
+                ]
+            }
+        ]
+    },
+    "canImport": {
+        "entities": [
+            "entityNameOne",
+            "entityNameTwo"
+        ]
+    },
     "canView": false,
     "canRefresh": false,
     "pageSize": 60,
