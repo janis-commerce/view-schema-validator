@@ -325,7 +325,7 @@
             "x": 6,
             "y": 0,
             "width": 6,
-            "height": 3,
+            "height": "auto",
             "label": {
                 "title": {
                     "value": "common.title",
@@ -2007,7 +2007,6 @@
         }
     ],
     "canPreview": false,
-    "canEdit": true,
     "canCreate": true,
     "canExport": true,
     "canImport": true,

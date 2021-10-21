@@ -1104,6 +1104,7 @@ sections:
   rootComponent: BrowseSection
   sourceField: fieldName
   canRefresh: true
+  canEdit: false
 
   themes:
     themeOne:
