@@ -1,0 +1,73 @@
+{
+    "service": "picking",
+    "name": "views-demo-monitor",
+    "root": "Monitor",
+    "source": {
+        "service": "playground",
+        "namespace": "views-demo",
+        "method": "list",
+        "resolve": false
+    },
+    "schemaSource": {
+        "type": "dynamic",
+        "endpoint": {
+            "service": "playground",
+            "namespace": "views-demo",
+            "method": "monitor",
+            "resolve": false
+        }
+    },
+    "filters": [
+        {
+            "name": "filterInput",
+            "component": "Input",
+            "componentAttributes": {
+                "icon": "iconName"
+            }
+        },
+        {
+            "name": "localSelect",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "options": {
+                    "scope": "local",
+                    "values": [
+                        {
+                            "label": "test",
+                            "value": 1
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "fields": [
+        {
+            "name": "someField",
+            "component": "Text",
+			"attributes": {
+                "sortable": false,
+                "isDefaultSort": false,
+                "isStatus": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+				"fontWeight": "normal"
+			}
+        },
+        {
+            "name": "someField",
+            "component": "Chip",
+			"attributes": {
+                "sortable": false,
+                "isDefaultSort": false,
+                "isStatus": false,
+                "initialSortDirection": "desc"
+            },
+			"componentAttributes": {
+				"borderColor": "grey"
+			}
+        }
+    ]
+}
