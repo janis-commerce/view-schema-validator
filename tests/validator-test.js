@@ -83,24 +83,23 @@ describe('Test validation functions', () => {
 		const browseSchema = JSON.parse(browseSchemaJson.toString());
 		const editSchema = ymljs.parse(editSchemaYml.toString());
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
-		const previeSchema = ymljs.parse(previeSchemaYml.toString());
-    const sectionSchema = ymljs.parse(sectionExampleYML.toString());
+		const previewSchema = ymljs.parse(previewSchemaYml.toString());
+		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
 		const monitorSchema = ymljs.parse(monitorSchemaYml.toString());
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
 		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
-		const previewData = Validator.execute(previeSchema, true, '/test/data4.json');
-    const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
 		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
-    const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
+		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
+		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
-		sinon.assert.match(previewData, JSON.parse(previeSchemaExpected.toString()));
+		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));
-    sinon.assert.match(monitorData, JSON.parse(monitorSchemaExpected.toString()));
+		sinon.assert.match(monitorData, JSON.parse(monitorSchemaExpected.toString()));
 	});
 
 	it('should error with default schema', () => {
