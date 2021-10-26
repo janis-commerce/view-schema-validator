@@ -2598,6 +2598,15 @@
                 "method": "methodName",
                 "resolve": false
             },
+            "sourceEndpointParameters": [
+                {
+                    "name": "service",
+                    "target": "filter",
+                    "value": {
+                        "static": "serviceName"
+                    }
+                }
+            ],
             "target": {
                 "service": "serviceName",
                 "namespace": "namespaceName",
