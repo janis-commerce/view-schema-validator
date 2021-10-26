@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.69.0] - 2021-10-26
 ### Added
 - New Schema page `Monitor`
 - Now the properties `canEdit` and `canExport` on the Browse schema are `true` by default
 - Add property `sourceEndpointParameters` un RemoteSection
+- Now you can add multiples entities in the `canExport` or `canImport` actions
 
 ## [2.68.0] - 2021-10-13
 ### Added
