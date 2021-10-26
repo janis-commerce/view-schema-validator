@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - New Schema page `Monitor`
 - Now the properties `canEdit` and `canExport` on the Browse schema are `true` by default
+- Add property `sourceEndpointParameters` un RemoteSection
 
 ## [2.68.0] - 2021-10-13
 ### Added
