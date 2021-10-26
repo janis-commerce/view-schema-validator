@@ -2,8 +2,32 @@
     "service": "sac",
     "name": "claim-type-browse",
     "root": "Browse",
-    "canExport": true,
-    "canImport": true,
+    "canExport": {
+        "entities": [
+            {
+                "name": "entityName",
+                "format": [
+                    "exel",
+                    "csv",
+                    "json"
+                ],
+                "type": [
+                    "report",
+                    "for-import"
+                ],
+                "fields": [
+                    "id",
+                    "name"
+                ]
+            }
+        ]
+    },
+    "canImport": {
+        "entities": [
+            "entityNameOne",
+            "entityNameTwo"
+        ]
+    },
     "canRefresh": false,
     "rowLink": {
         "path": "/route/{id}/edit",
