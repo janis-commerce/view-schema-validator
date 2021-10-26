@@ -1612,7 +1612,7 @@ sections:
       namespace: namespaceName
       method: methodName
       resolve: false
-    sourceEndpointParameters:
+    endpointParameters:
       - name: service
         target: filter
         value:

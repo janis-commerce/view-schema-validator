@@ -2598,7 +2598,7 @@
                 "method": "methodName",
                 "resolve": false
             },
-            "sourceEndpointParameters": [
+            "endpointParameters": [
                 {
                     "name": "service",
                     "target": "filter",
