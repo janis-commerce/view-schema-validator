@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.70.0] - 2021-11-10
+### Added
+- New type of condtional `matchWhen` for the Monitor Schema
+
 ## [2.69.1] - 2021-10-26
 ### Fixed
 - Change property `sourceEndpointParameters` to `endpointParameters` in RemoteSection

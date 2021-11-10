@@ -54,7 +54,26 @@
             },
             "componentAttributes": {
 				"fontWeight": "normal"
-			}
+			},
+            "conditions": {
+                "matchWhen": [
+                    [
+                        {
+                            "name": "isNotEmpty",
+                            "field": [
+                                "test",
+                                "tes2"
+                            ]
+                        },
+                        {
+                            "name": "isNotEqualTo",
+                            "field": "name",
+                            "referenceValueType": "static",
+                            "referenceValue": null
+                        }
+                    ]
+                ]
+            }
         },
         {
             "name": "someField",
