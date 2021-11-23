@@ -44,17 +44,27 @@
     ],
     "fields": [
         {
-            "name": "someField",
-            "component": "Text",
-			"attributes": {
-                "sortable": false,
-                "isDefaultSort": false,
-                "isStatus": false,
-                "initialSortDirection": "desc"
-            },
-            "componentAttributes": {
-				"fontWeight": "normal"
-			},
+            "name": "someCard",
+            "component": "BaseCard",
+            "fieldsGroup": [
+                {
+                    "name": "info",
+                    "fields": [
+                        {
+                            "name": "someField",
+                            "component": "Text",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "otherField",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey"
+                            }
+                        }
+                    ]
+                }
+            ],
             "conditions": {
                 "matchWhen": [
                     [
@@ -74,19 +84,6 @@
                     ]
                 ]
             }
-        },
-        {
-            "name": "someField",
-            "component": "Chip",
-			"attributes": {
-                "sortable": false,
-                "isDefaultSort": false,
-                "isStatus": false,
-                "initialSortDirection": "desc"
-            },
-			"componentAttributes": {
-				"borderColor": "grey"
-			}
         }
     ]
 }

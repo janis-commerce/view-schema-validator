@@ -33,8 +33,15 @@ filters:
             value: 1
 
 fields:
-  - name: someField
-    component: Text
+  - name: someCard
+    component: BaseCard
+    fieldsGroup:
+      - name: info
+        fields:
+          - name: someField
+            component: Text
+          - name: otherField
+            component: Chip
     conditions:
       matchWhen:
         - - name: isNotEmpty
@@ -46,5 +53,3 @@ fields:
             referenceValueType: static
             referenceValue: null
 
-  - name: someField
-    component: Chip
