@@ -44,8 +44,10 @@
     ],
     "fields": [
         {
-            "name": "someCard",
+            "name": "someCardOne",
             "component": "BaseCard",
+            "label": "some.label.key",
+            "translateLabel": false,
             "fieldsGroup": [
                 {
                     "name": "info",
@@ -80,6 +82,40 @@
                             "field": "name",
                             "referenceValueType": "static",
                             "referenceValue": null
+                        }
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "someCardTwo",
+            "component": "BaseCard",
+            "fieldsGroup": [
+                {
+                    "name": "info",
+                    "fields": [
+                        {
+                            "name": "someField",
+                            "component": "Text",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "otherField",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditions": {
+                "matchWhen": [
+                    [
+                        {
+                            "name": "isEqualTo",
+                            "field": "name",
+                            "referenceValue": "test"
                         }
                     ]
                 ]

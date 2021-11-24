@@ -33,8 +33,10 @@ filters:
             value: 1
 
 fields:
-  - name: someCard
+  - name: someCardOne
     component: BaseCard
+    label: some.label.key
+    translateLabel: false
     fieldsGroup:
       - name: info
         fields:
@@ -52,4 +54,19 @@ fields:
             field: name
             referenceValueType: static
             referenceValue: null
+
+  - name: someCardTwo
+    component: BaseCard
+    fieldsGroup:
+      - name: info
+        fields:
+          - name: someField
+            component: Text
+          - name: otherField
+            component: Chip
+    conditions:
+      matchWhen:
+        - - name: isEqualTo
+            field: name
+            referenceValue: test
 
