@@ -44,17 +44,29 @@
     ],
     "fields": [
         {
-            "name": "someField",
-            "component": "Text",
-			"attributes": {
-                "sortable": false,
-                "isDefaultSort": false,
-                "isStatus": false,
-                "initialSortDirection": "desc"
-            },
-            "componentAttributes": {
-				"fontWeight": "normal"
-			},
+            "name": "someCardOne",
+            "component": "BaseCard",
+            "label": "some.label.key",
+            "translateLabel": false,
+            "fieldsGroup": [
+                {
+                    "name": "info",
+                    "fields": [
+                        {
+                            "name": "someField",
+                            "component": "Text",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "otherField",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey"
+                            }
+                        }
+                    ]
+                }
+            ],
             "conditions": {
                 "matchWhen": [
                     [
@@ -76,17 +88,38 @@
             }
         },
         {
-            "name": "someField",
-            "component": "Chip",
-			"attributes": {
-                "sortable": false,
-                "isDefaultSort": false,
-                "isStatus": false,
-                "initialSortDirection": "desc"
-            },
-			"componentAttributes": {
-				"borderColor": "grey"
-			}
+            "name": "someCardTwo",
+            "component": "BaseCard",
+            "fieldsGroup": [
+                {
+                    "name": "info",
+                    "fields": [
+                        {
+                            "name": "someField",
+                            "component": "Text",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "otherField",
+                            "component": "Chip",
+                            "componentAttributes": {
+                                "borderColor": "grey"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditions": {
+                "matchWhen": [
+                    [
+                        {
+                            "name": "isEqualTo",
+                            "field": "name",
+                            "referenceValue": "test"
+                        }
+                    ]
+                ]
+            }
         }
     ]
 }
