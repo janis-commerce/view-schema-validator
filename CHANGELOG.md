@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.72.0] - 2021-12-01
+### Added
+- Now the `Monitor` schema can add `themes`
+
 ## [2.71.0] - 2021-11-26
 ### Changed
 - New `BaseCard` for `Monitor` schema.
