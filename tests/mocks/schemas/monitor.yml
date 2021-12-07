@@ -125,6 +125,7 @@ fields:
         fields:
           - name: someField
             component: Text
+            dependency: dependencyOne
           - name: otherField
             component: Chip
     conditions:

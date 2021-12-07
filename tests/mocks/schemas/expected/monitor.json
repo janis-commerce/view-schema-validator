@@ -184,6 +184,7 @@
                         {
                             "name": "someField",
                             "component": "Text",
+                            "dependency": "dependencyOne",
                             "componentAttributes": {}
                         },
                         {
