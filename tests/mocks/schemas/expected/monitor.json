@@ -2,12 +2,22 @@
     "service": "picking",
     "name": "views-demo-monitor",
     "root": "Monitor",
+    "autoRefresh": true,
     "source": {
         "service": "playground",
         "namespace": "views-demo",
         "method": "list",
         "resolve": false
     },
+    "endpointParameters": [
+        {
+            "name": "status",
+            "target": "filter",
+            "value": {
+                "static": "active"
+            }
+        }
+    ],
     "schemaSource": {
         "type": "dynamic",
         "endpoint": {
@@ -32,6 +42,28 @@
             }
         }
     },
+    "statusBar": {
+        "field": "statusFieldName",
+        "hide": true,
+        "useTheme": true
+    },
+    "sortableFields": [
+        {
+            "name": "test",
+            "isDefaultSort": false,
+            "initialSortDirection": "desc"
+        },
+        {
+            "name": "test1",
+            "isDefaultSort": true,
+            "initialSortDirection": "desc"
+        },
+        {
+            "name": "test2",
+            "isDefaultSort": false,
+            "initialSortDirection": "asc"
+        }
+    ],
     "filters": [
         {
             "name": "filterInput",
@@ -57,6 +89,88 @@
             }
         }
     ],
+    "dependencies": [
+        {
+            "name": "dependencyOne",
+            "source": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
+            "endpointParameters": [
+                {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                        "dynamic": "id"
+                    }
+                },
+                {
+                    "name": "status",
+                    "target": "filter",
+                    "value": {
+                        "static": "active"
+                    }
+                }
+            ],
+            "targetField": "fieldNameOne"
+        },
+        {
+            "name": "dependencyTwo",
+            "source": {
+                "service": "serviceName",
+                "namespace": "namespaceName",
+                "method": "methodName",
+                "resolve": false
+            },
+            "endpointParameters": [
+                {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                        "dynamic": "id"
+                    }
+                },
+                {
+                    "name": "status",
+                    "target": "filter",
+                    "value": {
+                        "static": "active"
+                    }
+                }
+            ],
+            "targetField": "fieldNameTwo",
+            "dependencies": [
+                {
+                    "name": "dependencyThree",
+                    "source": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "endpointParameters": [
+                        {
+                            "name": "status",
+                            "target": "path",
+                            "value": {
+                                "dynamic": "id"
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "target": "filter",
+                            "value": {
+                                "static": "active"
+                            }
+                        }
+                    ],
+                    "targetField": "fieldNameThree"
+                }
+            ]
+        }
+    ],
     "fields": [
         {
             "name": "someCardOne",
@@ -70,6 +184,7 @@
                         {
                             "name": "someField",
                             "component": "Text",
+                            "dependency": "dependencyOne",
                             "componentAttributes": {}
                         },
                         {
