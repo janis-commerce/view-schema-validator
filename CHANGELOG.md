@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.73.0] - 2021-12-09
 ### Added
 - New propertyes `type` `icon` `autoComplete` in component `MultiInput`
-- Now de monitor can user `dependencies`, `sortableFields`, `statusBar` and `autoRefresh` functions
+- Now de monitor can use `dependencies`, `sortableFields`, `statusBar` and `autoRefresh` properties
 
 ## [2.72.0] - 2021-12-01
 ### Added
