@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.73.0] - 2021-12-09
+### Added
+- New propertyes `type` `icon` `autoComplete` in component `MultiInput`
+- Now de monitor can user `dependencies`, `sortableFields`, `statusBar` and `autoRefresh` functions
+
 ## [2.72.0] - 2021-12-01
 ### Added
 - Now the `Monitor` schema can add `themes`
