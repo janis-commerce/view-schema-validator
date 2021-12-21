@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.74.0] - 2021-12-21
+### Added
+- New property `columnsType` in `MainForm`, `ReadOnlySection` and `FormSections` to handle the form columns
+- New property `responseProperty` in `Select` component
+- New property `translateLabel` in `FieldGroups`
+
 ## [2.73.0] - 2021-12-09
 ### Added
 - New propertyes `type` `icon` `autoComplete` in component `MultiInput`
