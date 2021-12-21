@@ -100,6 +100,7 @@ sections:
 - name: mainFormSection
   icon: catalogue
   rootComponent: ReadOnlySection
+  columnsType: even
   fieldsGroup:
   - name: detail
     icon: catalogue
@@ -162,6 +163,7 @@ sections:
 
   - name: others
     position: right
+    translateLabel: false
     fields:
     - name: text
       component: Text

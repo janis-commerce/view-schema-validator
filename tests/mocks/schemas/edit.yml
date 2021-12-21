@@ -81,6 +81,7 @@ sections:
   - name: mainFormSection
     rootComponent: MainForm
     icon: catalogue
+    columnsType: default
     hideUserModified: false
     hideUserCreated: true
     dependencies:
@@ -872,6 +873,7 @@ sections:
           component: Select
           componentAttributes:
             translateLabels: true
+            responseProperty: someField
             options:
               scope: remote
               endpoint:
@@ -1389,6 +1391,7 @@ sections:
   - name: testFormSection
     rootComponent: FormSection
     sourceField: fieldName
+    columnsType: even
     hideUserModified: false
     hideUserCreated: true
     themes:

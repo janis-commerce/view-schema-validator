@@ -431,6 +431,7 @@
             "component": "Select",
             "componentAttributes": {
                 "translateLabels": true,
+                "responseProperty": "someField",
                 "options": {
                     "scope": "remote",
                     "searchParam": "filters[search]",

@@ -125,6 +125,7 @@
         {
             "name": "mainFormSection",
             "rootComponent": "MainForm",
+            "columnsType": "default",
             "icon": "catalogue",
             "hideUserModified": false,
             "hideUserCreated": true,
@@ -1367,6 +1368,7 @@
                             "component": "Select",
                             "componentAttributes": {
                                 "translateLabels": true,
+                                "responseProperty": "someField",
                                 "options": {
                                     "scope": "remote",
                                     "searchParam": "filters[search]",
@@ -2200,6 +2202,7 @@
             "name": "testFormSection",
             "rootComponent": "FormSection",
             "sourceField": "fieldName",
+            "columnsType": "even",
             "hideUserModified": false,
             "hideUserCreated": true,
             "themes": {
