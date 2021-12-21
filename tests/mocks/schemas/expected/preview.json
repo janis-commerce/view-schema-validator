@@ -150,6 +150,7 @@
             "name": "mainFormSection",
             "icon": "catalogue",
             "rootComponent": "ReadOnlySection",
+            "columnsType": "even",
             "fieldsGroup": [
                 {
                     "name": "detail",
@@ -247,6 +248,7 @@
                 {
                     "name": "others",
                     "position": "right",
+                    "translateLabel": false,
                     "fields": [
                         {
                             "name": "text",

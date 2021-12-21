@@ -447,6 +447,7 @@
             "component": "Select",
             "componentAttributes": {
                 "translateLabels": true,
+                "responseProperty": "someField",
                 "options": {
                     "scope": "remote",
                     "endpoint": {
