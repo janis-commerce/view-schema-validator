@@ -48,13 +48,51 @@
             {
                 "name": "textField",
                 "component": "Text",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
                 "componentAttributes": {
                     "fontWeight": "normal"
                 }
             },
             {
+                "name": "boldTextField",
+                "component": "BoldText",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
+                "componentAttributes": {
+                    "fontWeight": "bold"
+                }
+            },
+            {
                 "name": "chipField",
                 "component": "Chip",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
+                "componentAttributes": {
+                    "borderColor": "grey"
+                }
+            },
+            {
+                "name": "mediumChipField",
+                "component": "MediumChip",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
                 "componentAttributes": {
                     "borderColor": "grey"
                 }
@@ -62,13 +100,38 @@
             {
                 "name": "iconField",
                 "component": "Icon",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
                 "componentAttributes": {}
             },
             {
                 "name": "linkField",
                 "component": "Link",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
                 "componentAttributes": {
                     "path": "/some/path/{id}"
+                }
+            },
+            {
+                "name": "status",
+                "component": "StatusChip",
+                "attributes": {
+                    "sortable": false,
+                    "isDefaultSort": false,
+                    "isStatus": false,
+                    "initialSortDirection": "desc"
+                },
+                "componentAttributes": {
+                    "useTheme": true
                 }
             }
         ]

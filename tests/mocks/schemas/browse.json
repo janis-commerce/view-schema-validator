@@ -77,8 +77,16 @@
                 "component": "Text"
             },
             {
+                "name": "boldTextField",
+                "component": "BoldText"
+            },
+            {
                 "name": "chipField",
                 "component": "Chip"
+            },
+            {
+                "name": "mediumChipField",
+                "component": "MediumChip"
             },
             {
                 "name": "iconField",
@@ -89,6 +97,13 @@
                 "component": "Link",
                 "componentAttributes": {
                     "path": "/some/path/{id}"
+                }
+            },
+            {
+                "name": "status",
+                "component": "StatusChip",
+                "componentAttributes": {
+                    "useTheme": true
                 }
             }
         ]
