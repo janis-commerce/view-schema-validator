@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Now the component `rowCollapse` can use all de browse schema components
 
+### Changed
+- Improvements in the validation of translation keys. Now you can't use the namespace `views`
+
 ## [2.74.0] - 2021-12-21
 ### Added
 - New property `columnsType` in `MainForm`, `ReadOnlySection` and `FormSections` to handle the form columns
