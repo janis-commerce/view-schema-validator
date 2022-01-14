@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.75.0] - 2022-01-14
 ### Added
 - Now the component `rowCollapse` can use all de browse schema components
 
