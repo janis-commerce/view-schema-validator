@@ -120,6 +120,43 @@ fields:
     component: BaseCard
     label: some.label.key
     translateLabel: false
+    actions:
+      - name: testEndpoint
+        callback: refresh
+        endpoint:
+          service: serviceName
+          namespace: namespaceName
+          method: methodName
+          resolve: false
+        endpointParameters:
+          - name: id
+            target: path
+            value:
+              dynamic: id
+
+      - name: testLink
+        path: /test/{id}
+        target: _self
+        endpointParameters:
+          - name: id
+            target: path
+            value:
+              dynamic: id
+
+      - name: testForm
+        endpoint:
+          service: serviceName
+          namespace: namespaceName
+          method: methodName
+          resolve: false
+        callback: reloadMonitorData
+        schema:
+          - name: fieldNameOne
+            component: Input
+
+          - name: fieldNameTwo
+            component: Switch
+
     fieldsGroup:
       - name: info
         fields:
