@@ -201,6 +201,17 @@
                     "name": "testLink",
                     "path": "/test/{id}",
                     "target": "_self",
+                    "conditions": {
+                        "showWhen": [
+                            [
+                                {
+                                    "name": "isEqualTo",
+                                    "field": "name",
+                                    "referenceValue": "test"
+                                }
+                            ]
+                        ]
+                    },
                     "endpointParameters": [
                         {
                             "name": "id",
