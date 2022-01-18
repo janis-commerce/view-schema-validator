@@ -154,7 +154,7 @@ fields:
           namespace: namespaceName
           method: methodName
           resolve: false
-        callback: reloadMonitorData
+        callback: reloadData
         schema:
           - name: fieldNameOne
             component: Input
