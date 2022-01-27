@@ -180,27 +180,30 @@
             "actions": [
                 {
                     "name": "testEndpoint",
+                    "type": "endpoint",
                     "callback": "refresh",
-                    "endpoint": {
-                        "service": "serviceName",
-                        "namespace": "namespaceName",
-                        "method": "methodName",
-                        "resolve": false
-                    },
-                    "endpointParameters": [
-                        {
-                            "name": "id",
-                            "target": "path",
-                            "value": {
-                                "dynamic": "id"
+                    "componentAttributes": {
+                        "icon": "box",
+                        "endpoint": {
+                            "service": "serviceName",
+                            "namespace": "namespaceName",
+                            "method": "methodName",
+                            "resolve": false
+                        },
+                        "endpointParameters": [
+                            {
+                                "name": "id",
+                                "target": "path",
+                                "value": {
+                                    "dynamic": "id"
+                                }
                             }
-                        }
-                    ]
+                        ]
+                    }
                 },
                 {
                     "name": "testLink",
-                    "path": "/test/{id}",
-                    "target": "_self",
+                    "type": "link",
                     "conditions": {
                         "showWhen": [
                             [
@@ -212,37 +215,44 @@
                             ]
                         ]
                     },
-                    "endpointParameters": [
-                        {
-                            "name": "id",
-                            "target": "path",
-                            "value": {
-                                "dynamic": "id"
+                    "componentAttributes": {
+                        "path": "/test/{id}",
+                        "linkTarget": "_self",
+                        "endpointParameters": [
+                            {
+                                "name": "id",
+                                "target": "path",
+                                "value": {
+                                    "dynamic": "id"
+                                }
                             }
-                        }
-                    ]
+                        ]
+                    }
                 },
                 {
                     "name": "testForm",
-                    "endpoint": {
-                        "service": "serviceName",
-                        "namespace": "namespaceName",
-                        "method": "methodName",
-                        "resolve": false
-                    },
+                    "type": "form",
                     "callback": "reloadData",
-                    "schema": [
-                        {
-                            "name": "fieldNameOne",
-                            "component": "Input",
-                            "componentAttributes": {}
+                    "componentAttributes": {
+                        "endpoint": {
+                            "service": "serviceName",
+                            "namespace": "namespaceName",
+                            "method": "methodName",
+                            "resolve": false
                         },
-                        {
-                            "name": "fieldNameTwo",
-                            "component": "Switch",
-                            "componentAttributes": {}
-                        }
-                    ]
+                        "fields": [
+                            {
+                                "name": "fieldNameOne",
+                                "component": "Input",
+                                "componentAttributes": {}
+                            },
+                            {
+                                "name": "fieldNameTwo",
+                                "component": "Switch",
+                                "componentAttributes": {}
+                            }
+                        ]
+                    }
                 }
             ],
             "fieldsGroup": [
