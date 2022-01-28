@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.77.0] - 2022-01-28
+### Changed
+- Now the actions of the `Monitor` they hast to be equal than the `Preview` actions, called `GenericActions`
+
 ## [2.76.0] - 2022-01-18
 ### Added
 - Now the `Monitor` schema can add actions to perform for each card
