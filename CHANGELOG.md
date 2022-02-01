@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.78.0] - 2022-02-01
+### Added
+- `Monitor` - Now the monitors can use a new property `autoRefresh` to obtain the rows every x's minutes
+
 ## [2.77.0] - 2022-01-28
 ### Changed
 - Now the actions of the `Monitor` they hast to be equal than the `Preview` actions, called `GenericActions`
