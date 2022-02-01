@@ -2,7 +2,7 @@ service: picking
 name: views-demo-monitor
 root: Monitor
 
-autoRefresh: true
+autoRefresh: 60
 
 source:
   service: playground
