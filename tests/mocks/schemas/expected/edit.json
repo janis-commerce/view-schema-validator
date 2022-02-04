@@ -1684,6 +1684,8 @@
             "rootComponent": "BrowseSection",
             "sourceField": "fieldName",
             "canRefresh": true,
+            "canImport": true,
+            "canExport": true,
             "themes": {
                 "themeOne": {
                     "new": "black",
