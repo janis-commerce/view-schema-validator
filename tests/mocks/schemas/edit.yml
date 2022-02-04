@@ -58,6 +58,27 @@ themes:
     warning:
       somePropOne: someValue
       somePropTwo: someValue
+dependencies:
+  - name: dependencyOne
+    source:
+      service: serviceName
+      namespace: namespaceName
+      method: methodName
+      resolve: false
+    endpointParameters:
+      - name: status
+        target: path
+        value:
+          dynamic: id
+      - name: status
+        target: filter
+        value:
+          static: active
+      - name: sortBy
+        target: queryString
+        value:
+          static: status
+    targetField: fieldNameOne
 collapseSections: true
 remoteActions:
   title: some.title
