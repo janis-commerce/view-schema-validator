@@ -1097,6 +1097,8 @@ sections:
     sourceField: fieldName
     canRefresh: true
     canEdit: false
+    canImport: true
+    canExport: true
     themes:
       themeOne:
         new: black
