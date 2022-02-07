@@ -1454,6 +1454,7 @@ sections:
   - name: someBrowse
     rootComponent: BrowseSection
     sourceField: someFieldName
+    pageSize: none
     fields:
       - name: id
         component: BoldText
