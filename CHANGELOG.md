@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.79.0] - 2022-02-07
+### Added
+- `Browses` - New option `none` for pageSize
+- `Browses` - New propertie `autoRefresh`. Now you can send a `boolean` or a `number` (60 is the minimum)
+- `BrowseSection` - New properties `canExport` and canImport
+- `Edit` - Now you can add global `Dependencies`
+
 ## [2.78.0] - 2022-02-01
 ### Added
 - `Monitor` - Now the monitors can use a new property `autoRefresh` to obtain the rows every x's minutes
