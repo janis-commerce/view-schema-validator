@@ -2,6 +2,7 @@
     "service": "sac",
     "name": "claim-type-browse",
     "root": "Browse",
+    "autoRefresh": true,
     "canExport": {
         "entities": [
             {
