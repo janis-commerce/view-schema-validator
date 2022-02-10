@@ -60,7 +60,7 @@ themes:
       somePropTwo: someValue
 collapseSections: true
 remoteActions:
-  title: some.title
+  title: views.title.someTitle
   translateTitle: true
   source:
     service: serviceName
