@@ -1,6 +1,6 @@
 {
   "name": "@janiscommerce/view-schema-validator",
-  "version": "2.79.0",
+  "version": "2.79.1",
   "description": "",
   "main": "index.js",
   "scripts": {
