@@ -672,6 +672,7 @@ sections:
           label: test.test.test
           labelField: asdasd
           labelMapper: addHashtag
+          icon: iconName
 
       - name: linkTest3
         component: Link
