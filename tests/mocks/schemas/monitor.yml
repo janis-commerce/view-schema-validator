@@ -24,6 +24,14 @@ schemaSource:
     method: monitor
     resolve: false
 
+cardLink:
+  path: /route/{id}/edit
+  endpointParameters:
+    - name: id
+      target: path
+      value:
+        dynamic: id
+
 themes:
   themeOne:
     new: black
