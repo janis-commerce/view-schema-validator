@@ -1063,7 +1063,8 @@
                                 "translateLabels": true,
                                 "label": "test.test.test",
                                 "labelField": "asdasd",
-                                "labelMapper": "addHashtag"
+                                "labelMapper": "addHashtag",
+                                "icon": "iconName"
                             }
                         },
                         {

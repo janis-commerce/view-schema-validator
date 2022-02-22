@@ -967,7 +967,8 @@
                 "labelField": "label",
                 "label": "test",
                 "target": "_self",
-                "labelMapper": "addHashtag"
+                "labelMapper": "addHashtag",
+                "icon": "iconName"
             }
         },
         {
