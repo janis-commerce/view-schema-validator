@@ -889,6 +889,7 @@
             "mapper": {
                 "name": "date",
                 "props": {
+                    "incomingFormat": "DD/MM/YYYY",
                     "format": "DD/MM/YYYY"
                 }
             },
