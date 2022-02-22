@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.80.0] - 2022-02-22
+### Added
+- New property `incomingFormat` in mapper `date`
+- New property `icon` in component `Link`
+- New property `cardLink` in `Monitor` schema
+
 ## [2.79.1] - 2022-02-10
 ### Added
 - Improve `views` traslateKey validation
