@@ -194,6 +194,31 @@
                     "static": "active"
                 }
             }
+        ],
+        "actions": [
+            {
+                "name": "testEndpoint",
+                "type": "endpoint",
+                "callback": "refresh",
+                "componentAttributes": {
+                    "icon": "box",
+                    "endpoint": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "endpointParameters": [
+                        {
+                            "name": "id",
+                            "target": "path",
+                            "value": {
+                                "dynamic": "id"
+                            }
+                        }
+                    ]
+                }
+            }
         ]
     },
     "themes": {
