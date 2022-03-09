@@ -1532,6 +1532,7 @@
                             "name": "dateTimeNew",
                             "component": "NewDatePicker",
                             "componentAttributes": {
+                                "useTimezone": false,
                                 "selectDate": true,
                                 "selectTime": false
                             }
@@ -1540,6 +1541,7 @@
                             "name": "dateTime",
                             "component": "DateTimePicker",
                             "componentAttributes": {
+                                "useTimezone": true,
                                 "selectDate": false,
                                 "selectTime": true,
                                 "selectRange": true,
