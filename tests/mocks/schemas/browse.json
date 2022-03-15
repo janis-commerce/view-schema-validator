@@ -169,6 +169,31 @@
                     "static": "active"
                 }
             }
+        ],
+        "actions": [
+            {
+                "name": "testEndpoint",
+                "type": "endpoint",
+                "callback": "refresh",
+                "componentAttributes": {
+                    "icon": "box",
+                    "endpoint": {
+                        "service": "serviceName",
+                        "namespace": "namespaceName",
+                        "method": "methodName",
+                        "resolve": false
+                    },
+                    "endpointParameters": [
+                        {
+                            "name": "id",
+                            "target": "path",
+                            "value": {
+                                "dynamic": "id"
+                            }
+                        }
+                    ]
+                }
+            }
         ]
     },
     "themes": {
@@ -681,7 +706,10 @@
                 "props": {
                     "value": {
                         "template": "{0} {1}",
-                        "fields": ["firstname", "lastname"]
+                        "fields": [
+                            "firstname",
+                            "lastname"
+                        ]
                     }
                 }
             }
@@ -693,7 +721,10 @@
                 "name": "template",
                 "props": {
                     "template": "{0} {1}",
-                    "fields": ["firstname", "lastname"]
+                    "fields": [
+                        "firstname",
+                        "lastname"
+                    ]
                 }
             }
         },
@@ -1458,7 +1489,9 @@
                             }
                         }
                     ],
-                    "listFields": ["fieldName"]
+                    "listFields": [
+                        "fieldName"
+                    ]
                 },
                 "desktop": {
                     "type": "Tooltip",
@@ -1466,7 +1499,7 @@
                     "translateLabels": true,
                     "mapper": {
                         "name": "suffix",
-                        "props":{
+                        "props": {
                             "value": "comon.test."
                         }
                     }
@@ -1482,7 +1515,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"]
+                    "listFields": [
+                        "fieldName"
+                    ]
                 },
                 "desktop": {
                     "type": "ListModal",
@@ -1493,7 +1528,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"]
+                    "listFields": [
+                        "fieldName"
+                    ]
                 }
             }
         },
@@ -1510,7 +1547,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"],
+                    "listFields": [
+                        "fieldName"
+                    ],
                     "viewMoreLink": "/test/{id}",
                     "viewMoreEndpointParameters": [
                         {
@@ -1531,14 +1570,14 @@
                     "mapper": [
                         {
                             "name": "suffix",
-                            "props":{
+                            "props": {
                                 "value": "comon.test.",
                                 "translate": true
                             }
                         },
                         {
                             "name": "prefix",
-                            "props":{
+                            "props": {
                                 "value": "comon.test.",
                                 "translate": false
                             }
@@ -1554,7 +1593,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"],
+                    "listFields": [
+                        "fieldName"
+                    ],
                     "viewMoreLink": "/test/{id}",
                     "viewMoreEndpointParameters": [
                         {
