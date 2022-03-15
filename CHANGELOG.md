@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.81.0] - 2022-03-15
+### Added
+- Add `dependencies` in `summary` Section
+- New property `useTimezone` in `DatePicker` component
+- Add static actions in Browse Page for the `massiveActions` functionality
+
 ## [2.80.0] - 2022-02-22
 ### Added
 - New property `incomingFormat` in mapper `date`
