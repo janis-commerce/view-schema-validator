@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.81.1] - 2022-03-21
+### Changed
+- remove source as required in `massiveActions`
+
 ## [2.81.0] - 2022-03-15
 ### Added
 - Add `dependencies` in `summary` Section
