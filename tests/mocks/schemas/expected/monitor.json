@@ -221,8 +221,9 @@
                             [
                                 {
                                     "name": "isEqualTo",
-                                    "field": "name",
-                                    "referenceValue": "test"
+                                    "field": "orderData",
+                                    "innerField": "status",
+                                    "referenceValue": "active"
                                 }
                             ]
                         ]
