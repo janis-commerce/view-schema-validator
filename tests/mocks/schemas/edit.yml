@@ -581,6 +581,31 @@ sections:
       - name: exampleMap
         component: Map
         componentAttributes:
+          markers:
+            icon: iconName
+            color: colorName
+            useTheme: themeName
+            infoSchema:
+              fieldsGroup:
+                - name: detail
+                  fields:
+                    - name: someField
+                      component: Text
+            themeConditionals:
+              warning:
+                - - name: lowerThan
+                    field: quantity
+                    referenceValue: 10
+                  - name: lowerOrEqualThan
+                    field: quantity
+                    referenceValue: 10
+              error:
+                - - name: greaterThan
+                    field: quantity
+                    referenceValue: 10
+                  - name: greaterOrEqualThan
+                    field: quantity
+                    referenceValue: 10
           fieldsMapping:
             latitude: lat
             longitude: lng
@@ -604,6 +629,31 @@ sections:
         component: Location
         componentAttributes:
           label: some.traduction.label
+          markers:
+            icon: iconName
+            color: colorName
+            useTheme: themeName
+            infoSchema:
+              fieldsGroup:
+                - name: detail
+                  fields:
+                    - name: someField
+                      component: Text
+            themeConditionals:
+              warning:
+                - - name: lowerThan
+                    field: quantity
+                    referenceValue: 10
+                  - name: lowerOrEqualThan
+                    field: quantity
+                    referenceValue: 10
+              error:
+                - - name: greaterThan
+                    field: quantity
+                    referenceValue: 10
+                  - name: greaterOrEqualThan
+                    field: quantity
+                    referenceValue: 10
           fieldsMapping:
             latitude: lat
             longitude: lng
