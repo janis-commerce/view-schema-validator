@@ -935,6 +935,7 @@
                                 "markers": {
                                     "icon": "iconName",
                                     "color": "colorName",
+                                    "size": 30,
                                     "useTheme": "themeName",
                                     "infoSchema": {
                                         "fieldsGroup": [
