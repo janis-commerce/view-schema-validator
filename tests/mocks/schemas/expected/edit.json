@@ -1422,6 +1422,7 @@
                             "componentAttributes": {
                                 "translateLabels": true,
                                 "preloadOptions": true,
+                                "targetField": "fieldName",
                                 "options": {
                                     "scope": "remote",
                                     "searchParam": "filters[search]",
