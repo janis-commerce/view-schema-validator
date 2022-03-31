@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.82.0] - 2022-03-31
 ### Added
-- New property `innerField` con coditionals
+- New property `innerField` in `conditions` property
 - New property `markers` in `Map` component to set `icon`, `color`, even a  specific `theme` of `infoWindow` to show more information about the markers
 - New property `targetField` in `Select` component
 
