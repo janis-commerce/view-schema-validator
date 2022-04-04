@@ -586,6 +586,7 @@ sections:
             color: colorName
             size: 30
             useTheme: themeName
+            themeField: themeField
             infoSchema:
               fieldsGroup:
                 - name: detail
@@ -634,6 +635,7 @@ sections:
             icon: iconName
             color: colorName
             useTheme: themeName
+            themeField: themeField
             infoSchema:
               fieldsGroup:
                 - name: detail

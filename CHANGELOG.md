@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.82.1] - 2022-04-04
+### Added
+- New property `themeField` for `markers` in `Map` component
+
 ## [2.82.0] - 2022-03-31
 ### Added
 - New property `innerField` in `conditions` property
