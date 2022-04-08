@@ -1522,11 +1522,18 @@
                 "desktop": {
                     "type": "ListModal",
                     "title": "common.title",
-                    "source": {
-                        "service": "serviceName",
-                        "namespace": "namespaceName",
-                        "method": "methodName",
-                        "resolve": false
+                    "sourceField": "fieldName",
+                    "conditions": {
+                        "showWhen": [
+                            [
+                                {
+
+                                    "name": "isEqualTo",
+                                    "field": "someField",
+                                    "refereceValue": "value"
+                                }
+                            ]
+                        ]
                     },
                     "listFields": [
                         "fieldName"
