@@ -797,6 +797,7 @@ sections:
 
       - name: someInput
         component: Input
+        floatingLabel: true
         width: 50
         componentAttributes:
           autoComplete: true
@@ -812,6 +813,9 @@ sections:
         component: FieldsArray
         componentAttributes:
           canChangeElements: true
+          addButtonText: false
+          addButtonPosition: left
+          showDivisor: false
           minElements: 1
           maxElements: 3
           fields:
@@ -832,6 +836,7 @@ sections:
           addButtonTextColor: colorName
           addButtonBackgroundColor: colorName
           addButtonIcon: iconName
+          addButtonPosition: right
           fields:
             - name: test
               component: Text

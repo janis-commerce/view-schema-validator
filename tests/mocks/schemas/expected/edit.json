@@ -1279,6 +1279,7 @@
                         {
                             "name": "someInput",
                             "component": "Input",
+                            "floatingLabel": true,
                             "width": 50,
                             "componentAttributes": {
                                 "autoComplete": true,
@@ -1300,6 +1301,9 @@
                                 "canChangeElements": true,
                                 "minElements": 1,
                                 "maxElements": 3,
+                                "addButtonText": false,
+                                "addButtonPosition": "left",
+                                "showDivisor": false,
                                 "fields": [
                                     {
                                         "name": "test1",
@@ -1327,6 +1331,7 @@
                                 "addButtonTextColor": "colorName",
                                 "addButtonBackgroundColor": "colorName",
                                 "addButtonIcon": "iconName",
+                                "addButtonPosition": "right",
                                 "fields": [
                                     {
                                         "name": "test",
