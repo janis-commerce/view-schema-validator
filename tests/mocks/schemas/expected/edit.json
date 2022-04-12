@@ -998,6 +998,7 @@
                                 "showSearchBar": true,
                                 "canAddMarkers": true,
                                 "maxMarkersQuantity": 5,
+                                "drawRoute": true,
                                 "fieldsMapping": {
                                     "latitude": "lat",
                                     "longitude": "lng"
