@@ -922,6 +922,8 @@ sections:
           component: Select
           componentAttributes:
             translateLabels: true
+            targetField:
+              someField: otherField
             options:
               scope: remote
               endpoint:

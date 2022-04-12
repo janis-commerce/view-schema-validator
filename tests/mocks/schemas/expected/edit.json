@@ -1470,6 +1470,9 @@
                             "component": "Select",
                             "componentAttributes": {
                                 "translateLabels": true,
+                                "targetField": {
+                                    "someField": "otherField"
+                                },
                                 "options": {
                                     "scope": "remote",
                                     "searchParam": "filters[search]",
