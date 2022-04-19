@@ -1496,6 +1496,7 @@
                 "desktop": {
                     "type": "Tooltip",
                     "label": "common.title",
+                    "sourceField": "labelField",
                     "translateLabels": true,
                     "mapper": {
                         "name": "suffix",
