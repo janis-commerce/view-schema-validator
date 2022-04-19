@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.84.0] - 2022-04-19
+### Added
+- New properties `sourceField` for `ListTooltip` y `Modal`
+
 ## [2.83.0] - 2022-04-12
 ### Added
 - New properties in the FieldsArray component: `showDivisor`, `addButtonIcon`, `addButtonPosition` and `addButtonText`, now can be a boolean
 - New property `floatingLabel` in all fields, to change the label
 - New property `drawRoute` in `Map` component
-- New properties `sourceField` and `conditions` for `ListTooltip` y `Modal`
+- New property `conditions` for `ListTooltip` y `Modal`
 
 ### Changed
 - Now the property `targetField` in the `Select` component can be an object
