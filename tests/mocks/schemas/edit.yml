@@ -619,6 +619,8 @@ sections:
         componentAttributes:
           showSearchBar: true
           canAddMarkers: true
+          canDragMarkers: true
+          showPOI: false
           maxMarkersQuantity: 5
           drawRoute: true
           fieldsMapping:
