@@ -621,6 +621,15 @@
                     "lastWeek": false,
                     "lastMonth": true,
                     "nextMonth": false
+                },
+                "canCreateTime": false,
+                "timeOptions": {
+                    "hourLapse": 2,
+                    "minuteLapse": 30,
+                    "custom": [
+                        "11:00",
+                        "20:00"
+                    ]
                 }
             }
         },
