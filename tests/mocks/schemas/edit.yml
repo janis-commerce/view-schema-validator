@@ -83,6 +83,7 @@ collapseSections: true
 remoteActions:
   title: views.title.someTitle
   translateTitle: true
+  modalSize: extra-large
   source:
     service: serviceName
     namespace: namespaceName
@@ -259,6 +260,7 @@ sections:
         iconColor: colorName
         color: colorName
         backgroundColor: colorName
+        modalSize: medium
         callback:
           name: redirect
           props:
@@ -632,6 +634,7 @@ sections:
         component: Location
         componentAttributes:
           label: some.traduction.label
+          modalSize: small
           markers:
             icon: iconName
             color: colorName
