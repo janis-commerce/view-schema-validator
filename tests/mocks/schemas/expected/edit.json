@@ -1645,7 +1645,16 @@
                             "componentAttributes": {
                                 "useTimezone": false,
                                 "selectDate": true,
-                                "selectTime": false
+                                "selectTime": false,
+                                "canCreateTime": false,
+                                "timeOptions": {
+                                    "hourLapse": 2,
+                                    "minuteLapse": 30,
+                                    "custom": [
+                                        "11:00",
+                                        "20:00"
+                                    ]
+                                }
                             }
                         },
                         {
