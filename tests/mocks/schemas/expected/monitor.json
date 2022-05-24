@@ -189,6 +189,7 @@
             "component": "BaseCard",
             "label": "some.label.key",
             "translateLabel": false,
+            "actionsModalSize": "large",
             "actions": [
                 {
                     "name": "testEndpoint",
@@ -247,6 +248,7 @@
                     "type": "form",
                     "callback": "reloadData",
                     "componentAttributes": {
+                        "modalSize": "mobile",
                         "endpoint": {
                             "service": "serviceName",
                             "namespace": "namespaceName",

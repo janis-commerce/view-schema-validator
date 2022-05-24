@@ -180,6 +180,7 @@
     "massiveActions": {
         "title": "common.title",
         "translateTitle": true,
+        "modalSize": "large",
         "source": {
             "service": "serviceName",
             "namespace": "namespaceName",
