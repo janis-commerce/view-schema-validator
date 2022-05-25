@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.85.0] - 2022-05-24
+### Added
+- New properties `canCreateTime`, `timeOptions.hourLapse`, `timeOptions.minuteLapse` and `timeOptions.custom` to use in `DatePicker` component
+- New properties `modalSize` to use in `Location` and `RemoteActions` components, `MassiveActions` (browse), Monitor Actions, `ActionForm` in TopComponents and the action type `form` in `genericActions`.
+
 ## [2.84.0] - 2022-04-19
 ### Added
 - New properties `sourceField` for `ListTooltip` y `Modal`
