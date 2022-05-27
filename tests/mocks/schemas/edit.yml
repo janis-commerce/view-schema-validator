@@ -671,7 +671,12 @@ sections:
           label:
             template: '{0} {1}'
             fields:
-              - address
+              - name: address
+                mapper: addHashtag
+                conditions:
+                  showWhen:
+                    - - name: isNotEmpty
+                        field: order
               - country
 
       - name: asyncWrapperExampleOne
