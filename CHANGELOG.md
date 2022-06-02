@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.87.0] - 2022-06-02
+### Added
+- New component `Steps`
+- New properties `canDragMarkers` and `showPOI` in `Map` component
+
 ## [2.86.0] - 2022-05-27
 ### Added
 - Now you can use the `Template` mapper in the following components: `Header` (edit) and `Remote Options` in `Select` Component
