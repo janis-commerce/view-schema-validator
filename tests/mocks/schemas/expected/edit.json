@@ -1850,6 +1850,17 @@
                                 "price": "fieldPrice",
                                 "listPrice": "fieldPrice"
                             }
+                        },
+                        {
+                            "name": "stepsExample",
+                            "component": "Steps",
+                            "componentAttributes": {
+                                "stepKey": "someField",
+                                "icon": "iconName",
+                                "maxNextSteps": 3,
+                                "label": "some.traduction.label",
+                                "tooltip": "someField"
+                            }
                         }
                     ]
                 }
@@ -2811,6 +2822,19 @@
                             "height": 3
                         }
                     ]
+                },
+                {
+                    "name": "stepsExample",
+                    "component": "StepsCard",
+                    "x": 0,
+                    "y": 3,
+                    "width": 4,
+                    "height": 4,
+                    "stepKey": "someField",
+                    "icon": "iconName",
+                    "maxNextSteps": 3,
+                    "label": "some.traduction.label",
+                    "tooltip": "someField"
                 }
             ]
         },
