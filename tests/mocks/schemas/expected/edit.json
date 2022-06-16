@@ -361,8 +361,7 @@
                                 "showWhen": [
                                     [
                                         {
-                                            "name": "isNotEmpty",
-                                            "field": "order"
+                                            "name": "isNotEmpty"
                                         }
                                     ]
                                 ]
