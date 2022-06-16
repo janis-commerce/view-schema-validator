@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.88.0] - 2022-06-16
+### Added
+- Now the properties `field` in themeConditionals are not required
+
+### Fixed
+- Fix when validating the properties `canDragMarkers` and `showPOI` in `Map` component
+
 ## [2.87.0] - 2022-06-02
 ### Added
 - New component `Steps`
