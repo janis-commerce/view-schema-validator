@@ -651,6 +651,7 @@
                         {
                             "name": "exampleTextPrefix",
                             "component": "Text",
+                            "defaultValueField": "someField",
                             "mapper": {
                                 "name": "prefix",
                                 "props": {
