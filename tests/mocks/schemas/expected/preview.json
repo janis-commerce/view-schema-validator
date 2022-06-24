@@ -242,6 +242,20 @@
                             "name": "friends",
                             "component": "Code",
                             "componentAttributes": {}
+                        },
+                        {
+                            "name": "fieldListTest",
+                            "component": "FieldList",
+                            "componentAttributes": {
+                                "direction": "horizontal",
+                                "fields": [
+                                    {
+                                        "name": "someField",
+                                        "component": "Text",
+                                        "componentAttributes": {}
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },

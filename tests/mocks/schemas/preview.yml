@@ -161,6 +161,14 @@ sections:
     - name: friends
       component: Code
 
+    - name: fieldListTest
+      component: FieldList
+      componentAttributes:
+        direction: horizontal
+        fields:
+          - name: someField
+            component: Text
+
   - name: others
     position: right
     translateLabel: false
