@@ -1594,6 +1594,21 @@ sections:
           - name: user
             component: UserChip
 
+      - name: someRemoteSection
+        rootComponent: RemoteSection
+        source:
+          service: service
+          namespace: namespace
+          method: method
+          resolve: false
+        schemaSource:
+          type: static
+          endpoint:
+            service: service
+            namespace: namespace
+            method: method
+            resolve: false
+
   - name: commentsSection
     rootComponent: Comments
 
