@@ -189,6 +189,7 @@
             "component": "BaseCard",
             "label": "some.label.key",
             "translateLabel": false,
+            "mapper": "addHashtag",
             "actionsModalSize": "large",
             "actions": [
                 {
