@@ -2597,6 +2597,25 @@
                     "canCreate": true,
                     "canView": false,
                     "pageSize": 60
+                },
+                {
+                    "name": "someRemoteSection",
+                    "rootComponent": "RemoteSection",
+                    "source": {
+                        "service": "service",
+                        "namespace": "namespace",
+                        "method": "method",
+                        "resolve": false
+                    },
+                    "schemaSource": {
+                        "type": "static",
+                        "endpoint": {
+                            "service": "service",
+                            "namespace": "namespace",
+                            "method": "method",
+                            "resolve": false
+                        }
+                    }
                 }
             ]
         },
