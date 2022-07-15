@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.89.0] - 2022-07-15
+### Added
+- New property `defaultValueField` in Form Fields
+- Now you can use the `RemoteSection` in `MultiSection` sections
+- From now on you can use the `mappers` on the monitor `cards`
+- The `FieldList` is now available on New / Edit Forms
+
 ## [2.88.0] - 2022-06-16
 ### Added
 - Now the properties `field` in themeConditionals are not required
