@@ -22,6 +22,9 @@
             }
         ]
     },
+    "featureFlags": {
+        "allowMultiSort": false
+    },
     "rowCollapse": {
         "source": {
             "service": "service",
@@ -173,7 +176,10 @@
             "name": "status",
             "target": "path",
             "value": {
-                "static": [2, 4]
+                "static": [
+                    2,
+                    4
+                ]
             }
         }
     ],
@@ -568,7 +574,7 @@
                 "options": {
                     "scope": "remote",
                     "searchParam": "filters[search]",
-                    "initialValuesEndpoint":{
+                    "initialValuesEndpoint": {
                         "service": "sac",
                         "namespace": "claim-type",
                         "method": "list",
@@ -802,7 +808,10 @@
                 "props": {
                     "value": {
                         "template": "{0} {1}",
-                        "fields": ["firstname", "lastname"]
+                        "fields": [
+                            "firstname",
+                            "lastname"
+                        ]
                     }
                 }
             },
@@ -823,7 +832,10 @@
                 "name": "template",
                 "props": {
                     "template": "{0} {1}",
-                    "fields": ["firstname", "lastname"]
+                    "fields": [
+                        "firstname",
+                        "lastname"
+                    ]
                 }
             },
             "componentAttributes": {
@@ -1080,7 +1092,7 @@
                     "method": "method",
                     "resolve": false
                 },
-    			"userDataSource": {
+                "userDataSource": {
                     "email": "email",
                     "firstname": "firstname",
                     "lastname": "lastname",
@@ -1460,7 +1472,7 @@
                 "initialSortDirection": "desc"
             },
             "componentAttributes": {
-    			"useTheme": true
+                "useTheme": true
             },
             "mapper": "translate",
             "filter": {
@@ -1985,7 +1997,9 @@
                             }
                         }
                     ],
-                    "listFields": ["fieldName"]
+                    "listFields": [
+                        "fieldName"
+                    ]
                 },
                 "desktop": {
                     "type": "Tooltip",
@@ -1994,7 +2008,7 @@
                     "translateLabels": true,
                     "mapper": {
                         "name": "suffix",
-                        "props":{
+                        "props": {
                             "value": "comon.test."
                         }
                     }
@@ -2010,7 +2024,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"]
+                    "listFields": [
+                        "fieldName"
+                    ]
                 },
                 "desktop": {
                     "type": "ListModal",
@@ -2020,7 +2036,6 @@
                         "showWhen": [
                             [
                                 {
-
                                     "name": "isEqualTo",
                                     "field": "someField",
                                     "refereceValue": "value"
@@ -2028,7 +2043,9 @@
                             ]
                         ]
                     },
-                    "listFields": ["fieldName"]
+                    "listFields": [
+                        "fieldName"
+                    ]
                 }
             },
             "componentAttributes": {
@@ -2054,7 +2071,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"],
+                    "listFields": [
+                        "fieldName"
+                    ],
                     "viewMoreLink": "/test/{id}",
                     "viewMoreEndpointParameters": [
                         {
@@ -2075,14 +2094,14 @@
                     "mapper": [
                         {
                             "name": "suffix",
-                            "props":{
+                            "props": {
                                 "value": "comon.test.",
                                 "translate": true
                             }
                         },
                         {
                             "name": "prefix",
-                            "props":{
+                            "props": {
                                 "value": "comon.test.",
                                 "translate": false
                             }
@@ -2098,7 +2117,9 @@
                         "method": "methodName",
                         "resolve": false
                     },
-                    "listFields": ["fieldName"],
+                    "listFields": [
+                        "fieldName"
+                    ],
                     "viewMoreLink": "/test/{id}",
                     "viewMoreEndpointParameters": [
                         {
