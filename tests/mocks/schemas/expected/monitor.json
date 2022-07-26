@@ -76,6 +76,9 @@
             "initialSortDirection": "asc"
         }
     ],
+    "featureFlags": {
+        "allowMultiSort": false
+    },
     "filters": [
         {
             "name": "filterInput",

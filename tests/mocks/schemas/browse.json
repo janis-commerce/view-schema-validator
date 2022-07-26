@@ -49,6 +49,9 @@
             }
         ]
     },
+    "featureFlags": {
+        "allowMultiSort": false
+    },
     "rowCollapse": {
         "source": {
             "service": "service",
@@ -1538,7 +1541,6 @@
                         "showWhen": [
                             [
                                 {
-
                                     "name": "isEqualTo",
                                     "field": "someField",
                                     "refereceValue": "value"
