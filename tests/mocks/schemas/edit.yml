@@ -349,6 +349,53 @@ sections:
                 referenceValueType: static
                 referenceValue: null
 
+      - name: nameGroup
+        component: Select
+        componentAttributes:
+          translateLabels: true
+          labelFieldName: motiveName
+          translateGroupLabel: true
+          labelPrefix: common.status.
+          icon: iconName
+          options:
+            scope: local
+            valuesMapper:
+              label: name
+              value: id
+            values:
+              - label: active
+                value: 1
+                groupName: status
+              - label: inactive
+                value: 0
+                groupName: status
+              - label: pending
+                value: 2
+        validations:
+          - - name: required
+          - - name: maxLength
+              options:
+                length: 50
+        conditions:
+          enableWhen:
+            - - name: isEmpty
+                field: name
+              - name: isOneOf
+                field: someField
+                referenceValue:
+                  - test1
+                  - test2
+              - name: isDev
+          showWhen:
+            - - name: isNotEmpty
+                field:
+                  - test
+                  - name
+              - name: isNotEqualTo
+                field: name
+                referenceValueType: static
+                referenceValue: null
+
       - name: description
         component: Textarea
         validations:

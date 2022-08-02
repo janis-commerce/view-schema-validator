@@ -426,6 +426,35 @@
             }
         },
         {
+            "name": "localSelectGroup",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "canClear": true,
+                "icon": "iconName",
+                "translateGroupLabel": true,
+                "options": {
+                    "scope": "local",
+                    "values": [
+                        {
+                            "label": "test",
+                            "value": 1,
+                            "groupName": "testGroup"
+                        },
+                        {
+                            "label": "test2",
+                            "value": 2,
+                            "groupName": "testGroup"
+                        },
+                        {
+                            "label": "test3",
+                            "value": 3
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "name": "localSelect",
             "component": "Select",
             "componentAttributes": {
@@ -440,6 +469,51 @@
                             "value": 1
                         }
                     ]
+                }
+            }
+        },
+        {
+            "name": "remoteSelectGroup",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "preloadOptions": true,
+                "options": {
+                    "scope": "remote",
+                    "endpoint": {
+                        "service": "sac",
+                        "namespace": "claim-type",
+                        "method": "list",
+                        "resolve": false
+                    },
+                    "endpointParameters": [
+                        {
+                            "name": "status",
+                            "target": "path",
+                            "value": {
+                                "static": 2
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "target": "query",
+                            "value": {
+                                "static": 1
+                            }
+                        }
+                    ],
+                    "valuesMapper": {
+                        "label": {
+                            "template": "{0} {1} - ({2})",
+                            "fields": [
+                                "firstname",
+                                "lastname",
+                                "email"
+                            ]
+                        },
+                        "value": "id"
+                    },
+                    "groupField": "groupName"
                 }
             }
         },
