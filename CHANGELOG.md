@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.91.0] - 2022-08-03
+### Added
+- Now the `Selects` can group there options
+
 ## [2.90.0] - 2022-07-26
 ### Added
 - New property `featureFlags` in `Browse` and `Monitor`
