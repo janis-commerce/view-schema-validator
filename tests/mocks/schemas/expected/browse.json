@@ -2249,6 +2249,13 @@
             "type": "link",
             "options": {
                 "path": "/some/path"
+            },
+            "conditions": {
+                "showWhen": [
+                    [
+                        { "name": "isDev" }
+                    ]
+                ]
             }
         }
     ]
