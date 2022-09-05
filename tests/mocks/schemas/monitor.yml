@@ -4,18 +4,6 @@ root: Monitor
 
 autoRefresh: 60
 
-source:
-  service: playground
-  namespace: views-demo
-  method: list
-  resolve: false
-
-endpointParameters:
-  - name: status
-    target: filter
-    value:
-      static: active
-
 schemaSource:
   type: dynamic
   endpoint:
@@ -133,6 +121,16 @@ fields:
     translateLabel: false
     mapper: addHashtag
     actionsModalSize: large
+    source:
+      service: "playground"
+      namespace: "views-demo"
+      method: "list"
+      resolve: false
+    endpointParameters:
+      - name: "status"
+        target: "filter"
+        value:
+          static: "active"
     actions:
       - name: testEndpoint
         type: endpoint
@@ -204,6 +202,17 @@ fields:
 
   - name: someCardTwo
     component: BaseCard
+    source:
+      service: "playground"
+      namespace: "views-demo"
+      method: "list"
+      resolve: false
+    endpointParameters:
+      - name: "status"
+        target: "filter"
+        value:
+          static: "active"
+
     fieldsGroup:
       - name: info
         fields:
@@ -216,4 +225,3 @@ fields:
         - - name: isEqualTo
             field: name
             referenceValue: test
-
