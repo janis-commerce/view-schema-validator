@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.93.0] - 2022-09-08
+### Added
+- add `source` and `endpointParameters` in Monitor `Fields`
+
 ## [2.92.0] - 2022-08-16
 ### Added
 - Add conditions in browse page actions
