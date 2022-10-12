@@ -1403,6 +1403,70 @@
             }
         },
         {
+            "name": "testChipWithLinkField",
+            "component": "Chip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey",
+                "linkField": "urlField"
+            }
+        },
+        {
+            "name": "testChipWithPath",
+            "component": "Chip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey",
+                "path": "/some/path/{id}"
+            }
+        },
+        {
+            "name": "testChipWithPathAndEndpointParameters",
+            "component": "Chip",
+            "attributes": {
+                "isStatus": false,
+                "sortable": false,
+                "isDefaultSort": false,
+                "initialSortDirection": "desc"
+            },
+            "componentAttributes": {
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey",
+                "path": "/some/path/{id}",
+                "endpointParameters": [
+                    {
+                        "name": "status",
+                        "target": "path",
+                        "value": {
+                            "dynamic": "id"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "target": "query",
+                        "value": {
+                            "static": 1
+                        }
+                    }
+                ]
+            }
+        },
+        {
             "name": "testChipWithThemes",
             "component": "Chip",
             "attributes": {
