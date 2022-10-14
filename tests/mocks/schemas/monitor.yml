@@ -232,6 +232,43 @@ fields:
             component: Text
           - name: otherField
             component: Chip
+            
+          - name: testChipWithLinkField
+            component: Chip
+            defaultValue: someValue
+            componentAttributes:
+              borderColor: red
+              textColor: grey
+              backgroundColor: grey
+              linkField: urlField
+
+          - name: testChipWithPath
+            component: Chip
+            defaultValue: someValue
+            componentAttributes:
+              borderColor: red
+              textColor: grey
+              backgroundColor: grey
+              path: /some/path/{id}
+
+          - name: testChipWithPathAndEndpointParameters
+            component: Chip
+            defaultValue: someValue
+            componentAttributes:
+              borderColor: red
+              textColor: grey
+              backgroundColor: grey
+              path: /some/path/{id}
+              endpointParameters:
+                - name: status
+                  target: path
+                  value:
+                    dynamic: id
+                - name: status
+                  target: query
+                  value:
+                    static: 1
+                
     conditions:
       matchWhen:
         - - name: isEqualTo
