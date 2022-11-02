@@ -460,6 +460,15 @@
             }
         },
         {
+            "name": "filterInputWithDefaultValue",
+            "label": "test.test.test",
+            "component": "Input",
+            "componentAttributes": {
+                "icon": "iconName"
+            },
+            "defaultValue": "test"
+        },
+        {
             "name": "localSelectGroup",
             "component": "Select",
             "componentAttributes": {
@@ -505,6 +514,31 @@
                     ]
                 }
             }
+        },
+        {
+            "name": "localSelectWithDefaultValue",
+            "component": "Select",
+            "componentAttributes": {
+                "translateLabels": true,
+                "canClear": true,
+                "icon": "iconName",
+                "options": {
+                    "scope": "local",
+                    "values": [
+                        {
+                            "label": "test",
+                            "value": "test"
+                        },
+                        {
+                            "label": "test2",
+                            "value": "test2"
+                        }
+                    ]
+                }
+            },
+            "defaultValue": [
+                "test"
+            ]
         },
         {
             "name": "remoteSelectGroup",
@@ -688,6 +722,21 @@
                 "setStartOfDay": true,
                 "setEndOfDay": true,
                 "presets": true
+            }
+        },
+        {
+            "name": "dateTimePickerDefaultValue",
+            "component": "DateTimePicker",
+            "componentAttributes": {
+                "selectDate": true,
+                "selectRange": true,
+                "setStartOfDay": true,
+                "setEndOfDay": true,
+                "presets": true
+            },
+            "defaultValue": {
+                "from": "yesterday",
+                "to": "today"
             }
         },
         {
@@ -2317,7 +2366,9 @@
             "conditions": {
                 "showWhen": [
                     [
-                        { "name": "isDev" }
+                        {
+                            "name": "isDev"
+                        }
                     ]
                 ]
             }
