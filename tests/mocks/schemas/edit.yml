@@ -474,6 +474,7 @@ sections:
               roundBorders: 50
               width: 50
               height: 50
+              urlField: "imageUrl"
 
           - name: exampleUserImage
             component: UserImage
