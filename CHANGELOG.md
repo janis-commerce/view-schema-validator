@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.96.0] - 2022-11-23
+
+### Added
+
+- Add new property `urlField` for Image component
+
 ## [2.95.0] - 2022-11-02
 
 ### Added
