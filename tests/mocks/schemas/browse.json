@@ -389,12 +389,16 @@
 						"mapper": "translate"
 					},
 					"source": {
-						"field": "someField"
+						"field": "someField",
+						"value": "someValue"
 					}
 				},
 				{
 					"source": {
-						"field": "otherSomeField"
+						"field": "otherSomeField",
+						"attributes": {
+							"role": "style"
+						}
 					}
 				}
 			]
