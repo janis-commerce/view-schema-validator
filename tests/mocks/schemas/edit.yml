@@ -1532,6 +1532,7 @@ sections:
       - image/png
       - image/jpg
       - image/gif
+    uploadMultiplesFiles: true
 
   - name: orderItemsSection
     rootComponent: OrderItemsSection
