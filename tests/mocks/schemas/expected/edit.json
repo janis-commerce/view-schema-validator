@@ -2411,7 +2411,8 @@
 					}
 				}
 			],
-			"filesTypes": ["image/png", "image/jpg", "image/gif"]
+			"filesTypes": ["image/png", "image/jpg", "image/gif"],
+            "uploadMultiplesFiles": true
 		},
 		{
 			"name": "orderItemsSection",
