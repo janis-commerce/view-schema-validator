@@ -49,4 +49,35 @@ graphs:
     width: 6
     height: 3
 
+  - component: TextCardKpi
+    name: TextCard
+    title: playground.title.delivery
+    source:
+    - service: playground
+      namespace: views-demo-dashboard-delivery
+      method: list
+      resolve: true
+      httpMethod: get
+      url: https://playground.janisdev.in/api/views-demo-dashboard-delivery/
+
+    value:
+      - field: carrierValue
+        mapper:
+        - name: suffix
+          props:
+          - addWhitespace: true
+            value: 'hs'
+
+    percent:
+      - field: percent
+        mapper:
+        - name: suffix
+          props:
+          - addWhitespace: true
+            value: '%'
+    x: 0,
+    y: 0,
+    width: 12
+    height: 4
+
 
