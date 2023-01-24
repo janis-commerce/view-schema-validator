@@ -71,52 +71,37 @@
         },
 				{
 					"component": "TextCardKpi",
+					"filters": [],
 					"name": "TextCard",
-					"title": "playground.title.delivery",
-					"source": [
-						{
-							"service": "playground",
-							"namespace": "views-demo-dashboard-delivery",
-							"method": "list",
-							"resolve": true,
-							"httpMethod": "get",
-							"url": "https://playground.janisdev.in/api/views-demo-dashboard-delivery/"
+					"title": "title",
+					"source": {
+						"service": "serviceName",
+						"namespace": "namespaceName",
+						"method": "list",
+						"resolve": true
+					},
+					"value": {
+						"field": "someField",
+						"mapper": {
+							"name": "suffix",
+							"props": {
+								"addWhitespace": true,
+								"value": "hs"
+							}
 						}
-					],
-					"value": [
-						{
-							"field": "carrierValue",
-							"mapper": [
-								{
-									"name": "suffix",
-									"props": [
-										{
-											"addWhitespace": true,
-											"value": "hs"
-										}
-									]
-								}
-							]
+					},
+					"percent": {
+						"field": "someField",
+						"mapper": {
+							"name": "suffix",
+							"props": {
+								"addWhitespace": true,
+								"value": "%"
+							}
 						}
-					],
-					"percent": [
-						{
-							"field": "percent",
-							"mapper": [
-								{
-									"name": "suffix",
-									"props": [
-										{
-											"addWhitespace": true,
-											"value": "%"
-										}
-									]
-								}
-							]
-						}
-					],
-					"x": "0,",
-					"y": "0,",
+					},
+					"x": 0,
+					"y": 0,
 					"width": 12,
 					"height": 4
 				}
