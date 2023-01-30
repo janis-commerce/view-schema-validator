@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.99.0] - 2023-01-30
+### Changed
+-  New graph card `TextCardKpi`
+
 ## [2.98.0] - 2023-01-25
 ### Added
 - Add new properties for graphs schema
