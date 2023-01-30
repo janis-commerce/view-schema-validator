@@ -104,6 +104,36 @@
 			"y": 0,
 			"width": 12,
 			"height": 4
+		},
+		{
+			"component": "TextCardKpi",
+			"filters": [],
+			"name": "TextCardDelivery",
+			"title": "title",
+			"value": {
+				"field": "someField",
+				"mapper": {
+					"name": "suffix",
+					"props": {
+						"addWhitespace": true,
+						"value": "hs"
+					}
+				}
+			},
+			"percent": {
+				"field": "someField",
+				"mapper": {
+					"name": "suffix",
+					"props": {
+						"addWhitespace": true,
+						"value": "%"
+					}
+				}
+			},
+			"x": 0,
+			"y": 0,
+			"width": 12,
+			"height": 4
 		}
 	]
 }
