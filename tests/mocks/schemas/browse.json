@@ -409,6 +409,7 @@
 			"name": "filterInput",
 			"label": "test.test.test",
 			"component": "Input",
+			"required": true,
 			"componentAttributes": {
 				"icon": "iconName"
 			}

@@ -455,6 +455,7 @@
 		{
 			"name": "filterInput",
 			"label": "test.test.test",
+			"required": true,
 			"component": "Input",
 			"componentAttributes": {
 				"icon": "iconName"
