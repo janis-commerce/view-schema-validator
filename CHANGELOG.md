@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.100.0] - 2023-02-08
+### Added
+- New property `required` in filter `componets`
+
 ## [2.99.0] - 2023-01-30
 ### Changed
 -  New graph card `TextCardKpi`
