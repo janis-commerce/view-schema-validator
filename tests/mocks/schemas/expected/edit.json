@@ -1043,7 +1043,9 @@
 							"component": "Code",
 							"componentAttributes": {
 								"language": "json",
-								"canEdit": true
+								"canEdit": true,
+								"minLines": 5,
+              					"maxLines": 15
 							}
 						},
 						{

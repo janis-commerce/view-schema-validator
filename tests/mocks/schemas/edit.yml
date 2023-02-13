@@ -662,6 +662,8 @@ sections:
             componentAttributes:
               language: json
               canEdit: true
+              minLines: 5
+              maxLines: 15
 
           - name: exampleMap
             component: Map
