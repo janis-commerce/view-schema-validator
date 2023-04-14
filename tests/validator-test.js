@@ -10,6 +10,8 @@ const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/b
 const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
+const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
+const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
 const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
 const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
 const previewSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
@@ -82,6 +84,8 @@ describe('Test validation functions', () => {
 
 		const browseSchema = JSON.parse(browseSchemaJson.toString());
 		const editSchema = ymljs.parse(editSchemaYml.toString());
+		const newSchema = ymljs.parse(newSchemaYml.toString());
+
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
 		const previewSchema = ymljs.parse(previewSchemaYml.toString());
 		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
@@ -89,6 +93,7 @@ describe('Test validation functions', () => {
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
+		const newData = Validator.execute(newSchema, true, '/test/data6.json');
 		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
 		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
 		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
@@ -96,6 +101,7 @@ describe('Test validation functions', () => {
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
+		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));

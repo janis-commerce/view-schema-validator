@@ -1,0 +1,14 @@
+{
+  "service": "sac",
+  "name": "claim-motive-new",
+  "root": "Create",
+  "canCreate": false,
+  "target": {
+    "service": "sac",
+    "namespace": "claim-motive",
+    "method": "save"
+  },
+  "saveRedirectUrl": "/some-path",
+  "cancelRedirectUrl": "/some-path"
+
+}
