@@ -579,6 +579,29 @@
             "name": "logs",
             "icon": "clock",
             "rootComponent": "LogsBrowseSection"
+        },
+        {
+            "name": "dynamicRemoteSection",
+            "icon": "clock",
+            "rootComponent": "RemoteSection",
+            "schemaSource": {
+                "type": "dynamic",
+                "endpoint": {
+                    "service": "playground",
+                    "namespace": "views-demo-remote-section-browse",
+                    "method": "list",
+                    "resolve": true
+                },
+                "endpointParameters": [
+                    {
+                        "name": "firstname",
+                        "target": "queryString",
+                        "value": {
+                            "dynamic": "firstname"
+                        }
+                    }
+                ]
+            }
         }
     ]
 }
