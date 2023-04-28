@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+## [2.103.0] - 2023-04-28
+### Added
+- Test for new schema
+### Changed
+- Fixed required keys in new edit
 ## [2.102.1] - 2023-04-14
 ### Fixed
 - Fixed format type for key else
