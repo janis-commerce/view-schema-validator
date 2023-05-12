@@ -139,7 +139,7 @@
 			"method": "methodName",
 			"resolve": false
 		},
-		"endpointParameters": [
+		"sourceEndpointParameters": [
 			{
 				"name": "status",
 				"target": "query",
