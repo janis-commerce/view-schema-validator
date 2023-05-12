@@ -80,25 +80,56 @@ dependencies:
           static: status
     targetField: fieldNameOne
 collapseSections: true
-remoteActions:
-  title: views.title.someTitle
+actions:
+  title: common.title
   translateTitle: true
-  modalSize: extra-large
+  modalSize: large
   source:
     service: serviceName
     namespace: namespaceName
     method: methodName
     resolve: false
-  sourceEndpointParameters:
-    - name: status
-      target: path
-      value:
-        dynamic: id
+  endpointParameters:
     - name: status
       target: query
-      mapper: booleanToStatus
       value:
-        static: true
+        static: active
+  actions:
+    - name: testEndpoint
+      type: endpoint
+      callback: refresh
+      componentAttributes:
+        icon: box
+        endpoint:
+          service: serviceName
+          namespace: namespaceName
+          method: methodName
+          resolve: false
+        endpointParameters:
+          - name: id
+            target: path
+            value:
+              dynamic: id
+# RemoteActions cant be together with actions
+#remoteActions:
+#  title: views.title.someTitle
+#  translateTitle: true
+#  modalSize: extra-large
+#  source:
+#    service: serviceName
+#    namespace: namespaceName
+#    method: methodName
+#    resolve: false
+#  sourceEndpointParameters:
+#    - name: status
+#      target: path
+#      value:
+#        dynamic: id
+#    - name: status
+#      target: query
+#      mapper: booleanToStatus
+#      value:
+#        static: true
 sections:
   - name: mainFormSection
     rootComponent: MainForm
