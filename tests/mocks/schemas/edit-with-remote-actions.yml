@@ -80,6 +80,25 @@ dependencies:
           static: status
     targetField: fieldNameOne
 collapseSections: true
+remoteActions:
+  title: views.title.someTitle
+  translateTitle: true
+  modalSize: extra-large
+  source:
+    service: serviceName
+    namespace: namespaceName
+    method: methodName
+    resolve: false
+  sourceEndpointParameters:
+    - name: status
+      target: path
+      value:
+        dynamic: id
+    - name: status
+      target: query
+      mapper: booleanToStatus
+      value:
+        static: true
 sections:
   - name: mainFormSection
     rootComponent: MainForm

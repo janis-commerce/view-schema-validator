@@ -80,6 +80,20 @@ dependencies:
           static: status
     targetField: fieldNameOne
 collapseSections: true
+actions:
+  title: common.title
+  translateTitle: true
+  modalSize: large
+  source:
+    service: serviceName
+    namespace: namespaceName
+    method: methodName
+    resolve: false
+  sourceEndpointParameters:
+    - name: status
+      target: query
+      value:
+        static: active
 sections:
   - name: mainFormSection
     rootComponent: MainForm

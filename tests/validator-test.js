@@ -10,6 +10,14 @@ const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/b
 const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
+const editWithActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions.yml');
+const editWithActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions.json');
+const editWithActionsStaticSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-static.yml');
+const editWithActionsStaticSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-static.json');
+const editWithActionsSourceSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-source.yml');
+const editWithActionsSourceSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-source.json');
+const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-remote-actions.yml');
+const editWithRemoteActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-remote-actions.json');
 const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
 const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
 const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
@@ -84,6 +92,10 @@ describe('Test validation functions', () => {
 
 		const browseSchema = JSON.parse(browseSchemaJson.toString());
 		const editSchema = ymljs.parse(editSchemaYml.toString());
+		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
+		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
+		const editWithActionsSourceSchema = ymljs.parse(editWithActionsSourceSchemaYml.toString());
+		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
 		const newSchema = ymljs.parse(newSchemaYml.toString());
 
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
@@ -93,6 +105,10 @@ describe('Test validation functions', () => {
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
+		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data7.json');
+		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
+		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data9.json');
+		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data10.json');
 		const newData = Validator.execute(newSchema, true, '/test/data6.json');
 		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
 		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
@@ -101,6 +117,10 @@ describe('Test validation functions', () => {
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
+		sinon.assert.match(editWithActionsData, JSON.parse(editWithActionsSchemaExpectedJson.toString()));
+		sinon.assert.match(editWithActionsStaticData, JSON.parse(editWithActionsStaticSchemaExpectedJson.toString()));
+		sinon.assert.match(editWithActionsSourceData, JSON.parse(editWithActionsSourceSchemaExpectedJson.toString()));
+		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
