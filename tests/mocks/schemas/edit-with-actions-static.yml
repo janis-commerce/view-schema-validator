@@ -84,7 +84,7 @@ actions:
   title: common.title
   translateTitle: true
   modalSize: large
-  actions:
+  staticActions:
     - name: testEndpoint
       type: endpoint
       callback: refresh

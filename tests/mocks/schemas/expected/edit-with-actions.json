@@ -148,7 +148,7 @@
 				}
 			}
 		],
-		"actions": [
+		"staticActions": [
 			{
 				"name": "testEndpoint",
 				"type": "endpoint",

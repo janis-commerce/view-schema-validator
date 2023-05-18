@@ -94,7 +94,7 @@ actions:
       target: query
       value:
         static: active
-  actions:
+  staticActions:
     - name: testEndpoint
       type: endpoint
       callback: refresh
