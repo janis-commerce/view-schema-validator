@@ -142,7 +142,7 @@
 		"sourceEndpointParameters": [
 			{
 				"name": "status",
-				"target": "query",
+				"target": "queryString",
 				"value": {
 					"static": "active"
 				}
@@ -235,7 +235,7 @@
 								},
 								{
 									"name": "status",
-									"target": "query",
+									"target": "queryString",
 									"value": {
 										"static": "active"
 									}
@@ -375,7 +375,7 @@
 									},
 									{
 										"name": "status",
-										"target": "query",
+										"target": "queryString",
 										"value": {
 											"static": 1
 										}
@@ -924,7 +924,7 @@
 									},
 									{
 										"name": "status",
-										"target": "query",
+										"target": "queryString",
 										"value": {
 											"static": 1
 										}
@@ -1226,7 +1226,7 @@
 									},
 									{
 										"name": "status",
-										"target": "query",
+										"target": "queryString",
 										"value": {
 											"static": 1
 										}
@@ -1255,7 +1255,7 @@
 								"endpointParameters": [
 									{
 										"name": "id",
-										"target": "query",
+										"target": "queryString",
 										"value": {
 											"dynamic": "userIds"
 										}
@@ -1324,7 +1324,7 @@
 									},
 									{
 										"name": "status",
-										"target": "query",
+										"target": "queryString",
 										"value": {
 											"static": 1
 										}
@@ -1354,7 +1354,7 @@
 										},
 										{
 											"name": "status",
-											"target": "query",
+											"target": "queryString",
 											"value": {
 												"static": 1
 											}
@@ -1583,7 +1583,7 @@
 										},
 										{
 											"name": "status",
-											"target": "query",
+											"target": "queryString",
 											"value": {
 												"static": 1
 											}
@@ -1710,7 +1710,7 @@
 										},
 										{
 											"name": "status",
-											"target": "query",
+											"target": "queryString",
 											"value": {
 												"static": 1
 											}
@@ -2056,14 +2056,14 @@
 				},
 				{
 					"name": "status",
-					"target": "query",
+					"target": "queryString",
 					"value": {
 						"static": 1
 					}
 				},
 				{
 					"name": "status",
-					"target": "query",
+					"target": "queryString",
 					"value": {
 						"static": {
 							"id": "string"
@@ -2399,7 +2399,7 @@
 				},
 				{
 					"name": "status",
-					"target": "query",
+					"target": "queryString",
 					"value": {
 						"static": 1
 					}
@@ -2428,14 +2428,14 @@
 				},
 				{
 					"name": "status",
-					"target": "query",
+					"target": "queryString",
 					"value": {
 						"static": 1
 					}
 				},
 				{
 					"name": "status",
-					"target": "query",
+					"target": "queryString",
 					"value": {
 						"static": {
 							"id": "string"
@@ -2522,7 +2522,7 @@
 				},
 				{
 					"name": "status",
-					"target": "query",
+					"target": "queryString",
 					"value": {
 						"static": 1
 					}
@@ -2918,7 +2918,7 @@
 								},
 								{
 									"name": "status",
-									"target": "query",
+									"target": "queryString",
 									"value": {
 										"static": 1
 									}

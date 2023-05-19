@@ -91,7 +91,7 @@ actions:
     resolve: false
   sourceEndpointParameters:
     - name: status
-      target: query
+      target: queryString
       value:
         static: active
 sections:
@@ -151,7 +151,7 @@ sections:
                 value:
                   dynamic: id
               - name: status
-                target: query
+                target: queryString
                 value:
                   static: active
             targetField: fieldNameThree
@@ -244,7 +244,7 @@ sections:
                   value:
                     dynamic: id
                 - name: status
-                  target: query
+                  target: queryString
                   value:
                     static: 1
 
@@ -583,7 +583,7 @@ sections:
                   value:
                     dynamic: id
                 - name: status
-                  target: query
+                  target: queryString
                   value:
                     static: 1
 
@@ -770,7 +770,7 @@ sections:
                   value:
                     dynamic: id
                 - name: status
-                  target: query
+                  target: queryString
                   value:
                     static: 1
               source:
@@ -789,7 +789,7 @@ sections:
             componentAttributes:
               endpointParameters:
                 - name: id
-                  target: query
+                  target: queryString
                   value:
                     dynamic: userIds
               source:
@@ -837,7 +837,7 @@ sections:
                   value:
                     dynamic: id
                 - name: status
-                  target: query
+                  target: queryString
                   value:
                     static: 1
 
@@ -855,7 +855,7 @@ sections:
                     value:
                       dynamic: id
                   - name: status
-                    target: query
+                    target: queryString
                     value:
                       static: 1
                 dataMapping:
@@ -1007,7 +1007,7 @@ sections:
                     value:
                       dynamic: id
                   - name: status
-                    target: query
+                    target: queryString
                     value:
                       static: 1
                 valuesMapper:
@@ -1096,7 +1096,7 @@ sections:
                     value:
                       dynamic: id
                   - name: status
-                    target: query
+                    target: queryString
                     value:
                       static: 1
                 valuesMapper:
@@ -1361,11 +1361,11 @@ sections:
         value:
           dynamic: statusId
       - name: status
-        target: query
+        target: queryString
         value:
           static: 1
       - name: status
-        target: query
+        target: queryString
         value:
           static:
             id: "string"
@@ -1522,7 +1522,7 @@ sections:
         value:
           dynamic: statusId
       - name: status
-        target: query
+        target: queryString
         value:
           static: 1
     filesTypes:
@@ -1545,11 +1545,11 @@ sections:
         value:
           dynamic: statusId
       - name: status
-        target: query
+        target: queryString
         value:
           static: 1
       - name: status
-        target: query
+        target: queryString
         value:
           static:
             id: string
@@ -1614,7 +1614,7 @@ sections:
         value:
           dynamic: id
       - name: status
-        target: query
+        target: queryString
         value:
           static: 1
     includeDataFrom:
@@ -1842,7 +1842,7 @@ sections:
                 value:
                   dynamic: id
               - name: status
-                target: query
+                target: queryString
                 value:
                   static: 1
       - name: stepsExample
