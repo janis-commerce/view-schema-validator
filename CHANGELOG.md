@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.105.0] - 2023-06-07
+## [2.106.0] - 2023-06-07
 ### Added
  - Added actions in Edit schema
  - Added new key sectionName in genericActions
