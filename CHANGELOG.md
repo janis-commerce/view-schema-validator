@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
  - Added actions in Edit schema
+ - Added new key sectionName in genericActions
 ## [2.104.0] - 2023-05-10
 ### Added
 - Added remote section for preview schema
