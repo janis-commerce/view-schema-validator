@@ -1253,8 +1253,8 @@
 			}
 		},
 		{
-			"name": "sacClaimChange",
-			"component": "SacClaimChange"
+			"name": "CsxClaimChange",
+			"component": "CsxClaimChange"
 		},
 		{
 			"name": "sla",

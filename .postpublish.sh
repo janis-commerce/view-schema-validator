@@ -20,7 +20,7 @@ PACKAGE_VERSION=$(cat package.json \
 
 curl -s -X POST -H 'content-type: application/json' -d "
 	{
-		\"username\": \"JANIS Views Validator\",
+		\"username\": \"Janis Views Validator\",
 		\"icon_url\":\"https://s3.us-east-1.amazonaws.com/static.janis.fizzmod.com/microservices-icons/views.png\",
 		\"text\": \":package: Versión $PACKAGE_VERSION publicada. <https://github.com/janis-commerce/view-schema-validator/blob/master/CHANGELOG.md|[CHANGELOG]>\nPara instalarla, correr \`sudo npm i -g @janiscommerce/view-schema-validator\`\"
 	}" $SLACK_WEBHOOK

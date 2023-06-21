@@ -675,7 +675,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Form field component support added for `FieldsArray`
 - UserChip now can receive data without fetching it
 - New Edit sections support added: `FilesSection` and `OrderItemsSection`
-- Browse field component support added for `SacClaimChange`
+- Browse field component support added for `CsxClaimChange`
 - Create and Edit can now be customized with `berforeId` and `afterId` components
 - Browse ActionButtons now support `removeRow` and `refresh` callbacks
 

@@ -2190,8 +2190,8 @@
 					}
 				},
 				{
-					"name": "sacClaimChange",
-					"component": "SacClaimChange",
+					"name": "CsxClaimChange",
+					"component": "CsxClaimChange",
 					"attributes": {
 						"isStatus": false,
 						"sortable": false,

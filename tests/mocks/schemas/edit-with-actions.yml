@@ -1416,8 +1416,8 @@ sections:
         component: Color
         componentAttributes:
           showCode: true
-      - name: sacClaimChange
-        component: SacClaimChange
+      - name: CsxClaimChange
+        component: CsxClaimChange
 
       - name: alerts
         component: Chip

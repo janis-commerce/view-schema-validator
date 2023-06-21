@@ -1,7 +1,8 @@
 # view-schema-validator
 
-[![Build Status](https://travis-ci.org/janis-commerce/view-schema-validator.svg?branch=master)](https://travis-ci.org/janis-commerce/view-schema-validator)
+![Build Status](https://github.com/janis-commerce/view-schema-validator/workflows/Build%20Status/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/janis-commerce/view-schema-validator/badge.svg?branch=master)](https://coveralls.io/github/janis-commerce/view-schema-validator?branch=master)
+[![npm version](https://badge.fury.io/js/%40janiscommerce%2Fview-schema-validator.svg)](https://www.npmjs.com/package/@janiscommerce/view-schema-validator)
 
 Validator and Builder for View Schemas for JANIS VIEWS
 
