@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.107.0] - 2023-06-21
+### Added
+- Edit field component support added for `CsxClaimChange`
+
 ## [2.106.0] - 2023-06-07
 ### Added
  - Added actions in Edit schema
@@ -675,7 +679,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Form field component support added for `FieldsArray`
 - UserChip now can receive data without fetching it
 - New Edit sections support added: `FilesSection` and `OrderItemsSection`
-- Browse field component support added for `CsxClaimChange`
+- Browse field component support added for `SacClaimChange`
 - Create and Edit can now be customized with `berforeId` and `afterId` components
 - Browse ActionButtons now support `removeRow` and `refresh` callbacks
 
