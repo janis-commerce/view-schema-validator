@@ -213,17 +213,6 @@
 				"somePropOne": "someValue",
 				"somePropTwo": "someValue"
 			}
-		},
-		"countDownTheme": {
-			"caution": {
-				"backgroundColor": "yellow"
-			},
-			"warning": {
-				"backgroundColor": "orange"
-			},
-			"critical": {
-				"backgroundColor": "statusRed"
-			}
 		}
 	},
 	"topComponents": [
@@ -769,52 +758,6 @@
 	],
 	"fields": [
 		{
-			"name": "countDown",
-			"component": "CountDown",
-			"componentAttributes": {
-				"useTheme": "countDownTheme",
-				"themeConditionals": {
-					"caution": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						]
-					],
-					"warning": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						],
-						[
-							{
-								"name": "lowerOrEqualThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						]
-					],
-					"critical": [
-						[
-							{
-								"name": "lowerOrEqualThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						]
-					]
-				},
-				"dateStart": "shippings.0.deliveryWindow.initialDate",
-				"dateEnd": "shippings.0.deliveryWindow.finalDate",
-				"icon": "timer"
-			}
-		},
-		{
 			"name": "id",
 			"component": "BoldText",
 			"showOnPreview": true,
@@ -955,6 +898,53 @@
 			"name": "exampleImage",
 			"component": "Image",
 			"componentAttributes": {}
+		},
+		{
+			"name": "countDown",
+			"component": "CountDown",
+			"componentAttributes": {
+				"useTheme": "countDownTheme",
+				"themeConditionals": {
+					"caution": [
+						[
+							{
+								"name": "greaterThan",
+								"field": "slaThresheold.0.slaThreshold.caution",
+								"dynamicValue": "date"
+								
+							}
+						]
+					],
+					"warning": [
+						[
+							{
+								"name": "greaterThan",
+								"field": "slaThresheold.0.slaThreshold.warning",
+								"dynamicValue": "date"
+							}
+						],
+						[
+							{
+								"name": "lowerOrEqualThan",
+								"field": "slaThresheold.0.slaThreshold.warning",
+								"dynamicValue": "date"
+							}
+						]
+					],
+					"critical": [
+						[
+							{
+								"name": "lowerOrEqualThan",
+								"field": "shippings.0.slaThreshold.critical",
+								"dynamicValue": "date"
+							}
+						]
+					]
+				},
+				"dateStart": "shippings.0.deliveryWindow.initialDate",
+				"dateEnd": "shippings.0.deliveryWindow.finalDate",
+				"icon": "timer"
+			}
 		},
 		{
 			"name": "exampleImageWithProps",
@@ -1186,7 +1176,7 @@
 							{
 								"name": "lowerThan",
 								"field": "quantity",
-								"referenceValue": 10
+								"dynamicValue": "date"
 							},
 							{
 								"name": "lowerOrEqualThan",

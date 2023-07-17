@@ -3,33 +3,6 @@
 	"name": "claim-type-browse",
 	"root": "Browse",
 	"autoRefresh": true,
-	"canExport": {
-		"entities": [
-			{
-				"name": "entityName",
-				"format": [
-					"exel",
-					"csv",
-					"json"
-				],
-				"type": [
-					"report",
-					"for-import"
-				],
-				"fields": [
-					"id",
-					"name"
-				]
-			}
-		]
-	},
-	"canImport": {
-		"entities": [
-			"entityNameOne",
-			"entityNameTwo"
-		]
-	},
-	"canRefresh": false,
 	"rowLink": {
 		"path": "/route/{id}/edit",
 		"endpointParameters": [
@@ -78,27 +51,76 @@
 		"fields": [
 			{
 				"name": "textField",
-				"component": "Text"
+				"component": "Text",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
+				"componentAttributes": {
+					"fontWeight": "normal"
+				}
 			},
 			{
 				"name": "boldTextField",
-				"component": "BoldText"
+				"component": "BoldText",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
+				"componentAttributes": {
+					"fontWeight": "bold"
+				}
 			},
 			{
 				"name": "chipField",
-				"component": "Chip"
+				"component": "Chip",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
+				"componentAttributes": {
+					"borderColor": "grey"
+				}
 			},
 			{
 				"name": "mediumChipField",
-				"component": "MediumChip"
+				"component": "MediumChip",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
+				"componentAttributes": {
+					"borderColor": "grey"
+				}
 			},
 			{
 				"name": "iconField",
-				"component": "Icon"
+				"component": "Icon",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
+				"componentAttributes": {}
 			},
 			{
 				"name": "linkField",
 				"component": "Link",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
 				"componentAttributes": {
 					"path": "/some/path/{id}"
 				}
@@ -106,6 +128,12 @@
 			{
 				"name": "status",
 				"component": "StatusChip",
+				"attributes": {
+					"sortable": false,
+					"isDefaultSort": false,
+					"isStatus": false,
+					"initialSortDirection": "desc"
+				},
 				"componentAttributes": {
 					"useTheme": true
 				}
@@ -213,17 +241,6 @@
 				"somePropOne": "someValue",
 				"somePropTwo": "someValue"
 			}
-		},
-		"countDownTheme": {
-			"caution": {
-				"backgroundColor": "yellow"
-			},
-			"warning": {
-				"backgroundColor": "orange"
-			},
-			"critical": {
-				"backgroundColor": "statusRed"
-			}
 		}
 	},
 	"topComponents": [
@@ -260,14 +277,18 @@
 	],
 	"sortableFields": [
 		{
-			"name": "test"
+			"name": "test",
+			"isDefaultSort": false,
+			"initialSortDirection": "desc"
 		},
 		{
 			"name": "test1",
-			"isDefaultSort": true
+			"isDefaultSort": true,
+			"initialSortDirection": "desc"
 		},
 		{
 			"name": "test2",
+			"isDefaultSort": false,
 			"initialSortDirection": "asc"
 		}
 	],
@@ -356,6 +377,7 @@
 	"graphs": [
 		{
 			"component": "Table",
+			"filters": [],
 			"name": "graphNameOne",
 			"title": "someTitleForGraph",
 			"source": {
@@ -387,6 +409,7 @@
 		},
 		{
 			"component": "LineChart",
+			"filters": [],
 			"name": "graphNameTwo",
 			"title": "someTitleForGraph",
 			"source": {
@@ -435,8 +458,8 @@
 		{
 			"name": "filterInput",
 			"label": "test.test.test",
-			"component": "Input",
 			"required": true,
+			"component": "Input",
 			"componentAttributes": {
 				"icon": "iconName"
 			}
@@ -530,6 +553,7 @@
 				"preloadOptions": true,
 				"options": {
 					"scope": "remote",
+					"searchParam": "filters[search]",
 					"endpoint": {
 						"service": "sac",
 						"namespace": "claim-type",
@@ -575,6 +599,7 @@
 				"preloadOptions": true,
 				"options": {
 					"scope": "remote",
+					"searchParam": "filters[search]",
 					"endpoint": {
 						"service": "sac",
 						"namespace": "claim-type",
@@ -619,11 +644,16 @@
 				"responseProperty": "someField",
 				"options": {
 					"scope": "remote",
+					"searchParam": "filters[search]",
 					"endpoint": {
 						"service": "sac",
 						"namespace": "claim",
 						"method": "list",
 						"resolve": false
+					},
+					"valuesMapper": {
+						"label": "name",
+						"value": "id"
 					}
 				}
 			}
@@ -635,11 +665,16 @@
 				"translateLabels": true,
 				"options": {
 					"scope": "remote",
+					"searchParam": "filters[search]",
 					"endpoint": {
 						"service": "sac",
 						"namespace": "claim",
 						"method": "list",
 						"resolve": false
+					},
+					"valuesMapper": {
+						"label": "name",
+						"value": "id"
 					},
 					"initialValuesEndpoint": false
 				}
@@ -652,6 +687,7 @@
 				"translateLabels": true,
 				"options": {
 					"scope": "remote",
+					"searchParam": "filters[search]",
 					"initialValuesEndpoint": {
 						"service": "sac",
 						"namespace": "claim-type",
@@ -735,7 +771,8 @@
 		},
 		{
 			"name": "userAssigned",
-			"component": "UserSelector"
+			"component": "UserSelector",
+			"componentAttributes": {}
 		},
 		{
 			"name": "members",
@@ -753,7 +790,8 @@
 		},
 		{
 			"name": "newStatusOne",
-			"component": "StatusSelector"
+			"component": "StatusSelector",
+			"componentAttributes": {}
 		},
 		{
 			"name": "newStatusTwo",
@@ -768,52 +806,6 @@
 		}
 	],
 	"fields": [
-		{
-			"name": "countDown",
-			"component": "CountDown",
-			"componentAttributes": {
-				"useTheme": "countDownTheme",
-				"themeConditionals": {
-					"caution": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						]
-					],
-					"warning": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						],
-						[
-							{
-								"name": "lowerOrEqualThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						]
-					],
-					"critical": [
-						[
-							{
-								"name": "lowerOrEqualThan",
-								"field": "shippings.0.deliveryEstimateDate",
-                "dynamicValue": "date"
-							}
-						]
-					]
-				},
-				"dateStart": "shippings.0.deliveryWindow.initialDate",
-				"dateEnd": "shippings.0.deliveryWindow.finalDate",
-				"icon": "timer"
-			}
-		},
 		{
 			"name": "id",
 			"component": "BoldText",
@@ -840,10 +832,15 @@
 			},
 			"attributes": {
 				"sortable": true,
-				"isDefaultSort": true
+				"isDefaultSort": true,
+				"isStatus": false,
+				"initialSortDirection": "desc"
 			},
 			"deviceDisplay": "desktop",
-			"mapper": "addHashtag"
+			"mapper": "addHashtag",
+			"componentAttributes": {
+				"fontWeight": "bold"
+			}
 		},
 		{
 			"name": "motiveName",
@@ -862,9 +859,21 @@
 					"fontSize": "xlarge"
 				}
 			},
-			"deviceDisplay": "mobile",
 			"filter": {
-				"component": "Input"
+				"component": "Input",
+				"type": "equal",
+				"remote": false,
+				"componentAttributes": {}
+			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"deviceDisplay": "mobile",
+			"componentAttributes": {
+				"fontWeight": "medium"
 			}
 		},
 		{
@@ -878,27 +887,51 @@
 					"fontSize": "xxlarge"
 				}
 			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"mapper": {
 				"name": "suffix",
 				"props": {
 					"value": ".test"
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "customerList",
 			"translateLabel": false,
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"mapper": {
 				"name": "arrayMap",
 				"props": {
 					"value": "firstname"
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "customerListTwo",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"mapper": {
 				"name": "arrayMap",
 				"props": {
@@ -910,11 +943,20 @@
 						]
 					}
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "templateText",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"mapper": {
 				"name": "template",
 				"props": {
@@ -924,11 +966,20 @@
 						"lastname"
 					]
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "exampleTextWithIcon",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"icon": "iconName",
 				"iconColor": "colorName",
@@ -938,13 +989,26 @@
 		{
 			"name": "exampleBadgeLetter",
 			"component": "BadgeLetter",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
+				"translateLabels": true,
 				"useTheme": "someTheme"
 			}
 		},
 		{
 			"name": "otherExampleBadgeLetter",
 			"component": "BadgeLetter",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"translateLabels": false,
 				"backgroundColorSource": "background",
@@ -954,11 +1018,79 @@
 		{
 			"name": "exampleImage",
 			"component": "Image",
-			"componentAttributes": {}
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"roundBorders": false,
+				"width": "auto",
+				"height": "auto"
+			}
+		},
+		{
+			"name": "countDown",
+			"component": "CountDown",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"useTheme": "countDownTheme",
+				"themeConditionals": {
+					"caution": [
+						[
+							{
+								"name": "greaterThan",
+								"field": "slaThresheold.0.slaThreshold.caution",
+								"dynamicValue": "date"
+							}
+						]
+					],
+					"warning": [
+						[
+							{
+								"name": "greaterThan",
+								"field": "slaThresheold.0.slaThreshold.warning",
+								"dynamicValue": "date"
+							}
+						],
+						[
+							{
+								"name": "lowerOrEqualThan",
+								"field": "slaThresheold.0.slaThreshold.warning",
+								"dynamicValue": "date"
+							}
+						]
+					],
+					"critical": [
+						[
+							{
+								"name": "lowerOrEqualThan",
+								"field": "shippings.0.slaThreshold.critical",
+								"dynamicValue": "date"
+							}
+						]
+					]
+				},
+				"dateStart": "shippings.0.deliveryWindow.initialDate",
+				"dateEnd": "shippings.0.deliveryWindow.finalDate",
+				"icon": "timer"
+			}
 		},
 		{
 			"name": "exampleImageWithProps",
 			"component": "Image",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"roundBorders": 50,
 				"width": 50,
@@ -969,7 +1101,14 @@
 		{
 			"name": "exampleUserImage",
 			"component": "UserImage",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
+				"roundBorders": true,
 				"size": "medium"
 			}
 		},
@@ -982,36 +1121,76 @@
 					"incomingFormat": "DD/MM/YYYY",
 					"format": "DD/MM/YYYY"
 				}
+			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "nameTest",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"mapper": {
 				"name": "prefix",
 				"props": {
 					"value": "common.names."
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "currencyTest",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"mapper": {
 				"name": "currency",
 				"props": {
 					"currencyCode": "USD",
 					"currencyField": "someField"
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "linkTest1",
-			"component": "Link"
+			"component": "Link",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "linkTest2",
 			"component": "Link",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"translateLabels": true,
 				"labelField": "label",
@@ -1024,6 +1203,12 @@
 		{
 			"name": "linkTest3",
 			"component": "Link",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"path": "/some/path/{id}"
 			}
@@ -1031,6 +1216,12 @@
 		{
 			"name": "linkTest4",
 			"component": "Link",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"urlTarget": {
 					"service": "service",
@@ -1058,11 +1249,24 @@
 		},
 		{
 			"name": "user1",
-			"component": "UserChip"
+			"component": "UserChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "user2",
 			"component": "UserChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"source": {
 					"service": "service",
@@ -1082,10 +1286,19 @@
 			"name": "name",
 			"component": "LightText",
 			"filter": {
-				"component": "Input"
+				"component": "Input",
+				"type": "equal",
+				"remote": false,
+				"componentAttributes": {}
 			},
 			"attributes": {
-				"sortable": true
+				"sortable": true,
+				"isStatus": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"fontWeight": "light"
 			}
 		},
 		{
@@ -1107,7 +1320,18 @@
 							"value": 0
 						}
 					]
-				}
+				},
+				"type": "equal",
+				"remote": false
+			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"borderColor": "grey"
 			}
 		},
 		{
@@ -1132,7 +1356,17 @@
 							"value": "id"
 						}
 					}
-				}
+				},
+				"type": "equal"
+			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"borderColor": "grey"
 			}
 		},
 		{
@@ -1140,24 +1374,45 @@
 			"component": "Chip",
 			"label": "sac.entities.claimType.fields.appliesTo",
 			"mapper": "translate",
-			"componentAttributes": {
-				"icon": "icon_test"
-			},
 			"filter": {
 				"component": "Select",
 				"remote": true,
 				"componentAttributes": {
 					"translateLabels": true
-				}
+				},
+				"type": "equal"
+			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"icon": "icon_test",
+				"borderColor": "grey"
 			}
 		},
 		{
 			"name": "iconExampleOne",
-			"component": "Icon"
+			"component": "Icon",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "iconExampleTwo",
 			"component": "Icon",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"icon": "iconName",
 				"color": "iconColor"
@@ -1166,6 +1421,12 @@
 		{
 			"name": "iconExampleThree",
 			"component": "Icon",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"icon": {
 					"useTheme": "someTheme"
@@ -1179,6 +1440,12 @@
 		{
 			"name": "iconExampleFour",
 			"component": "Icon",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"themeConditionals": {
 					"warning": [
@@ -1186,7 +1453,7 @@
 							{
 								"name": "lowerThan",
 								"field": "quantity",
-								"referenceValue": 10
+								"dynamicValue": "date"
 							},
 							{
 								"name": "lowerOrEqualThan",
@@ -1214,11 +1481,26 @@
 		},
 		{
 			"name": "areaInCharge",
-			"component": "Chip"
+			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"borderColor": "grey"
+			}
 		},
 		{
 			"name": "testChip",
 			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"icon": "icon_test",
 				"iconColor": "red",
@@ -1230,6 +1512,12 @@
 		{
 			"name": "testChipWithLinkField",
 			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"borderColor": "red",
 				"textColor": "grey",
@@ -1240,6 +1528,12 @@
 		{
 			"name": "testChipWithPath",
 			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"borderColor": "red",
 				"textColor": "grey",
@@ -1250,6 +1544,12 @@
 		{
 			"name": "testChipWithPathAndEndpointParameters",
 			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"borderColor": "red",
 				"textColor": "grey",
@@ -1276,6 +1576,12 @@
 		{
 			"name": "testChipWithThemes",
 			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"icon": {
 					"useTheme": "themeName"
@@ -1292,7 +1598,14 @@
 		{
 			"name": "testChipWithThemesConditionals",
 			"component": "Chip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
+				"borderColor": "grey",
 				"useTheme": "themeName",
 				"themeConditionals": {
 					"warning": [
@@ -1329,6 +1642,12 @@
 		{
 			"name": "testMediumChip",
 			"component": "MediumChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"icon": "icon_test",
 				"iconColor": "red",
@@ -1339,18 +1658,38 @@
 		},
 		{
 			"name": "colorOne",
-			"component": "Color"
+			"component": "Color",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "colorTwo",
 			"component": "Color",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"showCode": true
 			}
 		},
 		{
 			"name": "CsxClaimChange",
-			"component": "CsxClaimChange"
+			"component": "CsxClaimChange",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "sla",
@@ -1360,14 +1699,23 @@
 				"props": {
 					"type": "hour"
 				}
-			}
+			},
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "status",
 			"component": "StatusChip",
 			"attributes": {
 				"isStatus": true,
-				"sortable": true
+				"sortable": true,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
 			},
 			"componentAttributes": {
 				"useTheme": true
@@ -1387,12 +1735,20 @@
 							"value": 0
 						}
 					]
-				}
+				},
+				"type": "equal",
+				"remote": false
 			}
 		},
 		{
 			"name": "statusWithThemeCustom",
 			"component": "StatusChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"useTheme": "themeOne"
 			}
@@ -1400,6 +1756,12 @@
 		{
 			"name": "statusWithThemeConditionals",
 			"component": "StatusChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"useTheme": "themeOne",
 				"themeConditionals": {
@@ -1437,6 +1799,12 @@
 		{
 			"name": "actions",
 			"component": "ActionButtons",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"actionsData": [
 					{
@@ -1503,6 +1871,12 @@
 		{
 			"name": "userCreated",
 			"component": "AsyncWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"source": {
 					"service": "id",
@@ -1525,17 +1899,36 @@
 							"lastname": "lastname",
 							"image": "image"
 						}
+					},
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
 					}
 				}
 			}
 		},
 		{
 			"name": "userAsync",
-			"component": "AsyncUserChip"
+			"component": "AsyncUserChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {}
 		},
 		{
 			"name": "userAsyncTwo",
 			"component": "AsyncUserChip",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"source": {
 					"service": "service",
@@ -1548,6 +1941,12 @@
 		{
 			"name": "asyncUser",
 			"component": "AsyncWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"source": {
 					"service": "id",
@@ -1560,13 +1959,28 @@
 				},
 				"field": {
 					"name": "userTest",
-					"component": "Text"
+					"component": "Text",
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
+					},
+					"componentAttributes": {
+						"fontWeight": "normal"
+					}
 				}
 			}
 		},
 		{
 			"name": "asyncWrapperNewExample",
 			"component": "AsyncWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"source": {
 					"service": "id",
@@ -1584,36 +1998,83 @@
 				"targetField": "fieldName",
 				"field": {
 					"name": "userTest",
-					"component": "Text"
+					"component": "Text",
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
+					},
+					"componentAttributes": {
+						"fontWeight": "normal"
+					}
 				}
 			}
 		},
 		{
 			"name": "multiValueWrapperExampleOne",
 			"component": "MultiValueWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"useDataField": true,
+				"direction": "vertical",
 				"field": {
 					"name": "areaInCharge",
-					"component": "Chip"
+					"component": "Chip",
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
+					},
+					"componentAttributes": {
+						"borderColor": "grey"
+					}
 				}
 			}
 		},
 		{
 			"name": "multiValueWrapperExampleTwo",
 			"component": "MultiValueWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"useDataField": true,
+				"direction": "vertical",
 				"isCollapsable": true,
 				"field": {
 					"name": "areaInCharge",
-					"component": "Chip"
+					"component": "Chip",
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
+					},
+					"componentAttributes": {
+						"borderColor": "grey"
+					}
 				}
 			}
 		},
 		{
 			"name": "multiValueWrapperExampleThree",
 			"component": "MultiValueWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"direction": "horizontal",
 				"isCollapsable": "onlyMobile",
@@ -1621,26 +2082,59 @@
 				"itemsToShowWhenClosed": 1,
 				"field": {
 					"name": "areaInCharge",
-					"component": "Chip"
+					"component": "Chip",
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
+					},
+					"componentAttributes": {
+						"borderColor": "grey"
+					}
 				}
 			}
 		},
 		{
 			"name": "multiValueWrapperExampleFour",
 			"component": "MultiValueWrapper",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"componentAttributes": {
 				"direction": "horizontal",
 				"isCollapsable": "onlyDesktop",
 				"defaultStatus": "closed",
 				"field": {
 					"name": "areaInCharge",
-					"component": "Chip"
+					"component": "Chip",
+					"attributes": {
+						"isStatus": false,
+						"sortable": false,
+						"isDefaultSort": false,
+						"initialSortDirection": "desc"
+					},
+					"componentAttributes": {
+						"borderColor": "grey"
+					}
 				}
 			}
 		},
 		{
 			"name": "exampleFieldWithConditions",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
+			},
 			"conditions": {
 				"showWhen": [
 					[
@@ -1681,6 +2175,15 @@
 		{
 			"name": "exampleFieldWithConditionsTwo",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
+			},
 			"conditions": {
 				"showWhen": [
 					[
@@ -1715,6 +2218,12 @@
 		{
 			"name": "interactionExampleOne",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"onHover": {
 				"mobile": {
 					"type": "ListTooltip",
@@ -1784,11 +2293,20 @@
 						"fieldName"
 					]
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		},
 		{
 			"name": "interactionExampleTwo",
 			"component": "Text",
+			"attributes": {
+				"isStatus": false,
+				"sortable": false,
+				"isDefaultSort": false,
+				"initialSortDirection": "desc"
+			},
 			"onHover": {
 				"all": {
 					"type": "ListModal",
@@ -1859,9 +2377,43 @@
 						}
 					]
 				}
+			},
+			"componentAttributes": {
+				"fontWeight": "normal"
 			}
 		}
 	],
+	"canPreview": false,
+	"canCreate": true,
+	"canExport": {
+		"entities": [
+			{
+				"name": "entityName",
+				"format": [
+					"exel",
+					"csv",
+					"json"
+				],
+				"type": [
+					"report",
+					"for-import"
+				],
+				"fields": [
+					"id",
+					"name"
+				]
+			}
+		]
+	},
+	"canImport": {
+		"entities": [
+			"entityNameOne",
+			"entityNameTwo"
+		]
+	},
+	"canView": false,
+	"canRefresh": false,
+	"pageSize": 60,
 	"actions": [
 		{
 			"name": "someAction",
