@@ -1030,6 +1030,7 @@
 									"size": 30,
 									"useTheme": "themeName",
 									"themeField": "themeField",
+									"hideDefaultMarkers": true,
 									"infoSchema": {
 										"fieldsGroup": [
 											{
