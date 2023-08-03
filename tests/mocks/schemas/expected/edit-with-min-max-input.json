@@ -1,0 +1,116 @@
+{
+    "service": "sac",
+    "name": "claim-type-edit",
+    "root": "Edit",
+    "source": {
+        "service": "sac",
+        "namespace": "claim-type",
+        "method": "get"
+    },
+    "sections": [
+        {
+            "name": "mainFormSection",
+            "rootComponent": "MainForm",
+            "fieldsGroup": [
+                {
+                    "name": "detail",
+                    "icon": "catalogue",
+                    "fields": [
+                        {
+                            "name": "name",
+                            "component": "Input",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "name": "maxLength",
+                                        "options": {
+                                            "length": 50
+                                        }
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {
+                                "minValue": 5,
+                                "maxValue": 5
+                            }
+                        },
+                        {
+                            "name": "name2",
+                            "component": "Input",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "name": "maxLength",
+                                        "options": {
+                                            "length": 50
+                                        }
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {
+                                "minValueField": "5",
+                                "maxValueField": "5"
+                            }
+                        },
+                        {
+                            "name": "name3",
+                            "component": "Input",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "name": "maxLength",
+                                        "options": {
+                                            "length": 50
+                                        }
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {
+                                "minValue": 5,
+                                "maxValueField": "5"
+                            }
+                        },
+                        {
+                            "name": "name4",
+                            "component": "Input",
+                            "validations": [
+                                [
+                                    {
+                                        "name": "required"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "name": "maxLength",
+                                        "options": {
+                                            "length": 50
+                                        }
+                                    }
+                                ]
+                            ],
+                            "componentAttributes": {
+                                "minValueField": "5",
+                                "maxValue": 5
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

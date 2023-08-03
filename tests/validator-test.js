@@ -18,9 +18,12 @@ const editWithActionsStaticSchemaYml = fs.readFileSync(process.cwd() + '/tests/m
 const editWithActionsStaticSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-static.json');
 const editWithActionsSourceSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-source.yml');
 const editWithActionsSourceSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-source.json');
+const editWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-min-max-input.yml');
+const editWithMinMaxInputSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-min-max-input.json');
 const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-remote-actions.yml');
 const editWithRemoteActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-remote-actions.json');
 const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
+const newWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-min-max-input.yml');
 const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
 const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
 const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
@@ -98,8 +101,10 @@ describe('Test validation functions', () => {
 		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
 		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
 		const editWithActionsSourceSchema = ymljs.parse(editWithActionsSourceSchemaYml.toString());
+		const editWithMinMaxInputSchema = ymljs.parse(editWithMinMaxInputSchemaYml.toString());
 		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
 		const newSchema = ymljs.parse(newSchemaYml.toString());
+		const newWithMinMaxInputSchema = ymljs.parse(newWithMinMaxInputSchemaYml.toString());
 
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
 		const previewSchema = ymljs.parse(previewSchemaYml.toString());
@@ -113,7 +118,9 @@ describe('Test validation functions', () => {
 		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
 		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data9.json');
 		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data10.json');
+		const editWithMinMaxInputData = Validator.execute(editWithMinMaxInputSchema, true, '/test/data11.json');
 		const newData = Validator.execute(newSchema, true, '/test/data6.json');
+		const newWithMinMaxInputData = Validator.execute(newWithMinMaxInputSchema, true, '/test/data12.json');
 		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
 		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
 		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
@@ -125,8 +132,10 @@ describe('Test validation functions', () => {
 		sinon.assert.match(editWithActionsData, JSON.parse(editWithActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsStaticData, JSON.parse(editWithActionsStaticSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsSourceData, JSON.parse(editWithActionsSourceSchemaExpectedJson.toString()));
+		sinon.assert.match(editWithMinMaxInputData, JSON.parse(editWithMinMaxInputSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
+		sinon.assert.match(newWithMinMaxInputData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));

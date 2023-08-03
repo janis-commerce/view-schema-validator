@@ -1,0 +1,27 @@
+service: sac
+name: claim-motive-new
+root: Create
+canCreate: false
+target:
+  service: sac
+  namespace: claim-motive
+  method: save
+saveRedirectUrl: /some-path
+cancelRedirectUrl: /some-path
+sections:
+- name: mainFormSection
+  rootComponent: MainForm
+  fieldsGroup:
+  - name: detail
+    icon: catalogue
+    fields:
+    - name: name
+      component: Input
+      validations:
+        - - name: required
+        - - name: maxLength
+            options:
+              length: 50
+      componentAttributes:
+        minValueField: '5'
+        maxValue: 5
