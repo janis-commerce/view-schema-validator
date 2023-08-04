@@ -710,6 +710,18 @@
 							}
 						},
 						{
+							"name": "exampleStaticValueMapper",
+							"component": "Text",
+							"componentAttributes": {},
+							"mapper": {
+								"name": "addStaticValue",
+								"props": {
+									"value": "common.action.viewMore",
+                					"translate": true
+								}
+							}
+						},
+						{
 							"name": "exampleImage",
 							"component": "Image",
 							"translateLabel": false,
