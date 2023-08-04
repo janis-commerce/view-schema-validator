@@ -20,6 +20,7 @@ sections:
           options:
             length: 50
       componentAttributes:
+        type: 'number'
         minValue: 5
         maxValue: 5
     - name: name2
@@ -30,6 +31,7 @@ sections:
           options:
             length: 50
       componentAttributes:
+        type: 'number'
         minValueField: '5'
         maxValueField: '5'
     - name: name3
@@ -40,6 +42,7 @@ sections:
           options:
             length: 50
       componentAttributes:
+        type: 'number'
         minValue: 5
         maxValueField: '5'
     - name: name4
@@ -50,5 +53,15 @@ sections:
           options:
             length: 50
       componentAttributes:
+        type: 'number'
         minValueField: '5'
         maxValue: 5
+    - name: name5
+      component: Input
+      validations:
+      - - name: required
+      - - name: maxLength
+          options:
+            length: 50
+      componentAttributes:
+        type: 'text'
