@@ -445,6 +445,14 @@ sections:
               iconColor: colorName
               fontWeight: normal
 
+          - name: exampleStaticValueMapper
+            component: Text
+            mapper:
+              name: addStaticValue
+              props:
+                value: common.action.viewMore
+                translate: true
+
           - name: exampleImage
             translateLabel: false
             component: Image
