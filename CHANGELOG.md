@@ -6,8 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-## [2.110.0] - 2023-07-31
 
+## [2.111.0] - 2023-08-04
+### Added
+- Add `addStaticValue` mapper to show custom values in fields
+
+## [2.110.0] - 2023-07-31
 ### Added
 - Added new property hideDefaultMarkers in map Component to hide default Markers
 
