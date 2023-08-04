@@ -23,5 +23,6 @@ sections:
             options:
               length: 50
       componentAttributes:
+        type: 'number'
         minValueField: '5'
         maxValue: 5
