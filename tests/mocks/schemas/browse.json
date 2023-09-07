@@ -91,6 +91,13 @@
 				}
 			},
 			{
+				"name": "printLink",
+				"component": "Link",
+				"componentAttributes": {
+					"openPrint": true
+				}
+			},
+			{
 				"name": "status",
 				"component": "StatusChip",
 				"componentAttributes": {
