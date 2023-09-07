@@ -126,19 +126,6 @@
 				}
 			},
 			{
-				"name": "printLink",
-				"component": "Link",
-				"attributes": {
-					"sortable": false,
-					"isDefaultSort": false,
-					"isStatus": false,
-					"initialSortDirection": "desc"
-				},
-				"componentAttributes": {
-					"openPrint": true
-				}
-			},
-			{
 				"name": "status",
 				"component": "StatusChip",
 				"attributes": {
