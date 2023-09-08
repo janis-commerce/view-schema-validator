@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.113.0] - 2023-09-08
+### Added
+- Add openPrint property in link component
+
 ## [2.112.0] - 2023-08-28
 ### Added
 - Add minValue  and maxValue to input component
