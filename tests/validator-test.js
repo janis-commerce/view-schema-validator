@@ -10,8 +10,8 @@ const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/b
 const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
 const browseSchemaCountDownJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-countDown.json');
 const browseSchemaCountDownExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-countDown.json');
-const browseSchemaColumnMatchJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-columnMatch.json');
-const browseSchemaColumnMatchxpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-columnMatch.json');
+const browseSchemaColumnSortableMatchJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-columnSortableMatch.json');
+const browseSchemaColumnSortableMatchxpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-columnSortableMatch.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
 const editWithActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions.yml');
@@ -99,7 +99,7 @@ describe('Test validation functions', () => {
 
 		const browseSchema = JSON.parse(browseSchemaJson.toString());
 		const browseCountDownSchema = JSON.parse(browseSchemaCountDownJson.toString());
-		const browseColumnMatchSchema = JSON.parse(browseSchemaColumnMatchJson.toString());
+		const browseColumnSortableMatchSchema = JSON.parse(browseSchemaColumnSortableMatchJson.toString());
 		const editSchema = ymljs.parse(editSchemaYml.toString());
 		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
 		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
@@ -116,7 +116,7 @@ describe('Test validation functions', () => {
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
 		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data1.json');
-		const browseColumnMatchData = Validator.execute(browseColumnMatchSchema, true, '/test/data1.json');
+		const browseColumnSortableMatchData = Validator.execute(browseColumnSortableMatchSchema, true, '/test/data1.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
 		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data7.json');
 		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
@@ -132,7 +132,7 @@ describe('Test validation functions', () => {
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseCountDownData, JSON.parse(browseSchemaCountDownExpectedJson.toString()));
-		sinon.assert.match(browseColumnMatchData, JSON.parse(browseSchemaColumnMatchxpectedJson.toString()));
+		sinon.assert.match(browseColumnSortableMatchData, JSON.parse(browseSchemaColumnSortableMatchxpectedJson.toString()));
 		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsData, JSON.parse(editWithActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsStaticData, JSON.parse(editWithActionsStaticSchemaExpectedJson.toString()));
