@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Added property columnMatch into field component
+- Added warning deprecation for attributes key in field component
+
 ## [2.113.0] - 2023-09-08
 ### Added
 - Add openPrint property in link component
