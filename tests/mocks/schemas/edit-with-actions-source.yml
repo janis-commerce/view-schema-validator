@@ -1074,6 +1074,7 @@ sections:
             componentAttributes:
               translateLabels: true
               parentFilterName: parent
+              parentFilterDefaultValue: 'null'
               canClear: true
               maxLevel: 3
               options:
