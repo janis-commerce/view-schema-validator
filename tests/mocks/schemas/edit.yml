@@ -1169,7 +1169,7 @@ sections:
                 lastMonth: true
                 nextMonth: false
 
-          - name: checklist
+          - name: checklistOne
             component: CheckList
             componentAttributes:
               optionsSource:
@@ -1184,6 +1184,19 @@ sections:
               translateSectionLabel: true
               translateGroupLabel: false
               translateCheckboxLabel: false
+
+          - name: checklistTwo
+            component: CheckList
+            componentAttributes:
+              options:
+                - service: serviceName
+                  module: moduleName
+                  action: actionName
+                  key: serviceName:moduleName:actionName
+              sectionField: service
+              groupField: module
+              labelField: action
+              valueField: key
 
           - name: multiInputExample
             component: MultiInput
