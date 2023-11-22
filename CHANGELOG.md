@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.117.0] - 2023-11-22
+
 ### Added
 
 - Added static options to checklist component
