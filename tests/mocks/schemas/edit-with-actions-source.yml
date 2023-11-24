@@ -1558,6 +1558,7 @@ sections:
     showPurchasedItems: false
     showPickedItems: true
     showClaimItems: false
+    showMissingProducts: false
     canEditPrice: true
 
   - name: anotherOrderItemsSection
