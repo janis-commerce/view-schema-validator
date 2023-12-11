@@ -20,6 +20,8 @@ const editWithActionsStaticSchemaYml = fs.readFileSync(process.cwd() + '/tests/m
 const editWithActionsStaticSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-static.json');
 const editWithActionsSourceSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-source.yml');
 const editWithActionsSourceSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-source.json');
+const editWithCanCreateSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-canCreate-object.yml');
+const editWithCanCreateExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with.canCreate-object.json');
 const editWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-min-max-input.yml');
 const editWithMinMaxInputSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-min-max-input.json');
 const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-remote-actions.yml');
@@ -104,6 +106,7 @@ describe('Test validation functions', () => {
 		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
 		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
 		const editWithActionsSourceSchema = ymljs.parse(editWithActionsSourceSchemaYml.toString());
+		const editWithCanCreateSchema = ymljs.parse(editWithCanCreateSchemaYml.toString());
 		const editWithMinMaxInputSchema = ymljs.parse(editWithMinMaxInputSchemaYml.toString());
 		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
 		const newSchema = ymljs.parse(newSchemaYml.toString());
@@ -121,6 +124,7 @@ describe('Test validation functions', () => {
 		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data7.json');
 		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
 		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data9.json');
+		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
 		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data10.json');
 		const editWithMinMaxInputData = Validator.execute(editWithMinMaxInputSchema, true, '/test/data11.json');
 		const newData = Validator.execute(newSchema, true, '/test/data6.json');
@@ -137,6 +141,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(editWithActionsData, JSON.parse(editWithActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsStaticData, JSON.parse(editWithActionsStaticSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsSourceData, JSON.parse(editWithActionsSourceSchemaExpectedJson.toString()));
+		sinon.assert.match(editWithCanCreateData, JSON.parse(editWithCanCreateExpectedJson.toString()));
 		sinon.assert.match(editWithMinMaxInputData, JSON.parse(editWithMinMaxInputSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
