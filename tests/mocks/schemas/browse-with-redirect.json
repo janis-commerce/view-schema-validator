@@ -1,0 +1,13 @@
+{
+  "service": "sac",
+  "name": "claim-type-browse",
+  "root": "Browse",
+  "autoRefresh": true,
+  "redirect": {
+    "source": {
+      "service": "conversation",
+      "namespace": "template",
+      "method": "browse"
+    }
+  }
+}
