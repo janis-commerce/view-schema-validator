@@ -1,0 +1,11 @@
+service: sac
+name: claim-motive-new
+root: Create
+canCreate: false
+redirect:
+  source:
+    service: conversation
+    namespace: template
+    method: browse
+saveRedirectUrl: /some-path
+cancelRedirectUrl: /some-path
