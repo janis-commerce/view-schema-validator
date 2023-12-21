@@ -1124,7 +1124,7 @@
 								"showPOI": false,
 								"maxMarkersQuantity": 5,
 								"drawRoute": true,
-								"originMarker": "default",
+								"originMarker": true,
 								"destinationMarker": {
 									"icon": "janis",
 									"size": "24",

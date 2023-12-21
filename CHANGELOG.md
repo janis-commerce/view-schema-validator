@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Changed type property to bool from origin and destination in Map Schema
+
 ## [2.119.0] - 2023-12-15
 
 ### Added
