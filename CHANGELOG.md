@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+<<<<<<< HEAD
+## [2.120.0] - 2023-12-21
+
+=======
+>>>>>>> 69cb11be6c8cc1321e49fcce10e2230a548b36fa
+### Changed
+
+- Changed type property to bool from origin and destination in Map Schema
+
+## [2.119.0] - 2023-12-15
+
+### Added
+
+- Added test for browse and edit schema with redirect key
+
+### Fixed
+
+- Fixed new schema validation when has redirect and avoid target key to be required
+
+## [2.118.0] - 2023-12-12
+
+### Added
+
+- Added new keys on map Component to define origin and destination marker
+
 ## [2.117.0] - 2023-11-22
 
 ### Added

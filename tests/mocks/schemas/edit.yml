@@ -707,6 +707,21 @@ sections:
           - name: exampleMapThree
             component: Map
 
+          - name: exampleMapFour
+            component: Map
+            componentAttributes:
+              showPOI: false
+              maxMarkersQuantity: 5
+              drawRoute: true
+              originMarker: true
+              destinationMarker:
+                icon: janis
+                size: "24"
+                color: red 
+              fieldsMapping:
+                latitude: lat
+                longitude: lng
+
           - name: exampleLocationOne
             component: Location
             componentAttributes:
