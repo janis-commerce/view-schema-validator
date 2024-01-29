@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.122.0] - 2024-01-30
+
+### Added
+
+- Added endpointParameters to UserSelector schema
+
 ## [2.121.0] - 2023-12-21
 
 ### Changed
