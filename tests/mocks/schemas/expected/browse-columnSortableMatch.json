@@ -802,6 +802,36 @@
 			}
 		},
 		{
+			"name": "membersWithEndpointParameters",
+			"component": "UserSelector",
+			"componentAttributes": {
+				"isMulti": true,
+				"onlyActiveUsers": true,
+				"source": {
+					"service": "service",
+					"namespace": "namespace",
+					"method": "method",
+					"resolve": false
+				},
+				"endpointParameters": [
+					{
+						"name": "status",
+						"target": "path",
+						"value": {
+							"static": 2
+						}
+					},
+					{
+						"name": "status",
+						"target": "query",
+						"value": {
+							"static": 1
+						}
+					}
+				]
+			}
+		},
+		{
 			"name": "newStatusOne",
 			"component": "StatusSelector",
 			"componentAttributes": {}
