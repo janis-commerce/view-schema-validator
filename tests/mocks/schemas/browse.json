@@ -188,6 +188,38 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "SelectPicker",
+				"type": "form",
+				"componentAttributes": {
+					"requestFields": {
+						"id": "orderId",
+						"pickerId": "Example"
+					},
+					"icon": "user_closed",
+					"fields": [
+						{
+							"name": "pickerId",
+							"component": "UserSelector",
+							"componentAttributes": {
+								"onlyActiveUsers": true,
+								"source": {
+									"service": "service",
+									"namespace": "namespace",
+									"method": "methodName",
+									"resolve": false
+								}
+							}
+						}
+					],
+					"endpoint": {
+						"service": "picking",
+						"namespace": "session-picker-batch",
+						"method": "methodName",
+						"resolve": false
+					}
+				}
 			}
 		]
 	},
