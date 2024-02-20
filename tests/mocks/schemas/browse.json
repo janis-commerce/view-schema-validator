@@ -220,7 +220,33 @@
 						"resolve": false
 					}
 				}
-			}
+			},
+			{
+        "name": "TestingActionEndpoint",
+        "kind": "generic",
+        "type": "endpoint",
+        "componentAttributes": {
+          "requestFields": {
+            "id": "testingId"
+          },
+          "icon": "link",
+          "endpoint": {
+            "service": "playground",
+            "namespace": "views-demo-massive-action",
+            "method": "post",
+						"resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "status",
+              "target": "body",
+              "value": {
+                "static": "active"
+              }
+            }
+          ]
+        }
+      }
 		]
 	},
 	"themes": {
