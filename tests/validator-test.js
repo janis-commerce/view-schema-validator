@@ -8,6 +8,8 @@ const Validator = require('../lib/validator');
 
 const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
 const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
+const browseWithCanCreateSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-can-create.json');
+const browseWithCanCreateSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-can-create.json');
 const browseSchemaCountDownJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-countDown.json');
 const browseSchemaCountDownExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-countDown.json');
 const browseSchemaColumnSortableMatchJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-columnSortableMatch.json');
@@ -23,7 +25,7 @@ const editWithActionsStaticSchemaExpectedJson = fs.readFileSync(process.cwd() + 
 const editWithActionsSourceSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-source.yml');
 const editWithActionsSourceSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-source.json');
 const editWithCanCreateSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-canCreate-object.yml');
-const editWithCanCreateExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with.canCreate-object.json');
+const editWithCanCreateExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-canCreate-object.json');
 const editWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-min-max-input.yml');
 const editWithMinMaxInputSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-min-max-input.json');
 const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-remote-actions.yml');
@@ -106,6 +108,7 @@ describe('Test validation functions', () => {
 	it('should schema builded is a expected', () => {
 
 		const browseSchema = JSON.parse(browseSchemaJson.toString());
+		const browseWithCanCreateSchema = JSON.parse(browseWithCanCreateSchemaJson.toString());
 		const browseCountDownSchema = JSON.parse(browseSchemaCountDownJson.toString());
 		const browseColumnSortableMatchSchema = JSON.parse(browseSchemaColumnSortableMatchJson.toString());
 		const browseWithRedirectSchema = JSON.parse(browseWithRedirectSchemaJson.toString());
@@ -126,7 +129,8 @@ describe('Test validation functions', () => {
 		const monitorSchema = ymljs.parse(monitorSchemaYml.toString());
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
-		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data1.json');
+		const browseWithCanCreateData = Validator.execute(browseWithCanCreateSchema, true, '/test/data1.json');
+		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
 		const browseColumnSortableMatchData = Validator.execute(browseColumnSortableMatchSchema, true, '/test/data1.json');
 		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
@@ -146,6 +150,7 @@ describe('Test validation functions', () => {
 		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
+		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
 		sinon.assert.match(browseCountDownData, JSON.parse(browseSchemaCountDownExpectedJson.toString()));
 		sinon.assert.match(browseColumnSortableMatchData, JSON.parse(browseSchemaColumnSortableMatchxpectedJson.toString()));
 		sinon.assert.match(browseWithRedirectMatchData, JSON.parse(browseWithRedirectSchemaExpectedJson.toString()));
