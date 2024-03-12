@@ -717,7 +717,7 @@ sections:
               destinationMarker:
                 icon: janis
                 size: "24"
-                color: red 
+                color: red
               fieldsMapping:
                 latitude: lat
                 longitude: lng
@@ -1212,6 +1212,22 @@ sections:
               groupField: module
               labelField: action
               valueField: key
+
+          - name: checklistThree
+            component: CheckList
+            componentAttributes:
+              optionsSource:
+                service: sac
+                namespace: claim-motive
+                method: list
+                resolve: false
+              sectionField: claimMotiveName
+              groupField: statusName
+              labelField: name
+              valueField: id
+              translateSectionLabel: true
+              translateGroupLabel: levelone.leveltwo
+              translateCheckboxLabel: false
 
           - name: multiInputExample
             component: MultiInput
