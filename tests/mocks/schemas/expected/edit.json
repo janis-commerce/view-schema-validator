@@ -1877,7 +1877,7 @@
                 "labelField": "name",
                 "valueField": "id",
                 "translateSectionLabel": true,
-                "translateGroupLabel": "levelone.leveltwo",
+                "translateGroupLabel": "delivery.title",
                 "translateCheckboxLabel": false
               }
             },
