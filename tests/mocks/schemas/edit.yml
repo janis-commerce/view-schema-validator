@@ -1226,7 +1226,7 @@ sections:
               labelField: name
               valueField: id
               translateSectionLabel: true
-              translateGroupLabel: levelone.leveltwo
+              translateGroupLabel: delivery.title
               translateCheckboxLabel: false
 
           - name: multiInputExample
