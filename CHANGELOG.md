@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.124.0] - 2024-03-14
+
 ### Changed
 
 - Changed type keys for translate. Now accept string o boolean
