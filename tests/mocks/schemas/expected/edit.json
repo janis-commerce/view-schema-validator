@@ -1859,7 +1859,10 @@
                 "sectionField": "service",
                 "groupField": "module",
                 "labelField": "action",
-                "valueField": "key"
+                "valueField": "key",
+                "translateSectionLabel": true,
+                "translateGroupLabel": true,
+                "translateCheckboxLabel": true
               }
             },
             {
