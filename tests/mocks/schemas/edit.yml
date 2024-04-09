@@ -1196,7 +1196,6 @@ sections:
               groupField: statusName
               labelField: name
               valueField: id
-              translateSectionLabel: true
               translateGroupLabel: false
               translateCheckboxLabel: false
 
@@ -1225,7 +1224,6 @@ sections:
               groupField: statusName
               labelField: name
               valueField: id
-              translateSectionLabel: true
               translateGroupLabel: delivery.title
               translateCheckboxLabel: false
 

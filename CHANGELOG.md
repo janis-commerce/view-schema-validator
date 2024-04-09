@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.126.0] - 2024-04-09
+
+### Added
+
+- default value to translates keys in checklist component
+
 ## [2.125.0] - 2024-04-03
 
 ### Removed
