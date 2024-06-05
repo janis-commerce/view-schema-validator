@@ -45,6 +45,8 @@ const sectionExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/
 const sectionExampleExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/section-example.json');
 const monitorSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/monitor.yml');
 const monitorSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/monitor.json');
+const planningSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/planning.yml');
+const planningSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/planning.json');
 
 describe('Test validation functions', () => {
 
@@ -127,6 +129,7 @@ describe('Test validation functions', () => {
 		const previewSchema = ymljs.parse(previewSchemaYml.toString());
 		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
 		const monitorSchema = ymljs.parse(monitorSchemaYml.toString());
+		const planningSchema = ymljs.parse(planningSchemaYml.toString());
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
 		const browseWithCanCreateData = Validator.execute(browseWithCanCreateSchema, true, '/test/data1.json');
@@ -148,6 +151,7 @@ describe('Test validation functions', () => {
 		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
 		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
 		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
+		const planningData = Validator.execute(planningSchema, true, '/test/data17.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
@@ -169,6 +173,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));
 		sinon.assert.match(monitorData, JSON.parse(monitorSchemaExpected.toString()));
+		sinon.assert.match(planningData, JSON.parse(planningSchemaExpected.toString()));
 	});
 
 	it('should error with default schema', () => {
