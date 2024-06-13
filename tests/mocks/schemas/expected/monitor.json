@@ -1,431 +1,547 @@
 {
-    "service": "picking",
-    "name": "views-demo-monitor",
-    "root": "Monitor",
-    "autoRefresh": 60,
-    "source": {
+  "service": "picking",
+  "name": "views-demo-monitor",
+  "root": "Monitor",
+  "autoRefresh": 60,
+  "source": {
+    "service": "playground",
+    "namespace": "views-demo",
+    "method": "list",
+    "resolve": false
+  },
+  "endpointParameters": [
+    {
+      "name": "status",
+      "target": "filter",
+      "value": {
+        "static": "active"
+      }
+    }
+  ],
+  "schemaSource": {
+    "type": "dynamic",
+    "endpoint": {
+      "service": "playground",
+      "namespace": "views-demo",
+      "method": "monitor",
+      "resolve": false
+    }
+  },
+  "cardLink": {
+    "path": "/route/{id}/edit",
+    "endpointParameters": [
+      {
+        "name": "id",
+        "target": "path",
+        "value": {
+          "dynamic": "id"
+        }
+      }
+    ]
+  },
+  "themes": {
+    "themeOne": {
+      "new": "black",
+      "closed": "green",
+      "_default": "grey"
+    },
+    "themeTwo": {
+      "new": "grey",
+      "closed": "fizzgreen",
+      "warning": {
+        "somePropOne": "someValue",
+        "somePropTwo": "someValue"
+      }
+    }
+  },
+  "statusBar": {
+    "field": "statusFieldName",
+    "hide": true,
+    "useTheme": true
+  },
+  "sortableFields": [
+    {
+      "name": "test",
+      "isDefaultSort": false,
+      "initialSortDirection": "desc"
+    },
+    {
+      "name": "test1",
+      "isDefaultSort": true,
+      "initialSortDirection": "desc"
+    },
+    {
+      "name": "test2",
+      "isDefaultSort": false,
+      "initialSortDirection": "asc"
+    }
+  ],
+  "featureFlags": {
+    "allowMultiSort": false
+  },
+  "filters": [
+    {
+      "name": "filterInput",
+      "component": "Input",
+      "componentAttributes": {
+        "icon": "iconName"
+      }
+    },
+    {
+      "name": "localSelect",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "options": {
+          "scope": "local",
+          "values": [
+            {
+              "label": "test",
+              "value": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "dependencyOne",
+      "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "path",
+          "value": {
+            "dynamic": "id"
+          }
+        },
+        {
+          "name": "status",
+          "target": "filter",
+          "value": {
+            "static": "active"
+          }
+        }
+      ],
+      "targetField": "fieldNameOne"
+    },
+    {
+      "name": "dependencyTwo",
+      "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "path",
+          "value": {
+            "dynamic": "id"
+          }
+        },
+        {
+          "name": "status",
+          "target": "filter",
+          "value": {
+            "static": "active"
+          }
+        }
+      ],
+      "targetField": "fieldNameTwo",
+      "dependencies": [
+        {
+          "name": "dependencyThree",
+          "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "status",
+              "target": "path",
+              "value": {
+                "dynamic": "id"
+              }
+            },
+            {
+              "name": "status",
+              "target": "filter",
+              "value": {
+                "static": "active"
+              }
+            }
+          ],
+          "targetField": "fieldNameThree"
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "name": "someCapacityCardOne",
+      "component": "CapacitySlotCard",
+      "label": "some.label.key",
+      "translateLabel": false,
+      "mapper": "addHashtag",
+      "actionsModalSize": "large",
+      "source": {
         "service": "playground",
         "namespace": "views-demo",
         "method": "list",
         "resolve": false
-    },
-    "endpointParameters": [
+      },
+      "endpointParameters": [
         {
-            "name": "status",
-            "target": "filter",
-            "value": {
-                "static": "active"
-            }
+          "name": "status",
+          "target": "filter",
+          "value": {
+            "static": "active"
+          }
         }
-    ],
-    "schemaSource": {
-        "type": "dynamic",
-        "endpoint": {
-            "service": "playground",
-            "namespace": "views-demo",
-            "method": "monitor",
-            "resolve": false
-        }
-    },
-    "cardLink": {
-        "path": "/route/{id}/edit",
-        "endpointParameters": [
-            {
+      ],
+      "actions": [
+        {
+          "name": "testEndpoint",
+          "type": "endpoint",
+          "callback": "refresh",
+          "componentAttributes": {
+            "icon": "box",
+            "endpoint": {
+              "service": "serviceName",
+              "namespace": "namespaceName",
+              "method": "methodName",
+              "resolve": false
+            },
+            "endpointParameters": [
+              {
                 "name": "id",
                 "target": "path",
                 "value": {
-                    "dynamic": "id"
+                  "dynamic": "id"
                 }
-            }
-        ]
-    },
-    "themes": {
-        "themeOne": {
-            "new": "black",
-            "closed": "green",
-            "_default": "grey"
-        },
-        "themeTwo": {
-            "new": "grey",
-            "closed": "fizzgreen",
-            "warning": {
-                "somePropOne": "someValue",
-                "somePropTwo": "someValue"
-            }
-        }
-    },
-    "statusBar": {
-        "field": "statusFieldName",
-        "hide": true,
-        "useTheme": true
-    },
-    "sortableFields": [
-        {
-            "name": "test",
-            "isDefaultSort": false,
-            "initialSortDirection": "desc"
-        },
-        {
-            "name": "test1",
-            "isDefaultSort": true,
-            "initialSortDirection": "desc"
-        },
-        {
-            "name": "test2",
-            "isDefaultSort": false,
-            "initialSortDirection": "asc"
-        }
-    ],
-    "featureFlags": {
-        "allowMultiSort": false
-    },
-    "filters": [
-        {
-            "name": "filterInput",
-            "component": "Input",
-            "componentAttributes": {
-                "icon": "iconName"
-            }
-        },
-        {
-            "name": "localSelect",
-            "component": "Select",
-            "componentAttributes": {
-                "translateLabels": true,
-                "options": {
-                    "scope": "local",
-                    "values": [
-                        {
-                            "label": "test",
-                            "value": 1
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "dependencies": [
-        {
-            "name": "dependencyOne",
-            "source": {
-                "service": "serviceName",
-                "namespace": "namespaceName",
-                "method": "methodName",
-                "resolve": false
-            },
-            "endpointParameters": [
-                {
-                    "name": "status",
-                    "target": "path",
-                    "value": {
-                        "dynamic": "id"
-                    }
-                },
-                {
-                    "name": "status",
-                    "target": "filter",
-                    "value": {
-                        "static": "active"
-                    }
-                }
-            ],
-            "targetField": "fieldNameOne"
-        },
-        {
-            "name": "dependencyTwo",
-            "source": {
-                "service": "serviceName",
-                "namespace": "namespaceName",
-                "method": "methodName",
-                "resolve": false
-            },
-            "endpointParameters": [
-                {
-                    "name": "status",
-                    "target": "path",
-                    "value": {
-                        "dynamic": "id"
-                    }
-                },
-                {
-                    "name": "status",
-                    "target": "filter",
-                    "value": {
-                        "static": "active"
-                    }
-                }
-            ],
-            "targetField": "fieldNameTwo",
-            "dependencies": [
-                {
-                    "name": "dependencyThree",
-                    "source": {
-                        "service": "serviceName",
-                        "namespace": "namespaceName",
-                        "method": "methodName",
-                        "resolve": false
-                    },
-                    "endpointParameters": [
-                        {
-                            "name": "status",
-                            "target": "path",
-                            "value": {
-                                "dynamic": "id"
-                            }
-                        },
-                        {
-                            "name": "status",
-                            "target": "filter",
-                            "value": {
-                                "static": "active"
-                            }
-                        }
-                    ],
-                    "targetField": "fieldNameThree"
-                }
+              }
             ]
-        }
-    ],
-    "fields": [
-        {
-            "name": "someCardOne",
-            "component": "BaseCard",
-            "label": "some.label.key",
-            "translateLabel": false,
-            "mapper": "addHashtag",
-            "actionsModalSize": "large",
-            "source": {
-                "service": "playground",
-                "namespace": "views-demo",
-                "method": "list",
-                "resolve": false
-            },
-            "endpointParameters": [
-                {
-                    "name": "status",
-                    "target": "filter",
-                    "value": {
-                        "static": "active"
-                    }
-                }
-            ],
-            "actions": [
-                {
-                    "name": "testEndpoint",
-                    "type": "endpoint",
-                    "callback": "refresh",
-                    "componentAttributes": {
-                        "icon": "box",
-                        "endpoint": {
-                            "service": "serviceName",
-                            "namespace": "namespaceName",
-                            "method": "methodName",
-                            "resolve": false
-                        },
-                        "endpointParameters": [
-                            {
-                                "name": "id",
-                                "target": "path",
-                                "value": {
-                                    "dynamic": "id"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "testLink",
-                    "type": "link",
-                    "conditions": {
-                        "showWhen": [
-                            [
-                                {
-                                    "name": "isEqualTo",
-                                    "field": "orderData",
-                                    "innerField": "status",
-                                    "referenceValue": "active"
-                                }
-                            ]
-                        ]
-                    },
-                    "componentAttributes": {
-                        "path": "/test/{id}",
-                        "linkTarget": "_self",
-                        "endpointParameters": [
-                            {
-                                "name": "id",
-                                "target": "path",
-                                "value": {
-                                    "dynamic": "id"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "testForm",
-                    "type": "form",
-                    "callback": "reloadData",
-                    "componentAttributes": {
-                        "modalSize": "mobile",
-                        "endpoint": {
-                            "service": "serviceName",
-                            "namespace": "namespaceName",
-                            "method": "methodName",
-                            "resolve": false
-                        },
-                        "fields": [
-                            {
-                                "name": "fieldNameOne",
-                                "component": "Input",
-                                "componentAttributes": {}
-                            },
-                            {
-                                "name": "fieldNameTwo",
-                                "component": "Switch",
-                                "componentAttributes": {}
-                            }
-                        ]
-                    }
-                }
-            ],
-            "fieldsGroup": [
-                {
-                    "name": "info",
-                    "fields": [
-                        {
-                            "name": "someField",
-                            "component": "Text",
-                            "dependency": "dependencyOne",
-                            "componentAttributes": {}
-                        },
-                        {
-                            "name": "otherField",
-                            "component": "Chip",
-                            "componentAttributes": {
-                                "borderColor": "grey"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "conditions": {
-                "matchWhen": [
-                    [
-                        {
-                            "name": "isNotEmpty",
-                            "field": [
-                                "test",
-                                "tes2"
-                            ]
-                        },
-                        {
-                            "name": "isNotEqualTo",
-                            "field": "name",
-                            "referenceValueType": "static",
-                            "referenceValue": null
-                        }
-                    ]
-                ]
-            }
+          }
         },
         {
-            "name": "someCardTwo",
-            "component": "BaseCard",
-            "source": {
-                "service": "playground",
-                "namespace": "views-demo",
-                "method": "list",
-                "resolve": false
+          "name": "testLink",
+          "type": "link",
+          "conditions": {
+            "showWhen": [
+              [
+                {
+                  "name": "isEqualTo",
+                  "field": "orderData",
+                  "innerField": "status",
+                  "referenceValue": "active"
+                }
+              ]
+            ]
+          },
+          "componentAttributes": {
+            "path": "/test/{id}",
+            "linkTarget": "_self",
+            "endpointParameters": [
+              {
+                "name": "id",
+                "target": "path",
+                "value": {
+                  "dynamic": "id"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "testForm",
+          "type": "form",
+          "callback": "reloadData",
+          "componentAttributes": {
+            "modalSize": "mobile",
+            "endpoint": {
+              "service": "serviceName",
+              "namespace": "namespaceName",
+              "method": "methodName",
+              "resolve": false
+            },
+            "fields": [
+              {
+                "name": "fieldNameOne",
+                "component": "Input",
+                "componentAttributes": {}
+              },
+              {
+                "name": "fieldNameTwo",
+                "component": "Switch",
+                "componentAttributes": {}
+              }
+            ]
+          }
+        }
+      ],
+      "conditions": {
+        "matchWhen": [
+          [
+            {
+              "name": "isNotEmpty",
+              "field": ["test", "tes2"]
+            },
+            {
+              "name": "isNotEqualTo",
+              "field": "name",
+              "referenceValueType": "static",
+              "referenceValue": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "name": "someCardOne",
+      "component": "BaseCard",
+      "label": "some.label.key",
+      "translateLabel": false,
+      "mapper": "addHashtag",
+      "actionsModalSize": "large",
+      "source": {
+        "service": "playground",
+        "namespace": "views-demo",
+        "method": "list",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "filter",
+          "value": {
+            "static": "active"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "name": "testEndpoint",
+          "type": "endpoint",
+          "callback": "refresh",
+          "componentAttributes": {
+            "icon": "box",
+            "endpoint": {
+              "service": "serviceName",
+              "namespace": "namespaceName",
+              "method": "methodName",
+              "resolve": false
             },
             "endpointParameters": [
-                {
-                    "name": "status",
-                    "target": "filter",
-                    "value": {
-                        "static": "active"
-                    }
+              {
+                "name": "id",
+                "target": "path",
+                "value": {
+                  "dynamic": "id"
                 }
-            ],
-            "fieldsGroup": [
+              }
+            ]
+          }
+        },
+        {
+          "name": "testLink",
+          "type": "link",
+          "conditions": {
+            "showWhen": [
+              [
                 {
-                    "name": "info",
-                    "fields": [
-                        {
-                            "name": "someField",
-                            "component": "Text",
-                            "componentAttributes": {}
-                        },
-                        {
-                            "name": "otherField",
-                            "component": "Chip",
-                            "componentAttributes": {
-                                "borderColor": "grey"
-                            }
-                        },
-                        {
-                            "name": "testChipWithLinkField",
-                            "component": "Chip",
-                            "defaultValue": "someValue",
-                            "componentAttributes": {
-                                "borderColor": "red",
-                                "textColor": "grey",
-                                "backgroundColor": "grey",
-                                "linkField": "urlField"
-                            }
-                        },
-                        {
-                            "name": "testChipWithPath",
-                            "component": "Chip",
-                            "defaultValue": "someValue",
-                            "componentAttributes": {
-                                "borderColor": "red",
-                                "textColor": "grey",
-                                "backgroundColor": "grey",
-                                "path": "/some/path/{id}"
-                            }
-                        },
-                        {
-                            "name": "testChipWithPathAndEndpointParameters",
-                            "component": "Chip",
-                            "defaultValue": "someValue",
-                            "componentAttributes": {
-                                "borderColor": "red",
-                                "textColor": "grey",
-                                "backgroundColor": "grey",
-                                "path": "/some/path/{id}",
-                                "endpointParameters": [
-                                    {
-                                        "name": "status",
-                                        "target": "path",
-                                        "value": {
-                                            "dynamic": "id"
-                                        }
-                                    },
-                                    {
-                                        "name": "status",
-                                        "target": "query",
-                                        "value": {
-                                            "static": 1
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                  "name": "isEqualTo",
+                  "field": "orderData",
+                  "innerField": "status",
+                  "referenceValue": "active"
                 }
-            ],
-            "conditions": {
-                "matchWhen": [
-                    [
-                        {
-                            "name": "isEqualTo",
-                            "field": "name",
-                            "referenceValue": "test"
-                        }
-                    ]
-                ]
-            }
+              ]
+            ]
+          },
+          "componentAttributes": {
+            "path": "/test/{id}",
+            "linkTarget": "_self",
+            "endpointParameters": [
+              {
+                "name": "id",
+                "target": "path",
+                "value": {
+                  "dynamic": "id"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "testForm",
+          "type": "form",
+          "callback": "reloadData",
+          "componentAttributes": {
+            "modalSize": "mobile",
+            "endpoint": {
+              "service": "serviceName",
+              "namespace": "namespaceName",
+              "method": "methodName",
+              "resolve": false
+            },
+            "fields": [
+              {
+                "name": "fieldNameOne",
+                "component": "Input",
+                "componentAttributes": {}
+              },
+              {
+                "name": "fieldNameTwo",
+                "component": "Switch",
+                "componentAttributes": {}
+              }
+            ]
+          }
         }
-    ]
+      ],
+      "fieldsGroup": [
+        {
+          "name": "info",
+          "fields": [
+            {
+              "name": "someField",
+              "component": "Text",
+              "dependency": "dependencyOne",
+              "componentAttributes": {}
+            },
+            {
+              "name": "otherField",
+              "component": "Chip",
+              "componentAttributes": {
+                "borderColor": "grey"
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": {
+        "matchWhen": [
+          [
+            {
+              "name": "isNotEmpty",
+              "field": ["test", "tes2"]
+            },
+            {
+              "name": "isNotEqualTo",
+              "field": "name",
+              "referenceValueType": "static",
+              "referenceValue": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "name": "someCardTwo",
+      "component": "BaseCard",
+      "source": {
+        "service": "playground",
+        "namespace": "views-demo",
+        "method": "list",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "filter",
+          "value": {
+            "static": "active"
+          }
+        }
+      ],
+      "fieldsGroup": [
+        {
+          "name": "info",
+          "fields": [
+            {
+              "name": "someField",
+              "component": "Text",
+              "componentAttributes": {}
+            },
+            {
+              "name": "otherField",
+              "component": "Chip",
+              "componentAttributes": {
+                "borderColor": "grey"
+              }
+            },
+            {
+              "name": "testChipWithLinkField",
+              "component": "Chip",
+              "defaultValue": "someValue",
+              "componentAttributes": {
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey",
+                "linkField": "urlField"
+              }
+            },
+            {
+              "name": "testChipWithPath",
+              "component": "Chip",
+              "defaultValue": "someValue",
+              "componentAttributes": {
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey",
+                "path": "/some/path/{id}"
+              }
+            },
+            {
+              "name": "testChipWithPathAndEndpointParameters",
+              "component": "Chip",
+              "defaultValue": "someValue",
+              "componentAttributes": {
+                "borderColor": "red",
+                "textColor": "grey",
+                "backgroundColor": "grey",
+                "path": "/some/path/{id}",
+                "endpointParameters": [
+                  {
+                    "name": "status",
+                    "target": "path",
+                    "value": {
+                      "dynamic": "id"
+                    }
+                  },
+                  {
+                    "name": "status",
+                    "target": "query",
+                    "value": {
+                      "static": 1
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": {
+        "matchWhen": [
+          [
+            {
+              "name": "isEqualTo",
+              "field": "name",
+              "referenceValue": "test"
+            }
+          ]
+        ]
+      }
+    }
+  ]
 }
