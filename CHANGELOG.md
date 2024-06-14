@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.128.0] - 2024-06-14
+
+### Added
+
+- Card CapacityCardSlot to monitor
+
 ## [2.127.0] - 2024-06-13
 
 ### Added
