@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.127.0] - 2024-06-13
+
+### Added
+
+- Planning view validator
+
 ## [2.126.0] - 2024-04-09
 
 ### Added
