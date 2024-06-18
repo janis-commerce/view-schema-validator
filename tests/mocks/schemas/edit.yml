@@ -1220,6 +1220,15 @@ sections:
                 namespace: claim-motive
                 method: list
                 resolve: false
+              endpointParameters:
+                - name: status
+                  target: path
+                  value:
+                    dynamic: id
+                - name: status
+                  target: filter
+                  value:
+                    static: active
               sectionField: claimMotiveName
               groupField: statusName
               labelField: name
