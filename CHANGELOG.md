@@ -7,13 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+<<<<<<< HEAD
 ## [2.130.0] - 2024-07-03
 
+=======
+>>>>>>> dc3afbe5b8cbc5c0159b472c18bded6da5f66f43
 ### Added
 
 - prop columnLink for fields in Monitor
 
+<<<<<<< HEAD
 ## [2.129.0] - 2024-06-19
+=======
+## [2.128.0] - 2024-06-19
+>>>>>>> dc3afbe5b8cbc5c0159b472c18bded6da5f66f43
 
 ### Added
 
