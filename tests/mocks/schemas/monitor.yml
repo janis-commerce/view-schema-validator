@@ -134,15 +134,15 @@ fields:
     mapper: addHashtag
     actionsModalSize: large
     source:
-      service: "playground"
-      namespace: "views-demo"
-      method: "list"
+      service: 'playground'
+      namespace: 'views-demo'
+      method: 'list'
       resolve: false
     endpointParameters:
-      - name: "status"
-        target: "filter"
+      - name: 'status'
+        target: 'filter'
         value:
-          static: "active"
+          static: 'active'
     actions:
       - name: testEndpoint
         type: endpoint
@@ -205,21 +205,22 @@ fields:
             referenceValue: null
 
   - name: someCardOne
+    columnLink: 'www.janis.im'
     component: BaseCard
     label: some.label.key
     translateLabel: false
     mapper: addHashtag
     actionsModalSize: large
     source:
-      service: "playground"
-      namespace: "views-demo"
-      method: "list"
+      service: 'playground'
+      namespace: 'views-demo'
+      method: 'list'
       resolve: false
     endpointParameters:
-      - name: "status"
-        target: "filter"
+      - name: 'status'
+        target: 'filter'
         value:
-          static: "active"
+          static: 'active'
     actions:
       - name: testEndpoint
         type: endpoint
@@ -292,15 +293,15 @@ fields:
   - name: someCardTwo
     component: BaseCard
     source:
-      service: "playground"
-      namespace: "views-demo"
-      method: "list"
+      service: 'playground'
+      namespace: 'views-demo'
+      method: 'list'
       resolve: false
     endpointParameters:
-      - name: "status"
-        target: "filter"
+      - name: 'status'
+        target: 'filter'
         value:
-          static: "active"
+          static: 'active'
 
     fieldsGroup:
       - name: info
