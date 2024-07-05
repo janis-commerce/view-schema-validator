@@ -352,3 +352,5 @@ fields:
         - - name: isEqualTo
             field: name
             referenceValue: test
+columnsWidth: 25
+columnsQuantityScroll: 4

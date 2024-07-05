@@ -294,7 +294,10 @@
 					[
 						{
 							"name": "isNotEmpty",
-							"field": ["test", "tes2"]
+							"field": [
+								"test",
+								"tes2"
+							]
 						},
 						{
 							"name": "isNotEqualTo",
@@ -434,7 +437,10 @@
 					[
 						{
 							"name": "isNotEmpty",
-							"field": ["test", "tes2"]
+							"field": [
+								"test",
+								"tes2"
+							]
 						},
 						{
 							"name": "isNotEqualTo",
@@ -544,5 +550,7 @@
 				]
 			}
 		}
-	]
+	],
+	"columnsWidth": 25,
+	"columnsQuantityScroll": 4
 }
