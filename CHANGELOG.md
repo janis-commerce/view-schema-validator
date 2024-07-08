@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.131.0] - 2024-07-08
+
 ### Added
 
 - prop columnWidth in Monitor schema to define width for each column
