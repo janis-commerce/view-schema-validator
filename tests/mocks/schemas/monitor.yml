@@ -32,6 +32,9 @@ cardLink:
       value:
         dynamic: id
 
+columnsWidth: 25
+columnsQuantityScroll: 4
+
 themes:
   themeOne:
     new: black
@@ -352,5 +355,3 @@ fields:
         - - name: isEqualTo
             field: name
             referenceValue: test
-columnsWidth: 25
-columnsQuantityScroll: 4

@@ -39,6 +39,8 @@
 			}
 		]
 	},
+	"columnsWidth": 25,
+	"columnsQuantityScroll": 4,
 	"themes": {
 		"themeOne": {
 			"new": "black",
@@ -550,7 +552,5 @@
 				]
 			}
 		}
-	],
-	"columnsWidth": 25,
-	"columnsQuantityScroll": 4
+	]
 }
