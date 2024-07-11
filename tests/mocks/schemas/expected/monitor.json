@@ -39,7 +39,7 @@
 			}
 		]
 	},
-	"columnsWidth": 25,
+	"columnsWidth": "320px",
 	"columnsQuantityScroll": 4,
 	"themes": {
 		"themeOne": {
