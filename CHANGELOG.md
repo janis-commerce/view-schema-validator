@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- prop columnWidth can be string or number
+
 ## [2.131.0] - 2024-07-08
 
 ### Added
