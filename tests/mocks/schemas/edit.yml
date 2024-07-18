@@ -650,6 +650,7 @@ sections:
             component: Code
             componentAttributes:
               language: json
+              canCopy: false
               canEdit: true
               minLines: 5
               maxLines: 15
