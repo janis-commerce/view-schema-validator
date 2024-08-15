@@ -34,6 +34,7 @@ cardLink:
 
 columnsWidth: 25
 columnsQuantityScroll: 4
+hideEmptyColumns: false
 
 themes:
   themeOne:
