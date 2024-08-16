@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.134.0] - 2024-08-16
+
 ### Added
 
 - key hideEmptyColumns to show or hide columns in monitor
