@@ -373,7 +373,8 @@
                 "endpoint": {
                   "service": "id",
                   "namespace": "user-temporal-password",
-                  "method": "post"
+                  "method": "post",
+									"resolve": false
                 },
                 "endpointParameters": [
                   {
@@ -386,6 +387,12 @@
                 ],
 								"fields": [
 									{
+										"attributes": {
+											"initialSortDirection": "desc",
+											"isDefaultSort": false,
+											"isStatus": false,
+											"sortable": false
+										},
 										"name": "password",
 										"label": "login.field.temporaryPassword",
 										"component": "FieldList",
@@ -393,6 +400,12 @@
 											"direction": "horizontal",
 											"fields": [
 												{
+													"attributes": {
+														"initialSortDirection": "desc",
+														"isDefaultSort": false,
+														"isStatus": false,
+														"sortable": false
+													},
 													"name": "temporalPassword",
 													"component": "Text",
 													"componentAttributes": {
@@ -400,7 +413,14 @@
 													}
 												},
 												{
+													"attributes": {
+															"initialSortDirection": "desc",
+															"isDefaultSort": false,
+															"isStatus": false,
+															"sortable": false
+													},
 													"component": "CopyToClipboardButton",
+													"componentAttributes": {},
 													"name": "temporalPassword"
 												}
 											]

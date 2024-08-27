@@ -384,28 +384,35 @@
 							}
 						},
 						{
-							"name": "testActionFour",
-							"icon": "agenda",
-							"color": "blue",
-							"type": "endpoint",
-							"callback": "openModal",
-							"options": {
-								"endpoint": {
-									"service": "id",
-									"namespace": "user-temporal-password",
-									"method": "post"
-								},
-								"endpointParameters": [
-									{
-										"name": "id",
-										"target": "path",
-										"value": {
-											"dynamic": "id"
-										}
-									}
-								],
+              "name": "testActionFour",
+              "icon": "agenda",
+              "color": "blue",
+              "type": "endpoint",
+              "callback": "openModal",
+              "options": {
+                "endpoint": {
+                  "service": "id",
+                  "namespace": "user-temporal-password",
+                  "method": "post",
+									"resolve": false
+                },
+                "endpointParameters": [
+                  {
+                    "name": "id",
+                    "target": "path",
+                    "value": {
+                      "dynamic": "id"
+                    }
+                  }
+                ],
 								"fields": [
 									{
+										"attributes": {
+											"initialSortDirection": "desc",
+											"isDefaultSort": false,
+											"isStatus": false,
+											"sortable": false
+										},
 										"name": "password",
 										"label": "login.field.temporaryPassword",
 										"component": "FieldList",
@@ -413,6 +420,12 @@
 											"direction": "horizontal",
 											"fields": [
 												{
+													"attributes": {
+														"initialSortDirection": "desc",
+														"isDefaultSort": false,
+														"isStatus": false,
+														"sortable": false
+													},
 													"name": "temporalPassword",
 													"component": "Text",
 													"componentAttributes": {
@@ -420,15 +433,22 @@
 													}
 												},
 												{
+													"attributes": {
+															"initialSortDirection": "desc",
+															"isDefaultSort": false,
+															"isStatus": false,
+															"sortable": false
+													},
 													"component": "CopyToClipboardButton",
+													"componentAttributes": {},
 													"name": "temporalPassword"
 												}
 											]
 										}
 									}
 								]
-							}
-						}
+              }
+            }
 					]
 				},
 				{

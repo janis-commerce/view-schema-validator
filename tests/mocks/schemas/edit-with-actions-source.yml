@@ -258,6 +258,7 @@ sections:
                 service: id
                 namespace: user-temporal-password
                 method: post
+                resolve: false
               endpointParameters:
                 - name: id
                   target: path
