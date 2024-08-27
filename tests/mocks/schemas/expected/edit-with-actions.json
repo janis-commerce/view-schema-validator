@@ -407,7 +407,53 @@
 									}
 								]
 							}
-						}
+						},
+						{
+              "name": "testActionFour",
+              "icon": "agenda",
+              "color": "blue",
+              "type": "endpoint",
+              "callback": "openModal",
+              "options": {
+                "endpoint": {
+                  "service": "id",
+                  "namespace": "user-temporal-password",
+                  "method": "post"
+                },
+                "endpointParameters": [
+                  {
+                    "name": "id",
+                    "target": "path",
+                    "value": {
+                      "dynamic": "id"
+                    }
+                  }
+                ],
+								"fields": [
+									{
+										"name": "password",
+										"label": "login.field.temporaryPassword",
+										"component": "FieldList",
+										"componentAttributes": {
+											"direction": "horizontal",
+											"fields": [
+												{
+													"name": "temporalPassword",
+													"component": "Text",
+													"componentAttributes": {
+														"fontWeight": "normal"
+													}
+												},
+												{
+													"component": "CopyToClipboardButton",
+													"name": "temporalPassword"
+												}
+											]
+										}
+									}
+								]
+              }
+            }
 					]
 				},
 				{
