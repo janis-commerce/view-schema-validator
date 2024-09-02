@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- action field and new callback openModal
+
 ## [2.134.0] - 2024-08-16
 
 ### Added
