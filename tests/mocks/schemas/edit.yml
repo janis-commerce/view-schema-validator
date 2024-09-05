@@ -250,6 +250,7 @@ sections:
                   target: path
                   value:
                     dynamic: id
+              modalTitle: testModalTitle
               fields:
                 - name: password
                   label: login.field.temporaryPassword
