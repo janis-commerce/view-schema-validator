@@ -385,6 +385,7 @@
                     }
                   }
                 ],
+								"modalTitle": "testModalTitle",
 								"fields": [
 									{
 										"attributes": {

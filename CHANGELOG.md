@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.136.0] - 2024-09-05
+
+### Added
+
+- key modalTitle for modal Title in actions
+
 ## [2.135.0] - 2024-09-03
 
 ### Added
