@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- export and import for planning schema
+
 ## [2.136.0] - 2024-09-05
 
 ### Added

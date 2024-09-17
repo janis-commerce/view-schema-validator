@@ -4,6 +4,8 @@
   "root": "Planning",
   "title": "planning",
   "canRefresh": false,
+	"canImport": true,
+	"canExport": true,
   "filters": [
     {
       "name": "filterInput",
