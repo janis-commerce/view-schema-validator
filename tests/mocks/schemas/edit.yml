@@ -412,6 +412,7 @@ sections:
 
           - name: exampleTextCurrency
             component: Text
+            width: 25%
             dependency: dependencyName
             mapper:
               name: currency
@@ -421,6 +422,7 @@ sections:
 
           - name: exampleTextSuffix
             component: Text
+            width: 25px
             mapper:
               name: suffix
               props:
@@ -430,6 +432,7 @@ sections:
 
           - name: exampleTextPrefix
             component: Text
+            width: auto
             defaultValueField: someField
             mapper:
               name: prefix
