@@ -730,6 +730,7 @@
             {
               "name": "exampleTextCurrency",
               "component": "Text",
+              "width": "25%",
               "dependency": "dependencyName",
               "mapper": {
                 "name": "currency",
@@ -743,6 +744,7 @@
             {
               "name": "exampleTextSuffix",
               "component": "Text",
+              "width": "25px",
               "mapper": {
                 "name": "suffix",
                 "props": {
@@ -756,6 +758,7 @@
             {
               "name": "exampleTextPrefix",
               "component": "Text",
+              "width": "auto",
               "defaultValueField": "someField",
               "mapper": {
                 "name": "prefix",
@@ -770,6 +773,7 @@
             {
               "name": "exampleTextWithIcon",
               "component": "Text",
+              "width": 50,
               "componentAttributes": {
                 "icon": "iconName",
                 "iconColor": "colorName",
