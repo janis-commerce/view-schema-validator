@@ -443,6 +443,7 @@ sections:
 
           - name: exampleTextWithIcon
             component: Text
+            width: 50
             componentAttributes:
               icon: iconName
               iconColor: colorName
