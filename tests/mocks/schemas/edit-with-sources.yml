@@ -97,6 +97,7 @@ sections:
       component: Multiselect
       componentAttributes:
         translateLabels: false
+        imageField: imageUrl
         options:
           scope: remote
           endpoint:
