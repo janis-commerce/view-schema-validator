@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.139.0] - 2024-10-22
+
+### Added
+
+- imageField in SElect and multiselect
+
 ## [2.138.0] - 2024-10-09
 
 ### Changed

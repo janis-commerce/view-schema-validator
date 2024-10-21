@@ -1724,6 +1724,7 @@
 							"component": "Select",
 							"componentAttributes": {
 								"translateLabels": true,
+								"imageField": "imageUrl",
 								"options": {
 									"scope": "remote",
 									"searchParam": "filters[search]",
@@ -1750,6 +1751,7 @@
 								"parentFilterDefaultValue": "null",
 								"canClear": true,
 								"maxLevel": 3,
+								"imageField": "imageUrl",
 								"options": {
 									"scope": "remote",
 									"searchParam": "filters[search]",
