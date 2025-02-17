@@ -1,0 +1,1089 @@
+service: id
+name: modules
+root: Settings
+source:
+  service: delivery
+  namespace: setting
+  method: get
+  resolve: false
+sourceEndpointParameters:
+  - name: entity
+    target: path
+    value:
+      static: delivery
+target:
+  service: delivery
+  namespace: setting
+  method: update
+  resolve: false
+targetEndpointParameters:
+  - name: entity
+    target: path
+    value:
+      static: delivery
+sections:
+  - name: Provider
+    icon: link
+    rootComponent: FormSection
+    target:
+      service: geolocation
+      namespace: setting
+      method: update
+      resolve: false
+    targetEndpointParameters:
+      - name: entity
+        target: path
+        value:
+          static: providers
+    fieldsGroup:
+      - name: secondFactor
+        icon: lock
+        fields:
+          - name: secondFactor.method
+            label: secondFactorMethod
+            component: Select
+            componentAttributes:
+              canClear: false
+              labelPrefix: delivery.secondFactor.method.
+              translateLabels: true
+              options:
+                scope: local
+                values:
+                  - label: none
+                    value: none
+                  - label: numericPin
+                    value: numericPin
+                  - label: alphanumericPin
+                    value: alphanumericPin
+                  - label: secretWord
+                    value: secretWord
+            validations:
+              - - name: required
+          - name: secondFactor.parameters.length
+            label: pinLength
+            component: Input
+            componentAttributes:
+              type: number
+            validations:
+              - - name: required
+              - - name: numeric
+            conditions:
+              showWhen:
+                - - name: isOneOf
+                    field: secondFactor.method
+                    referenceValue:
+                      - numericPin
+                      - alphanumericPin
+          - name: secondFactor.parameters.quantity
+            label: wordsQuantity
+            component: Input
+            componentAttributes:
+              type: number
+            validations:
+              - - name: required
+              - - name: numeric
+            conditions:
+              showWhen:
+                - - name: isEqualTo
+                    field: secondFactor.method
+                    referenceValue: secretWord
+          - name: secondFactor.rules.minOrderAmount
+            label: minOrderAmount
+            component: Input
+            componentAttributes:
+              type: number
+            conditions:
+              showWhen:
+                - - name: isOneOf
+                    field: secondFactor.method
+                    referenceValue:
+                      - numericPin
+                      - alphanumericPin
+                      - secretWord
+          - name: secondFactor.rules.productGroupIds
+            label: productIds
+            component: Multiselect
+            componentAttributes:
+              translateLabels: false
+              options:
+                scope: remote
+                endpoint:
+                  service: catalog
+                  namespace: product-group
+                  method: list
+                  resolve: false
+                searchParam: "filters[name]"
+                valuesMapper:
+                  label: name
+                  value: id
+            conditions:
+              showWhen:
+                - - name: isOneOf
+                    field: secondFactor.method
+                    referenceValue:
+                      - numericPin
+                      - alphanumericPin
+                      - secretWord
+      - name: simulation
+        icon: pentagon
+        fields:
+          - name: simulation.validateLocationInCoverageArea
+            label: validateLocationInCoverageArea
+            component: Switch
+            componentAttributes: {}
+          - name: simulation.productCanBeRotated
+            label: productCanBeRotated
+            component: Switch
+            componentAttributes: {}
+          - name: simulation.validateExpressCarrierBusinessDays
+            label: validateExpressCarrierBusinessDays
+            component: Switch
+            componentAttributes: {}
+      - name: distance
+        icon: location_marker
+        fields:
+          - name: distance.calculateExpectedDistancePerRoute
+            label: calculateExpectedDistancePerRoute
+            component: Switch
+            width: 30
+            componentAttributes: {}
+          - name: distance.calculateExpectedDistancePerShipping
+            label: calculateExpectedDistancePerShipping
+            component: Switch
+            width: 30
+            componentAttributes: {}
+          - name: googleMapsApiKeyWarning
+            component: Link
+            noLabel: true
+            width: 30
+            componentAttributes:
+              path: /geolocation/setting/edit
+              label: googleMapsApiKeyMustBeConfigured
+              translateLabels: true
+              icon: exclamation_triangle
+            conditions:
+              showWhen:
+                - - name: isEqualTo
+                    field: distance.calculateExpectedDistancePerRoute
+                    referenceValue: true
+                  - name: isEqualTo
+                    field: distance.calculateExpectedDistancePerShipping
+                    referenceValue: true
+  - name: delivery
+    rootComponent: MultiSection
+    icon: delivery_box
+    subSections:
+      - name: deliverySettings
+        rootComponent: FormSection
+        target:
+          service: delivery
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: delivery
+        source:
+          service: delivery
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: delivery
+        fieldsGroup:
+          - name: secondFactor
+            icon: lock
+            fields:
+              - name: secondFactor.method
+                label: secondFactorMethod
+                component: Select
+                componentAttributes:
+                  canClear: false
+                  labelPrefix: delivery.secondFactor.method.
+                  translateLabels: true
+                  options:
+                    scope: local
+                    values:
+                      - label: none
+                        value: none
+                      - label: numericPin
+                        value: numericPin
+                      - label: alphanumericPin
+                        value: alphanumericPin
+                      - label: secretWord
+                        value: secretWord
+                validations:
+                  - - name: required
+              - name: secondFactor.parameters.length
+                label: pinLength
+                component: Input
+                componentAttributes:
+                  type: number
+                validations:
+                  - - name: required
+                  - - name: numeric
+                conditions:
+                  showWhen:
+                    - - name: isOneOf
+                        field: secondFactor.method
+                        referenceValue:
+                          - numericPin
+                          - alphanumericPin
+              - name: secondFactor.parameters.quantity
+                label: wordsQuantity
+                component: Input
+                componentAttributes:
+                  type: number
+                validations:
+                  - - name: required
+                  - - name: numeric
+                conditions:
+                  showWhen:
+                    - - name: isEqualTo
+                        field: secondFactor.method
+                        referenceValue: secretWord
+              - name: secondFactor.rules.minOrderAmount
+                label: minOrderAmount
+                component: Input
+                componentAttributes:
+                  type: number
+                conditions:
+                  showWhen:
+                    - - name: isOneOf
+                        field: secondFactor.method
+                        referenceValue:
+                          - numericPin
+                          - alphanumericPin
+                          - secretWord
+              - name: secondFactor.rules.productGroupIds
+                label: productIds
+                component: Multiselect
+                componentAttributes:
+                  translateLabels: false
+                  options:
+                    scope: remote
+                    endpoint:
+                      service: catalog
+                      namespace: product-group
+                      method: list
+                      resolve: false
+                    searchParam: "filters[name]"
+                    valuesMapper:
+                      label: name
+                      value: id
+                conditions:
+                  showWhen:
+                    - - name: isOneOf
+                        field: secondFactor.method
+                        referenceValue:
+                          - numericPin
+                          - alphanumericPin
+                          - secretWord
+          - name: simulation
+            icon: pentagon
+            fields:
+              - name: simulation.validateLocationInCoverageArea
+                label: validateLocationInCoverageArea
+                component: Switch
+                componentAttributes: {}
+              - name: simulation.productCanBeRotated
+                label: productCanBeRotated
+                component: Switch
+                componentAttributes: {}
+              - name: simulation.validateExpressCarrierBusinessDays
+                label: validateExpressCarrierBusinessDays
+                component: Switch
+                componentAttributes: {}
+          - name: distance
+            icon: location_marker
+            fields:
+              - name: distance.calculateExpectedDistancePerRoute
+                label: calculateExpectedDistancePerRoute
+                component: Switch
+                width: 30
+                componentAttributes: {}
+              - name: distance.calculateExpectedDistancePerShipping
+                label: calculateExpectedDistancePerShipping
+                component: Switch
+                width: 30
+                componentAttributes: {}
+              - name: googleMapsApiKeyWarning
+                component: Link
+                noLabel: true
+                width: 30
+                componentAttributes:
+                  path: /geolocation/setting/edit
+                  label: googleMapsApiKeyMustBeConfigured
+                  translateLabels: true
+                  icon: exclamation_triangle
+                conditions:
+                  showWhen:
+                    - - name: isEqualTo
+                        field: distance.calculateExpectedDistancePerRoute
+                        referenceValue: true
+                      - name: isEqualTo
+                        field: distance.calculateExpectedDistancePerShipping
+                        referenceValue: true
+      - name: pickupSettings
+        rootComponent: FormSection
+        source:
+          service: delivery
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: pickup
+        target:
+          service: delivery
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: pickup
+        dependencies:
+          - name: emailTemplate
+            source:
+              service: mailing
+              namespace: template
+              method: list
+              resolve: false
+            endpointParameters:
+              - name: code
+                target: filter
+                value:
+                  static: shipping-pickup-reminder
+            targetField: emailTemplate
+            filters:
+              code: shipping-pickup-reminder
+        fieldsGroup:
+          - name: ReminderEmail
+            icon: email
+            fields:
+              - name: reminderEmail.isActive
+                label: isActive
+                component: Switch
+                width: 30
+                componentAttributes: {}
+              - name: reminderEmailTemplate
+                label: emailTemplate
+                component: Link
+                dependency: emailTemplate
+                width: 70
+                componentAttributes:
+                  label: views.field.editTemplate
+                  translateLabels: true
+                  path: "/mailing/template/edit/{id}"
+                  endpointParameters:
+                    - name: id
+                      target: path
+                      value:
+                        dynamic: emailTemplate.0.id
+                  target: _blank
+                conditions:
+                  showWhen:
+                    - - name: isEqualTo
+                        field: reminderEmail.isActive
+                        referenceValue: true
+              - name: reminderEmail.daysToWait
+                component: Input
+                label: daysToWait
+                componentAttributes:
+                  type: number
+                conditions:
+                  enableWhen:
+                    - - name: isEqualTo
+                        field: reminderEmail.isActive
+                        referenceValue: true
+      - name: windowSchemaSettings
+        rootComponent: FormSection
+        source:
+          service: delivery
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: window-schema
+        target:
+          service: delivery
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: window-schema
+        fieldsGroup:
+          - name: capacity
+            icon: catalogue
+            fields:
+              - name: defaultShippingQuantity
+                label: maxShippingQuantity
+                component: Input
+                componentAttributes:
+                  type: number
+              - name: defaultPackageQuantity
+                label: maxPackageQuantity
+                component: Input
+                componentAttributes:
+                  type: number
+              - name: defaultProductQuantity
+                label: maxProductQuantity
+                component: Input
+                componentAttributes:
+                  type: number
+          - name: cost
+            icon: money_circle
+            fields:
+              - name: defaultExtraDeliveryCost
+                label: extraDeliveryCost
+                component: Input
+                componentAttributes:
+                  type: number
+          - name: time
+            icon: clock
+            fields:
+              - name: defaultMinFulfillmentTime
+                label: minFulfillmentTime
+                component: Input
+                componentAttributes:
+                  type: number
+          - name: capacitySync
+            icon: postpone
+            position: right
+            fields:
+              - name: syncWindowChangesToExistingTimeSlots
+                component: Switch
+                componentAttributes: {}
+      - name: app
+        rootComponent: FormSection
+        source:
+          service: delivery
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: app
+        target:
+          service: delivery
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: app
+        fieldsGroup:
+          - name: ownership
+            icon: catalogue
+            fields:
+              - name: routeOwnership
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: delivery.setting.routeOwnership.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: onlyMine
+                        value: onlyMine
+                      - label: mineAndUnassigned
+                        value: mineAndUnassigned
+          - name: apiKeys
+            icon: key
+            fields:
+              - name: googleMapsApiKey
+                component: Input
+                componentAttributes: {}
+          - name: actions
+            icon: catalogue
+            position: right
+            fields:
+              - name: showCustomerInfo
+                component: Switch
+                componentAttributes: {}
+          - name: orderIdentifier
+            icon: orderlist
+            position: right
+            fields:
+              - name: orderDisplayId
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: delivery.setting.orderDisplayId.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: commerceId
+                        value: commerceId
+                      - label: sequentialId
+                        value: commerceSequentialId
+          - name: dispatch
+            icon: driver
+            position: right
+            fields:
+              - name: skipDriverValidations
+                component: Switch
+                componentAttributes: {}
+          - name: routing
+            icon: shipping_big_truck
+            position: right
+            fields:
+              - name: showVersion
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: delivery
+                        value: delivery
+                      - label: tms
+                        value: tms
+                      - label: all
+                        value: all
+  - name: picking
+    rootComponent: MultiSection
+    icon: picking
+    defaultSection: Wave
+    subSections:
+      - name: App
+        rootComponent: FormSection
+        source:
+          service: picking
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: app
+        target:
+          service: picking
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: app
+        fieldsGroup:
+          - name: sessions
+            icon: picking
+            collapsible: true
+            defaultOpen: true
+            fields:
+              - name: sessionOwnershipVisibility
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: mine
+                        value: mine
+                      - label: mineAndUnassigned
+                        value: mineAndUnassigned
+              - name: canSelectSession
+                component: Switch
+                componentAttributes: {}
+              - name: barcodeType
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: none
+                        value: none
+                      - label: barcode128
+                        value: barcode128
+                      - label: qr
+                        value: qr
+              - name: barcodeField
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: orderCommerceSequentialId
+                        value: orderCommerceSequentialId
+                      - label: orderCommerceId
+                        value: orderCommerceId
+                      - label: sessionId
+                        value: sessionId
+                      - label: orderId
+                        value: orderId
+                      - label: pickingPointRefIdAndOrderCommerceSeqId
+                        value: pickingPointRefIdAndOrderCommerceSeqId
+                conditions:
+                  showWhen:
+                    - - field: barcodeType
+                        name: isNotEqualTo
+                        referenceValue: none
+              - name: printServerEndpoint
+                component: Input
+                componentAttributes: {}
+              - name: printServerCustomHeaders
+                component: ObjectCreator
+                componentAttributes: {}
+          - name: actionsAndValidations
+            icon: question_mark
+            collapsible: true
+            defaultOpen: true
+            fields:
+              - name: canPostponeItem
+                component: Switch
+                width: 50
+                componentAttributes: {}
+              - name: hasToConfirmPostponedItem
+                component: Switch
+                width: 50
+                conditions:
+                  enableWhen:
+                    - - name: isEqualTo
+                        field: canPostponeItem
+                        referenceValue: true
+                componentAttributes: {}
+              - name: canSkipItem
+                component: Switch
+                width: 50
+                componentAttributes: {}
+              - name: hasToConfirmSkippedItem
+                component: Switch
+                width: 50
+                conditions:
+                  enableWhen:
+                    - - name: isEqualTo
+                        field: canSkipItem
+                        referenceValue: true
+                componentAttributes: {}
+              - name: canUnpickItem
+                component: Switch
+                width: 50
+                componentAttributes: {}
+              - name: hasToConfirmUnpickedItem
+                component: Switch
+                width: 50
+                conditions:
+                  enableWhen:
+                    - - name: isEqualTo
+                        field: canUnpickItem
+                        referenceValue: true
+                componentAttributes: {}
+              - name: canUseLooseItem
+                component: Switch
+                width: 50
+                componentAttributes: {}
+              - name: hasToConfirmLooseItem
+                component: Switch
+                width: 50
+                conditions:
+                  enableWhen:
+                    - - name: isEqualTo
+                        field: canUseLooseItem
+                        referenceValue: true
+                componentAttributes: {}
+              - name: hasToConfirmMissingItem
+                component: Switch
+                componentAttributes: {}
+          - name: package
+            icon: box
+            fields:
+              - name: mustAddPackage
+                component: Switch
+                width: 50
+                componentAttributes: {}
+              - name: allItemsMustAssignToAPackage
+                component: Switch
+                width: 50
+                conditions:
+                  enableWhen:
+                    - - name: isEqualTo
+                        field: mustAddPackage
+                        referenceValue: true
+                componentAttributes: {}
+              - name: hasToConfirmPackage
+                component: Switch
+                componentAttributes: {}
+          - name: barcode
+            icon: bar_code
+            fields:
+              - name: add0ToEan12
+                component: Switch
+                componentAttributes: {}
+              - name: mustInputEanToPick
+                component: Switch
+                componentAttributes: {}
+          - name: substitution
+            icon: substitute
+            position: right
+            fields:
+              - name: substitutesBehaviour
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: cannotPickSubstitutes
+                        value: cannotPickSubstitutes
+                      - label: canPickKnownItemsOnly
+                        value: canPickKnownItemsOnly
+                      - label: canPickUnknownItems
+                        value: canPickUnknownItems
+              - name: substitutesBehaviourWithoutOfflineCatalog
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: cannotPick
+                        value: cannotPick
+                      - label: canPickOriginalItemsOnly
+                        value: canPickOriginalItemsOnly
+                      - label: canPickUnknownItems
+                        value: canPickUnknownItems
+              - name: substituteSubstitutionCriterias
+                component: Multiselect
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: common.picking.substitutionCriteria.
+                  options:
+                    scope: local
+                    values:
+                      - label: doNotSubstitute
+                        value: doNotSubstitute
+                      - label: sameBrand
+                        value: sameBrand
+                      - label: whiteLabel
+                        value: whiteLabel
+                      - label: similarWeight
+                        value: similarWeight
+                      - label: similarPrice
+                        value: similarPrice
+                      - label: phoneCall
+                        value: phoneCall
+                      - label: whatsappMessage
+                        value: whatsappMessage
+                      - label: storeCriteria
+                        value: storeCriteria
+              - name: substituteCandidateSubstitutionCriterias
+                component: Multiselect
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: common.picking.substitutionCriteria.
+                  options:
+                    scope: local
+                    values:
+                      - label: doNotSubstitute
+                        value: doNotSubstitute
+                      - label: sameBrand
+                        value: sameBrand
+                      - label: whiteLabel
+                        value: whiteLabel
+                      - label: similarWeight
+                        value: similarWeight
+                      - label: similarPrice
+                        value: similarPrice
+                      - label: phoneCall
+                        value: phoneCall
+                      - label: whatsappMessage
+                        value: whatsappMessage
+                      - label: storeCriteria
+                        value: storeCriteria
+              - name: canPickMoreThanOriginalQuantity
+                component: Switch
+                componentAttributes: {}
+              - name: useFreePicking
+                component: Switch
+                componentAttributes: {}
+          - name: display
+            icon: catalogue
+            collapsible: true
+            defaultOpen: true
+            position: right
+            fields:
+              - name: sessionDisplayIdField
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  canClear: false
+                  options:
+                    scope: local
+                    values:
+                      - label: commerceId
+                        value: commerceId
+                      - label: sequentialId
+                        value: commerceSequentialId
+              - name: canCallCustomer
+                component: Switch
+                componentAttributes: {}
+              - name: showCustomerInfo
+                component: Switch
+                componentAttributes: {}
+          - name: sorting
+            icon: sort_by
+            position: right
+            fields:
+              - name: sessionSortingCriteria
+                component: Select
+                componentAttributes:
+                  canClear: false
+                  translateLabels: true
+                  options:
+                    scope: local
+                    values:
+                      - label: prioritizeManualAssignment
+                        value: prioritizeManualAssignment
+      - name: WindowSchema
+        rootComponent: FormSection
+        source:
+          service: picking
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: window-schema
+        target:
+          service: picking
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: window-schema
+        fieldsGroup:
+          - name: windowSchema
+            fields:
+              - name: defaultMaxQuantityOrders
+                component: Input
+                componentAttributes:
+                  type: number
+              - name: defaultMaxQuantityItems
+                component: Input
+                componentAttributes:
+                  type: number
+              - name: defaultTimeBeforeClose
+                component: Input
+                componentAttributes:
+                  type: number
+      - name: Wave
+        rootComponent: FormSection
+        source:
+          service: picking
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: wave
+        target:
+          service: picking
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: wave
+        fieldsGroup:
+          - name: waves
+            icon: picking
+            fields:
+              - name: criteriaToComplete
+                component: Select
+                componentAttributes:
+                  translateLabels: true
+                  labelPrefix: picking.setting.
+                  options:
+                    scope: local
+                    values:
+                      - label: totalItems
+                        value: totalItems
+                      - label: totalProducts
+                        value: totalProducts
+              - name: priorizeWholeOrderInSessions
+                component: Switch
+                componentAttributes:
+                  autoComplete: false
+      - name: Session
+        rootComponent: FormSection
+        source:
+          service: picking
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: session
+        target:
+          service: picking
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: session
+        fieldsGroup:
+          - name: Totals
+            icon: totals
+            fields:
+              - name: maxQuantityOrders
+                component: Input
+                componentAttributes:
+                  type: number
+              - name: maxQuantityItems
+                component: Input
+                componentAttributes:
+                  type: number
+          - name: Session
+            icon: picking
+            fields:
+              - name: canPickFutureSessions
+                component: Switch
+                componentAttributes: {}
+              - name: canAddNewItems
+                component: Switch
+                componentAttributes: {}
+              - name: notifyPartialPicking
+                component: Switch
+                componentAttributes: {}
+          - name: Items
+            icon: list
+            fields:
+              - name: avoidUpsellingPrice
+                component: Switch
+                componentAttributes: {}
+              - name: stockInSessionItems
+                component: Switch
+                componentAttributes: {}
+              - name: pickingTimePerItem
+                component: Input
+                componentAttributes:
+                  type: number
+          - name: Labels
+            icon: catalogue
+            collapsible: true
+            defaultOpen: true
+            fields:
+              - name: labels
+                component: FieldsArray
+                componentAttributes:
+                  canChangeElements: true
+                  maxElements: 1
+                  fields:
+                    - name: name
+                      component: Select
+                      componentAttributes:
+                        translateLabels: true
+                        labelPrefix: picking.setting.
+                        options:
+                          scope: local
+                          values:
+                            - label: orderSheet
+                              value: order-sheet
+                    - name: isRequired
+                      component: Switch
+                      componentAttributes: {}
+                    - name: useForAllSessions
+                      component: Switch
+                      componentAttributes: {}
+                    - name: itemProductGroups
+                      component: Multiselect
+                      componentAttributes:
+                        translateLabels: false
+                        options:
+                          scope: remote
+                          endpoint:
+                            service: catalog
+                            namespace: product-group
+                            method: list
+                            resolve: false
+                          searchParam: "filters[search]"
+                          valuesMapper:
+                            label: name
+                            value: id
+                      conditions:
+                        showWhen:
+                          - - field: useForAllSessions
+                              name: isNotEqualTo
+                              referenceValue: true
+      - name: Preparable
+        rootComponent: FormSection
+        source:
+          service: picking
+          namespace: setting
+          method: get
+          resolve: false
+        sourceEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: preparable
+        target:
+          service: picking
+          namespace: setting
+          method: update
+          resolve: false
+        targetEndpointParameters:
+          - name: entity
+            target: path
+            value:
+              static: preparable
+        fieldsGroup:
+          - name: Preparable
+            icon: picking
+            fields:
+              - name: preparableItemsOffset
+                component: Input
+                componentAttributes:
+                  type: number
