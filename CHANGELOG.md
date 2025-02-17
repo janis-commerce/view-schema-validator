@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.140.0] - 2025-02-21
+
+### Added
+
+- Schema for Setting View
+
 ## [2.139.0] - 2024-10-22
 
 ### Added
 
-- imageField in SElect and multiselect
+- imageField in Select and multiselect
 
 ## [2.138.0] - 2024-10-09
 
