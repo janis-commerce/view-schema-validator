@@ -43,6 +43,8 @@ const previewSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/p
 const previewSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
 const sectionExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/section-example.yml');
 const sectionExampleExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/section-example.json');
+const settingsYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/settings.yml');
+const settingsExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/settings.json');
 const monitorSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/monitor.yml');
 const monitorSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/monitor.json');
 const planningSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/planning.yml');
@@ -128,30 +130,32 @@ describe('Test validation functions', () => {
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
 		const previewSchema = ymljs.parse(previewSchemaYml.toString());
 		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
+		const settingsSchema = ymljs.parse(settingsYML.toString());
 		const monitorSchema = ymljs.parse(monitorSchemaYml.toString());
 		const planningSchema = ymljs.parse(planningSchemaYml.toString());
 
 		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
 		const browseWithCanCreateData = Validator.execute(browseWithCanCreateSchema, true, '/test/data1.json');
-		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
 		const browseColumnSortableMatchData = Validator.execute(browseColumnSortableMatchSchema, true, '/test/data1.json');
-		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
+		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
+		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
+		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
+		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
+		const newData = Validator.execute(newSchema, true, '/test/data6.json');
 		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data7.json');
 		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
 		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data9.json');
-		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
 		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data10.json');
-		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data14.json');
 		const editWithMinMaxInputData = Validator.execute(editWithMinMaxInputSchema, true, '/test/data11.json');
-		const newData = Validator.execute(newSchema, true, '/test/data6.json');
 		const newWithMinMaxInputData = Validator.execute(newWithMinMaxInputSchema, true, '/test/data12.json');
+		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
+		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data14.json');
+		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
 		const newWithRedirectData = Validator.execute(newWithRedirectSchema, true, '/test/data16.json');
-		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
-		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
-		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
-		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
+		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
 		const planningData = Validator.execute(planningSchema, true, '/test/data17.json');
+		const settingsData = Validator.execute(settingsSchema, true, '/test/data18.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
@@ -172,6 +176,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));
+		sinon.assert.match(settingsData, JSON.parse(settingsExpected.toString()));
 		sinon.assert.match(monitorData, JSON.parse(monitorSchemaExpected.toString()));
 		sinon.assert.match(planningData, JSON.parse(planningSchemaExpected.toString()));
 	});
