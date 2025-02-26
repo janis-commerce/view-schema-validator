@@ -39,6 +39,8 @@ const newWithRedirectSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/s
 const newWithRedirectSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new-with-redirect.json');
 const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
 const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
+const dashboardWithSourcesSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard-with-sources.yml');
+const dashboardWithSourcesSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard-with-sources.json');
 const previewSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
 const previewSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
 const sectionExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/section-example.yml');
@@ -128,6 +130,7 @@ describe('Test validation functions', () => {
 		const newWithMinMaxInputSchema = ymljs.parse(newWithMinMaxInputSchemaYml.toString());
 		const newWithRedirectSchema = ymljs.parse(newWithRedirectSchemaYml.toString());
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
+		const dashboardWithSourcesSchema = ymljs.parse(dashboardWithSourcesSchemaYml.toString());
 		const previewSchema = ymljs.parse(previewSchemaYml.toString());
 		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
 		const settingsSchema = ymljs.parse(settingsYML.toString());
@@ -139,23 +142,25 @@ describe('Test validation functions', () => {
 		const browseColumnSortableMatchData = Validator.execute(browseColumnSortableMatchSchema, true, '/test/data1.json');
 		const editData = Validator.execute(editSchema, true, '/test/data2.json');
 		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
-		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
-		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
-		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
-		const newData = Validator.execute(newSchema, true, '/test/data6.json');
-		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data7.json');
-		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
-		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data9.json');
-		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data10.json');
-		const editWithMinMaxInputData = Validator.execute(editWithMinMaxInputSchema, true, '/test/data11.json');
-		const newWithMinMaxInputData = Validator.execute(newWithMinMaxInputSchema, true, '/test/data12.json');
-		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
-		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data14.json');
-		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
-		const newWithRedirectData = Validator.execute(newWithRedirectSchema, true, '/test/data16.json');
-		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
-		const planningData = Validator.execute(planningSchema, true, '/test/data17.json');
-		const settingsData = Validator.execute(settingsSchema, true, '/test/data18.json');
+		const dashboardWithSourcesData = Validator.execute(dashboardWithSourcesSchema, true, '/test/data4.json');
+		const previewData = Validator.execute(previewSchema, true, '/test/data5.json');
+		const monitorData = Validator.execute(monitorSchema, true, '/test/data5.json');
+		const sectionData = Validator.execute(sectionSchema, true, '/test/data6.json');
+		const newData = Validator.execute(newSchema, true, '/test/data7.json');
+		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data8.json');
+		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data9.json');
+		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data10.json');
+		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data11.json');
+		const editWithMinMaxInputData = Validator.execute(editWithMinMaxInputSchema, true, '/test/data12.json');
+		const newWithMinMaxInputData = Validator.execute(newWithMinMaxInputSchema, true, '/test/data13.json');
+		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data14.json');
+		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data15.json');
+		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data16.json');
+		const newWithRedirectData = Validator.execute(newWithRedirectSchema, true, '/test/data17.json');
+		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data18.json');
+		const planningData = Validator.execute(planningSchema, true, '/test/data19.json');
+		const settingsData = Validator.execute(settingsSchema, true, '/test/data20.json');
+
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
@@ -174,6 +179,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(newWithMinMaxInputData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithRedirectData, JSON.parse(newWithRedirectSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
+		sinon.assert.match(dashboardWithSourcesData, JSON.parse(dashboardWithSourcesSchemaExpectedJson.toString()));
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));
 		sinon.assert.match(settingsData, JSON.parse(settingsExpected.toString()));
