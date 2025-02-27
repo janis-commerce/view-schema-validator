@@ -1090,6 +1090,7 @@ sections:
             component: Select
             componentAttributes:
               translateLabels: true
+              imageField: imageUrl
               options:
                 scope: remote
                 endpoint:
@@ -1107,6 +1108,7 @@ sections:
               parentFilterDefaultValue: 'null'
               canClear: true
               maxLevel: 3
+              imageField: imageUrl
               options:
                 scope: remote
                 endpoint:
