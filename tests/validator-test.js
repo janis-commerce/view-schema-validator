@@ -163,7 +163,7 @@ describe('Test validation functions', () => {
 		const planningData = Validator.execute(planningSchema, true, '/test/data17.json');
 		const settingsData = Validator.execute(settingsSchema, true, '/test/data18.json');
 		const dashboardWithSourcesData = Validator.execute(dashboardWithSourcesSchema, true, '/test/data19.json');
-		const dashboardWithLinksData = Validator.execute(dashboardWithLinksSchema, true, '/test/data19.json');
+		const dashboardWithLinksData = Validator.execute(dashboardWithLinksSchema, true, '/test/data20.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
