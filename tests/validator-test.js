@@ -41,6 +41,8 @@ const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas
 const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
 const dashboardWithSourcesSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard-with-sources.yml');
 const dashboardWithSourcesSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard-with-sources.json');
+const dashboardWithLinksSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard-with-links.json');
+const dashboardWithLinksSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard-with-links.yml');
 const previewSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
 const previewSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
 const sectionExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/section-example.yml');
@@ -131,6 +133,7 @@ describe('Test validation functions', () => {
 		const newWithRedirectSchema = ymljs.parse(newWithRedirectSchemaYml.toString());
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
 		const dashboardWithSourcesSchema = ymljs.parse(dashboardWithSourcesSchemaYml.toString());
+		const dashboardWithLinksSchema = ymljs.parse(dashboardWithLinksSchemaYml.toString());
 		const previewSchema = ymljs.parse(previewSchemaYml.toString());
 		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
 		const settingsSchema = ymljs.parse(settingsYML.toString());
@@ -160,6 +163,7 @@ describe('Test validation functions', () => {
 		const planningData = Validator.execute(planningSchema, true, '/test/data17.json');
 		const settingsData = Validator.execute(settingsSchema, true, '/test/data18.json');
 		const dashboardWithSourcesData = Validator.execute(dashboardWithSourcesSchema, true, '/test/data19.json');
+		const dashboardWithLinksData = Validator.execute(dashboardWithLinksSchema, true, '/test/data20.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
@@ -179,6 +183,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(newWithRedirectData, JSON.parse(newWithRedirectSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardWithSourcesData, JSON.parse(dashboardWithSourcesSchemaExpectedJson.toString()));
+		sinon.assert.match(dashboardWithLinksData, JSON.parse(dashboardWithLinksSchemaExpectedJson.toString()));
 		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
 		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));
 		sinon.assert.match(settingsData, JSON.parse(settingsExpected.toString()));
