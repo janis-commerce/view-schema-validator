@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.154.0] - 2025-04-09
+
+### Added
+
+- common link properties for several schemas
+
 ## [2.153.0] - 2025-04-03
 
 ### Added
