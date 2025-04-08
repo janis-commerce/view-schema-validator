@@ -363,7 +363,7 @@
                 ]
               }
             },
-						{
+            {
               "name": "testActionFour",
               "icon": "agenda",
               "color": "blue",
@@ -374,7 +374,7 @@
                   "service": "id",
                   "namespace": "user-temporal-password",
                   "method": "post",
-									"resolve": false
+                  "resolve": false
                 },
                 "endpointParameters": [
                   {
@@ -385,49 +385,49 @@
                     }
                   }
                 ],
-								"modalTitle": "testModalTitle",
-								"fields": [
-									{
-										"attributes": {
-											"initialSortDirection": "desc",
-											"isDefaultSort": false,
-											"isStatus": false,
-											"sortable": false
-										},
-										"name": "password",
-										"label": "login.field.temporaryPassword",
-										"component": "FieldList",
-										"componentAttributes": {
-											"direction": "horizontal",
-											"fields": [
-												{
-													"attributes": {
-														"initialSortDirection": "desc",
-														"isDefaultSort": false,
-														"isStatus": false,
-														"sortable": false
-													},
-													"name": "temporalPassword",
-													"component": "Text",
-													"componentAttributes": {
-														"fontWeight": "normal"
-													}
-												},
-												{
-													"attributes": {
-															"initialSortDirection": "desc",
-															"isDefaultSort": false,
-															"isStatus": false,
-															"sortable": false
-													},
-													"component": "CopyToClipboardButton",
-													"componentAttributes": {},
-													"name": "temporalPassword"
-												}
-											]
-										}
-									}
-								]
+                "modalTitle": "testModalTitle",
+                "fields": [
+                  {
+                    "attributes": {
+                      "initialSortDirection": "desc",
+                      "isDefaultSort": false,
+                      "isStatus": false,
+                      "sortable": false
+                    },
+                    "name": "password",
+                    "label": "login.field.temporaryPassword",
+                    "component": "FieldList",
+                    "componentAttributes": {
+                      "direction": "horizontal",
+                      "fields": [
+                        {
+                          "attributes": {
+                            "initialSortDirection": "desc",
+                            "isDefaultSort": false,
+                            "isStatus": false,
+                            "sortable": false
+                          },
+                          "name": "temporalPassword",
+                          "component": "Text",
+                          "componentAttributes": {
+                            "fontWeight": "normal"
+                          }
+                        },
+                        {
+                          "attributes": {
+                            "initialSortDirection": "desc",
+                            "isDefaultSort": false,
+                            "isStatus": false,
+                            "sortable": false
+                          },
+                          "component": "CopyToClipboardButton",
+                          "componentAttributes": {},
+                          "name": "temporalPassword"
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]
@@ -713,6 +713,13 @@
                       "name": "isNotEqualTo",
                       "field": ["test", "name"],
                       "referenceValue": true
+                    }
+                  ],
+                  [
+                    {
+                      "name": "includes",
+                      "field": "test",
+                      "referenceValue": "value"
                     }
                   ]
                 ]

@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.153.0] - 2025-04-03
+
+### Added
+
+- includes name for new conditional
+
+## [2.152.0] - 2025-03-14
+
+### Added
+
+- Link key in graphs
+
+## [2.151.0] - 2025-03-14
+
+### Added
+
+- Browse section support for settings page
+
 ## [2.150.0] - 2025-02-27
 
 ### Added
