@@ -35,6 +35,18 @@
 			"componentAttributes": {
 				"options": {
 					"width": "100%"
+				},
+				"link": {
+					"path": "/test",
+					"endpointParameters": [
+						{
+							"name": "status",
+							"target": "path",
+							"value": {
+								"dynamic": "id"
+							}
+						}
+					]
 				}
 			},
 			"x": 6,
