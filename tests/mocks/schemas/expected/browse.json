@@ -1410,7 +1410,8 @@
 			},
 			"componentAttributes": {
 				"icon": "iconName",
-				"color": "iconColor"
+				"color": "iconColor",
+				"backgroundColor": "backgroundColor"
 			}
 		},
 		{
