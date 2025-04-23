@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.155.0] - 2025-04-24
+
+### Added
+
+- property backgroundColor to icon schema
+
 ## [2.154.0] - 2025-04-09
 
 ### Added
