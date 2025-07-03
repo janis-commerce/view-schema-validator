@@ -743,6 +743,7 @@
 			"name": "remoteMultiselect",
 			"component": "Multiselect",
 			"componentAttributes": {
+				"canSelectAll": true,
 				"translateLabels": true,
 				"imageField": "imageUrl",
 				"options": {
