@@ -269,31 +269,31 @@
 				}
 			},
 			{
-        "name": "TestingActionEndpoint",
-        "kind": "generic",
-        "type": "endpoint",
-        "componentAttributes": {
-          "requestFields": {
-            "id": "testingId"
-          },
-          "icon": "link",
-          "endpoint": {
-            "service": "playground",
-            "namespace": "views-demo-massive-action",
-            "method": "post",
+				"name": "TestingActionEndpoint",
+				"kind": "generic",
+				"type": "endpoint",
+				"componentAttributes": {
+					"requestFields": {
+						"id": "testingId"
+					},
+					"icon": "link",
+					"endpoint": {
+						"service": "playground",
+						"namespace": "views-demo-massive-action",
+						"method": "post",
 						"resolve": false
-          },
-          "endpointParameters": [
-            {
-              "name": "status",
-              "target": "body",
-              "value": {
-                "static": "active"
-              }
-            }
-          ]
-        }
-      }
+					},
+					"endpointParameters": [
+						{
+							"name": "status",
+							"target": "body",
+							"value": {
+								"static": "active"
+							}
+						}
+					]
+				}
+			}
 		]
 	},
 	"themes": {
@@ -2373,7 +2373,7 @@
 		"entities": ["entityNameOne", "entityNameTwo"]
 	},
 	"canView": false,
-	"canRefresh": false,
+	"canRefresh": true,
 	"pageSize": 60,
 	"actions": [
 		{

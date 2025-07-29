@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.156.0] - 2025-07-29
+
+### Added
+
+- default value **true** for canRefresh in Browse schema
+
 ## [2.155.0] - 2025-04-24
 
 ### Added
