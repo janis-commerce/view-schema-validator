@@ -806,6 +806,7 @@ sections:
                         - - name: isNotEmpty
                             field: order
                   - country
+              verifiedAddressField: address
 
           - name: asyncWrapperExampleOne
             component: AsyncWrapper
