@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.157.0] - 2025-08-01
+
+### Added
+
+- key **verifiedAddressField** in Location component to show verified check
+
 ## [2.156.0] - 2025-07-29
 
 ### Added
