@@ -193,6 +193,9 @@ sections:
             icon: star_light
             color: fizzGreen
             type: link
+            behavior:
+              status: blocked
+              statusMotive: motive
             options:
               target:
                 service: serviceName

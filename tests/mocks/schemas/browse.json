@@ -170,6 +170,10 @@
 				"name": "testEndpoint",
 				"type": "endpoint",
 				"callback": "refresh",
+				"behavior": {
+					"status": "blocked",
+					"statusMotive": "motive"
+				},
 				"componentAttributes": {
 					"icon": "box",
 					"endpoint": {
