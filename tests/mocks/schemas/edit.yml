@@ -31,6 +31,11 @@ header:
       component: Chip
       componentAttributes:
         textColor: colorName
+    - name: chipFieldWithMapper
+      component: Chip
+      componentAttributes:
+        textColor: colorName
+      mapper: dateDelivery
     - name: mediumChipField
       component: MediumChip
     - name: smallChipField
