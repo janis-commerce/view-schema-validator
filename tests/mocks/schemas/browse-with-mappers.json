@@ -1,0 +1,87 @@
+{
+  "service": "tms",
+  "name": "route-browse",
+  "root": "Browse",
+  "autoRefresh": true,
+  "canCreate": true,
+  "canPreview": false,
+  "canRefresh": true,
+  "canView": false,
+  "pageSize": 60,
+  "source": {
+    "service": "sac",
+    "namespace": "claim-type",
+    "method": "browse",
+    "resolve": false
+  },
+  "fields": [
+    {
+      "name": "date",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "DD/MM/YYYY",
+          "format": "DD/MM/YYYY"
+        }
+      }
+    },
+    {
+      "name": "schedule",
+      "component": "Text",
+      "mapper": "dateDelivery"
+    },
+    {
+      "name": "incomingDate",
+      "component": "TimeChip",
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy HH:mm"
+        }
+      },
+
+      "componentAttributes": {}
+    },
+    {
+      "name": "nameTest",
+      "component": "Text",
+      "mapper": {
+        "name": "prefix",
+        "props": {
+          "value": "common.names."
+        }
+      }
+    },
+    {
+      "name": "currencyTest",
+      "component": "Text",
+      "mapper": {
+        "name": "currency",
+        "props": {
+          "currencyCode": "USD",
+          "currencyField": "someField"
+        }
+      }
+    },
+
+    {
+      "name": "name",
+      "component": "LightText",
+      "filter": {
+        "component": "Input"
+      },
+      "mapper": {
+        "name": "suffix",
+        "props": {
+          "value": "%"
+        }
+      }
+    },
+    {
+      "name": "appliesToLogistics",
+      "component": "Chip",
+      "mapper": "booleanToWord"
+    }
+  ]
+}
