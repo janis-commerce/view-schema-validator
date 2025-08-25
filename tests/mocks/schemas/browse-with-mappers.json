@@ -44,6 +44,63 @@
       "componentAttributes": {}
     },
     {
+      "name": "deliveryRange",
+      "component": "Text",
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "start": "delivery.startDate",
+          "end": "delivery.endDate"
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "shippingWindow",
+      "component": "LightText",
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "start": "shippings.0.deliveryWindow.initialDate",
+          "end": "shippings.0.deliveryWindow.finalDate"
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "customFormatDate",
+      "component": "Text",
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy"
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "timeOnly",
+      "component": "Text",
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "HH:mm"
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "dateTimeCustom",
+      "component": "Text",
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "yyyy-MM-dd HH:mm:ss"
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
       "name": "nameTest",
       "component": "Text",
       "mapper": {

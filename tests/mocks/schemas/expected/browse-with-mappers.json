@@ -67,6 +67,103 @@
         }
       }
     },
+    {
+      "name": "deliveryRange",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "start": "delivery.startDate",
+          "end": "delivery.endDate"
+        }
+      }
+    },
+    {
+      "name": "shippingWindow",
+      "component": "LightText",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "light"
+      },
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "start": "shippings.0.deliveryWindow.initialDate",
+          "end": "shippings.0.deliveryWindow.finalDate"
+        }
+      }
+    },
+    {
+      "name": "customFormatDate",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy"
+        }
+      }
+    },
+    {
+      "name": "timeOnly",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "HH:mm"
+        }
+      }
+    },
+    {
+      "name": "dateTimeCustom",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "dateDelivery",
+        "props": {
+          "incomingFormat": "yyyy-MM-dd HH:mm:ss"
+        }
+      }
+    },
 
     {
       "name": "nameTest",
