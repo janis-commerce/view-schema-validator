@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- new format pattern support for `numberToTime` mapper type property to allow custom time formats (e.g., 'HH:mm:ss', 'mm:ss')
+
 ## [2.157.0] - 2025-08-01
 
 ### Added
