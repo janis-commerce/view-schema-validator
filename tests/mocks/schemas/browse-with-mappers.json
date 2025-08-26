@@ -29,13 +29,13 @@
     {
       "name": "schedule",
       "component": "Text",
-      "mapper": "dateDelivery"
+      "mapper": "deliveryDate"
     },
     {
       "name": "incomingDate",
       "component": "TimeChip",
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "dd/MM/yyyy HH:mm"
         }
@@ -47,7 +47,7 @@
       "name": "deliveryRange",
       "component": "Text",
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "start": "delivery.startDate",
           "end": "delivery.endDate"
@@ -59,7 +59,7 @@
       "name": "shippingWindow",
       "component": "LightText",
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "start": "shippings.0.deliveryWindow.initialDate",
           "end": "shippings.0.deliveryWindow.finalDate"
@@ -71,7 +71,7 @@
       "name": "customFormatDate",
       "component": "Text",
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "dd/MM/yyyy"
         }
@@ -82,7 +82,7 @@
       "name": "timeOnly",
       "component": "Text",
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "HH:mm"
         }
@@ -93,7 +93,7 @@
       "name": "dateTimeCustom",
       "component": "Text",
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "yyyy-MM-dd HH:mm:ss"
         }

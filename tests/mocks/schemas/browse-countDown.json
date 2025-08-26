@@ -943,7 +943,8 @@
 				},
 				"dateStart": "shippings.0.deliveryWindow.initialDate",
 				"dateEnd": "shippings.0.deliveryWindow.finalDate",
-				"icon": "timer"
+				"icon": "timer",
+				"allowNegativeTime": true
 			}
 		},
 		{

@@ -48,7 +48,7 @@
       "componentAttributes": {
         "fontWeight": "normal"
       },
-      "mapper": "dateDelivery"
+      "mapper": "deliveryDate"
     },
     {
       "name": "incomingDate",
@@ -61,7 +61,7 @@
       },
       "componentAttributes": {},
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "dd/MM/yyyy HH:mm"
         }
@@ -80,7 +80,7 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "start": "delivery.startDate",
           "end": "delivery.endDate"
@@ -100,7 +100,7 @@
         "fontWeight": "light"
       },
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "start": "shippings.0.deliveryWindow.initialDate",
           "end": "shippings.0.deliveryWindow.finalDate"
@@ -120,7 +120,7 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "dd/MM/yyyy"
         }
@@ -139,7 +139,7 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "HH:mm"
         }
@@ -158,7 +158,7 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "dateDelivery",
+        "name": "deliveryDate",
         "props": {
           "incomingFormat": "yyyy-MM-dd HH:mm:ss"
         }
