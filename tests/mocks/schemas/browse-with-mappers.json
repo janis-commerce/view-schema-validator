@@ -29,15 +29,21 @@
     {
       "name": "schedule",
       "component": "Text",
-      "mapper": "deliveryDate"
+      "mapper": {
+        "name": "date",
+        "props": {
+          "relative": true
+        }
+      }
     },
     {
       "name": "incomingDate",
       "component": "TimeChip",
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "dd/MM/yyyy HH:mm"
+          "incomingFormat": "dd/MM/yyyy HH:mm",
+          "relative": true
         }
       },
 
@@ -47,10 +53,11 @@
       "name": "deliveryRange",
       "component": "Text",
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
           "start": "delivery.startDate",
-          "end": "delivery.endDate"
+          "end": "delivery.endDate",
+          "relative": true
         }
       },
       "componentAttributes": {}
@@ -59,10 +66,11 @@
       "name": "shippingWindow",
       "component": "LightText",
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
           "start": "shippings.0.deliveryWindow.initialDate",
-          "end": "shippings.0.deliveryWindow.finalDate"
+          "end": "shippings.0.deliveryWindow.finalDate",
+          "relative": true
         }
       },
       "componentAttributes": {}
@@ -71,9 +79,10 @@
       "name": "customFormatDate",
       "component": "Text",
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "dd/MM/yyyy"
+          "incomingFormat": "dd/MM/yyyy",
+          "relative": true
         }
       },
       "componentAttributes": {}
@@ -82,9 +91,10 @@
       "name": "timeOnly",
       "component": "Text",
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "HH:mm"
+          "incomingFormat": "HH:mm",
+          "relative": true
         }
       },
       "componentAttributes": {}
@@ -93,9 +103,10 @@
       "name": "dateTimeCustom",
       "component": "Text",
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "yyyy-MM-dd HH:mm:ss"
+          "incomingFormat": "yyyy-MM-dd HH:mm:ss",
+          "relative": true
         }
       },
       "componentAttributes": {}

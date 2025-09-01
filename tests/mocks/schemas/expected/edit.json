@@ -51,7 +51,12 @@
         "componentAttributes": {
           "textColor": "colorName"
         },
-        "mapper": "deliveryDate"
+        "mapper": {
+          "name": "date",
+          "props": {
+            "relative": true
+          }
+        }
       },
       {
         "name": "mediumChipField",

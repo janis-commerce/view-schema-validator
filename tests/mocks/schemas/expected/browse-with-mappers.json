@@ -48,7 +48,12 @@
       "componentAttributes": {
         "fontWeight": "normal"
       },
-      "mapper": "deliveryDate"
+      "mapper": {
+        "name": "date",
+        "props": {
+          "relative": true
+        }
+      }
     },
     {
       "name": "incomingDate",
@@ -61,9 +66,10 @@
       },
       "componentAttributes": {},
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "dd/MM/yyyy HH:mm"
+          "incomingFormat": "dd/MM/yyyy HH:mm",
+          "relative": true
         }
       }
     },
@@ -80,10 +86,11 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
           "start": "delivery.startDate",
-          "end": "delivery.endDate"
+          "end": "delivery.endDate",
+          "relative": true
         }
       }
     },
@@ -100,10 +107,11 @@
         "fontWeight": "light"
       },
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
           "start": "shippings.0.deliveryWindow.initialDate",
-          "end": "shippings.0.deliveryWindow.finalDate"
+          "end": "shippings.0.deliveryWindow.finalDate",
+          "relative": true
         }
       }
     },
@@ -120,9 +128,10 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "dd/MM/yyyy"
+          "incomingFormat": "dd/MM/yyyy",
+          "relative": true
         }
       }
     },
@@ -139,9 +148,10 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "HH:mm"
+          "incomingFormat": "HH:mm",
+          "relative": true
         }
       }
     },
@@ -158,9 +168,10 @@
         "fontWeight": "normal"
       },
       "mapper": {
-        "name": "deliveryDate",
+        "name": "date",
         "props": {
-          "incomingFormat": "yyyy-MM-dd HH:mm:ss"
+          "incomingFormat": "yyyy-MM-dd HH:mm:ss",
+          "relative": true
         }
       }
     },
