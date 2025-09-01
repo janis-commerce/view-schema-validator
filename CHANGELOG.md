@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2025-09-01
+
+### Removed
+
+- new mapper `deliveryDate` for delivery date formatting
+
+### Added
+
+- new key relative, start and end to `date` mapper
+
 ## [2.158.0] - 2025-08-26
 
 ### Added
