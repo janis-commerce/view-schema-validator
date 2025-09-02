@@ -1,0 +1,155 @@
+{
+  "service": "tms",
+  "name": "route-browse",
+  "root": "Browse",
+  "autoRefresh": true,
+  "canCreate": true,
+  "canPreview": false,
+  "canRefresh": true,
+  "canView": false,
+  "pageSize": 60,
+  "source": {
+    "service": "sac",
+    "namespace": "claim-type",
+    "method": "browse",
+    "resolve": false
+  },
+  "fields": [
+    {
+      "name": "date",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "DD/MM/YYYY",
+          "format": "DD/MM/YYYY"
+        }
+      }
+    },
+    {
+      "name": "schedule",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "incomingDate",
+      "component": "TimeChip",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy HH:mm",
+          "relative": true
+        }
+      },
+
+      "componentAttributes": {}
+    },
+    {
+      "name": "deliveryRange",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "start": "delivery.startDate",
+          "end": "delivery.endDate",
+          "relative": true
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "shippingWindow",
+      "component": "LightText",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "start": "shippings.0.deliveryWindow.initialDate",
+          "end": "shippings.0.deliveryWindow.finalDate",
+          "relative": true
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "customFormatDate",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy",
+          "relative": true
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "timeOnly",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "HH:mm",
+          "relative": true
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "dateTimeCustom",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "yyyy-MM-dd HH:mm:ss",
+          "relative": true
+        }
+      },
+      "componentAttributes": {}
+    },
+    {
+      "name": "nameTest",
+      "component": "Text",
+      "mapper": {
+        "name": "prefix",
+        "props": {
+          "value": "common.names."
+        }
+      }
+    },
+    {
+      "name": "currencyTest",
+      "component": "Text",
+      "mapper": {
+        "name": "currency",
+        "props": {
+          "currencyCode": "USD",
+          "currencyField": "someField"
+        }
+      }
+    },
+
+    {
+      "name": "name",
+      "component": "LightText",
+      "filter": {
+        "component": "Input"
+      },
+      "mapper": {
+        "name": "suffix",
+        "props": {
+          "value": "%"
+        }
+      }
+    },
+    {
+      "name": "appliesToLogistics",
+      "component": "Chip",
+      "mapper": "booleanToWord"
+    }
+  ]
+}

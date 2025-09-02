@@ -46,6 +46,19 @@
         }
       },
       {
+        "name": "chipFieldWithMapper",
+        "component": "Chip",
+        "componentAttributes": {
+          "textColor": "colorName"
+        },
+        "mapper": {
+          "name": "date",
+          "props": {
+            "relative": true
+          }
+        }
+      },
+      {
         "name": "mediumChipField",
         "component": "MediumChip"
       },

@@ -1,0 +1,258 @@
+{
+  "service": "tms",
+  "name": "route-browse",
+  "root": "Browse",
+  "autoRefresh": true,
+  "canCreate": true,
+  "canPreview": false,
+  "canRefresh": true,
+  "canView": false,
+  "pageSize": 60,
+  "source": {
+    "service": "sac",
+    "namespace": "claim-type",
+    "method": "browse",
+    "resolve": false
+  },
+  "filters": [],
+  "fields": [
+    {
+      "name": "date",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "DD/MM/YYYY",
+          "format": "DD/MM/YYYY"
+        }
+      }
+    },
+    {
+      "name": "schedule",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "incomingDate",
+      "component": "TimeChip",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {},
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy HH:mm",
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "deliveryRange",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "start": "delivery.startDate",
+          "end": "delivery.endDate",
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "shippingWindow",
+      "component": "LightText",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "light"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "start": "shippings.0.deliveryWindow.initialDate",
+          "end": "shippings.0.deliveryWindow.finalDate",
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "customFormatDate",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "dd/MM/yyyy",
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "timeOnly",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "HH:mm",
+          "relative": true
+        }
+      }
+    },
+    {
+      "name": "dateTimeCustom",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "yyyy-MM-dd HH:mm:ss",
+          "relative": true
+        }
+      }
+    },
+
+    {
+      "name": "nameTest",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "prefix",
+        "props": {
+          "value": "common.names."
+        }
+      }
+    },
+    {
+      "name": "currencyTest",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "currency",
+        "props": {
+          "currencyCode": "USD",
+          "currencyField": "someField"
+        }
+      }
+    },
+    {
+      "name": "name",
+      "component": "LightText",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "light"
+      },
+      "filter": {
+        "component": "Input",
+        "componentAttributes": {},
+        "remote": false,
+        "type": "equal"
+      },
+      "mapper": {
+        "name": "suffix",
+        "props": {
+          "value": "%"
+        }
+      }
+    },
+    {
+      "name": "appliesToLogistics",
+      "component": "Chip",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "borderColor": "grey"
+      },
+      "mapper": "booleanToWord"
+    }
+  ]
+}

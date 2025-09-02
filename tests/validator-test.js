@@ -16,6 +16,8 @@ const browseSchemaColumnSortableMatchJson = fs.readFileSync(process.cwd() + '/te
 const browseSchemaColumnSortableMatchxpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-columnSortableMatch.json');
 const browseWithRedirectSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-redirect.json');
 const browseWithRedirectSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-redirect.json');
+const browseWithMappersSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-mappers.json');
+const browseWithMappersExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-mappers.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
 const editWithActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions.yml');
@@ -120,6 +122,7 @@ describe('Test validation functions', () => {
 		const browseCountDownSchema = JSON.parse(browseSchemaCountDownJson.toString());
 		const browseColumnSortableMatchSchema = JSON.parse(browseSchemaColumnSortableMatchJson.toString());
 		const browseWithRedirectSchema = JSON.parse(browseWithRedirectSchemaJson.toString());
+		const browseWithMappersSchema = JSON.parse(browseWithMappersSchemaJson.toString());
 		const editSchema = ymljs.parse(editSchemaYml.toString());
 		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
 		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
@@ -164,12 +167,14 @@ describe('Test validation functions', () => {
 		const settingsData = Validator.execute(settingsSchema, true, '/test/data18.json');
 		const dashboardWithSourcesData = Validator.execute(dashboardWithSourcesSchema, true, '/test/data19.json');
 		const dashboardWithLinksData = Validator.execute(dashboardWithLinksSchema, true, '/test/data20.json');
+		const browseWithMappersData = Validator.execute(browseWithMappersSchema, true, '/test/data21.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
 		sinon.assert.match(browseCountDownData, JSON.parse(browseSchemaCountDownExpectedJson.toString()));
 		sinon.assert.match(browseColumnSortableMatchData, JSON.parse(browseSchemaColumnSortableMatchxpectedJson.toString()));
 		sinon.assert.match(browseWithRedirectMatchData, JSON.parse(browseWithRedirectSchemaExpectedJson.toString()));
+		sinon.assert.match(browseWithMappersData, JSON.parse(browseWithMappersExpectedJson.toString()));
 		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsData, JSON.parse(editWithActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithActionsStaticData, JSON.parse(editWithActionsStaticSchemaExpectedJson.toString()));
