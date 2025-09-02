@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Refactored `numberToTime` mapper to separate `type` and `format` properties for better clarity and flexibility [JMV-3878](https://janiscommerce.atlassian.net/browse/JMV-3878)
+- Refactored `numberToTime` mapper to separate `type` and `format` properties for better clarity and flexibility
 
 ## [3.0.0] - 2025-09-01
 
