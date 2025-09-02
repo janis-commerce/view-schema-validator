@@ -1,56 +1,56 @@
 {
-  "name": "@janiscommerce/view-schema-validator",
-  "version": "3.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "export TEST_ENV=true; mocha --timeout 8000 --exit -R nyan --require tests/bootstrap.js --recursive tests/",
-    "test-ci": "nyc --reporter=lcov --reporter=text-summary mocha --timeout 8000 --exit --recursive tests/",
-    "test-file": "node index.js validate -i ",
-    "coverage:report-html": "export MS_PATH=src; export TEST_ENV=true; nyc --reporter=html --reporter=text mocha --recursive tests/",
-    "watch-test": "export TEST_ENV=true; mocha --timeout 8000 --exit -R nyan -w --recursive tests/",
-    "coverage": "nyc npm test",
-    "lint": "eslint index.js lib/ tests/",
-    "postpublish": "./.postpublish.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/janis-commerce/view-schema-validator.git"
-  },
-  "bin": {
-    "view-schema-validator": "index.js"
-  },
-  "author": "Janis",
-  "license": "ISC",
-  "homepage": "https://github.com/janis-commerce/view-schema-validator.git#readme",
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.3",
-    "husky": "^2.4.1",
-    "mocha": "^8.4.0",
-    "nyc": "^15.1.0",
-    "sinon": "^7.5.0"
-  },
-  "files": [
-    "lib/"
-  ],
-  "directories": {
-    "test": "tests"
-  },
-  "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^9.0.9",
-    "@janiscommerce/endpoint-resolver": "^1.0.0",
-    "@janiscommerce/router-fetcher": "^2.1.2",
-    "ajv": "^6.12.6",
-    "chokidar": "^3.5.3",
-    "fs-extra": "^8.1.0",
-    "lllog": "^1.1.2",
-    "lodash.get": "^4.4.2",
-    "lodash.set": "^4.3.2",
-    "mock-fs": "^4.14.0",
-    "node-emoji": "^1.11.0",
-    "yamljs": "^0.3.0",
-    "yargs": "^13.3.2"
-  }
+	"name": "@janiscommerce/view-schema-validator",
+	"version": "3.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "export TEST_ENV=true; mocha --timeout 8000 --exit -R nyan --require tests/bootstrap.js --recursive tests/",
+		"test-ci": "nyc --reporter=lcov --reporter=text-summary mocha --timeout 8000 --exit --recursive tests/",
+		"test-file": "node index.js validate -i ",
+		"coverage:report-html": "export MS_PATH=src; export TEST_ENV=true; nyc --reporter=html --reporter=text mocha --recursive tests/",
+		"watch-test": "export TEST_ENV=true; mocha --timeout 8000 --exit -R nyan -w --recursive tests/",
+		"coverage": "nyc npm test",
+		"lint": "eslint index.js lib/ tests/",
+		"postpublish": "./.postpublish.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/janis-commerce/view-schema-validator.git"
+	},
+	"bin": {
+		"view-schema-validator": "index.js"
+	},
+	"author": "Janis",
+	"license": "ISC",
+	"homepage": "https://github.com/janis-commerce/view-schema-validator.git#readme",
+	"devDependencies": {
+		"eslint": "^5.16.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.17.3",
+		"husky": "^2.4.1",
+		"mocha": "^8.4.0",
+		"nyc": "^15.1.0",
+		"sinon": "^7.5.0"
+	},
+	"files": [
+		"lib/"
+	],
+	"directories": {
+		"test": "tests"
+	},
+	"dependencies": {
+		"@apidevtools/json-schema-ref-parser": "^9.0.9",
+		"@janiscommerce/endpoint-resolver": "^1.0.0",
+		"@janiscommerce/router-fetcher": "^2.1.2",
+		"ajv": "^6.12.6",
+		"chokidar": "^3.5.3",
+		"fs-extra": "^8.1.0",
+		"lllog": "^1.1.2",
+		"lodash.get": "^4.4.2",
+		"lodash.set": "^4.3.2",
+		"mock-fs": "^4.14.0",
+		"node-emoji": "^1.11.0",
+		"yamljs": "^0.3.0",
+		"yargs": "^13.3.2"
+	}
 }
