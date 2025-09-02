@@ -1693,7 +1693,8 @@
 			"mapper": {
 				"name": "numberToTime",
 				"props": {
-					"type": "HH:mm:ss"
+					"type": "hour",
+					"format": "HH:mm:ss"
 				}
 			},
 			"attributes": {
