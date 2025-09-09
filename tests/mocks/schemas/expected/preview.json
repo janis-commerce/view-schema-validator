@@ -1,607 +1,471 @@
 {
-    "service": "picking",
-    "name": "views-demo-preview",
-    "root": "Preview",
-    "source": {
-        "service": "playground",
-        "namespace": "views-demo",
-        "method": "get",
-        "resolve": false
+  "service": "picking",
+  "name": "views-demo-preview",
+  "root": "Preview",
+  "source": {
+    "service": "playground",
+    "namespace": "views-demo",
+    "method": "get",
+    "resolve": false
+  },
+  "sourceEndpointParameters": [
+    {
+      "name": "id",
+      "target": "path",
+      "value": {
+        "dynamic": "id"
+      }
+    }
+  ],
+  "header": {
+    "title": [
+      {
+        "name": "id",
+        "component": "IdText"
+      },
+      {
+        "name": "title",
+        "component": "MainTitle",
+        "componentAttributes": {
+          "value": "someField",
+          "color": "colorName",
+          "identifier": "someFieldName"
+        }
+      },
+      {
+        "name": "status",
+        "component": "StatusChip",
+        "mapper": "translate",
+        "componentAttributes": {
+          "useTheme": true
+        }
+      }
+    ]
+  },
+  "themes": {
+    "themeOne": {
+      "new": "black",
+      "closed": "green",
+      "_default": "grey"
     },
-    "sourceEndpointParameters": [
-        {
+    "themeTwo": {
+      "new": "grey",
+      "closed": "fizzgreen",
+      "warning": {
+        "somePropOne": "someValue",
+        "somePropTwo": "someValue"
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "someActionOne",
+      "type": "link",
+      "sections": ["sectionName"],
+      "componentAttributes": {
+        "path": "/playground/views-demo/{id}",
+        "linkTarget": "_blank",
+        "target": {
+          "service": "playground",
+          "namespace": "views-demo",
+          "method": "create",
+          "resolve": false
+        },
+        "endpointParameters": [
+          {
             "name": "id",
             "target": "path",
             "value": {
-                "dynamic": "id"
+              "dynamic": "id"
             }
-        }
-    ],
-    "header": {
-        "title": [
-            {
-                "name": "id",
-                "component": "IdText"
-            },
-            {
-                "name": "title",
-                "component": "MainTitle",
-                "componentAttributes": {
-                    "value": "someField",
-                    "color": "colorName",
-                    "identifier": "someFieldName"
-                }
-            },
-            {
-                "name": "status",
-                "component": "StatusChip",
-                "mapper": "translate",
-                "componentAttributes": {
-                    "useTheme": true
-                }
-            }
+          }
         ]
+      }
     },
-    "themes": {
+    {
+      "name": "someActionTwo",
+      "type": "endpoint",
+      "conditions": {
+        "showWhen": [
+          [
+            {
+              "name": "isNotEmpty",
+              "field": "order"
+            }
+          ]
+        ]
+      },
+      "callback": "reloadBrowse",
+      "componentAttributes": {
+        "endpoint": {
+          "service": "playground",
+          "namespace": "views-demo",
+          "method": "create",
+          "resolve": false
+        },
+        "endpointParameters": [
+          {
+            "name": "id",
+            "target": "path",
+            "value": {
+              "dynamic": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "someActionThree",
+      "type": "form",
+      "componentAttributes": {
+        "fields": [
+          {
+            "name": "someField",
+            "component": "Input",
+            "componentAttributes": {}
+          }
+        ],
+        "endpoint": {
+          "service": "playground",
+          "namespace": "views-demo",
+          "method": "create",
+          "resolve": false
+        },
+        "endpointParameters": [
+          {
+            "name": "id",
+            "target": "path",
+            "value": {
+              "dynamic": "id"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sections": [
+    {
+      "name": "testFormSection",
+      "rootComponent": "FormSection",
+      "sourceField": "fieldName",
+      "columnsType": "even",
+      "hideUserModified": false,
+      "hideUserCreated": true,
+      "themes": {
         "themeOne": {
-            "new": "black",
-            "closed": "green",
-            "_default": "grey"
-        },
-        "themeTwo": {
-            "new": "grey",
-            "closed": "fizzgreen",
-            "warning": {
-                "somePropOne": "someValue",
-                "somePropTwo": "someValue"
-            }
+          "new": "black",
+          "closed": "green"
         }
-    },
-    "actions": [
+      },
+      "source": {
+        "service": "sac",
+        "namespace": "claim-motive",
+        "method": "get",
+        "resolve": false
+      },
+      "target": {
+        "service": "sac",
+        "namespace": "claim-motive",
+        "method": "save",
+        "resolve": false
+      },
+      "fieldsGroup": [
         {
-            "name": "someActionOne",
-            "type": "link",
-            "sections": [
-                "sectionName"
-            ],
-            "componentAttributes": {
-                "path": "/playground/views-demo/{id}",
-                "linkTarget": "_blank",
-                "target": {
-                    "service": "playground",
-                    "namespace": "views-demo",
-                    "method": "create",
-                    "resolve": false
-                },
-                "endpointParameters": [
+          "name": "detail",
+          "position": "left",
+          "icon": "catalogue",
+          "collapsible": true,
+          "fields": [
+            {
+              "name": "name",
+              "component": "Select",
+              "componentAttributes": {
+                "translateLabels": true,
+                "labelFieldName": "motiveName",
+                "options": {
+                  "scope": "local",
+                  "valuesMapper": {
+                    "label": "name",
+                    "value": "id"
+                  },
+                  "values": [
                     {
-                        "name": "id",
-                        "target": "path",
-                        "value": {
-                            "dynamic": "id"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "someActionTwo",
-            "type": "endpoint",
-            "conditions": {
-                "showWhen": [
-                    [
-                        {
-                            "name": "isNotEmpty",
-                            "field": "order"
-                        }
-                    ]
-                ]
-            },
-            "callback": "reloadBrowse",
-            "componentAttributes": {
-                "endpoint": {
-                    "service": "playground",
-                    "namespace": "views-demo",
-                    "method": "create",
-                    "resolve": false
-                },
-                "endpointParameters": [
+                      "label": "common.status.active",
+                      "value": 1
+                    },
                     {
-                        "name": "id",
-                        "target": "path",
-                        "value": {
-                            "dynamic": "id"
-                        }
+                      "label": "common.status.inactive",
+                      "value": 0
                     }
-                ]
-            }
-        },
-        {
-            "name": "someActionThree",
-            "type": "form",
-            "componentAttributes": {
-                "fields": [
-                    {
-                        "name": "someField",
-                        "component": "Input",
-                        "componentAttributes": {}
-                    }
+                  ]
+                }
+              },
+              "validations": [
+                [
+                  {
+                    "name": "required"
+                  }
                 ],
-                "endpoint": {
-                    "service": "playground",
-                    "namespace": "views-demo",
-                    "method": "create",
-                    "resolve": false
+                [
+                  {
+                    "name": "maxLength",
+                    "options": {
+                      "length": 50
+                    }
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mainFormSection",
+      "icon": "catalogue",
+      "rootComponent": "ReadOnlySection",
+      "columnsType": "even",
+      "fieldsGroup": [
+        {
+          "name": "detail",
+          "icon": "catalogue",
+          "fields": [
+            {
+              "name": "image",
+              "component": "UserImage",
+              "componentAttributes": {
+                "size": "large",
+                "roundBorders": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "summary",
+      "rootComponent": "Summary",
+      "icon": "summary",
+      "cards": [
+        {
+          "component": "BaseCard",
+          "name": "detail",
+          "x": 0,
+          "y": 0,
+          "width": 5,
+          "height": 3,
+          "fieldsGroup": [
+            {
+              "name": "detail",
+              "icon": "catalogue",
+              "fields": [
+                {
+                  "name": "text",
+                  "component": "Text",
+                  "componentAttributes": {}
                 },
-                "endpointParameters": [
+                {
+                  "name": "chip",
+                  "component": "Chip",
+                  "componentAttributes": {
+                    "borderColor": "grey"
+                  },
+                  "conditions": {
+                    "showWhen": [
+                      [
+                        {
+                          "name": "isNotEmpty",
+                          "field": "someField"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "name": "mediumChip",
+                  "component": "MediumChip",
+                  "componentAttributes": {
+                    "borderColor": "grey"
+                  }
+                },
+                {
+                  "name": "userRelated",
+                  "component": "UserChip",
+                  "componentAttributes": {
+                    "userDataSource": {
+                      "firstname": "firstname",
+                      "lastname": "lastname",
+                      "email": "email",
+                      "image": "image"
+                    }
+                  }
+                },
+                {
+                  "name": "status",
+                  "component": "StatusChip",
+                  "componentAttributes": {
+                    "useTheme": true
+                  }
+                },
+                {
+                  "name": "dateCreated",
+                  "component": "Text",
+                  "mapper": {
+                    "name": "date",
+                    "props": {
+                      "format": "DD/MM/YYYY"
+                    }
+                  },
+                  "componentAttributes": {}
+                },
+                {
+                  "name": "friends",
+                  "component": "Text",
+                  "mapper": "join",
+                  "componentAttributes": {}
+                },
+                {
+                  "name": "gender",
+                  "component": "Text",
+                  "mapper": [
                     {
+                      "name": "prefix",
+                      "props": {
+                        "value": "common.gender."
+                      }
+                    },
+                    "translate"
+                  ],
+                  "componentAttributes": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "BaseCard",
+          "name": "Links",
+          "x": 5,
+          "y": 0,
+          "width": 5,
+          "height": "auto",
+          "fieldsGroup": [
+            {
+              "name": "Links",
+              "icon": "catalogue",
+              "fields": [
+                {
+                  "name": "link",
+                  "component": "Link",
+                  "componentAttributes": {
+                    "translateLabels": false,
+                    "path": "/playground/views-demo/edit/{id}",
+                    "endpointParameters": [
+                      {
                         "name": "id",
                         "target": "path",
                         "value": {
-                            "dynamic": "id"
+                          "dynamic": "id"
                         }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "coordinates",
+                  "component": "Location",
+                  "componentAttributes": {
+                    "label": "some.label.translation"
+                  }
+                },
+                {
+                  "name": "coordinates",
+                  "component": "Location",
+                  "componentAttributes": {
+                    "label": {
+                      "template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
+                      "fields": [
+                        "address.street",
+                        "address.number",
+                        "address.complement",
+                        "address.neighborhood",
+                        "address.postalCode",
+                        "address.state",
+                        "address.city",
+                        "address.country"
+                      ]
                     }
-                ]
-            }
-        }
-    ],
-    "sections": [
-        {
-            "name": "mainFormSection",
-            "icon": "catalogue",
-            "rootComponent": "ReadOnlySection",
-            "columnsType": "even",
-            "fieldsGroup": [
-                {
-                    "name": "detail",
-                    "icon": "catalogue",
-                    "fields": [
-                        {
-                            "name": "image",
-                            "component": "UserImage",
-                            "componentAttributes": {
-                                "size": "large",
-                                "roundBorders": true
-                            }
-                        },
-                        {
-                            "name": "firstname",
-                            "component": "Text",
-                            "componentAttributes": {},
-                            "conditions": {
-                                "showWhen": [
-                                    [
-                                        {
-                                            "name": "isNotEmpty",
-                                            "field": "someField"
-                                        }
-                                    ]
-                                ]
-                            }
-                        },
-                        {
-                            "name": "link",
-                            "component": "Link",
-                            "componentAttributes": {
-                                "translateLabels": false,
-                                "labelMapper": "addHashtag",
-                                "path": "/playground/views-demo/{id}",
-                                "endpointParameters": [
-                                    {
-                                        "name": "id",
-                                        "target": "path",
-                                        "value": {
-                                            "dynamic": "id"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "fullname",
-                            "component": "AsyncWrapper",
-                            "componentAttributes": {
-                                "source": {
-                                    "service": "playground",
-                                    "namespace": "views-demo-async-wrapper",
-                                    "method": "get",
-                                    "resolve": false
-                                },
-                                "endpointParameters": [
-                                    {
-                                        "name": "id",
-                                        "target": "path",
-                                        "value": {
-                                            "dynamic": "id"
-                                        }
-                                    }
-                                ],
-                                "dataMapping": {
-                                    "fullname": "userFullname"
-                                },
-                                "field": {
-                                    "name": "userFullname",
-                                    "component": "Text",
-                                    "componentAttributes": {}
-                                }
-                            }
-                        },
-                        {
-                            "name": "preview",
-                            "component": "Preview",
-                            "componentAttributes": {
-                                "image": "image",
-                                "title": "productName",
-                                "subtitle": "productDescription",
-                                "description": "productDescription",
-                                "price": "price",
-                                "listPrice": "listPrice"
-                            }
-                        },
-                        {
-                            "name": "friends",
-                            "component": "Code",
-                            "componentAttributes": {}
-                        },
-                        {
-                            "name": "fieldListTest",
-                            "component": "FieldList",
-                            "componentAttributes": {
-                                "direction": "horizontal",
-                                "fields": [
-                                    {
-                                        "name": "someField",
-                                        "component": "Text",
-                                        "componentAttributes": {}
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                  }
                 },
                 {
-                    "name": "others",
-                    "position": "right",
-                    "translateLabel": false,
-                    "fields": [
-                        {
-                            "name": "text",
-                            "component": "Text",
-                            "componentAttributes": {}
-                        },
-                        {
-                            "name": "link",
-                            "component": "Link",
-                            "componentAttributes": {
-                                "translateLabels": false,
-                                "path": "/playground/views-demo/{id}",
-                                "endpointParameters": [
-                                    {
-                                        "name": "id",
-                                        "target": "path",
-                                        "value": {
-                                            "dynamic": "fieldTen"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "name": "coordinates",
-                            "component": "Location",
-                            "componentAttributes": {
-                                "label": "some.label.translation"
-                            }
-                        },
-                        {
-                            "name": "coordinates",
-                            "component": "Location",
-                            "componentAttributes": {
-                                "label": {
-                                    "template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
-                                    "fields": [
-                                        "address.street",
-                                        "address.number",
-                                        "address.complement",
-                                        "address.neighborhood",
-                                        "address.postalCode",
-                                        "address.state",
-                                        "address.city",
-                                        "address.country"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "name": "address",
-                            "component": "Location",
-                            "componentAttributes": {
-                                "label": {
-                                    "template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
-                                    "fields": [
-                                        "address.street",
-                                        "address.number",
-                                        "address.complement",
-                                        "address.neighborhood",
-                                        "address.postalCode",
-                                        "address.state",
-                                        "address.city",
-                                        "address.country"
-                                    ]
-                                },
-                                "fieldsMapping": {
-                                    "latitude": "lat",
-                                    "longitude": "lng"
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "chips",
-                    "position": "right",
-                    "fields": [
-                        {
-                            "name": "chip",
-                            "component": "Chip",
-                            "componentAttributes": {
-                                "borderColor": "grey"
-                            }
-                        },
-                        {
-                            "name": "mediumChip",
-                            "component": "MediumChip",
-                            "componentAttributes": {
-                                "borderColor": "grey"
-                            }
-                        },
-                        {
-                            "name": "userRelated",
-                            "component": "UserChip",
-                            "componentAttributes": {
-                                "userDataSource": {
-                                    "firstname": "firstname",
-                                    "lastname": "lastname",
-                                    "email": "email",
-                                    "image": "image"
-                                }
-                            }
-                        },
-                        {
-                            "name": "status",
-                            "component": "StatusChip",
-                            "componentAttributes": {
-                                "useTheme": true
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "summary",
-            "rootComponent": "Summary",
-            "icon": "summary",
-            "cards": [
-                {
-                    "component": "BaseCard",
-                    "name": "detail",
-                    "x": 0,
-                    "y": 0,
-                    "width": 5,
-                    "height": 3,
-                    "fieldsGroup": [
-                        {
-                            "name": "detail",
-                            "icon": "catalogue",
-                            "fields": [
-                                {
-                                    "name": "text",
-                                    "component": "Text",
-                                    "componentAttributes": {}
-                                },
-                                {
-                                    "name": "chip",
-                                    "component": "Chip",
-                                    "componentAttributes": {
-                                        "borderColor": "grey"
-                                    },
-                                    "conditions": {
-                                        "showWhen": [
-                                            [
-                                                {
-                                                    "name": "isNotEmpty",
-                                                    "field": "someField"
-                                                }
-                                            ]
-                                        ]
-                                    }
-                                },
-                                {
-                                    "name": "mediumChip",
-                                    "component": "MediumChip",
-                                    "componentAttributes": {
-                                        "borderColor": "grey"
-                                    }
-                                },
-                                {
-                                    "name": "userRelated",
-                                    "component": "UserChip",
-                                    "componentAttributes": {
-                                        "userDataSource": {
-                                            "firstname": "firstname",
-                                            "lastname": "lastname",
-                                            "email": "email",
-                                            "image": "image"
-                                        }
-                                    }
-                                },
-                                {
-                                    "name": "status",
-                                    "component": "StatusChip",
-                                    "componentAttributes": {
-                                        "useTheme": true
-                                    }
-                                },
-                                {
-                                    "name": "dateCreated",
-                                    "component": "Text",
-                                    "mapper": {
-                                        "name": "date",
-                                        "props": {
-                                            "format": "DD/MM/YYYY"
-                                        }
-                                    },
-                                    "componentAttributes": {}
-                                },
-                                {
-                                    "name": "friends",
-                                    "component": "Text",
-                                    "mapper": "join",
-                                    "componentAttributes": {}
-                                },
-                                {
-                                    "name": "gender",
-                                    "component": "Text",
-                                    "mapper": [
-                                        {
-                                            "name": "prefix",
-                                            "props": {
-                                                "value": "common.gender."
-                                            }
-                                        },
-                                        "translate"
-                                    ],
-                                    "componentAttributes": {}
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "component": "BaseCard",
-                    "name": "Links",
-                    "x": 5,
-                    "y": 0,
-                    "width": 5,
-                    "height": "auto",
-                    "fieldsGroup": [
-                        {
-                            "name": "Links",
-                            "icon": "catalogue",
-                            "fields": [
-                                {
-                                    "name": "link",
-                                    "component": "Link",
-                                    "componentAttributes": {
-                                        "translateLabels": false,
-                                        "path": "/playground/views-demo/edit/{id}",
-                                        "endpointParameters": [
-                                            {
-                                                "name": "id",
-                                                "target": "path",
-                                                "value": {
-                                                    "dynamic": "id"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "name": "coordinates",
-                                    "component": "Location",
-                                    "componentAttributes": {
-                                        "label": "some.label.translation"
-                                    }
-                                },
-                                {
-                                    "name": "coordinates",
-                                    "component": "Location",
-                                    "componentAttributes": {
-                                        "label": {
-                                            "template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
-                                            "fields": [
-                                                "address.street",
-                                                "address.number",
-                                                "address.complement",
-                                                "address.neighborhood",
-                                                "address.postalCode",
-                                                "address.state",
-                                                "address.city",
-                                                "address.country"
-                                            ]
-                                        }
-                                    }
-                                },
-                                {
-                                    "name": "address",
-                                    "component": "Location",
-                                    "componentAttributes": {
-                                        "label": {
-                                            "template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
-                                            "fields": [
-                                                "address.street",
-                                                "address.number",
-                                                "address.complement",
-                                                "address.neighborhood",
-                                                "address.postalCode",
-                                                "address.state",
-                                                "address.city",
-                                                "address.country"
-                                            ]
-                                        },
-                                        "fieldsMapping": {
-                                            "latitude": "lat",
-                                            "longitude": "lng"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "totals",
-                    "component": "OMSOrderTotalsCard",
-                    "x": 0,
-                    "y": 3,
-                    "width": 4,
-                    "height": 4
-                }
-            ]
-        },
-        {
-            "name": "comments",
-            "icon": "message",
-            "rootComponent": "Comments"
-        },
-        {
-            "name": "logs",
-            "icon": "clock",
-            "rootComponent": "LogsBrowseSection"
-        },
-        {
-            "name": "dynamicRemoteSection",
-            "icon": "clock",
-            "rootComponent": "RemoteSection",
-            "schemaSource": {
-                "type": "dynamic",
-                "endpoint": {
-                    "service": "playground",
-                    "namespace": "views-demo-remote-section-browse",
-                    "method": "list",
-                    "resolve": true
-                },
-                "endpointParameters": [
-                    {
-                        "name": "firstname",
-                        "target": "queryString",
-                        "value": {
-                            "dynamic": "firstname"
-                        }
+                  "name": "address",
+                  "component": "Location",
+                  "componentAttributes": {
+                    "label": {
+                      "template": "{0} {1} {2}, {3} ({4}), {5}, {6}, {7}",
+                      "fields": [
+                        "address.street",
+                        "address.number",
+                        "address.complement",
+                        "address.neighborhood",
+                        "address.postalCode",
+                        "address.state",
+                        "address.city",
+                        "address.country"
+                      ]
+                    },
+                    "fieldsMapping": {
+                      "latitude": "lat",
+                      "longitude": "lng"
                     }
-                ]
+                  }
+                }
+              ]
             }
+          ]
+        },
+        {
+          "name": "totals",
+          "component": "OMSOrderTotalsCard",
+          "x": 0,
+          "y": 3,
+          "width": 4,
+          "height": 4
         }
-    ]
+      ]
+    },
+    {
+      "name": "comments",
+      "icon": "message",
+      "rootComponent": "Comments"
+    },
+    {
+      "name": "logs",
+      "icon": "clock",
+      "rootComponent": "LogsBrowseSection"
+    },
+    {
+      "name": "dynamicRemoteSection",
+      "icon": "clock",
+      "rootComponent": "RemoteSection",
+      "schemaSource": {
+        "type": "dynamic",
+        "endpoint": {
+          "service": "playground",
+          "namespace": "views-demo-remote-section-browse",
+          "method": "list",
+          "resolve": true
+        },
+        "endpointParameters": [
+          {
+            "name": "firstname",
+            "target": "queryString",
+            "value": {
+              "dynamic": "firstname"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Added `themeConditionals` support to `smallChip` component in browse and edit-new schemas
+- Added `smallChip` to valid component names for edit and new views
+
+## [3.2.0] - 2025-09-05
+
+### Added
+
+- Added FormSection to preview schema
+- Included 'FormSection' in allowed sectionNames for preview schema
+
 ## [3.1.0] - 2025-09-02
 
 ### Changed
