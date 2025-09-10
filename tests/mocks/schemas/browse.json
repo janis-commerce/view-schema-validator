@@ -1,1834 +1,1846 @@
 {
-	"service": "sac",
-	"name": "claim-type-browse",
-	"root": "Browse",
-	"autoRefresh": true,
-	"canExport": {
-		"entities": [
-			{
-				"name": "entityName",
-				"format": ["exel", "csv", "json"],
-				"type": ["report", "for-import"],
-				"fields": ["id", "name"]
-			}
-		]
-	},
-	"canImport": {
-		"entities": ["entityNameOne", "entityNameTwo"]
-	},
+  "service": "sac",
+  "name": "claim-type-browse",
+  "root": "Browse",
+  "autoRefresh": true,
+  "canExport": {
+    "entities": [
+      {
+        "name": "entityName",
+        "format": ["exel", "csv", "json"],
+        "type": ["report", "for-import"],
+        "fields": ["id", "name"]
+      }
+    ]
+  },
+  "canImport": {
+    "entities": ["entityNameOne", "entityNameTwo"]
+  },
 
-	"rowLink": {
-		"path": "/route/{id}/edit",
-		"endpointParameters": [
-			{
-				"name": "status",
-				"target": "path",
-				"value": {
-					"dynamic": "statusId"
-				}
-			},
-			{
-				"name": "status",
-				"target": "query",
-				"value": {
-					"static": 1
-				}
-			}
-		]
-	},
-	"featureFlags": {
-		"allowMultiSort": false
-	},
-	"rowCollapse": {
-		"source": {
-			"service": "service",
-			"namespace": "namespace",
-			"method": "method",
-			"resolve": false
-		},
-		"previewSource": {
-			"service": "service",
-			"namespace": "namespace",
-			"method": "method",
-			"resolve": false
-		},
-		"endpointParameters": [
-			{
-				"name": "id",
-				"target": "path",
-				"value": {
-					"dynamic": "id"
-				}
-			}
-		],
-		"sourceField": "fieldName",
-		"fields": [
-			{
-				"name": "textField",
-				"component": "Text"
-			},
-			{
-				"name": "boldTextField",
-				"component": "BoldText"
-			},
-			{
-				"name": "chipField",
-				"component": "Chip"
-			},
-			{
-				"name": "mediumChipField",
-				"component": "MediumChip"
-			},
-			{
-				"name": "iconField",
-				"component": "Icon"
-			},
-			{
-				"name": "linkField",
-				"component": "Link",
-				"componentAttributes": {
-					"path": "/some/path/{id}"
-				}
-			},
-			{
-				"name": "printLink",
-				"component": "Link",
-				"componentAttributes": {
-					"openPrint": true
-				}
-			},
-			{
-				"name": "status",
-				"component": "StatusChip",
-				"componentAttributes": {
-					"useTheme": true
-				}
-			}
-		]
-	},
-	"statusBar": {
-		"field": "statusFieldName",
-		"hide": true,
-		"useTheme": true
-	},
-	"source": {
-		"service": "sac",
-		"namespace": "claim-type",
-		"method": "browse",
-		"resolve": false
-	},
-	"sortEndpoint": {
-		"service": "service",
-		"namespace": "namespace",
-		"method": "method",
-		"resolve": false
-	},
-	"fieldSortEndpoint": "id",
-	"appearance": {
-		"desktop": {
-			"rowMinHeight": 70,
-			"rowVerticalAlign": "top"
-		}
-	},
-	"endpointParameters": [
-		{
-			"name": "status",
-			"target": "path",
-			"value": {
-				"static": "statusId"
-			}
-		},
-		{
-			"name": "status",
-			"target": "path",
-			"value": {
-				"static": [2, 4]
-			}
-		}
-	],
-	"massiveActions": {
-		"title": "common.title",
-		"translateTitle": true,
-		"modalSize": "large",
-		"source": {
-			"service": "serviceName",
-			"namespace": "namespaceName",
-			"method": "methodName",
-			"resolve": false
-		},
-		"endpointParameters": [
-			{
-				"name": "status",
-				"target": "query",
-				"value": {
-					"static": "active"
-				}
-			}
-		],
-		"actions": [
-			{
-				"name": "testEndpoint",
-				"type": "endpoint",
-				"callback": "refresh",
-				"componentAttributes": {
-					"icon": "box",
-					"endpoint": {
-						"service": "serviceName",
-						"namespace": "namespaceName",
-						"method": "methodName",
-						"resolve": false
-					},
-					"endpointParameters": [
-						{
-							"name": "id",
-							"target": "path",
-							"value": {
-								"dynamic": "id"
-							}
-						}
-					]
-				}
-			},
-			{
-				"name": "SelectPicker",
-				"type": "form",
-				"componentAttributes": {
-					"requestFields": {
-						"id": "orderId",
-						"pickerId": "Example"
-					},
-					"icon": "user_closed",
-					"fields": [
-						{
-							"name": "pickerId",
-							"component": "UserSelector",
-							"componentAttributes": {
-								"onlyActiveUsers": true,
-								"source": {
-									"service": "service",
-									"namespace": "namespace",
-									"method": "methodName",
-									"resolve": false
-								}
-							}
-						}
-					],
-					"endpoint": {
-						"service": "picking",
-						"namespace": "session-picker-batch",
-						"method": "methodName",
-						"resolve": false
-					}
-				}
-			},
-			{
-				"name": "TestingActionEndpoint",
-				"kind": "generic",
-				"type": "endpoint",
-				"componentAttributes": {
-					"requestFields": {
-						"id": "testingId"
-					},
-					"icon": "link",
-					"endpoint": {
-						"service": "playground",
-						"namespace": "views-demo-massive-action",
-						"method": "post",
-						"resolve": false
-					},
-					"endpointParameters": [
-						{
-							"name": "status",
-							"target": "body",
-							"value": {
-								"static": "active"
-							}
-						}
-					]
-				}
-			}
-		]
-	},
-	"themes": {
-		"themeOne": {
-			"new": "black",
-			"closed": "green",
-			"_default": "grey"
-		},
-		"themeTwo": {
-			"new": "grey",
-			"closed": "fizzgreen",
-			"warning": {
-				"somePropOne": "someValue",
-				"somePropTwo": "someValue"
-			}
-		}
-	},
-	"topComponents": [
-		{
-			"component": "TestComponent",
-			"attributes": {
-				"name": "test",
-				"sarasa": "test23"
-			}
-		},
-		{
-			"component": "TestComponent2",
-			"attributes": {
-				"name": "test",
-				"sarasa": "test23"
-			}
-		},
-		{
-			"component": "ActionButtons",
-			"position": "right",
-			"actions": [
-				{
-					"name": "new",
-					"icon": "star_light",
-					"color": "fizzGreen",
-					"type": "link",
-					"options": {
-						"path": "/service/namespace/new"
-					},
-					"callback": "reloadBrowse"
-				}
-			]
-		}
-	],
-	"sortableFields": [
-		{
-			"name": "test"
-		},
-		{
-			"name": "test1",
-			"isDefaultSort": true
-		},
-		{
-			"name": "test2",
-			"initialSortDirection": "asc"
-		}
-	],
-	"dependencies": [
-		{
-			"name": "dependencyOne",
-			"source": {
-				"service": "serviceName",
-				"namespace": "namespaceName",
-				"method": "methodName",
-				"resolve": false
-			},
-			"endpointParameters": [
-				{
-					"name": "status",
-					"target": "path",
-					"value": {
-						"dynamic": "id"
-					}
-				},
-				{
-					"name": "status",
-					"target": "query",
-					"value": {
-						"static": "active"
-					}
-				}
-			],
-			"targetField": "fieldNameOne"
-		},
-		{
-			"name": "dependencyTwo",
-			"source": {
-				"service": "serviceName",
-				"namespace": "namespaceName",
-				"method": "methodName",
-				"resolve": false
-			},
-			"endpointParameters": [
-				{
-					"name": "status",
-					"target": "path",
-					"value": {
-						"dynamic": "id"
-					}
-				},
-				{
-					"name": "status",
-					"target": "query",
-					"value": {
-						"static": "active"
-					}
-				}
-			],
-			"targetField": "fieldNameTwo",
-			"dependencies": [
-				{
-					"name": "dependencyThree",
-					"source": {
-						"service": "serviceName",
-						"namespace": "namespaceName",
-						"method": "methodName",
-						"resolve": false
-					},
-					"endpointParameters": [
-						{
-							"name": "status",
-							"target": "path",
-							"value": {
-								"dynamic": "id"
-							}
-						},
-						{
-							"name": "status",
-							"target": "query",
-							"value": {
-								"static": "active"
-							}
-						}
-					],
-					"targetField": "fieldNameThree"
-				}
-			]
-		}
-	],
-	"graphs": [
-		{
-			"component": "Table",
-			"name": "graphNameOne",
-			"title": "someTitleForGraph",
-			"source": {
-				"service": "serviceName",
-				"namespace": "namespaceName",
-				"method": "methodName",
-				"resolve": false
-			},
-			"endpointParameters": [
-				{
-					"name": "status",
-					"target": "path",
-					"value": {
-						"dynamic": "id"
-					}
-				},
-				{
-					"name": "status",
-					"target": "query",
-					"value": {
-						"static": 1
-					}
-				}
-			],
-			"x": 0,
-			"y": 0,
-			"width": 6,
-			"height": 3
-		},
-		{
-			"component": "LineChart",
-			"name": "graphNameTwo",
-			"title": "someTitleForGraph",
-			"source": {
-				"service": "serviceName",
-				"namespace": "namespaceName",
-				"method": "methodName",
-				"resolve": false
-			},
-			"x": 6,
-			"y": 0,
-			"width": 6,
-			"height": "auto",
-			"label": {
-				"title": {
-					"value": "common.title",
-					"mapper": "translate"
-				},
-				"source": {
-					"field": "someField",
-					"mapper": "booleanToWord"
-				}
-			},
-			"values": [
-				{
-					"title": {
-						"value": "common.title",
-						"mapper": "translate"
-					},
-					"source": {
-						"field": "someField",
-						"value": "someValue"
-					}
-				},
-				{
-					"source": {
-						"field": "otherSomeField",
-						"attributes": {
-							"role": "style"
-						}
-					}
-				}
-			]
-		}
-	],
-	"filters": [
-		{
-			"name": "filterInput",
-			"label": "test.test.test",
-			"component": "Input",
-			"required": true,
-			"componentAttributes": {
-				"icon": "iconName"
-			}
-		},
-		{
-			"name": "filterInputWithDefaultValue",
-			"label": "test.test.test",
-			"component": "Input",
-			"componentAttributes": {
-				"icon": "iconName"
-			},
-			"defaultValue": "test"
-		},
-		{
-			"name": "localSelectGroup",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"canClear": true,
-				"icon": "iconName",
-				"translateGroupLabel": true,
-				"options": {
-					"scope": "local",
-					"values": [
-						{
-							"label": "test",
-							"value": 1,
-							"groupName": "testGroup"
-						},
-						{
-							"label": "test2",
-							"value": 2,
-							"groupName": "testGroup"
-						},
-						{
-							"label": "test3",
-							"value": 3
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "localSelect",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"canClear": true,
-				"icon": "iconName",
-				"options": {
-					"scope": "local",
-					"values": [
-						{
-							"label": "test",
-							"value": 1
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "localSelectWithDefaultValue",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"canClear": true,
-				"icon": "iconName",
-				"options": {
-					"scope": "local",
-					"values": [
-						{
-							"label": "test",
-							"value": "test"
-						},
-						{
-							"label": "test2",
-							"value": "test2"
-						}
-					]
-				}
-			},
-			"defaultValue": ["test"]
-		},
-		{
-			"name": "remoteSelectGroup",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"preloadOptions": true,
-				"options": {
-					"scope": "remote",
-					"endpoint": {
-						"service": "sac",
-						"namespace": "claim-type",
-						"method": "list",
-						"resolve": false
-					},
-					"endpointParameters": [
-						{
-							"name": "status",
-							"target": "path",
-							"value": {
-								"static": 2
-							}
-						},
-						{
-							"name": "status",
-							"target": "query",
-							"value": {
-								"static": 1
-							}
-						}
-					],
-					"valuesMapper": {
-						"label": {
-							"template": "{0} {1} - ({2})",
-							"fields": ["firstname", "lastname", "email"]
-						},
-						"value": "id"
-					},
-					"groupField": "groupName"
-				}
-			}
-		},
-		{
-			"name": "remoteSelect",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"preloadOptions": true,
-				"options": {
-					"scope": "remote",
-					"endpoint": {
-						"service": "sac",
-						"namespace": "claim-type",
-						"method": "list",
-						"resolve": false
-					},
-					"endpointParameters": [
-						{
-							"name": "status",
-							"target": "path",
-							"value": {
-								"static": 2
-							}
-						},
-						{
-							"name": "status",
-							"target": "query",
-							"value": {
-								"static": 1
-							}
-						}
-					],
-					"valuesMapper": {
-						"label": {
-							"template": "{0} {1} - ({2})",
-							"fields": ["firstname", "lastname", "email"]
-						},
-						"value": "id"
-					}
-				}
-			}
-		},
-		{
-			"name": "remoteSelectTwo",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"responseProperty": "someField",
-				"options": {
-					"scope": "remote",
-					"endpoint": {
-						"service": "sac",
-						"namespace": "claim",
-						"method": "list",
-						"resolve": false
-					}
-				}
-			}
-		},
-		{
-			"name": "remoteSelectThree",
-			"component": "Select",
-			"componentAttributes": {
-				"translateLabels": true,
-				"imageField": "imageUrl",
-				"options": {
-					"scope": "remote",
-					"endpoint": {
-						"service": "sac",
-						"namespace": "claim",
-						"method": "list",
-						"resolve": false
-					},
-					"initialValuesEndpoint": false
-				}
-			}
-		},
-		{
-			"name": "remoteMultiselect",
-			"component": "Multiselect",
-			"componentAttributes": {
-				"translateLabels": true,
-				"imageField": "imageUrl",
-				"options": {
-					"scope": "remote",
-					"initialValuesEndpoint": {
-						"service": "sac",
-						"namespace": "claim-type",
-						"method": "list",
-						"resolve": false
-					},
-					"initialValuesFilterName": "id",
-					"endpoint": {
-						"service": "sac",
-						"namespace": "claim-type",
-						"method": "list",
-						"resolve": false
-					},
-					"valuesMapper": {
-						"label": "name",
-						"value": "id"
-					}
-				}
-			}
-		},
-		{
-			"name": "dateTimePickerFilter",
-			"component": "DateTimePicker",
-			"componentAttributes": {
-				"selectDate": false,
-				"selectTime": true,
-				"selectRange": true,
-				"format": "hh:mm"
-			}
-		},
-		{
-			"name": "otherDateTime",
-			"component": "DateTimePicker",
-			"componentAttributes": {
-				"selectDate": true,
-				"selectRange": true,
-				"setStartOfDay": true,
-				"setEndOfDay": true,
-				"presets": true
-			}
-		},
-		{
-			"name": "dateTimePickerDefaultValue",
-			"component": "DateTimePicker",
-			"componentAttributes": {
-				"selectDate": true,
-				"selectRange": true,
-				"setStartOfDay": true,
-				"setEndOfDay": true,
-				"presets": true
-			},
-			"defaultValue": {
-				"from": "yesterday",
-				"to": "today"
-			}
-		},
-		{
-			"name": "dateTimePickerPresets",
-			"component": "DateTimePicker",
-			"componentAttributes": {
-				"selectDate": true,
-				"selectRange": true,
-				"presets": {
-					"today": true,
-					"yesterday": false,
-					"nextWeek": true,
-					"lastWeek": false,
-					"lastMonth": true,
-					"nextMonth": false
-				},
-				"canCreateTime": false,
-				"timeOptions": {
-					"hourLapse": 2,
-					"minuteLapse": 30,
-					"custom": ["11:00", "20:00"]
-				}
-			}
-		},
-		{
-			"name": "userAssigned",
-			"component": "UserSelector"
-		},
-		{
-			"name": "members",
-			"component": "UserSelector",
-			"componentAttributes": {
-				"isMulti": true,
-				"onlyActiveUsers": true,
-				"source": {
-					"service": "service",
-					"namespace": "namespace",
-					"method": "method",
-					"resolve": false
-				}
-			}
-		},
-		{
-			"name": "newStatusOne",
-			"component": "StatusSelector"
-		},
-		{
-			"name": "newStatusTwo",
-			"component": "StatusSelector",
-			"componentAttributes": {
-				"values": ["active", "inactive", "procesing"]
-			}
-		}
-	],
-	"fields": [
-		{
-			"name": "id",
-			"component": "BoldText",
-			"showOnPreview": true,
-			"appearance": {
-				"desktop": {
-					"fontSize": "base",
-					"align": "left",
-					"verticalAlign": "center",
-					"width": "auto"
-				},
-				"mobile": {
-					"fontSize": "baseSmall",
-					"align": "center",
-					"verticalAlign": "top",
-					"width": 50
-				},
-				"default": {
-					"fontColor": "blue",
-					"fontSize": "small",
-					"align": "right",
-					"verticalAlign": "bottom"
-				}
-			},
-			"attributes": {
-				"sortable": true,
-				"isDefaultSort": true
-			},
-			"deviceDisplay": "desktop",
-			"mapper": "addHashtag"
-		},
-		{
-			"name": "motiveName",
-			"component": "MediumText",
-			"showOnPreview": true,
-			"appearance": {
-				"desktop": {
-					"fontSize": "xsmall",
-					"width": "60px"
-				},
-				"mobile": {
-					"fontSize": "large",
-					"width": "80%"
-				},
-				"default": {
-					"fontSize": "xlarge"
-				}
-			},
-			"deviceDisplay": "mobile",
-			"filter": {
-				"component": "Input"
-			}
-		},
-		{
-			"name": "parentName",
-			"component": "Text",
-			"appearance": {
-				"desktop": {
-					"fontSize": "medium"
-				},
-				"default": {
-					"fontSize": "xxlarge"
-				}
-			},
-			"mapper": {
-				"name": "suffix",
-				"props": {
-					"value": ".test"
-				}
-			}
-		},
-		{
-			"name": "customerList",
-			"translateLabel": false,
-			"component": "Text",
-			"mapper": {
-				"name": "arrayMap",
-				"props": {
-					"value": "firstname"
-				}
-			}
-		},
-		{
-			"name": "customerListTwo",
-			"component": "Text",
-			"mapper": {
-				"name": "arrayMap",
-				"props": {
-					"value": {
-						"template": "{0} {1}",
-						"fields": ["firstname", "lastname"]
-					}
-				}
-			}
-		},
-		{
-			"name": "templateText",
-			"component": "Text",
-			"mapper": {
-				"name": "template",
-				"props": {
-					"template": "{0} {1}",
-					"fields": ["firstname", "lastname"]
-				}
-			}
-		},
-		{
-			"name": "exampleTextWithIcon",
-			"component": "Text",
-			"componentAttributes": {
-				"icon": "iconName",
-				"iconColor": "colorName",
-				"fontWeight": "normal"
-			}
-		},
-		{
-			"name": "exampleBadgeLetter",
-			"component": "BadgeLetter",
-			"componentAttributes": {
-				"useTheme": "someTheme"
-			}
-		},
-		{
-			"name": "otherExampleBadgeLetter",
-			"component": "BadgeLetter",
-			"componentAttributes": {
-				"translateLabels": false,
-				"backgroundColorSource": "background",
-				"fontColorSource": "colorName"
-			}
-		},
-		{
-			"name": "exampleImage",
-			"component": "Image",
-			"componentAttributes": {}
-		},
-		{
-			"name": "exampleImageWithProps",
-			"component": "Image",
-			"componentAttributes": {
-				"roundBorders": 50,
-				"width": 50,
-				"height": 50,
-				"urlField": "imageUrl"
-			}
-		},
-		{
-			"name": "exampleUserImage",
-			"component": "UserImage",
-			"componentAttributes": {
-				"size": "medium"
-			}
-		},
-		{
-			"name": "date",
-			"component": "Text",
-			"mapper": {
-				"name": "date",
-				"props": {
-					"incomingFormat": "DD/MM/YYYY",
-					"format": "DD/MM/YYYY"
-				}
-			}
-		},
-		{
-			"name": "nameTest",
-			"component": "Text",
-			"mapper": {
-				"name": "prefix",
-				"props": {
-					"value": "common.names."
-				}
-			}
-		},
-		{
-			"name": "currencyTest",
-			"component": "Text",
-			"mapper": {
-				"name": "currency",
-				"props": {
-					"currencyCode": "USD",
-					"currencyField": "someField"
-				}
-			}
-		},
-		{
-			"name": "linkTest1",
-			"component": "Link"
-		},
-		{
-			"name": "linkTest2",
-			"component": "Link",
-			"componentAttributes": {
-				"translateLabels": true,
-				"labelField": "label",
-				"label": "test",
-				"target": "_self",
-				"labelMapper": "addHashtag",
-				"icon": "iconName"
-			}
-		},
-		{
-			"name": "linkTest3",
-			"component": "Link",
-			"componentAttributes": {
-				"path": "/some/path/{id}"
-			}
-		},
-		{
-			"name": "linkTest4",
-			"component": "Link",
-			"componentAttributes": {
-				"urlTarget": {
-					"service": "service",
-					"namespace": "namespace",
-					"method": "method",
-					"resolve": false
-				},
-				"endpointParameters": [
-					{
-						"name": "status",
-						"target": "path",
-						"value": {
-							"dynamic": "id"
-						}
-					},
-					{
-						"name": "status",
-						"target": "query",
-						"value": {
-							"static": 1
-						}
-					}
-				]
-			}
-		},
-		{
-			"name": "user1",
-			"component": "UserChip"
-		},
-		{
-			"name": "user2",
-			"component": "UserChip",
-			"componentAttributes": {
-				"source": {
-					"service": "service",
-					"namespace": "namespace",
-					"method": "method",
-					"resolve": false
-				},
-				"userDataSource": {
-					"email": "email",
-					"firstname": "firstname",
-					"lastname": "lastname",
-					"image": "image"
-				}
-			}
-		},
-		{
-			"name": "name",
-			"component": "LightText",
-			"filter": {
-				"component": "Input"
-			},
-			"attributes": {
-				"sortable": true
-			}
-		},
-		{
-			"name": "appliesToLogistics",
-			"component": "Chip",
-			"mapper": "booleanToWord",
-			"filter": {
-				"component": "Select",
-				"componentAttributes": {
-					"translateLabels": true,
-					"labelPrefix": "common.boolean.",
-					"options": [
-						{
-							"label": "yes",
-							"value": 1
-						},
-						{
-							"label": "no",
-							"value": 0
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "appliesToLogisticsRemote",
-			"component": "Chip",
-			"mapper": "booleanToWord",
-			"filter": {
-				"component": "Select",
-				"remote": true,
-				"componentAttributes": {
-					"translateLabels": true,
-					"options": {
-						"endpoint": {
-							"service": "view",
-							"namespace": "menu",
-							"method": "list",
-							"resolve": false
-						},
-						"searchParam": "filters[name]",
-						"valuesMapper": {
-							"label": "name",
-							"value": "id"
-						}
-					}
-				}
-			}
-		},
-		{
-			"name": "flags",
-			"component": "Chip",
-			"label": "sac.entities.claimType.fields.appliesTo",
-			"mapper": "translate",
-			"componentAttributes": {
-				"icon": "icon_test"
-			},
-			"filter": {
-				"component": "Select",
-				"remote": true,
-				"componentAttributes": {
-					"translateLabels": true
-				}
-			}
-		},
-		{
-			"name": "iconExampleOne",
-			"component": "Icon"
-		},
-		{
-			"name": "iconExampleTwo",
-			"component": "Icon",
-			"componentAttributes": {
-				"icon": "iconName",
-				"color": "iconColor",
-				"backgroundColor": "backgroundColor"
-			}
-		},
-		{
-			"name": "iconExampleThree",
-			"component": "Icon",
-			"componentAttributes": {
-				"icon": {
-					"useTheme": "someTheme"
-				},
-				"color": {
-					"useTheme": "someTheme"
-				},
-				"useTheme": "someTheme"
-			}
-		},
-		{
-			"name": "iconExampleFour",
-			"component": "Icon",
-			"componentAttributes": {
-				"themeConditionals": {
-					"warning": [
-						[
-							{
-								"name": "lowerThan",
-								"field": "quantity",
-								"referenceValue": 10
-							},
-							{
-								"name": "lowerOrEqualThan",
-								"field": "quantity",
-								"referenceValue": 10
-							}
-						]
-					],
-					"error": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "quantity",
-								"referenceValue": 10
-							},
-							{
-								"name": "greaterOrEqualThan",
-								"field": "quantity",
-								"referenceValue": 10
-							}
-						]
-					]
-				}
-			}
-		},
-		{
-			"name": "areaInCharge",
-			"component": "Chip"
-		},
-		{
-			"name": "testChip",
-			"component": "Chip",
-			"componentAttributes": {
-				"icon": "icon_test",
-				"iconColor": "red",
-				"borderColor": "red",
-				"textColor": "grey",
-				"backgroundColor": "grey"
-			}
-		},
-		{
-			"name": "testChipWithLinkField",
-			"component": "Chip",
-			"componentAttributes": {
-				"borderColor": "red",
-				"textColor": "grey",
-				"backgroundColor": "grey",
-				"linkField": "urlField"
-			}
-		},
-		{
-			"name": "testChipWithPath",
-			"component": "Chip",
-			"componentAttributes": {
-				"borderColor": "red",
-				"textColor": "grey",
-				"backgroundColor": "grey",
-				"path": "/some/path/{id}"
-			}
-		},
-		{
-			"name": "testChipWithPathAndEndpointParameters",
-			"component": "Chip",
-			"componentAttributes": {
-				"borderColor": "red",
-				"textColor": "grey",
-				"backgroundColor": "grey",
-				"path": "/some/path/{id}",
-				"endpointParameters": [
-					{
-						"name": "status",
-						"target": "path",
-						"value": {
-							"dynamic": "id"
-						}
-					},
-					{
-						"name": "status",
-						"target": "query",
-						"value": {
-							"static": 1
-						}
-					}
-				]
-			}
-		},
-		{
-			"name": "testChipWithThemes",
-			"component": "Chip",
-			"componentAttributes": {
-				"icon": {
-					"useTheme": "themeName"
-				},
-				"iconColor": {
-					"useTheme": "themeName"
-				},
-				"borderColor": "red",
-				"textColor": "grey",
-				"backgroundColor": "grey",
-				"useTheme": "themeName"
-			}
-		},
-		{
-			"name": "testChipWithThemesConditionals",
-			"component": "Chip",
-			"componentAttributes": {
-				"useTheme": "themeName",
-				"themeConditionals": {
-					"warning": [
-						[
-							{
-								"name": "lowerThan",
-								"field": "quantity",
-								"referenceValue": 10
-							},
-							{
-								"name": "lowerOrEqualThan",
-								"field": "quantity",
-								"referenceValue": 10
-							}
-						]
-					],
-					"error": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "quantity",
-								"referenceValue": 10
-							},
-							{
-								"name": "greaterOrEqualThan",
-								"field": "quantity",
-								"referenceValue": 10
-							}
-						]
-					]
-				}
-			}
-		},
-		{
-			"name": "testMediumChip",
-			"component": "MediumChip",
-			"componentAttributes": {
-				"icon": "icon_test",
-				"iconColor": "red",
-				"borderColor": "red",
-				"textColor": "grey",
-				"backgroundColor": "grey"
-			}
-		},
-		{
-			"name": "colorOne",
-			"component": "Color"
-		},
-		{
-			"name": "colorTwo",
-			"component": "Color",
-			"componentAttributes": {
-				"showCode": true
-			}
-		},
-		{
-			"name": "CsxClaimChange",
-			"component": "CsxClaimChange"
-		},
-		{
-			"name": "sla",
-			"component": "TimeChip",
-			"mapper": {
-				"name": "numberToTime",
-				"props": {
-					"type": "hour",
-					"format": "HH:mm:ss"
-				}
-			}
-		},
-		{
-			"name": "status",
-			"component": "StatusChip",
-			"attributes": {
-				"isStatus": true,
-				"sortable": true
-			},
-			"componentAttributes": {
-				"useTheme": true
-			},
-			"mapper": "translate",
-			"filter": {
-				"component": "Select",
-				"componentAttributes": {
-					"translateLabels": true,
-					"options": [
-						{
-							"label": "common.status.active",
-							"value": 1
-						},
-						{
-							"label": "common.status.inactive",
-							"value": 0
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "statusWithThemeCustom",
-			"component": "StatusChip",
-			"componentAttributes": {
-				"useTheme": "themeOne"
-			}
-		},
-		{
-			"name": "statusWithThemeConditionals",
-			"component": "StatusChip",
-			"componentAttributes": {
-				"useTheme": "themeOne",
-				"themeConditionals": {
-					"warning": [
-						[
-							{
-								"name": "lowerThan",
-								"field": "quantity",
-								"referenceValue": 10
-							},
-							{
-								"name": "lowerOrEqualThan",
-								"field": "quantity",
-								"referenceValue": 10
-							}
-						]
-					],
-					"error": [
-						[
-							{
-								"name": "greaterThan",
-								"field": "quantity",
-								"referenceValue": 10
-							},
-							{
-								"name": "greaterOrEqualThan",
-								"field": "quantity",
-								"referenceValue": 10
-							}
-						]
-					]
-				}
-			}
-		},
-		{
-			"name": "actions",
-			"component": "ActionButtons",
-			"componentAttributes": {
-				"actionsData": [
-					{
-						"name": "testAction",
-						"icon": "star_light",
-						"color": "fizzGreen",
-						"type": "endpoint",
-						"options": {
-							"endpoint": {
-								"service": "sac",
-								"namespace": "claim",
-								"method": "get",
-								"resolve": false
-							},
-							"endpointParameters": {
-								"id": "id"
-							}
-						}
-					},
-					{
-						"name": "testAction2",
-						"icon": "star_light",
-						"color": "fizzGreen",
-						"type": "endpoint",
-						"options": {
-							"endpoint": {
-								"service": "sac",
-								"namespace": "claim",
-								"method": "get",
-								"resolve": false
-							},
-							"endpointParameters": [
-								{
-									"name": "status",
-									"target": "path",
-									"value": {
-										"dynamic": "id"
-									}
-								},
-								{
-									"name": "status",
-									"target": "query",
-									"value": {
-										"static": 1
-									}
-								}
-							]
-						},
-						"callback": "reloadRow"
-					},
-					{
-						"name": "new",
-						"icon": "star_light",
-						"color": "fizzGreen",
-						"type": "link",
-						"options": {
-							"path": "/sac/claim-type/new"
-						},
-						"callback": "removeRow"
-					}
-				]
-			}
-		},
-		{
-			"name": "userCreated",
-			"component": "AsyncWrapper",
-			"componentAttributes": {
-				"source": {
-					"service": "id",
-					"namespace": "user",
-					"method": "list",
-					"resolve": false
-				},
-				"dataMapping": {
-					"firstname": "firstname",
-					"lastname": "lastname",
-					"email": "email"
-				},
-				"field": {
-					"name": "user",
-					"component": "UserChip",
-					"componentAttributes": {
-						"userDataSource": {
-							"email": "email",
-							"firstname": "firstname",
-							"lastname": "lastname",
-							"image": "image"
-						}
-					}
-				}
-			}
-		},
-		{
-			"name": "userAsync",
-			"component": "AsyncUserChip"
-		},
-		{
-			"name": "userAsyncTwo",
-			"component": "AsyncUserChip",
-			"componentAttributes": {
-				"source": {
-					"service": "service",
-					"namespace": "namespace",
-					"method": "method",
-					"resolve": false
-				}
-			}
-		},
-		{
-			"name": "asyncUser",
-			"component": "AsyncWrapper",
-			"componentAttributes": {
-				"source": {
-					"service": "id",
-					"namespace": "user",
-					"method": "list",
-					"resolve": false
-				},
-				"dataMapping": {
-					"firstname": "userTest"
-				},
-				"field": {
-					"name": "userTest",
-					"component": "Text"
-				}
-			}
-		},
-		{
-			"name": "asyncWrapperNewExample",
-			"component": "AsyncWrapper",
-			"componentAttributes": {
-				"source": {
-					"service": "id",
-					"namespace": "user",
-					"method": "list",
-					"resolve": false
-				},
-				"dataMapping": {
-					"firstname": "userTest"
-				},
-				"dataMatching": {
-					"local": "id",
-					"remote": "someId"
-				},
-				"targetField": "fieldName",
-				"field": {
-					"name": "userTest",
-					"component": "Text"
-				}
-			}
-		},
-		{
-			"name": "multiValueWrapperExampleOne",
-			"component": "MultiValueWrapper",
-			"componentAttributes": {
-				"useDataField": true,
-				"field": {
-					"name": "areaInCharge",
-					"component": "Chip"
-				}
-			}
-		},
-		{
-			"name": "multiValueWrapperExampleTwo",
-			"component": "MultiValueWrapper",
-			"componentAttributes": {
-				"useDataField": true,
-				"isCollapsable": true,
-				"field": {
-					"name": "areaInCharge",
-					"component": "Chip"
-				}
-			}
-		},
-		{
-			"name": "multiValueWrapperExampleThree",
-			"component": "MultiValueWrapper",
-			"componentAttributes": {
-				"direction": "horizontal",
-				"isCollapsable": "onlyMobile",
-				"defaultStatus": "open",
-				"itemsToShowWhenClosed": 1,
-				"field": {
-					"name": "areaInCharge",
-					"component": "Chip"
-				}
-			}
-		},
-		{
-			"name": "multiValueWrapperExampleFour",
-			"component": "MultiValueWrapper",
-			"componentAttributes": {
-				"direction": "horizontal",
-				"isCollapsable": "onlyDesktop",
-				"defaultStatus": "closed",
-				"field": {
-					"name": "areaInCharge",
-					"component": "Chip"
-				}
-			}
-		},
-		{
-			"name": "exampleFieldWithConditions",
-			"component": "Text",
-			"conditions": {
-				"showWhen": [
-					[
-						{
-							"name": "isNotEmpty",
-							"field": ["test", "tes2"]
-						},
-						{
-							"name": "isNotEqualTo",
-							"field": "name",
-							"referenceValueType": "static",
-							"referenceValue": null
-						}
-					],
-					[
-						{
-							"name": "isEmpty",
-							"field": "someField"
-						},
-						{
-							"name": "isOneOf",
-							"field": "someField",
-							"referenceValue": ["test1", "test2"]
-						},
-						{
-							"name": "isNotDev"
-						}
-					]
-				]
-			}
-		},
-		{
-			"name": "exampleFieldWithConditionsTwo",
-			"component": "Text",
-			"conditions": {
-				"showWhen": [
-					[
-						{
-							"name": "isEqualTo",
-							"field": "user1",
-							"referenceValueType": "dynamic",
-							"referenceValue": "name"
-						},
-						{
-							"name": "isNotOneOf",
-							"field": "someField",
-							"referenceValue": ["test1", "test2"]
-						}
-					],
-					[
-						{
-							"name": "isNotEqualTo",
-							"field": ["test", "name"],
-							"referenceValue": true
-						}
-					]
-				]
-			}
-		},
-		{
-			"name": "interactionExampleOne",
-			"component": "Text",
-			"onHover": {
-				"mobile": {
-					"type": "ListTooltip",
-					"title": "common.title",
-					"source": {
-						"service": "serviceName",
-						"namespace": "namespaceName",
-						"method": "methodName",
-						"resolve": false
-					},
-					"endpointParameters": [
-						{
-							"name": "id",
-							"target": "path",
-							"value": {
-								"static": "fieldId"
-							}
-						}
-					],
-					"listFields": ["fieldName"]
-				},
-				"desktop": {
-					"type": "Tooltip",
-					"label": "common.title",
-					"sourceField": "labelField",
-					"translateLabels": true,
-					"mapper": {
-						"name": "suffix",
-						"props": {
-							"value": "comon.test."
-						}
-					}
-				}
-			},
-			"onClick": {
-				"mobile": {
-					"type": "ListTooltip",
-					"title": "common.title",
-					"source": {
-						"service": "serviceName",
-						"namespace": "namespaceName",
-						"method": "methodName",
-						"resolve": false
-					},
-					"listFields": ["fieldName"]
-				},
-				"desktop": {
-					"type": "ListModal",
-					"title": "common.title",
-					"sourceField": "fieldName",
-					"conditions": {
-						"showWhen": [
-							[
-								{
-									"name": "isEqualTo",
-									"field": "someField",
-									"refereceValue": "value"
-								}
-							]
-						]
-					},
-					"listFields": ["fieldName"]
-				}
-			}
-		},
-		{
-			"name": "interactionExampleTwo",
-			"component": "Text",
-			"onHover": {
-				"all": {
-					"type": "ListModal",
-					"title": "common.title",
-					"source": {
-						"service": "serviceName",
-						"namespace": "namespaceName",
-						"method": "methodName",
-						"resolve": false
-					},
-					"listFields": ["fieldName"],
-					"viewMoreLink": "/test/{id}",
-					"viewMoreEndpointParameters": [
-						{
-							"name": "id",
-							"target": "path",
-							"value": {
-								"static": "fieldId"
-							}
-						}
-					]
-				}
-			},
-			"onClick": {
-				"desktop": {
-					"type": "Tooltip",
-					"label": "common.title",
-					"translateLabels": true,
-					"mapper": [
-						{
-							"name": "suffix",
-							"props": {
-								"value": "comon.test.",
-								"translate": true
-							}
-						},
-						{
-							"name": "prefix",
-							"props": {
-								"value": "comon.test.",
-								"translate": false
-							}
-						}
-					]
-				},
-				"all": {
-					"type": "ListModal",
-					"title": "common.title",
-					"source": {
-						"service": "serviceName",
-						"namespace": "namespaceName",
-						"method": "methodName",
-						"resolve": false
-					},
-					"listFields": ["fieldName"],
-					"viewMoreLink": "/test/{id}",
-					"viewMoreEndpointParameters": [
-						{
-							"name": "id",
-							"target": "path",
-							"value": {
-								"static": "fieldId"
-							}
-						}
-					]
-				}
-			}
-		}
-	],
-	"actions": [
-		{
-			"name": "someAction",
-			"type": "link",
-			"options": {
-				"path": "/some/path"
-			},
-			"conditions": {
-				"showWhen": [
-					[
-						{
-							"name": "isDev"
-						}
-					]
-				]
-			}
-		}
-	]
+  "rowLink": {
+    "path": "/route/{id}/edit",
+    "endpointParameters": [
+      {
+        "name": "status",
+        "target": "path",
+        "value": {
+          "dynamic": "statusId"
+        }
+      },
+      {
+        "name": "status",
+        "target": "query",
+        "value": {
+          "static": 1
+        }
+      }
+    ]
+  },
+  "featureFlags": {
+    "allowMultiSort": false
+  },
+  "rowCollapse": {
+    "source": {
+      "service": "service",
+      "namespace": "namespace",
+      "method": "method",
+      "resolve": false
+    },
+    "previewSource": {
+      "service": "service",
+      "namespace": "namespace",
+      "method": "method",
+      "resolve": false
+    },
+    "endpointParameters": [
+      {
+        "name": "id",
+        "target": "path",
+        "value": {
+          "dynamic": "id"
+        }
+      }
+    ],
+    "sourceField": "fieldName",
+    "fields": [
+      {
+        "name": "exampleLocationOne",
+        "component": "Location",
+        "componentAttributes": {
+          "label": "some.traduction.label",
+          "modalSize": "small",
+          "fieldsMapping": {
+            "latitude": "lat",
+            "longitude": "lng"
+          }
+        }
+      },
+      {
+        "name": "textField",
+        "component": "Text"
+      },
+      {
+        "name": "boldTextField",
+        "component": "BoldText"
+      },
+      {
+        "name": "chipField",
+        "component": "Chip"
+      },
+      {
+        "name": "mediumChipField",
+        "component": "MediumChip"
+      },
+      {
+        "name": "iconField",
+        "component": "Icon"
+      },
+      {
+        "name": "linkField",
+        "component": "Link",
+        "componentAttributes": {
+          "path": "/some/path/{id}"
+        }
+      },
+      {
+        "name": "printLink",
+        "component": "Link",
+        "componentAttributes": {
+          "openPrint": true
+        }
+      },
+      {
+        "name": "status",
+        "component": "StatusChip",
+        "componentAttributes": {
+          "useTheme": true
+        }
+      }
+    ]
+  },
+  "statusBar": {
+    "field": "statusFieldName",
+    "hide": true,
+    "useTheme": true
+  },
+  "source": {
+    "service": "sac",
+    "namespace": "claim-type",
+    "method": "browse",
+    "resolve": false
+  },
+  "sortEndpoint": {
+    "service": "service",
+    "namespace": "namespace",
+    "method": "method",
+    "resolve": false
+  },
+  "fieldSortEndpoint": "id",
+  "appearance": {
+    "desktop": {
+      "rowMinHeight": 70,
+      "rowVerticalAlign": "top"
+    }
+  },
+  "endpointParameters": [
+    {
+      "name": "status",
+      "target": "path",
+      "value": {
+        "static": "statusId"
+      }
+    },
+    {
+      "name": "status",
+      "target": "path",
+      "value": {
+        "static": [2, 4]
+      }
+    }
+  ],
+  "massiveActions": {
+    "title": "common.title",
+    "translateTitle": true,
+    "modalSize": "large",
+    "source": {
+      "service": "serviceName",
+      "namespace": "namespaceName",
+      "method": "methodName",
+      "resolve": false
+    },
+    "endpointParameters": [
+      {
+        "name": "status",
+        "target": "query",
+        "value": {
+          "static": "active"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "name": "testEndpoint",
+        "type": "endpoint",
+        "callback": "refresh",
+        "componentAttributes": {
+          "icon": "box",
+          "endpoint": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "id",
+              "target": "path",
+              "value": {
+                "dynamic": "id"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "SelectPicker",
+        "type": "form",
+        "componentAttributes": {
+          "requestFields": {
+            "id": "orderId",
+            "pickerId": "Example"
+          },
+          "icon": "user_closed",
+          "fields": [
+            {
+              "name": "pickerId",
+              "component": "UserSelector",
+              "componentAttributes": {
+                "onlyActiveUsers": true,
+                "source": {
+                  "service": "service",
+                  "namespace": "namespace",
+                  "method": "methodName",
+                  "resolve": false
+                }
+              }
+            }
+          ],
+          "endpoint": {
+            "service": "picking",
+            "namespace": "session-picker-batch",
+            "method": "methodName",
+            "resolve": false
+          }
+        }
+      },
+      {
+        "name": "TestingActionEndpoint",
+        "kind": "generic",
+        "type": "endpoint",
+        "componentAttributes": {
+          "requestFields": {
+            "id": "testingId"
+          },
+          "icon": "link",
+          "endpoint": {
+            "service": "playground",
+            "namespace": "views-demo-massive-action",
+            "method": "post",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "status",
+              "target": "body",
+              "value": {
+                "static": "active"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "themes": {
+    "themeOne": {
+      "new": "black",
+      "closed": "green",
+      "_default": "grey"
+    },
+    "themeTwo": {
+      "new": "grey",
+      "closed": "fizzgreen",
+      "warning": {
+        "somePropOne": "someValue",
+        "somePropTwo": "someValue"
+      }
+    }
+  },
+  "topComponents": [
+    {
+      "component": "TestComponent",
+      "attributes": {
+        "name": "test",
+        "sarasa": "test23"
+      }
+    },
+    {
+      "component": "TestComponent2",
+      "attributes": {
+        "name": "test",
+        "sarasa": "test23"
+      }
+    },
+    {
+      "component": "ActionButtons",
+      "position": "right",
+      "actions": [
+        {
+          "name": "new",
+          "icon": "star_light",
+          "color": "fizzGreen",
+          "type": "link",
+          "options": {
+            "path": "/service/namespace/new"
+          },
+          "callback": "reloadBrowse"
+        }
+      ]
+    }
+  ],
+  "sortableFields": [
+    {
+      "name": "test"
+    },
+    {
+      "name": "test1",
+      "isDefaultSort": true
+    },
+    {
+      "name": "test2",
+      "initialSortDirection": "asc"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "dependencyOne",
+      "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "path",
+          "value": {
+            "dynamic": "id"
+          }
+        },
+        {
+          "name": "status",
+          "target": "query",
+          "value": {
+            "static": "active"
+          }
+        }
+      ],
+      "targetField": "fieldNameOne"
+    },
+    {
+      "name": "dependencyTwo",
+      "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "path",
+          "value": {
+            "dynamic": "id"
+          }
+        },
+        {
+          "name": "status",
+          "target": "query",
+          "value": {
+            "static": "active"
+          }
+        }
+      ],
+      "targetField": "fieldNameTwo",
+      "dependencies": [
+        {
+          "name": "dependencyThree",
+          "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "status",
+              "target": "path",
+              "value": {
+                "dynamic": "id"
+              }
+            },
+            {
+              "name": "status",
+              "target": "query",
+              "value": {
+                "static": "active"
+              }
+            }
+          ],
+          "targetField": "fieldNameThree"
+        }
+      ]
+    }
+  ],
+  "graphs": [
+    {
+      "component": "Table",
+      "name": "graphNameOne",
+      "title": "someTitleForGraph",
+      "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+      },
+      "endpointParameters": [
+        {
+          "name": "status",
+          "target": "path",
+          "value": {
+            "dynamic": "id"
+          }
+        },
+        {
+          "name": "status",
+          "target": "query",
+          "value": {
+            "static": 1
+          }
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "width": 6,
+      "height": 3
+    },
+    {
+      "component": "LineChart",
+      "name": "graphNameTwo",
+      "title": "someTitleForGraph",
+      "source": {
+        "service": "serviceName",
+        "namespace": "namespaceName",
+        "method": "methodName",
+        "resolve": false
+      },
+      "x": 6,
+      "y": 0,
+      "width": 6,
+      "height": "auto",
+      "label": {
+        "title": {
+          "value": "common.title",
+          "mapper": "translate"
+        },
+        "source": {
+          "field": "someField",
+          "mapper": "booleanToWord"
+        }
+      },
+      "values": [
+        {
+          "title": {
+            "value": "common.title",
+            "mapper": "translate"
+          },
+          "source": {
+            "field": "someField",
+            "value": "someValue"
+          }
+        },
+        {
+          "source": {
+            "field": "otherSomeField",
+            "attributes": {
+              "role": "style"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "name": "filterInput",
+      "label": "test.test.test",
+      "component": "Input",
+      "required": true,
+      "componentAttributes": {
+        "icon": "iconName"
+      }
+    },
+    {
+      "name": "filterInputWithDefaultValue",
+      "label": "test.test.test",
+      "component": "Input",
+      "componentAttributes": {
+        "icon": "iconName"
+      },
+      "defaultValue": "test"
+    },
+    {
+      "name": "localSelectGroup",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "canClear": true,
+        "icon": "iconName",
+        "translateGroupLabel": true,
+        "options": {
+          "scope": "local",
+          "values": [
+            {
+              "label": "test",
+              "value": 1,
+              "groupName": "testGroup"
+            },
+            {
+              "label": "test2",
+              "value": 2,
+              "groupName": "testGroup"
+            },
+            {
+              "label": "test3",
+              "value": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "localSelect",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "canClear": true,
+        "icon": "iconName",
+        "options": {
+          "scope": "local",
+          "values": [
+            {
+              "label": "test",
+              "value": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "localSelectWithDefaultValue",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "canClear": true,
+        "icon": "iconName",
+        "options": {
+          "scope": "local",
+          "values": [
+            {
+              "label": "test",
+              "value": "test"
+            },
+            {
+              "label": "test2",
+              "value": "test2"
+            }
+          ]
+        }
+      },
+      "defaultValue": ["test"]
+    },
+    {
+      "name": "remoteSelectGroup",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "preloadOptions": true,
+        "options": {
+          "scope": "remote",
+          "endpoint": {
+            "service": "sac",
+            "namespace": "claim-type",
+            "method": "list",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "status",
+              "target": "path",
+              "value": {
+                "static": 2
+              }
+            },
+            {
+              "name": "status",
+              "target": "query",
+              "value": {
+                "static": 1
+              }
+            }
+          ],
+          "valuesMapper": {
+            "label": {
+              "template": "{0} {1} - ({2})",
+              "fields": ["firstname", "lastname", "email"]
+            },
+            "value": "id"
+          },
+          "groupField": "groupName"
+        }
+      }
+    },
+    {
+      "name": "remoteSelect",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "preloadOptions": true,
+        "options": {
+          "scope": "remote",
+          "endpoint": {
+            "service": "sac",
+            "namespace": "claim-type",
+            "method": "list",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "status",
+              "target": "path",
+              "value": {
+                "static": 2
+              }
+            },
+            {
+              "name": "status",
+              "target": "query",
+              "value": {
+                "static": 1
+              }
+            }
+          ],
+          "valuesMapper": {
+            "label": {
+              "template": "{0} {1} - ({2})",
+              "fields": ["firstname", "lastname", "email"]
+            },
+            "value": "id"
+          }
+        }
+      }
+    },
+    {
+      "name": "remoteSelectTwo",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "responseProperty": "someField",
+        "options": {
+          "scope": "remote",
+          "endpoint": {
+            "service": "sac",
+            "namespace": "claim",
+            "method": "list",
+            "resolve": false
+          }
+        }
+      }
+    },
+    {
+      "name": "remoteSelectThree",
+      "component": "Select",
+      "componentAttributes": {
+        "translateLabels": true,
+        "imageField": "imageUrl",
+        "options": {
+          "scope": "remote",
+          "endpoint": {
+            "service": "sac",
+            "namespace": "claim",
+            "method": "list",
+            "resolve": false
+          },
+          "initialValuesEndpoint": false
+        }
+      }
+    },
+    {
+      "name": "remoteMultiselect",
+      "component": "Multiselect",
+      "componentAttributes": {
+        "translateLabels": true,
+        "imageField": "imageUrl",
+        "options": {
+          "scope": "remote",
+          "initialValuesEndpoint": {
+            "service": "sac",
+            "namespace": "claim-type",
+            "method": "list",
+            "resolve": false
+          },
+          "initialValuesFilterName": "id",
+          "endpoint": {
+            "service": "sac",
+            "namespace": "claim-type",
+            "method": "list",
+            "resolve": false
+          },
+          "valuesMapper": {
+            "label": "name",
+            "value": "id"
+          }
+        }
+      }
+    },
+    {
+      "name": "dateTimePickerFilter",
+      "component": "DateTimePicker",
+      "componentAttributes": {
+        "selectDate": false,
+        "selectTime": true,
+        "selectRange": true,
+        "format": "hh:mm"
+      }
+    },
+    {
+      "name": "otherDateTime",
+      "component": "DateTimePicker",
+      "componentAttributes": {
+        "selectDate": true,
+        "selectRange": true,
+        "setStartOfDay": true,
+        "setEndOfDay": true,
+        "presets": true
+      }
+    },
+    {
+      "name": "dateTimePickerDefaultValue",
+      "component": "DateTimePicker",
+      "componentAttributes": {
+        "selectDate": true,
+        "selectRange": true,
+        "setStartOfDay": true,
+        "setEndOfDay": true,
+        "presets": true
+      },
+      "defaultValue": {
+        "from": "yesterday",
+        "to": "today"
+      }
+    },
+    {
+      "name": "dateTimePickerPresets",
+      "component": "DateTimePicker",
+      "componentAttributes": {
+        "selectDate": true,
+        "selectRange": true,
+        "presets": {
+          "today": true,
+          "yesterday": false,
+          "nextWeek": true,
+          "lastWeek": false,
+          "lastMonth": true,
+          "nextMonth": false
+        },
+        "canCreateTime": false,
+        "timeOptions": {
+          "hourLapse": 2,
+          "minuteLapse": 30,
+          "custom": ["11:00", "20:00"]
+        }
+      }
+    },
+    {
+      "name": "userAssigned",
+      "component": "UserSelector"
+    },
+    {
+      "name": "members",
+      "component": "UserSelector",
+      "componentAttributes": {
+        "isMulti": true,
+        "onlyActiveUsers": true,
+        "source": {
+          "service": "service",
+          "namespace": "namespace",
+          "method": "method",
+          "resolve": false
+        }
+      }
+    },
+    {
+      "name": "newStatusOne",
+      "component": "StatusSelector"
+    },
+    {
+      "name": "newStatusTwo",
+      "component": "StatusSelector",
+      "componentAttributes": {
+        "values": ["active", "inactive", "procesing"]
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "component": "BoldText",
+      "showOnPreview": true,
+      "appearance": {
+        "desktop": {
+          "fontSize": "base",
+          "align": "left",
+          "verticalAlign": "center",
+          "width": "auto"
+        },
+        "mobile": {
+          "fontSize": "baseSmall",
+          "align": "center",
+          "verticalAlign": "top",
+          "width": 50
+        },
+        "default": {
+          "fontColor": "blue",
+          "fontSize": "small",
+          "align": "right",
+          "verticalAlign": "bottom"
+        }
+      },
+      "attributes": {
+        "sortable": true,
+        "isDefaultSort": true
+      },
+      "deviceDisplay": "desktop",
+      "mapper": "addHashtag"
+    },
+    {
+      "name": "motiveName",
+      "component": "MediumText",
+      "showOnPreview": true,
+      "appearance": {
+        "desktop": {
+          "fontSize": "xsmall",
+          "width": "60px"
+        },
+        "mobile": {
+          "fontSize": "large",
+          "width": "80%"
+        },
+        "default": {
+          "fontSize": "xlarge"
+        }
+      },
+      "deviceDisplay": "mobile",
+      "filter": {
+        "component": "Input"
+      }
+    },
+    {
+      "name": "parentName",
+      "component": "Text",
+      "appearance": {
+        "desktop": {
+          "fontSize": "medium"
+        },
+        "default": {
+          "fontSize": "xxlarge"
+        }
+      },
+      "mapper": {
+        "name": "suffix",
+        "props": {
+          "value": ".test"
+        }
+      }
+    },
+    {
+      "name": "customerList",
+      "translateLabel": false,
+      "component": "Text",
+      "mapper": {
+        "name": "arrayMap",
+        "props": {
+          "value": "firstname"
+        }
+      }
+    },
+    {
+      "name": "customerListTwo",
+      "component": "Text",
+      "mapper": {
+        "name": "arrayMap",
+        "props": {
+          "value": {
+            "template": "{0} {1}",
+            "fields": ["firstname", "lastname"]
+          }
+        }
+      }
+    },
+    {
+      "name": "templateText",
+      "component": "Text",
+      "mapper": {
+        "name": "template",
+        "props": {
+          "template": "{0} {1}",
+          "fields": ["firstname", "lastname"]
+        }
+      }
+    },
+    {
+      "name": "exampleTextWithIcon",
+      "component": "Text",
+      "componentAttributes": {
+        "icon": "iconName",
+        "iconColor": "colorName",
+        "fontWeight": "normal"
+      }
+    },
+    {
+      "name": "exampleBadgeLetter",
+      "component": "BadgeLetter",
+      "componentAttributes": {
+        "useTheme": "someTheme"
+      }
+    },
+    {
+      "name": "otherExampleBadgeLetter",
+      "component": "BadgeLetter",
+      "componentAttributes": {
+        "translateLabels": false,
+        "backgroundColorSource": "background",
+        "fontColorSource": "colorName"
+      }
+    },
+    {
+      "name": "exampleImage",
+      "component": "Image",
+      "componentAttributes": {}
+    },
+    {
+      "name": "exampleImageWithProps",
+      "component": "Image",
+      "componentAttributes": {
+        "roundBorders": 50,
+        "width": 50,
+        "height": 50,
+        "urlField": "imageUrl"
+      }
+    },
+    {
+      "name": "exampleUserImage",
+      "component": "UserImage",
+      "componentAttributes": {
+        "size": "medium"
+      }
+    },
+    {
+      "name": "date",
+      "component": "Text",
+      "mapper": {
+        "name": "date",
+        "props": {
+          "incomingFormat": "DD/MM/YYYY",
+          "format": "DD/MM/YYYY"
+        }
+      }
+    },
+    {
+      "name": "nameTest",
+      "component": "Text",
+      "mapper": {
+        "name": "prefix",
+        "props": {
+          "value": "common.names."
+        }
+      }
+    },
+    {
+      "name": "currencyTest",
+      "component": "Text",
+      "mapper": {
+        "name": "currency",
+        "props": {
+          "currencyCode": "USD",
+          "currencyField": "someField"
+        }
+      }
+    },
+    {
+      "name": "linkTest1",
+      "component": "Link"
+    },
+    {
+      "name": "linkTest2",
+      "component": "Link",
+      "componentAttributes": {
+        "translateLabels": true,
+        "labelField": "label",
+        "label": "test",
+        "target": "_self",
+        "labelMapper": "addHashtag",
+        "icon": "iconName"
+      }
+    },
+    {
+      "name": "linkTest3",
+      "component": "Link",
+      "componentAttributes": {
+        "path": "/some/path/{id}"
+      }
+    },
+    {
+      "name": "linkTest4",
+      "component": "Link",
+      "componentAttributes": {
+        "urlTarget": {
+          "service": "service",
+          "namespace": "namespace",
+          "method": "method",
+          "resolve": false
+        },
+        "endpointParameters": [
+          {
+            "name": "status",
+            "target": "path",
+            "value": {
+              "dynamic": "id"
+            }
+          },
+          {
+            "name": "status",
+            "target": "query",
+            "value": {
+              "static": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "user1",
+      "component": "UserChip"
+    },
+    {
+      "name": "user2",
+      "component": "UserChip",
+      "componentAttributes": {
+        "source": {
+          "service": "service",
+          "namespace": "namespace",
+          "method": "method",
+          "resolve": false
+        },
+        "userDataSource": {
+          "email": "email",
+          "firstname": "firstname",
+          "lastname": "lastname",
+          "image": "image"
+        }
+      }
+    },
+    {
+      "name": "name",
+      "component": "LightText",
+      "filter": {
+        "component": "Input"
+      },
+      "attributes": {
+        "sortable": true
+      }
+    },
+    {
+      "name": "appliesToLogistics",
+      "component": "Chip",
+      "mapper": "booleanToWord",
+      "filter": {
+        "component": "Select",
+        "componentAttributes": {
+          "translateLabels": true,
+          "labelPrefix": "common.boolean.",
+          "options": [
+            {
+              "label": "yes",
+              "value": 1
+            },
+            {
+              "label": "no",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "appliesToLogisticsRemote",
+      "component": "Chip",
+      "mapper": "booleanToWord",
+      "filter": {
+        "component": "Select",
+        "remote": true,
+        "componentAttributes": {
+          "translateLabels": true,
+          "options": {
+            "endpoint": {
+              "service": "view",
+              "namespace": "menu",
+              "method": "list",
+              "resolve": false
+            },
+            "searchParam": "filters[name]",
+            "valuesMapper": {
+              "label": "name",
+              "value": "id"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "flags",
+      "component": "Chip",
+      "label": "sac.entities.claimType.fields.appliesTo",
+      "mapper": "translate",
+      "componentAttributes": {
+        "icon": "icon_test"
+      },
+      "filter": {
+        "component": "Select",
+        "remote": true,
+        "componentAttributes": {
+          "translateLabels": true
+        }
+      }
+    },
+    {
+      "name": "iconExampleOne",
+      "component": "Icon"
+    },
+    {
+      "name": "iconExampleTwo",
+      "component": "Icon",
+      "componentAttributes": {
+        "icon": "iconName",
+        "color": "iconColor",
+        "backgroundColor": "backgroundColor"
+      }
+    },
+    {
+      "name": "iconExampleThree",
+      "component": "Icon",
+      "componentAttributes": {
+        "icon": {
+          "useTheme": "someTheme"
+        },
+        "color": {
+          "useTheme": "someTheme"
+        },
+        "useTheme": "someTheme"
+      }
+    },
+    {
+      "name": "iconExampleFour",
+      "component": "Icon",
+      "componentAttributes": {
+        "themeConditionals": {
+          "warning": [
+            [
+              {
+                "name": "lowerThan",
+                "field": "quantity",
+                "referenceValue": 10
+              },
+              {
+                "name": "lowerOrEqualThan",
+                "field": "quantity",
+                "referenceValue": 10
+              }
+            ]
+          ],
+          "error": [
+            [
+              {
+                "name": "greaterThan",
+                "field": "quantity",
+                "referenceValue": 10
+              },
+              {
+                "name": "greaterOrEqualThan",
+                "field": "quantity",
+                "referenceValue": 10
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "areaInCharge",
+      "component": "Chip"
+    },
+    {
+      "name": "testChip",
+      "component": "Chip",
+      "componentAttributes": {
+        "icon": "icon_test",
+        "iconColor": "red",
+        "borderColor": "red",
+        "textColor": "grey",
+        "backgroundColor": "grey"
+      }
+    },
+    {
+      "name": "testChipWithLinkField",
+      "component": "Chip",
+      "componentAttributes": {
+        "borderColor": "red",
+        "textColor": "grey",
+        "backgroundColor": "grey",
+        "linkField": "urlField"
+      }
+    },
+    {
+      "name": "testChipWithPath",
+      "component": "Chip",
+      "componentAttributes": {
+        "borderColor": "red",
+        "textColor": "grey",
+        "backgroundColor": "grey",
+        "path": "/some/path/{id}"
+      }
+    },
+    {
+      "name": "testChipWithPathAndEndpointParameters",
+      "component": "Chip",
+      "componentAttributes": {
+        "borderColor": "red",
+        "textColor": "grey",
+        "backgroundColor": "grey",
+        "path": "/some/path/{id}",
+        "endpointParameters": [
+          {
+            "name": "status",
+            "target": "path",
+            "value": {
+              "dynamic": "id"
+            }
+          },
+          {
+            "name": "status",
+            "target": "query",
+            "value": {
+              "static": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "testChipWithThemes",
+      "component": "Chip",
+      "componentAttributes": {
+        "icon": {
+          "useTheme": "themeName"
+        },
+        "iconColor": {
+          "useTheme": "themeName"
+        },
+        "borderColor": "red",
+        "textColor": "grey",
+        "backgroundColor": "grey",
+        "useTheme": "themeName"
+      }
+    },
+    {
+      "name": "testChipWithThemesConditionals",
+      "component": "Chip",
+      "componentAttributes": {
+        "useTheme": "themeName",
+        "themeConditionals": {
+          "warning": [
+            [
+              {
+                "name": "lowerThan",
+                "field": "quantity",
+                "referenceValue": 10
+              },
+              {
+                "name": "lowerOrEqualThan",
+                "field": "quantity",
+                "referenceValue": 10
+              }
+            ]
+          ],
+          "error": [
+            [
+              {
+                "name": "greaterThan",
+                "field": "quantity",
+                "referenceValue": 10
+              },
+              {
+                "name": "greaterOrEqualThan",
+                "field": "quantity",
+                "referenceValue": 10
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "testMediumChip",
+      "component": "MediumChip",
+      "componentAttributes": {
+        "icon": "icon_test",
+        "iconColor": "red",
+        "borderColor": "red",
+        "textColor": "grey",
+        "backgroundColor": "grey"
+      }
+    },
+    {
+      "name": "colorOne",
+      "component": "Color"
+    },
+    {
+      "name": "colorTwo",
+      "component": "Color",
+      "componentAttributes": {
+        "showCode": true
+      }
+    },
+    {
+      "name": "CsxClaimChange",
+      "component": "CsxClaimChange"
+    },
+    {
+      "name": "sla",
+      "component": "TimeChip",
+      "mapper": {
+        "name": "numberToTime",
+        "props": {
+          "type": "hour",
+          "format": "HH:mm:ss"
+        }
+      }
+    },
+    {
+      "name": "status",
+      "component": "StatusChip",
+      "attributes": {
+        "isStatus": true,
+        "sortable": true
+      },
+      "componentAttributes": {
+        "useTheme": true
+      },
+      "mapper": "translate",
+      "filter": {
+        "component": "Select",
+        "componentAttributes": {
+          "translateLabels": true,
+          "options": [
+            {
+              "label": "common.status.active",
+              "value": 1
+            },
+            {
+              "label": "common.status.inactive",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "statusWithThemeCustom",
+      "component": "StatusChip",
+      "componentAttributes": {
+        "useTheme": "themeOne"
+      }
+    },
+    {
+      "name": "statusWithThemeConditionals",
+      "component": "StatusChip",
+      "componentAttributes": {
+        "useTheme": "themeOne",
+        "themeConditionals": {
+          "warning": [
+            [
+              {
+                "name": "lowerThan",
+                "field": "quantity",
+                "referenceValue": 10
+              },
+              {
+                "name": "lowerOrEqualThan",
+                "field": "quantity",
+                "referenceValue": 10
+              }
+            ]
+          ],
+          "error": [
+            [
+              {
+                "name": "greaterThan",
+                "field": "quantity",
+                "referenceValue": 10
+              },
+              {
+                "name": "greaterOrEqualThan",
+                "field": "quantity",
+                "referenceValue": 10
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "actions",
+      "component": "ActionButtons",
+      "componentAttributes": {
+        "actionsData": [
+          {
+            "name": "testAction",
+            "icon": "star_light",
+            "color": "fizzGreen",
+            "type": "endpoint",
+            "options": {
+              "endpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "get",
+                "resolve": false
+              },
+              "endpointParameters": {
+                "id": "id"
+              }
+            }
+          },
+          {
+            "name": "testAction2",
+            "icon": "star_light",
+            "color": "fizzGreen",
+            "type": "endpoint",
+            "options": {
+              "endpoint": {
+                "service": "sac",
+                "namespace": "claim",
+                "method": "get",
+                "resolve": false
+              },
+              "endpointParameters": [
+                {
+                  "name": "status",
+                  "target": "path",
+                  "value": {
+                    "dynamic": "id"
+                  }
+                },
+                {
+                  "name": "status",
+                  "target": "query",
+                  "value": {
+                    "static": 1
+                  }
+                }
+              ]
+            },
+            "callback": "reloadRow"
+          },
+          {
+            "name": "new",
+            "icon": "star_light",
+            "color": "fizzGreen",
+            "type": "link",
+            "options": {
+              "path": "/sac/claim-type/new"
+            },
+            "callback": "removeRow"
+          }
+        ]
+      }
+    },
+    {
+      "name": "userCreated",
+      "component": "AsyncWrapper",
+      "componentAttributes": {
+        "source": {
+          "service": "id",
+          "namespace": "user",
+          "method": "list",
+          "resolve": false
+        },
+        "dataMapping": {
+          "firstname": "firstname",
+          "lastname": "lastname",
+          "email": "email"
+        },
+        "field": {
+          "name": "user",
+          "component": "UserChip",
+          "componentAttributes": {
+            "userDataSource": {
+              "email": "email",
+              "firstname": "firstname",
+              "lastname": "lastname",
+              "image": "image"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "userAsync",
+      "component": "AsyncUserChip"
+    },
+    {
+      "name": "userAsyncTwo",
+      "component": "AsyncUserChip",
+      "componentAttributes": {
+        "source": {
+          "service": "service",
+          "namespace": "namespace",
+          "method": "method",
+          "resolve": false
+        }
+      }
+    },
+    {
+      "name": "asyncUser",
+      "component": "AsyncWrapper",
+      "componentAttributes": {
+        "source": {
+          "service": "id",
+          "namespace": "user",
+          "method": "list",
+          "resolve": false
+        },
+        "dataMapping": {
+          "firstname": "userTest"
+        },
+        "field": {
+          "name": "userTest",
+          "component": "Text"
+        }
+      }
+    },
+    {
+      "name": "asyncWrapperNewExample",
+      "component": "AsyncWrapper",
+      "componentAttributes": {
+        "source": {
+          "service": "id",
+          "namespace": "user",
+          "method": "list",
+          "resolve": false
+        },
+        "dataMapping": {
+          "firstname": "userTest"
+        },
+        "dataMatching": {
+          "local": "id",
+          "remote": "someId"
+        },
+        "targetField": "fieldName",
+        "field": {
+          "name": "userTest",
+          "component": "Text"
+        }
+      }
+    },
+    {
+      "name": "multiValueWrapperExampleOne",
+      "component": "MultiValueWrapper",
+      "componentAttributes": {
+        "useDataField": true,
+        "field": {
+          "name": "areaInCharge",
+          "component": "Chip"
+        }
+      }
+    },
+    {
+      "name": "multiValueWrapperExampleTwo",
+      "component": "MultiValueWrapper",
+      "componentAttributes": {
+        "useDataField": true,
+        "isCollapsable": true,
+        "field": {
+          "name": "areaInCharge",
+          "component": "Chip"
+        }
+      }
+    },
+    {
+      "name": "multiValueWrapperExampleThree",
+      "component": "MultiValueWrapper",
+      "componentAttributes": {
+        "direction": "horizontal",
+        "isCollapsable": "onlyMobile",
+        "defaultStatus": "open",
+        "itemsToShowWhenClosed": 1,
+        "field": {
+          "name": "areaInCharge",
+          "component": "Chip"
+        }
+      }
+    },
+    {
+      "name": "multiValueWrapperExampleFour",
+      "component": "MultiValueWrapper",
+      "componentAttributes": {
+        "direction": "horizontal",
+        "isCollapsable": "onlyDesktop",
+        "defaultStatus": "closed",
+        "field": {
+          "name": "areaInCharge",
+          "component": "Chip"
+        }
+      }
+    },
+    {
+      "name": "exampleFieldWithConditions",
+      "component": "Text",
+      "conditions": {
+        "showWhen": [
+          [
+            {
+              "name": "isNotEmpty",
+              "field": ["test", "tes2"]
+            },
+            {
+              "name": "isNotEqualTo",
+              "field": "name",
+              "referenceValueType": "static",
+              "referenceValue": null
+            }
+          ],
+          [
+            {
+              "name": "isEmpty",
+              "field": "someField"
+            },
+            {
+              "name": "isOneOf",
+              "field": "someField",
+              "referenceValue": ["test1", "test2"]
+            },
+            {
+              "name": "isNotDev"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "name": "exampleFieldWithConditionsTwo",
+      "component": "Text",
+      "conditions": {
+        "showWhen": [
+          [
+            {
+              "name": "isEqualTo",
+              "field": "user1",
+              "referenceValueType": "dynamic",
+              "referenceValue": "name"
+            },
+            {
+              "name": "isNotOneOf",
+              "field": "someField",
+              "referenceValue": ["test1", "test2"]
+            }
+          ],
+          [
+            {
+              "name": "isNotEqualTo",
+              "field": ["test", "name"],
+              "referenceValue": true
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "name": "interactionExampleOne",
+      "component": "Text",
+      "onHover": {
+        "mobile": {
+          "type": "ListTooltip",
+          "title": "common.title",
+          "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "endpointParameters": [
+            {
+              "name": "id",
+              "target": "path",
+              "value": {
+                "static": "fieldId"
+              }
+            }
+          ],
+          "listFields": ["fieldName"]
+        },
+        "desktop": {
+          "type": "Tooltip",
+          "label": "common.title",
+          "sourceField": "labelField",
+          "translateLabels": true,
+          "mapper": {
+            "name": "suffix",
+            "props": {
+              "value": "comon.test."
+            }
+          }
+        }
+      },
+      "onClick": {
+        "mobile": {
+          "type": "ListTooltip",
+          "title": "common.title",
+          "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "listFields": ["fieldName"]
+        },
+        "desktop": {
+          "type": "ListModal",
+          "title": "common.title",
+          "sourceField": "fieldName",
+          "conditions": {
+            "showWhen": [
+              [
+                {
+                  "name": "isEqualTo",
+                  "field": "someField",
+                  "refereceValue": "value"
+                }
+              ]
+            ]
+          },
+          "listFields": ["fieldName"]
+        }
+      }
+    },
+    {
+      "name": "interactionExampleTwo",
+      "component": "Text",
+      "onHover": {
+        "all": {
+          "type": "ListModal",
+          "title": "common.title",
+          "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "listFields": ["fieldName"],
+          "viewMoreLink": "/test/{id}",
+          "viewMoreEndpointParameters": [
+            {
+              "name": "id",
+              "target": "path",
+              "value": {
+                "static": "fieldId"
+              }
+            }
+          ]
+        }
+      },
+      "onClick": {
+        "desktop": {
+          "type": "Tooltip",
+          "label": "common.title",
+          "translateLabels": true,
+          "mapper": [
+            {
+              "name": "suffix",
+              "props": {
+                "value": "comon.test.",
+                "translate": true
+              }
+            },
+            {
+              "name": "prefix",
+              "props": {
+                "value": "comon.test.",
+                "translate": false
+              }
+            }
+          ]
+        },
+        "all": {
+          "type": "ListModal",
+          "title": "common.title",
+          "source": {
+            "service": "serviceName",
+            "namespace": "namespaceName",
+            "method": "methodName",
+            "resolve": false
+          },
+          "listFields": ["fieldName"],
+          "viewMoreLink": "/test/{id}",
+          "viewMoreEndpointParameters": [
+            {
+              "name": "id",
+              "target": "path",
+              "value": {
+                "static": "fieldId"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "someAction",
+      "type": "link",
+      "options": {
+        "path": "/some/path"
+      },
+      "conditions": {
+        "showWhen": [
+          [
+            {
+              "name": "isDev"
+            }
+          ]
+        ]
+      }
+    }
+  ]
 }

@@ -49,6 +49,24 @@
 		],
 		"sourceField": "fieldName",
 		"fields": [
+      {
+        "name": "exampleLocationOne",
+        "component": "Location",
+        "componentAttributes": {
+          "label": "some.traduction.label",
+          "modalSize": "small",
+          "fieldsMapping": {
+            "latitude": "lat",
+            "longitude": "lng"
+          }
+        },
+        "attributes": {
+          "isStatus": false,
+          "sortable": false,
+          "isDefaultSort": false,
+          "initialSortDirection": "desc"
+        }
+      },
 			{
 				"name": "textField",
 				"component": "Text",
