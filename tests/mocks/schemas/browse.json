@@ -69,6 +69,56 @@
         "componentAttributes": {
           "label": "some.traduction.label",
           "modalSize": "small",
+          "markers": {
+            "icon": "iconName",
+            "color": "colorName",
+            "useTheme": "themeName",
+            "themeField": "themeField",
+            "infoSchema": {
+              "fieldsGroup": [
+                {
+                  "name": "detail",
+                  "fields": [
+                    {
+                      "name": "someField",
+                      "component": "Text",
+                      "componentAttributes": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "themeConditionals": {
+              "warning": [
+                [
+                  {
+                    "name": "lowerThan",
+                    "field": "quantity",
+                    "referenceValue": 10
+                  },
+                  {
+                    "name": "lowerOrEqualThan",
+                    "field": "quantity",
+                    "referenceValue": 10
+                  }
+                ]
+              ],
+              "error": [
+                [
+                  {
+                    "name": "greaterThan",
+                    "field": "quantity",
+                    "referenceValue": 10
+                  },
+                  {
+                    "name": "greaterOrEqualThan",
+                    "field": "quantity",
+                    "referenceValue": 10
+                  }
+                ]
+              ]
+            }
+          },
           "fieldsMapping": {
             "latitude": "lat",
             "longitude": "lng"
