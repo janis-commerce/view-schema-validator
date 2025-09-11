@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.4.0] - 2025-09-18
+
+### Added
+
+- Location component centralized in common-components directory
+- Support for advanced markers properties with themeConditionals and infoSchema in Location component
+- Extended fieldsMapping support for 10 address fields in Location component
+
+### Changed
+
+- Browse and edit-new schemas now import Location component from common-components
+
+### Removed
+
+- Duplicate Location component definitions from browse and edit-new modules
+
 ## [3.3.0] - 2025-09-09
 
 ### Added
