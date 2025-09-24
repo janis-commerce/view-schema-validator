@@ -10,6 +10,7 @@ source:
   resolve: false
 saveRedirectUrl: /some-path
 cancelRedirectUrl: /some-path
+hideApplyButton: true
 header:
   title:
     - name: id

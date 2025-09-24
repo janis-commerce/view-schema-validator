@@ -4,6 +4,7 @@
 	"root": "Edit",
 	"canPrint": true,
 	"canCreate": true,
+	"hideApplyButton": true,
 	"source": {
 		"service": "sac",
 		"namespace": "claim-motive",
@@ -134,27 +135,27 @@
 		"translateTitle": true,
 		"modalSize": "extra-large",
 		"source": {
-		  "service": "serviceName",
-		  "namespace": "namespaceName",
-		  "method": "methodName",
-		  "resolve": false
+			"service": "serviceName",
+			"namespace": "namespaceName",
+			"method": "methodName",
+			"resolve": false
 		},
 		"sourceEndpointParameters": [
-		  {
-			"name": "status",
-			"target": "path",
-			"value": {
-			  "dynamic": "id"
+			{
+				"name": "status",
+				"target": "path",
+				"value": {
+					"dynamic": "id"
+				}
+			},
+			{
+				"name": "status",
+				"target": "queryString",
+				"mapper": "booleanToStatus",
+				"value": {
+					"static": true
+				}
 			}
-		  },
-		  {
-			"name": "status",
-			"target": "queryString",
-			"mapper": "booleanToStatus",
-			"value": {
-			  "static": true
-			}
-		  }
 		]
 	},
 	"sections": [
@@ -392,27 +393,27 @@
 							}
 						},
 						{
-              "name": "testActionFour",
-              "icon": "agenda",
-              "color": "blue",
-              "type": "endpoint",
-              "callback": "openModal",
-              "options": {
-                "endpoint": {
-                  "service": "id",
-                  "namespace": "user-temporal-password",
-                  "method": "post",
+							"name": "testActionFour",
+							"icon": "agenda",
+							"color": "blue",
+							"type": "endpoint",
+							"callback": "openModal",
+							"options": {
+								"endpoint": {
+									"service": "id",
+									"namespace": "user-temporal-password",
+									"method": "post",
 									"resolve": false
-                },
-                "endpointParameters": [
-                  {
-                    "name": "id",
-                    "target": "path",
-                    "value": {
-                      "dynamic": "id"
-                    }
-                  }
-                ],
+								},
+								"endpointParameters": [
+									{
+										"name": "id",
+										"target": "path",
+										"value": {
+											"dynamic": "id"
+										}
+									}
+								],
 								"fields": [
 									{
 										"attributes": {
@@ -442,10 +443,10 @@
 												},
 												{
 													"attributes": {
-															"initialSortDirection": "desc",
-															"isDefaultSort": false,
-															"isStatus": false,
-															"sortable": false
+														"initialSortDirection": "desc",
+														"isDefaultSort": false,
+														"isStatus": false,
+														"sortable": false
 													},
 													"component": "CopyToClipboardButton",
 													"componentAttributes": {},
@@ -455,8 +456,8 @@
 										}
 									}
 								]
-              }
-            }
+							}
+						}
 					]
 				},
 				{
@@ -1111,7 +1112,7 @@
 								"language": "json",
 								"canEdit": true,
 								"minLines": 5,
-              					"maxLines": 15
+								"maxLines": 15
 							}
 						},
 						{
@@ -2480,7 +2481,7 @@
 				}
 			],
 			"filesTypes": ["image/png", "image/jpg", "image/gif"],
-            "uploadMultiplesFiles": true
+			"uploadMultiplesFiles": true
 		},
 		{
 			"name": "orderItemsSection",
