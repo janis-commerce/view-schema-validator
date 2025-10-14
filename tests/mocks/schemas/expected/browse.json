@@ -3,6 +3,7 @@
   "name": "claim-type-browse",
   "root": "Browse",
   "autoRefresh": true,
+  "maxPreviewColumns": 3,
   "rowLink": {
     "path": "/route/{id}/edit",
     "endpointParameters": [

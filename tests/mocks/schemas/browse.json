@@ -3,6 +3,7 @@
   "name": "claim-type-browse",
   "root": "Browse",
   "autoRefresh": true,
+  "maxPreviewColumns": 3,
   "canExport": {
     "entities": [
       {
