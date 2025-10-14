@@ -1248,7 +1248,18 @@
     },
     {
       "name": "areaInCharge",
-      "component": "Chip"
+      "component": "Chip",
+      "attributes": {
+        "isStatus": false,
+        "sortable": false,
+        "isDefaultSort": false,
+        "initialSortDirection": "desc"
+      },
+      "componentAttributes": {
+        "borderColor": "grey",
+        "path": "/some/path/{id}",
+        "target": "_blank"
+      }
     },
     {
       "name": "testChip",
