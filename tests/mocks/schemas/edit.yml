@@ -369,6 +369,10 @@ sections:
                     referenceValueType: static
                     referenceValue: null
 
+          - name: name
+            component: CopyToClipboardButton
+            componentAttributes: {}
+
           - name: nameGroup
             component: Select
             componentAttributes:
