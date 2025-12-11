@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.7.0] - 2025-12-11
+
+### Added
+
+- CopyToClipboardButton at Browse and edit pages
+
 ## [3.6.0] - 2025-10-14
 
 ### Added
