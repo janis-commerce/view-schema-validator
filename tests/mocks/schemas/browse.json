@@ -1896,6 +1896,23 @@
           ]
         }
       }
+    },
+    {
+      "name": "interactionExampleThree",
+      "component": "Text",
+      "onHover": {
+        "all": {
+          "type": "ErrorActionsModal"
+        }
+      },
+      "onClick": {
+        "desktop": {
+          "type": "ErrorActionsModal"
+        },
+        "all": {
+          "type": "ErrorActionsModal"
+        }
+      }
     }
   ],
   "actions": [
