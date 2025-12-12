@@ -2438,6 +2438,32 @@
       "componentAttributes": {
         "fontWeight": "normal"
       }
+    },
+      {
+      "name": "interactionExampleThree",
+      "component": "Text",
+      "attributes": {
+        "isStatus": false,
+        "sortable": false,
+        "isDefaultSort": false,
+        "initialSortDirection": "desc"
+      },
+      "onHover": {
+        "all": {
+          "type": "ErrorActionsModal"
+        }
+      },
+      "onClick": {
+        "desktop": {
+          "type": "ErrorActionsModal"
+        },
+        "all": {
+          "type": "ErrorActionsModal"
+        }
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      }
     }
   ],
   "canPreview": false,
