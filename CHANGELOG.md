@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.8.0] - 2025-12-15
+
+### Added
+
+- Errors modal at interactions components
+
 ## [3.7.0] - 2025-12-11
 
 ### Added
