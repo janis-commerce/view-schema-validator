@@ -2413,6 +2413,13 @@
 				"filters": {
 					"exclude": ["search", "dateCreatedRange"]
 				}
+			},
+			{
+				"name": "entityWithBothIncludeExclude",
+				"filters": {
+					"include": ["status", "name"],
+					"exclude": ["internalFlag"]
+				}
 			}
 		]
 	},

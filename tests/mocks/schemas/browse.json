@@ -21,6 +21,13 @@
         "filters": {
           "include": ["status", "name"]
         }
+      },
+      {
+        "name": "entityNameWithBothIncludeExclude",
+        "filters": {
+          "include": ["status", "name"],
+          "exclude": ["internalFlag"]
+        }
       }
     ]
   },
