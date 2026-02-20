@@ -2475,6 +2475,16 @@
         "format": ["exel", "csv", "json"],
         "type": ["report", "for-import"],
         "fields": ["id", "name"]
+      },
+      {
+        "name": "entityNameWithFilters",
+        "filters": false
+      },
+      {
+        "name": "entityNameWithIncludeExclude",
+        "filters": {
+          "include": ["status", "name"]
+        }
       }
     ]
   },
