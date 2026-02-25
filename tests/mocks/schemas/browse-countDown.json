@@ -32,7 +32,7 @@
 				}
 			},
 			{
-				"name": "entityWithBothIncludeExclude",
+				"name": "entityIncludeFilters",
 				"filters": {
 					"include": ["status", "name"]
 				}

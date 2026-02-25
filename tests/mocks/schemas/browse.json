@@ -17,13 +17,13 @@
         "filters": false
       },
       {
-        "name": "entityNameWithIncludeExclude",
+        "name": "entityNameWithInclude",
         "filters": {
           "include": ["status", "name"]
         }
       },
       {
-        "name": "entityNameWithBothIncludeExclude",
+        "name": "entityNameWithExclude",
         "filters": {
           "exclude": ["internalFlag"]
         }
