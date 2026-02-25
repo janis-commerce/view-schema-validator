@@ -34,8 +34,7 @@
 			{
 				"name": "entityWithBothIncludeExclude",
 				"filters": {
-					"include": ["status", "name"],
-					"exclude": ["internalFlag"]
+					"include": ["status", "name"]
 				}
 			}
 		]
