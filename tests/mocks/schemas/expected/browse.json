@@ -976,6 +976,17 @@
       }
     },
     {
+      "name": "svg",
+      "component": "Svg",
+      "componentAttributes": {},
+      "attributes": {
+        "sortable": false,
+        "isDefaultSort": false,
+        "isStatus": false,
+        "initialSortDirection": "desc"
+      }
+    },
+    {
       "name": "motiveName",
       "component": "MediumText",
       "showOnPreview": true,

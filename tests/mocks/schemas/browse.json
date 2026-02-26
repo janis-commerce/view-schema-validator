@@ -897,6 +897,17 @@
       "componentAttributes": {}
     },
     {
+      "name": "svg",
+      "component": "Svg",
+      "attributes": {
+        "sortable": false,
+        "isDefaultSort": false,
+        "isStatus": false,
+        "initialSortDirection": "desc"
+      },
+      "componentAttributes": {}
+    },
+    {
       "name": "motiveName",
       "component": "MediumText",
       "showOnPreview": true,
