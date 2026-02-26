@@ -1,0 +1,24 @@
+service: sac
+name: new-with-date
+root: Create
+canCreate: false
+target:
+  service: sac
+  namespace: claim-motive
+  method: save
+  resolve: false
+saveRedirectUrl: /some-path
+cancelRedirectUrl: /some-path
+sections:
+  - name: mainFormSection
+    rootComponent: MainForm
+    fieldsGroup:
+      - name: detail
+        fields:
+          - name: dateField
+            component: Date
+            componentAttributes: {}
+          - name: dateRelative
+            component: Date
+            componentAttributes:
+              isRelative: true

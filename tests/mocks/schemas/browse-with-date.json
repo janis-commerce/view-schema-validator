@@ -1,0 +1,30 @@
+{
+  "service": "sac",
+  "name": "browse-with-date",
+  "root": "Browse",
+  "source": {
+    "service": "sac",
+    "namespace": "claim-type",
+    "method": "browse",
+    "resolve": false
+  },
+  "fields": [
+    {
+      "name": "id",
+      "component": "BoldText"
+    },
+    {
+      "name": "dateField",
+      "component": "Date",
+      "componentAttributes": {}
+    },
+    {
+      "name": "dateDelivery",
+      "component": "Date",
+      "componentAttributes": {
+        "isDeliveryDate": true,
+        "type": "Text"
+      }
+    }
+  ]
+}

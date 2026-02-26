@@ -1,0 +1,57 @@
+{
+  "service": "sac",
+  "name": "browse-with-date",
+  "root": "Browse",
+  "source": {
+    "service": "sac",
+    "namespace": "claim-type",
+    "method": "browse",
+    "resolve": false
+  },
+  "fields": [
+    {
+      "name": "id",
+      "component": "BoldText",
+      "attributes": {
+        "isStatus": false,
+        "sortable": false,
+        "isDefaultSort": false,
+        "initialSortDirection": "desc"
+      },
+      "componentAttributes": {
+        "fontWeight": "bold"
+      }
+    },
+    {
+      "name": "dateField",
+      "component": "Date",
+      "componentAttributes": {},
+      "attributes": {
+        "isStatus": false,
+        "sortable": false,
+        "isDefaultSort": false,
+        "initialSortDirection": "desc"
+      }
+    },
+    {
+      "name": "dateDelivery",
+      "component": "Date",
+      "componentAttributes": {
+        "isDeliveryDate": true,
+        "type": "Text"
+      },
+      "attributes": {
+        "isStatus": false,
+        "sortable": false,
+        "isDefaultSort": false,
+        "initialSortDirection": "desc"
+      }
+    }
+  ],
+  "canPreview": false,
+  "canCreate": true,
+  "canView": false,
+  "canRefresh": true,
+  "filters": [],
+  "pageSize": 60
+}
