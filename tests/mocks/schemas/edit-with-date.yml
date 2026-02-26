@@ -1,0 +1,26 @@
+service: sac
+name: edit-with-date
+root: Edit
+source:
+  service: sac
+  namespace: claim-motive
+  method: get
+  resolve: false
+sections:
+  - name: mainFormSection
+    rootComponent: MainForm
+    fieldsGroup:
+      - name: detail
+        fields:
+          - name: dateField
+            component: Date
+            componentAttributes: {}
+          - name: dateRelative
+            component: Date
+            componentAttributes:
+              isRelative: true
+          - name: dateDelivery
+            component: Date
+            componentAttributes:
+              isDeliveryDate: true
+              type: Text

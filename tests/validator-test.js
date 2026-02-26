@@ -18,6 +18,8 @@ const browseWithRedirectSchemaJson = fs.readFileSync(process.cwd() + '/tests/moc
 const browseWithRedirectSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-redirect.json');
 const browseWithMappersSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-mappers.json');
 const browseWithMappersExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-mappers.json');
+const browseWithDateSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-date.json');
+const browseWithDateSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-date.json');
 const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
 const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
 const editWithActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions.yml');
@@ -34,11 +36,15 @@ const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/m
 const editWithRemoteActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-remote-actions.json');
 const editWithRedirectYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-redirect.yml');
 const editWithRedirectExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-redirect.json');
+const editWithDateYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-date.yml');
+const editWithDateExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-date.json');
 const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
 const newWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-min-max-input.yml');
 const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
 const newWithRedirectSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-redirect.yml');
 const newWithRedirectSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new-with-redirect.json');
+const newWithDateSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-date.yml');
+const newWithDateSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new-with-date.json');
 const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
 const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
 const dashboardWithSourcesSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard-with-sources.yml');
@@ -123,6 +129,7 @@ describe('Test validation functions', () => {
 		const browseColumnSortableMatchSchema = JSON.parse(browseSchemaColumnSortableMatchJson.toString());
 		const browseWithRedirectSchema = JSON.parse(browseWithRedirectSchemaJson.toString());
 		const browseWithMappersSchema = JSON.parse(browseWithMappersSchemaJson.toString());
+		const browseWithDateSchema = JSON.parse(browseWithDateSchemaJson.toString());
 		const editSchema = ymljs.parse(editSchemaYml.toString());
 		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
 		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
@@ -131,9 +138,11 @@ describe('Test validation functions', () => {
 		const editWithMinMaxInputSchema = ymljs.parse(editWithMinMaxInputSchemaYml.toString());
 		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
 		const editWithRedirectSchema = ymljs.parse(editWithRedirectYml.toString());
+		const editWithDateSchema = ymljs.parse(editWithDateYml.toString());
 		const newSchema = ymljs.parse(newSchemaYml.toString());
 		const newWithMinMaxInputSchema = ymljs.parse(newWithMinMaxInputSchemaYml.toString());
 		const newWithRedirectSchema = ymljs.parse(newWithRedirectSchemaYml.toString());
+		const newWithDateSchema = ymljs.parse(newWithDateSchemaYml.toString());
 		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
 		const dashboardWithSourcesSchema = ymljs.parse(dashboardWithSourcesSchemaYml.toString());
 		const dashboardWithLinksSchema = ymljs.parse(dashboardWithLinksSchemaYml.toString());
@@ -168,6 +177,9 @@ describe('Test validation functions', () => {
 		const dashboardWithSourcesData = Validator.execute(dashboardWithSourcesSchema, true, '/test/data19.json');
 		const dashboardWithLinksData = Validator.execute(dashboardWithLinksSchema, true, '/test/data20.json');
 		const browseWithMappersData = Validator.execute(browseWithMappersSchema, true, '/test/data21.json');
+		const editWithDateData = Validator.execute(editWithDateSchema, true, '/test/edit-with-date.json');
+		const newWithDateData = Validator.execute(newWithDateSchema, true, '/test/new-with-date.json');
+		const browseWithDateData = Validator.execute(browseWithDateSchema, true, '/test/browse-with-date.json');
 
 		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
 		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
@@ -183,9 +195,12 @@ describe('Test validation functions', () => {
 		sinon.assert.match(editWithMinMaxInputData, JSON.parse(editWithMinMaxInputSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRedirectData, JSON.parse(editWithRedirectExpectedJson.toString()));
+		sinon.assert.match(editWithDateData, JSON.parse(editWithDateExpectedJson.toString()));
 		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithMinMaxInputData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithRedirectData, JSON.parse(newWithRedirectSchemaExpectedJson.toString()));
+		sinon.assert.match(newWithDateData, JSON.parse(newWithDateSchemaExpectedJson.toString()));
+		sinon.assert.match(browseWithDateData, JSON.parse(browseWithDateSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardWithSourcesData, JSON.parse(dashboardWithSourcesSchemaExpectedJson.toString()));
 		sinon.assert.match(dashboardWithLinksData, JSON.parse(dashboardWithLinksSchemaExpectedJson.toString()));
