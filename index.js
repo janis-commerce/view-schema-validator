@@ -51,6 +51,18 @@ const { argv } = require('yargs')
 const ViewSchemaValidator = require('./lib');
 const packageJson = require('./package.json');
 
+const mapErrorToLogLine = (errorItem, index) => {
+	if(typeof errorItem === 'string')
+		return errorItem;
+
+	const message = errorItem && (errorItem.message || errorItem.stack);
+
+	if(message)
+		return `[${index + 1}] ${message}`;
+
+	return `[${index + 1}] ${JSON.stringify(errorItem)}`;
+};
+
 (async () => {
 
 	logger.info(`Package version: ${packageJson.version}`);
@@ -86,8 +98,11 @@ const packageJson = require('./package.json');
 	} catch(error) {
 		logger.error(error.stack || error);
 
-		if(error.errors)
-			error.errors.map(e => logger.error(e));
+		if(error.errors) {
+			error.errors
+				.map(mapErrorToLogLine)
+				.map(errorLine => logger.error(errorLine));
+		}
 
 		process.exit(1);
 	}
