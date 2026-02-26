@@ -20,6 +20,22 @@
 					"id",
 					"name"
 				]
+			},
+			{
+				"name": "entityNoFilters",
+				"filters": false
+			},
+			{
+				"name": "entityExcludeFilters",
+				"filters": {
+					"exclude": ["search", "dateCreatedRange"]
+				}
+			},
+			{
+				"name": "entityIncludeFilters",
+				"filters": {
+					"include": ["status", "name"]
+				}
 			}
 		]
 	},

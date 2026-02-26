@@ -2486,6 +2486,22 @@
         "format": ["exel", "csv", "json"],
         "type": ["report", "for-import"],
         "fields": ["id", "name"]
+      },
+      {
+        "name": "entityNameWithFilters",
+        "filters": false
+      },
+      {
+        "name": "entityNameWithInclude",
+        "filters": {
+          "include": ["status", "name"]
+        }
+      },
+      {
+        "name": "entityNameWithExclude",
+        "filters": {
+          "exclude": ["internalFlag"]
+        }
       }
     ]
   },
