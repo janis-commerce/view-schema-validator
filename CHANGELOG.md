@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.9.0] - 2026-02-26
+
 ### Added
 
 - New filters type object in entity export
+- Svg component
 
 ## [3.8.0] - 2025-12-15
 
