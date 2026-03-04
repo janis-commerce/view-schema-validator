@@ -632,7 +632,10 @@
 							]
 						},
 						"value": "id"
-					}
+					},
+					"localValues": [
+						{ "value": "sin_asignacion", "label": "Sin asignación" }
+					]
 				}
 			}
 		},
