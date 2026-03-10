@@ -976,6 +976,17 @@
       }
     },
     {
+      "name": "svg",
+      "component": "Svg",
+      "componentAttributes": {},
+      "attributes": {
+        "sortable": false,
+        "isDefaultSort": false,
+        "isStatus": false,
+        "initialSortDirection": "desc"
+      }
+    },
+    {
       "name": "motiveName",
       "component": "MediumText",
       "showOnPreview": true,
@@ -2475,6 +2486,22 @@
         "format": ["exel", "csv", "json"],
         "type": ["report", "for-import"],
         "fields": ["id", "name"]
+      },
+      {
+        "name": "entityNameWithFilters",
+        "filters": false
+      },
+      {
+        "name": "entityNameWithInclude",
+        "filters": {
+          "include": ["status", "name"]
+        }
+      },
+      {
+        "name": "entityNameWithExclude",
+        "filters": {
+          "exclude": ["internalFlag"]
+        }
       }
     ]
   },

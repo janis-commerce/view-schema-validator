@@ -373,6 +373,10 @@ sections:
             component: CopyToClipboardButton
             componentAttributes: {}
 
+          - name: svg
+            component: Svg
+            componentAttributes: {}
+
           - name: nameGroup
             component: Select
             componentAttributes:
