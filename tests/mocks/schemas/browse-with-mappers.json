@@ -150,6 +150,13 @@
       "name": "appliesToLogistics",
       "component": "Chip",
       "mapper": "booleanToWord"
+    },
+    {
+      "name": "displayName",
+      "component": "Text",
+      "mapper": {
+        "name": "capitalize"
+      }
     }
   ]
 }
