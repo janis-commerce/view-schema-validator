@@ -6,214 +6,358 @@ const fs = require('fs-extra');
 const ymljs = require('yamljs');
 const Validator = require('../lib/validator');
 
-const browseSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
-const browseSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse.json');
-const browseWithCanCreateSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-can-create.json');
-const browseWithCanCreateSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-can-create.json');
-const browseSchemaCountDownJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-countDown.json');
-const browseSchemaCountDownExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-countDown.json');
-const browseSchemaColumnSortableMatchJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-columnSortableMatch.json');
-const browseSchemaColumnSortableMatchxpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-columnSortableMatch.json');
-const browseWithRedirectSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-redirect.json');
-const browseWithRedirectSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-redirect.json');
-const browseWithMappersSchemaJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse-with-mappers.json');
-const browseWithMappersExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/browse-with-mappers.json');
-const editSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
-const editSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit.json');
-const editWithActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions.yml');
-const editWithActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions.json');
-const editWithActionsStaticSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-static.yml');
-const editWithActionsStaticSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-static.json');
-const editWithActionsSourceSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-actions-source.yml');
-const editWithActionsSourceSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-actions-source.json');
-const editWithCanCreateSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-canCreate-object.yml');
-const editWithCanCreateExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-canCreate-object.json');
-const editWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-min-max-input.yml');
-const editWithMinMaxInputSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-min-max-input.json');
-const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-remote-actions.yml');
-const editWithRemoteActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-remote-actions.json');
-const editWithRedirectYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-redirect.yml');
-const editWithRedirectExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-redirect.json');
-const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
-const newWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-min-max-input.yml');
-const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
-const newWithRedirectSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-redirect.yml');
-const newWithRedirectSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new-with-redirect.json');
-const dashboardSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard.yml');
-const dashboardSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard.json');
-const dashboardWithSourcesSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard-with-sources.yml');
-const dashboardWithSourcesSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard-with-sources.json');
-const dashboardWithLinksSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/dashboard-with-links.json');
-const dashboardWithLinksSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/dashboard-with-links.yml');
-const previewSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/preview.yml');
-const previewSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/preview.json');
-const sectionExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/section-example.yml');
-const sectionExampleExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/section-example.json');
-const settingsYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/settings.yml');
-const settingsExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/settings.json');
-const monitorSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/monitor.yml');
-const monitorSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/monitor.json');
-const planningSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/planning.yml');
-const planningSchemaExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/planning.json');
+const SCHEMAS_BASE_PATH = `${process.cwd()}/tests/mocks/schemas`;
+const DEFAULT_DATA_PATH = '/test/data.json';
+const MAX_DIFFS_PER_SCHEMA = 20;
+const MAX_SCHEMA_REPORTS = 20;
+const TRUNCATE_LENGTH = 120;
 
-describe('Test validation functions', () => {
+const ERROR_ROOT_NOT_DEFINED = 'root or rootComponent property not defined in';
+
+/** Reads the schema from the input directory.
+ * @param {string} relativePath - The path to the schema file.
+ * @returns {Buffer} The schema file.
+ */
+const readSchema = relativePath => fs.readFileSync(`${SCHEMAS_BASE_PATH}/${relativePath}`);
+
+/** Loads the JSON schema from the input directory.
+ * @param {string} relativePath - The path to the JSON schema file.
+ * @returns {object} The JSON schema.
+ */
+const loadJsonSchema = relativePath => JSON.parse(readSchema(relativePath).toString());
+
+/** Loads the YAML schema from the input directory.
+ * @param {string} relativePath - The path to the YAML schema file.
+ * @returns {object} The YAML schema.
+ */
+const loadYamlSchema = relativePath => ymljs.parse(readSchema(relativePath).toString());
+
+/** Loads the input schema from the input directory.
+ * @param {object} schema - The schema object.
+ * @returns {object} The input schema.
+ */
+const loadInputSchema = ({ path, type }) => (type === 'yml' ? loadYamlSchema(path) : loadJsonSchema(path));
+
+/** Loads the expected schema from the expected directory.
+ * @param {string} expectedPath - The path to the expected schema file.
+ * @returns {object} The expected schema.
+ */
+const loadExpectedSchema = expectedPath => loadJsonSchema(`expected/${expectedPath}`);
+
+
+/** Generates deterministic dataPath from schema path (no hardcoded paths)
+ * @param {string} schemaPath - The path to the schema file.
+ * @returns {string} The deterministic dataPath.
+*/
+const getDataPathForSchema = schemaPath => `/test/schemas/${schemaPath.replace(/\.(json|yml)$/, '')}.json`;
+
+// --- Spy helpers ---
+
+const createValidateCompileSpies = () => ({
+	validateSpy: sinon.spy(Validator, 'validate'),
+	compileSpy: sinon.spy(Validator, 'compile')
+});
+
+const assertSpiesValidateOnly = (validateSpy, compileSpy) => {
+	assert(validateSpy.calledOnce);
+	assert(compileSpy.notCalled);
+};
+
+const assertSpiesValidateAndCompile = (validateSpy, compileSpy) => {
+	assert(validateSpy.calledOnce);
+	assert(compileSpy.calledOnce);
+};
+
+/** Checks if the value is an object.
+ * @param {any} value - The value to check.
+ * @returns {boolean} True if the value is an object, false otherwise.
+ */
+const isObject = value => value && typeof value === 'object' && !Array.isArray(value);
+
+/** Truncates the value for error messages.
+ * @param {any} value - The value to truncate.
+ * @param {number} maxLength - The maximum length of the value.
+ * @returns {string} The truncated value.
+ */
+const truncateForError = (value, maxLength = TRUNCATE_LENGTH) => {
+	let serialized;
+	try {
+		serialized = JSON.stringify(value);
+	} catch(err) {
+		serialized = String(value);
+	}
+	if(typeof serialized !== 'string')
+		serialized = String(value);
+	return serialized.length > maxLength ? `${serialized.slice(0, maxLength)}...` : serialized;
+};
+
+/** Finds the differences between the current value and the expected value.
+ * @param {any} currentValue - The current value.
+ * @param {any} expectedValue - The expected value.
+ * @param {string} currentPath - The current path.
+ * @param {array} diffs - The differences.
+ * @returns {array} The differences.
+ */
+const findDiffs = (currentValue, expectedValue, currentPath = 'root', diffs = []) => {
+	if(diffs.length >= MAX_DIFFS_PER_SCHEMA)
+		return diffs;
+
+	if(Object.is(currentValue, expectedValue))
+		return diffs;
+
+	if(Array.isArray(currentValue) && Array.isArray(expectedValue)) {
+		if(currentValue.length < expectedValue.length) {
+			diffs.push({
+				path: `${currentPath}.length`,
+				expected: `>= ${expectedValue.length}`,
+				received: currentValue.length
+			});
+			return diffs;
+		}
+		expectedValue.some((_, index) => {
+			findDiffs(currentValue[index], expectedValue[index], `${currentPath}[${index}]`, diffs);
+			return diffs.length >= MAX_DIFFS_PER_SCHEMA;
+		});
+		return diffs;
+	}
+
+	if(isObject(currentValue) && isObject(expectedValue)) {
+		const expectedKeys = Object.keys(expectedValue).sort();
+
+		expectedKeys.some(key => {
+			findDiffs(currentValue[key], expectedValue[key], `${currentPath}.${key}`, diffs);
+			return diffs.length >= MAX_DIFFS_PER_SCHEMA;
+		});
+
+		return diffs;
+	}
+
+	diffs.push({
+		path: currentPath,
+		expected: expectedValue,
+		received: currentValue
+	});
+	return diffs;
+};
+
+/** Formats the difference line for the error message.
+ * @param {object} diff - The difference.
+ * @param {number} index - The index of the difference.
+ * @returns {string} The formatted difference line.
+ */
+const formatDiffLine = (diff, index) => (
+	`${index + 1}) ${diff.path} | expected: ${truncateForError(diff.expected)} ` +
+	`| received: ${truncateForError(diff.received)}`
+);
+
+/** Formats the schema difference report.
+ * @param {object} schemaCase - The schema case.
+ * @param {array} diffs - The differences.
+ * @returns {string} The formatted schema difference report.
+ */
+const formatSchemaDiffReport = (schemaCase, diffs) => {
+	const diffMessages = diffs.map(formatDiffLine).join('\n');
+	const truncationNote = diffs.length >= MAX_DIFFS_PER_SCHEMA
+		? '\n... (diffs adicionales truncados)'
+		: '';
+	return `Schema mismatch (RECEIVED:${schemaCase.schema.path} -> EXPECTED: ${schemaCase.expected})\n${diffMessages}${truncationNote}`;
+};
+
+/** Formats the schema execution error report.
+ * @param {object} schemaCase - The schema case.
+ * @param {object} error - The error.
+ * @returns {string} The formatted schema execution error report.
+ */
+const formatSchemaExecutionErrorReport = (schemaCase, error) => {
+	const validationLines = Array.isArray(error && error.errors)
+		? error.errors.slice(0, MAX_DIFFS_PER_SCHEMA).map(line => `${line}\n`)
+		: '';
+	const validationTruncationNote = Array.isArray(error && error.errors) && error.errors.length > MAX_DIFFS_PER_SCHEMA
+		? '\n... (errores de validacion truncados)'
+		: '';
+
+	return (
+		`[SCHEMA CASE] ${schemaCase.schema.path} -> ${schemaCase.expected}\n` +
+		`Error message: ${(error && error.message) || 'Unknown execution error'}` +
+		(validationLines ? `\nvalidation errors:\n${validationLines}${validationTruncationNote}` : '')
+	);
+};
+
+/** Runs the compilation and collects the differences.
+ * @param {array} schemaCases - The schema cases.
+ * @returns {array} The schema reports.
+ */
+const runCompilationAndCollectDiffs = schemaCases => {
+	const schemaReports = [];
+
+	schemaCases.some(schemaCase => {
+		if(schemaReports.length >= MAX_SCHEMA_REPORTS)
+			return true;
+
+		const dataPath = getDataPathForSchema(schemaCase.schema.path);
+		const inputSchema = loadInputSchema(schemaCase.schema);
+		const expectedSchema = loadExpectedSchema(schemaCase.expected);
+
+		try {
+			const compiledSchema = Validator.execute(inputSchema, true, dataPath);
+			const diffs = findDiffs(compiledSchema, expectedSchema);
+
+			if(diffs.length)
+				schemaReports.push(formatSchemaDiffReport(schemaCase, diffs));
+		} catch(error) {
+			schemaReports.push(formatSchemaExecutionErrorReport(schemaCase, error));
+		}
+
+		return false;
+	});
+
+	return schemaReports;
+};
+
+const SCHEMA_COMPILATION_SCHEMAS = [
+	{ schema: { path: 'browse.json', type: 'json' }, expected: 'browse.json' },
+	{ schema: { path: 'browse-with-can-create.json', type: 'json' }, expected: 'browse-with-can-create.json' },
+	{ schema: { path: 'browse-columnSortableMatch.json', type: 'json' }, expected: 'browse-columnSortableMatch.json' },
+	{ schema: { path: 'edit.yml', type: 'yml' }, expected: 'edit.json' },
+	{ schema: { path: 'dashboard.yml', type: 'yml' }, expected: 'dashboard.json' },
+	{ schema: { path: 'preview.yml', type: 'yml' }, expected: 'preview.json' },
+	{ schema: { path: 'monitor.yml', type: 'yml' }, expected: 'monitor.json' },
+	{ schema: { path: 'section-example.yml', type: 'yml' }, expected: 'section-example.json' },
+	{ schema: { path: 'new.yml', type: 'yml' }, expected: 'new.json' },
+	{ schema: { path: 'edit-with-actions.yml', type: 'yml' }, expected: 'edit-with-actions.json' },
+	{ schema: { path: 'edit-with-actions-static.yml', type: 'yml' }, expected: 'edit-with-actions-static.json' },
+	{ schema: { path: 'edit-with-actions-source.yml', type: 'yml' }, expected: 'edit-with-actions-source.json' },
+	{ schema: { path: 'edit-with-remote-actions.yml', type: 'yml' }, expected: 'edit-with-remote-actions.json' },
+	{ schema: { path: 'edit-with-min-max-input.yml', type: 'yml' }, expected: 'edit-with-min-max-input.json' },
+	{ schema: { path: 'new-with-min-max-input.yml', type: 'yml' }, expected: 'new.json' },
+	{ schema: { path: 'edit-with-canCreate-object.yml', type: 'yml' }, expected: 'edit-with-canCreate-object.json' },
+	{ schema: { path: 'edit-with-redirect.yml', type: 'yml' }, expected: 'edit-with-redirect.json' },
+	{ schema: { path: 'browse-with-redirect.json', type: 'json' }, expected: 'browse-with-redirect.json' },
+	{ schema: { path: 'new-with-redirect.yml', type: 'yml' }, expected: 'new-with-redirect.json' },
+	{ schema: { path: 'browse-countDown.json', type: 'json' }, expected: 'browse-countDown.json' },
+	{ schema: { path: 'planning.yml', type: 'yml' }, expected: 'planning.json' },
+	{ schema: { path: 'settings.yml', type: 'yml' }, expected: 'settings.json' },
+	{ schema: { path: 'dashboard-with-sources.yml', type: 'yml' }, expected: 'dashboard-with-sources.json' },
+	{ schema: { path: 'dashboard-with-links.yml', type: 'yml' }, expected: 'dashboard-with-links.json' },
+	{ schema: { path: 'browse-with-mappers.json', type: 'json' }, expected: 'browse-with-mappers.json' }
+];
+
+describe('Validator', () => {
 
 	beforeEach(() => {
 		sinon.restore();
 	});
 
-	it('Should error if pass schema with root not defined', () => {
-		const schema = JSON.parse(browseSchemaJson.toString());
-		delete schema.root;
+	describe('root / rootComponent validation', () => {
 
-		assert.throws(
-			() => Validator.execute(schema, true, '/test/data.json'),
-			{ message: 'root or rootComponent property not defined in /test/data.json' }
-		);
+		it('throws when schema has neither root nor rootComponent', () => {
+			const schema = loadJsonSchema('browse.json');
+			delete schema.root;
+
+			assert.throws(
+				() => Validator.execute(schema, true, DEFAULT_DATA_PATH),
+				{ message: `${ERROR_ROOT_NOT_DEFINED} ${DEFAULT_DATA_PATH}` }
+			);
+		});
+
+		it('throws when schema has invalid root type', () => {
+			const schema = { root: 5, url: 'http://janis.in' };
+
+			assert.throws(
+				() => Validator.execute(schema, true, DEFAULT_DATA_PATH)
+			);
+		});
+
+		it('throws when schema has no root and no url', () => {
+			const schema = { url: 'http://janis.in' };
+
+			assert.throws(
+				() => Validator.execute(schema, true, DEFAULT_DATA_PATH)
+			);
+		});
 	});
 
-	it('Should error if has a error validation', () => {
-		const schema = JSON.parse(browseSchemaJson.toString());
-		delete schema.name;
+	describe('validate / compile spies', () => {
 
-		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+		it('calls validate only when compile=false', () => {
+			const schema = { root: 'Terminal', url: 'http://janis.in' };
+			const { validateSpy, compileSpy } = createValidateCompileSpies();
+
+			const result = Validator.execute(schema, false, DEFAULT_DATA_PATH);
+
+			assertSpiesValidateOnly(validateSpy, compileSpy);
+			assert(result === undefined);
+		});
+
+		it('calls validate and compile when compile=true', () => {
+			const schema = { root: 'Terminal', url: 'http://janis.in' };
+			const { validateSpy, compileSpy } = createValidateCompileSpies();
+
+			Validator.execute(schema, true, DEFAULT_DATA_PATH);
+
+			assertSpiesValidateAndCompile(validateSpy, compileSpy);
+		});
+
+		it('does not call compile when validation fails', () => {
+			const schema = loadJsonSchema('browse.json');
+			delete schema.name;
+			const { validateSpy, compileSpy } = createValidateCompileSpies();
+
+			assert.throws(() => Validator.execute(schema, true, DEFAULT_DATA_PATH));
+
+			assertSpiesValidateOnly(validateSpy, compileSpy);
+		});
 	});
 
-	it('Should validate only', () => {
-		const schema = JSON.parse(browseSchemaJson.toString());
-		const validateSpy = sinon.spy(Validator, 'validate');
-		const compileSpy = sinon.spy(Validator, 'compile');
+	describe('schema compilation vs expected', () => {
 
-		const data = Validator.execute(schema, false, '/test/data.json');
+		it('compiled output matches expected for all schemas', () => {
+			const reports = runCompilationAndCollectDiffs(SCHEMA_COMPILATION_SCHEMAS);
 
-		assert(validateSpy.calledOnce);
-		assert(compileSpy.notCalled);
-		assert(data === undefined);
+			if(reports.length)
+				assert.fail(`Found fixture mismatches in ${reports.length} file(s)\n\n${reports.join('\n\n')}`);
+		});
 	});
 
-	it('Should compile and validate', () => {
-		const schema = JSON.parse(browseSchemaJson.toString());
-		const validateSpy = sinon.spy(Validator, 'validate');
-		const compileSpy = sinon.spy(Validator, 'compile');
+	describe('validation errors', () => {
 
-		Validator.execute(schema, true, '/test/data.json');
+		it('throws when schema has validation errors', () => {
+			const schema = loadJsonSchema('browse.json');
+			delete schema.name;
 
-		assert(validateSpy.calledOnce);
-		assert(compileSpy.calledOnce);
+			assert.throws(
+				() => Validator.execute(schema, true, DEFAULT_DATA_PATH)
+			);
+		});
+
+		it('returns compact validation errors (array of strings, no internal schema leakage)', () => {
+			const schema = loadJsonSchema('browse.json');
+			delete schema.name;
+
+			try {
+				Validator.execute(schema, true, DEFAULT_DATA_PATH);
+				assert.fail('Expected validation error');
+			} catch(error) {
+				assert(Array.isArray(error.errors));
+				assert(error.errors.length > 0);
+				assert(error.errors.every(e => typeof e === 'string'));
+				assert(error.errors.every(e => !e.includes('parentSchema')));
+				assert(error.errors.every(e => !e.includes('"properties"')));
+			}
+		});
+
+
 	});
 
-	it('Should compile if schema is valid', () => {
-		const schema = JSON.parse(browseSchemaJson.toString());
-		delete schema.name;
+	describe('default schema', () => {
 
-		const validateSpy = sinon.spy(Validator, 'validate');
-		const compileSpy = sinon.spy(Validator, 'compile');
+		it('passes validation and compiles with valid default schema', () => {
+			const schema = { root: 'Terminal', url: 'http://janis.in' };
+			const { validateSpy, compileSpy } = createValidateCompileSpies();
 
-		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+			Validator.execute(schema, true, DEFAULT_DATA_PATH);
 
-		assert(validateSpy.calledOnce);
-		assert(compileSpy.notCalled);
+			assertSpiesValidateAndCompile(validateSpy, compileSpy);
+		});
 	});
-
-	it('should schema builded is a expected', () => {
-
-		const browseSchema = JSON.parse(browseSchemaJson.toString());
-		const browseWithCanCreateSchema = JSON.parse(browseWithCanCreateSchemaJson.toString());
-		const browseCountDownSchema = JSON.parse(browseSchemaCountDownJson.toString());
-		const browseColumnSortableMatchSchema = JSON.parse(browseSchemaColumnSortableMatchJson.toString());
-		const browseWithRedirectSchema = JSON.parse(browseWithRedirectSchemaJson.toString());
-		const browseWithMappersSchema = JSON.parse(browseWithMappersSchemaJson.toString());
-		const editSchema = ymljs.parse(editSchemaYml.toString());
-		const editWithActionsSchema = ymljs.parse(editWithActionsSchemaYml.toString());
-		const editWithActionsStaticSchema = ymljs.parse(editWithActionsStaticSchemaYml.toString());
-		const editWithActionsSourceSchema = ymljs.parse(editWithActionsSourceSchemaYml.toString());
-		const editWithCanCreateSchema = ymljs.parse(editWithCanCreateSchemaYml.toString());
-		const editWithMinMaxInputSchema = ymljs.parse(editWithMinMaxInputSchemaYml.toString());
-		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
-		const editWithRedirectSchema = ymljs.parse(editWithRedirectYml.toString());
-		const newSchema = ymljs.parse(newSchemaYml.toString());
-		const newWithMinMaxInputSchema = ymljs.parse(newWithMinMaxInputSchemaYml.toString());
-		const newWithRedirectSchema = ymljs.parse(newWithRedirectSchemaYml.toString());
-		const dashboardSchema = ymljs.parse(dashboardSchemaYml.toString());
-		const dashboardWithSourcesSchema = ymljs.parse(dashboardWithSourcesSchemaYml.toString());
-		const dashboardWithLinksSchema = ymljs.parse(dashboardWithLinksSchemaYml.toString());
-		const previewSchema = ymljs.parse(previewSchemaYml.toString());
-		const sectionSchema = ymljs.parse(sectionExampleYML.toString());
-		const settingsSchema = ymljs.parse(settingsYML.toString());
-		const monitorSchema = ymljs.parse(monitorSchemaYml.toString());
-		const planningSchema = ymljs.parse(planningSchemaYml.toString());
-
-		const browseData = Validator.execute(browseSchema, true, '/test/data1.json');
-		const browseWithCanCreateData = Validator.execute(browseWithCanCreateSchema, true, '/test/data1.json');
-		const browseColumnSortableMatchData = Validator.execute(browseColumnSortableMatchSchema, true, '/test/data1.json');
-		const editData = Validator.execute(editSchema, true, '/test/data2.json');
-		const dashboardData = Validator.execute(dashboardSchema, true, '/test/data3.json');
-		const previewData = Validator.execute(previewSchema, true, '/test/data4.json');
-		const monitorData = Validator.execute(monitorSchema, true, '/test/data4.json');
-		const sectionData = Validator.execute(sectionSchema, true, '/test/data5.json');
-		const newData = Validator.execute(newSchema, true, '/test/data6.json');
-		const editWithActionsData = Validator.execute(editWithActionsSchema, true, '/test/data7.json');
-		const editWithActionsStaticData = Validator.execute(editWithActionsStaticSchema, true, '/test/data8.json');
-		const editWithActionsSourceData = Validator.execute(editWithActionsSourceSchema, true, '/test/data9.json');
-		const editWithRemoteActionsData = Validator.execute(editWithRemoteActionsSchema, true, '/test/data10.json');
-		const editWithMinMaxInputData = Validator.execute(editWithMinMaxInputSchema, true, '/test/data11.json');
-		const newWithMinMaxInputData = Validator.execute(newWithMinMaxInputSchema, true, '/test/data12.json');
-		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
-		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data14.json');
-		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
-		const newWithRedirectData = Validator.execute(newWithRedirectSchema, true, '/test/data16.json');
-		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
-		const planningData = Validator.execute(planningSchema, true, '/test/data17.json');
-		const settingsData = Validator.execute(settingsSchema, true, '/test/data18.json');
-		const dashboardWithSourcesData = Validator.execute(dashboardWithSourcesSchema, true, '/test/data19.json');
-		const dashboardWithLinksData = Validator.execute(dashboardWithLinksSchema, true, '/test/data20.json');
-		const browseWithMappersData = Validator.execute(browseWithMappersSchema, true, '/test/data21.json');
-
-		sinon.assert.match(browseData, JSON.parse(browseSchemaExpectedJson.toString()));
-		sinon.assert.match(browseWithCanCreateData, JSON.parse(browseWithCanCreateSchemaExpectedJson.toString()));
-		sinon.assert.match(browseCountDownData, JSON.parse(browseSchemaCountDownExpectedJson.toString()));
-		sinon.assert.match(browseColumnSortableMatchData, JSON.parse(browseSchemaColumnSortableMatchxpectedJson.toString()));
-		sinon.assert.match(browseWithRedirectMatchData, JSON.parse(browseWithRedirectSchemaExpectedJson.toString()));
-		sinon.assert.match(browseWithMappersData, JSON.parse(browseWithMappersExpectedJson.toString()));
-		sinon.assert.match(editData, JSON.parse(editSchemaExpectedJson.toString()));
-		sinon.assert.match(editWithActionsData, JSON.parse(editWithActionsSchemaExpectedJson.toString()));
-		sinon.assert.match(editWithActionsStaticData, JSON.parse(editWithActionsStaticSchemaExpectedJson.toString()));
-		sinon.assert.match(editWithActionsSourceData, JSON.parse(editWithActionsSourceSchemaExpectedJson.toString()));
-		sinon.assert.match(editWithCanCreateData, JSON.parse(editWithCanCreateExpectedJson.toString()));
-		sinon.assert.match(editWithMinMaxInputData, JSON.parse(editWithMinMaxInputSchemaExpectedJson.toString()));
-		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
-		sinon.assert.match(editWithRedirectData, JSON.parse(editWithRedirectExpectedJson.toString()));
-		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
-		sinon.assert.match(newWithMinMaxInputData, JSON.parse(newSchemaExpectedJson.toString()));
-		sinon.assert.match(newWithRedirectData, JSON.parse(newWithRedirectSchemaExpectedJson.toString()));
-		sinon.assert.match(dashboardData, JSON.parse(dashboardSchemaExpectedJson.toString()));
-		sinon.assert.match(dashboardWithSourcesData, JSON.parse(dashboardWithSourcesSchemaExpectedJson.toString()));
-		sinon.assert.match(dashboardWithLinksData, JSON.parse(dashboardWithLinksSchemaExpectedJson.toString()));
-		sinon.assert.match(previewData, JSON.parse(previewSchemaExpected.toString()));
-		sinon.assert.match(sectionData, JSON.parse(sectionExampleExpected.toString()));
-		sinon.assert.match(settingsData, JSON.parse(settingsExpected.toString()));
-		sinon.assert.match(monitorData, JSON.parse(monitorSchemaExpected.toString()));
-		sinon.assert.match(planningData, JSON.parse(planningSchemaExpected.toString()));
-	});
-
-	it('should error with default schema', () => {
-		const schemaOne = { url: 'http://janis.in' };
-		const schemaTwo = { root: 5, url: 'http://janis.in' };
-
-		assert.throws(() => Validator.execute(schemaOne, true, '/test/data.json'));
-		assert.throws(() => Validator.execute(schemaTwo, true, '/test/data.json'));
-	});
-
-	it('should pass validation and build data with default schema', () => {
-		const validateSpy = sinon.spy(Validator, 'validate');
-		const compileSpy = sinon.spy(Validator, 'compile');
-
-		const schema = { root: 'Terminal', url: 'http://janis.in' };
-
-		Validator.execute(schema, true, '/test/data.json');
-
-		assert(validateSpy.calledOnce);
-		assert(compileSpy.calledOnce);
-	});
-
 });
