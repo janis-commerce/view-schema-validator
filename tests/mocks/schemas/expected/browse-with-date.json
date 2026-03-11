@@ -38,7 +38,11 @@
       "component": "Date",
       "componentAttributes": {
         "type": "deliveryDate",
-        "component": "Text"
+        "component": "Text",
+        "format": "DD/MM/YYYY",
+        "incomingFormat": "YYYY-MM-DD",
+        "start": "createdAt",
+        "end": "deliveredAt"
       },
       "attributes": {
         "isStatus": false,
