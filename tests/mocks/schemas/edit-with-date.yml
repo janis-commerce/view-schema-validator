@@ -18,9 +18,9 @@ sections:
           - name: dateRelative
             component: Date
             componentAttributes:
-              isRelative: true
+              type: relative
           - name: dateDelivery
             component: Date
             componentAttributes:
-              isDeliveryDate: true
-              type: Text
+              type: deliveryDate
+              component: Text

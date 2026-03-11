@@ -37,8 +37,8 @@
       "name": "dateDelivery",
       "component": "Date",
       "componentAttributes": {
-        "isDeliveryDate": true,
-        "type": "Text"
+        "type": "deliveryDate",
+        "component": "Text"
       },
       "attributes": {
         "isStatus": false,

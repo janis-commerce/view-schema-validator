@@ -28,7 +28,7 @@
               "name": "dateRelative",
               "component": "Date",
               "componentAttributes": {
-                "isRelative": true
+                "type": "relative"
               }
             }
           ]
