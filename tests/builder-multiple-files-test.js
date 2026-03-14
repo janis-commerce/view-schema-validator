@@ -3,7 +3,6 @@
 const assert = require('assert');
 const sinon = require('sinon');
 const fs = require('fs-extra');
-const mock = require('mock-fs');
 const chokidar = require('chokidar');
 
 const { EventEmitter } = require('events');
@@ -13,16 +12,12 @@ const Validator = require('../lib/validator');
 
 const ViewSchemaValidator = require('./../lib');
 
-const editSchemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit.yml');
-const newSchemaExampleTwoYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
-const browseSchemaExampleJSON = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/browse.json');
-
 let writeFileStub;
 
-const executeInstance = (build = true, watch = false) => {
+const executeInstance = (build = true, watch = false, inputPath) => {
 
 	const schemaValidator = new ViewSchemaValidator(
-		'/tests/schemas/fakeFolder',
+		inputPath || '/tests/schemas/fakeFolder',
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		false,
@@ -34,64 +29,12 @@ const executeInstance = (build = true, watch = false) => {
 	return schemaValidator.execute.bind(schemaValidator);
 };
 
-const mockfs = () => {
-	mock({
-		'tests/schemas/fakeFolder': mock.directory({
-			items: {
-				'edit.yml': mock.file({ content: editSchemaExampleYML.toString() }),
-				'browse.json': mock.file({ content: browseSchemaExampleJSON.toString() }),
-				'fields.partial.json': mock.file({ content: 'section' }),
-				'fields2.partial.yml': mock.file({ content: browseSchemaExampleJSON.toString() }),
-				more: mock.directory({
-					items: {
-						'new.yml': mock.file({ content: newSchemaExampleTwoYML.toString() }),
-						'test.js': mock.file({ content: 'file js' })
-					}
-				}),
-				sections: mock.directory({
-					items: {
-						'section.yml': mock.file({ content: newSchemaExampleTwoYML.toString() })
-					}
-				})
-			}
-		})
-	}, { createCwd: true, createTmp: false });
-};
-
 describe('test builder multiple files', () => {
 	afterEach(() => {
 		sinon.restore();
-		mock.restore();
 	});
 
 	beforeEach(() => {
-		const firstPath = process.cwd() + '/tests/schemas/fakeFolder';
-		const secondPath = process.cwd() + '/tests/schemas/fakeFolder/more';
-		const thirdPath = process.cwd() + '/tests/schemas/fakeFolder/sections';
-
-		const readdirStub = sinon.stub(fs, 'readdir');
-
-		readdirStub.withArgs(firstPath)
-			.returns([
-				{ name: 'edit.yml', isFile: () => true },
-				{ name: 'browse.json', isFile: () => true },
-				{ name: 'more', isFile: () => false },
-				{ name: 'sections', isFile: () => false },
-				{ name: 'fields.partial.json', isFile: () => true },
-				{ name: 'fields2.partial.yml', isFile: () => true }
-			]);
-
-		readdirStub.withArgs(secondPath)
-			.returns([
-				{ name: 'new.yml', isFile: () => true },
-				{ name: 'test.js', isFile: () => true }
-			]);
-
-		readdirStub.withArgs(thirdPath)
-			.returns([
-				{ name: 'section.yml', isFile: () => true }
-			]);
-
 		writeFileStub = sinon.stub(fs, 'writeFile');
 
 		sinon.stub(fs, 'emptyDir');
@@ -121,8 +64,6 @@ describe('test builder multiple files', () => {
 		const clearOutputFolderStub = sinon.stub(Builder.prototype, 'clearOutputFolder');
 		const processInputStub = sinon.stub(Builder.prototype, 'processInput');
 
-		mockfs();
-
 		const executeOne = executeInstance();
 		await executeOne();
 
@@ -142,10 +83,39 @@ describe('test builder multiple files', () => {
 	it('Should pass validation with path directory', async () => {
 		sinon.stub(process, 'exit');
 		sinon.stub(Validator, 'execute').returns({ data: 'test' });
+		sinon.stub(Builder.prototype, 'loadFile').returns({ root: 'Browse', name: 'test', service: 'test' });
+
+		const firstPath = process.cwd() + '/tests/schemas/fakeFolder';
+		const secondPath = process.cwd() + '/tests/schemas/fakeFolder/more';
+		const thirdPath = process.cwd() + '/tests/schemas/fakeFolder/sections';
+
+		const statStub = sinon.stub(fs, 'stat');
+		statStub.resolves({ isFile: () => false });
+
+		const readdirStub = sinon.stub(fs, 'readdir');
+
+		readdirStub.withArgs(firstPath, sinon.match.any)
+			.resolves([
+				{ name: 'edit.js', isFile: () => true },
+				{ name: 'browse.json', isFile: () => true },
+				{ name: 'more', isFile: () => false },
+				{ name: 'sections', isFile: () => false },
+				{ name: 'fields.partial.json', isFile: () => true },
+				{ name: 'fields2.partial.js', isFile: () => true }
+			]);
+
+		readdirStub.withArgs(secondPath, sinon.match.any)
+			.resolves([
+				{ name: 'new.js', isFile: () => true },
+				{ name: 'test.txt', isFile: () => true }
+			]);
+
+		readdirStub.withArgs(thirdPath, sinon.match.any)
+			.resolves([
+				{ name: 'section.js', isFile: () => true }
+			]);
 
 		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
-
-		mockfs();
 
 		const execute = executeInstance();
 		await execute();
@@ -157,12 +127,41 @@ describe('test builder multiple files', () => {
 	it('should warn if validate file invalid', async () => {
 		sinon.stub(process, 'exit');
 		sinon.stub(Validator, 'execute').returns({ data: 'test' });
+		sinon.stub(Builder.prototype, 'loadFile').returns({ root: 'Browse', name: 'test', service: 'test' });
+
+		const firstPath = process.cwd() + '/tests/schemas/fakeFolder';
+		const secondPath = process.cwd() + '/tests/schemas/fakeFolder/more';
+		const thirdPath = process.cwd() + '/tests/schemas/fakeFolder/sections';
+
+		const statStub = sinon.stub(fs, 'stat');
+		statStub.resolves({ isFile: () => false });
+
+		const readdirStub = sinon.stub(fs, 'readdir');
+
+		readdirStub.withArgs(firstPath, sinon.match.any)
+			.resolves([
+				{ name: 'edit.js', isFile: () => true },
+				{ name: 'browse.json', isFile: () => true },
+				{ name: 'more', isFile: () => false },
+				{ name: 'sections', isFile: () => false },
+				{ name: 'fields.partial.json', isFile: () => true },
+				{ name: 'fields2.partial.js', isFile: () => true }
+			]);
+
+		readdirStub.withArgs(secondPath, sinon.match.any)
+			.resolves([
+				{ name: 'new.js', isFile: () => true },
+				{ name: 'test.txt', isFile: () => true }
+			]);
+
+		readdirStub.withArgs(thirdPath, sinon.match.any)
+			.resolves([
+				{ name: 'section.js', isFile: () => true }
+			]);
 
 		const processOutputSpy = sinon.spy(Builder.prototype, 'processOutput');
 		const processInputSpy = sinon.spy(Builder.prototype, 'processInput');
 		const processFileSpy = sinon.spy(Builder.prototype, 'processFile');
-
-		mockfs();
 
 		const execute = executeInstance();
 
@@ -191,8 +190,6 @@ describe('test builder multiple files', () => {
 			return { on };
 		};
 		chokidar.watch.returns({ on });
-
-		mockfs();
 
 		const execute = executeInstance(true, true);
 		await execute();

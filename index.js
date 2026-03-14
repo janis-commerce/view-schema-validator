@@ -23,12 +23,6 @@ const { argv } = require('yargs')
 		type: 'string',
 		describe: 'write a service local for resolve endpoints'
 	})
-	.option('schemasFolder', {
-		alias: 'f',
-		type: 'string',
-		describe: 'write the name of the folder where the partials schemes are',
-		default: 'view-schemas'
-	})
 	.option('env', {
 		alias: 'e',
 		type: 'string',
@@ -61,7 +55,6 @@ const packageJson = require('./package.json');
 		minified,
 		watch,
 		env,
-		schemasFolder,
 		service,
 		_: commands
 	} = argv;
@@ -73,7 +66,7 @@ const packageJson = require('./package.json');
 		output,
 		service,
 		minified,
-		schemasFolder,
+		undefined,
 		watch,
 		command,
 		env

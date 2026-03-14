@@ -3,14 +3,14 @@
 const assert = require('assert');
 const sinon = require('sinon');
 const fs = require('fs-extra');
-const ymljs = require('yamljs');
 const RouterFetcher = require('@janiscommerce/router-fetcher');
 const EndpointResolverLocal = require('@janiscommerce/endpoint-resolver');
 const Validator = require('../lib/validator');
 const EndpointResolver = require('../lib/endpoint-resolver');
 
-const editWithSorceSchemaExampleYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-sources.yml');
-const editWithSorceSchemaExampleJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-sources.json');
+const editWithSourceSchemaJs = require('./mocks/schemas/edit-with-sources.js');
+
+const editWithSourceSchemaExampleJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-sources.json');
 
 const mockRequest = (rejectOne = false) => {
 	const getEndpointStub = sinon.stub(RouterFetcher.prototype, 'getEndpoint');
@@ -63,9 +63,12 @@ const mockRequest = (rejectOne = false) => {
 	};
 };
 
+// Helper to deep clone since Validator.execute mutates input
+const clone = obj => JSON.parse(JSON.stringify(obj));
+
 const validateSchema = async (twice = false) => {
-	const schemaOne = ymljs.parse(editWithSorceSchemaExampleYml.toString());
-	const schemaTwo = ymljs.parse(editWithSorceSchemaExampleYml.toString());
+	const schemaOne = clone(editWithSourceSchemaJs);
+	const schemaTwo = clone(editWithSourceSchemaJs);
 	const schemaValidatedOne = Validator.execute(schemaOne, true, '/test/data.json');
 	const schemaValidatedTwo = Validator.execute(schemaTwo, true, '/test/data.json');
 
@@ -104,7 +107,7 @@ describe('Test endpoint resolver', () => {
 		assert(resolveStub.callCount === 4);
 		assert(getEndpointStub.callCount === 1);
 
-		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), editWithSorceSchemaExampleJson.toString());
+		assert.deepEqual(JSON.stringify(schemaResolved, null, 4), editWithSourceSchemaExampleJson.toString());
 	});
 
 	it('should error if fail some request', async () => {

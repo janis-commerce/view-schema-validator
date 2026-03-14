@@ -3,107 +3,58 @@
 const assert = require('assert');
 const sinon = require('sinon');
 const fs = require('fs-extra');
-const mock = require('mock-fs');
 const Validator = require('../lib/validator');
 const ViewSchemaValidator = require('./../lib');
 
-// Schemas examples
-const editSchemaExampleYML = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-refs.yml');
+// Load JS schemas with imports (references resolved via require())
+const editWithRefsSchema = require('./mocks/schemas/edit-with-refs.js');
+
 const editWithRefsExpected = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-refs-resolved.json');
-// Schema partials
-const fieldPartialJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/partials/fields/idText.partial.json');
-const sectionPartialYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/partials/sections/browse.partial.yml');
 
-
-const executeInstance = schemasFolder => {
-	const schemaValidator = new ViewSchemaValidator(
-		'/tests/schemas/fakeFolder',
-		'/tests/schemas/fakeBuildFolder',
-		undefined,
-		false,
-		schemasFolder || 'tests/mocks/schemas/partials',
-		false,
-		'validate',
-		'local'
-	);
-
-	return schemaValidator.execute.bind(schemaValidator);
-};
-
-const editSchemaExampleStringified = editSchemaExampleYML.toString();
-
-const mockfs = items => {
-	mock({
-		'tests/schemas/fakeFolder': mock.directory({
-			items: items || { 'edit.yml': mock.file({ content: editSchemaExampleStringified }) }
-		}),
-		'tests/mocks/schemas/partials/fields': mock.directory({
-			items: { 'idText.partial.json': mock.file({ content: fieldPartialJson.toString() }) }
-		}),
-		'tests/mocks/schemas/partials/sections': mock.directory({
-			items: { 'browse.partial.yml': mock.file({ content: sectionPartialYml.toString() }) }
-		})
-	}, { createCwd: true, createTmp: false });
-};
-
-describe('test builder with refs', () => {
+describe('test builder with JS imports (replacing $ref)', () => {
 
 	afterEach(() => {
 		sinon.restore();
-		mock.restore();
 	});
 
-	beforeEach(() => {
-		sinon.stub(fs, 'readdir').returns([{ name: 'edit.yml', isFile: () => true }]);
+	it('should resolve JS imports correctly', () => {
+		// JS imports are resolved at require() time, producing the same result as $ref resolution
+		const expected = JSON.parse(editWithRefsExpected.toString());
+		sinon.assert.match(editWithRefsSchema, expected);
 	});
 
-	it('should error if not exist reference file path', async () => {
-		sinon.stub(process, 'exit');
+	it('should validate schema with resolved imports', () => {
+		const stubValidator = sinon.spy(Validator, 'execute');
 
-		const spyValidator = sinon.spy(Validator, 'execute');
+		// Deep clone since Validator.execute mutates the schema
+		const schema = JSON.parse(JSON.stringify(editWithRefsSchema));
 
-		mockfs({
-			'edit.yml': mock.file({
-				content: editSchemaExampleStringified.replace('browse.partial.yml', 'browseTest.partial.yml')
-			})
-		});
+		Validator.execute(schema, true, '/test/edit-with-refs.js');
 
-		const execute = executeInstance();
-
-		await assert.rejects(async () => { await execute(); });
-
-		assert(spyValidator.notCalled);
+		assert(stubValidator.calledOnce);
 	});
 
-	it('should return expected schema resolved', async () => {
-		sinon.stub(process, 'exit');
+	it('should validate a single JS file through the builder', async () => {
+		sinon.stub(fs, 'writeFile');
+		sinon.stub(fs, 'emptyDir');
 
 		const stubValidator = sinon.stub(Validator, 'execute');
 
-		mockfs();
+		const schemaValidator = new ViewSchemaValidator(
+			'/tests/mocks/schemas/edit-with-refs.js',
+			'/tests/schemas/fakeBuildFolder',
+			undefined,
+			false,
+			undefined,
+			false,
+			'validate',
+			'local'
+		);
 
-		const execute = executeInstance();
-
+		const execute = schemaValidator.execute.bind(schemaValidator);
 		await execute();
 
-		sinon.assert.calledWithMatch(stubValidator, JSON.parse(editWithRefsExpected.toString()));
-	});
-
-	it('should return expected schema resolved with paths modified', async () => {
-		sinon.stub(process, 'exit');
-
-		const stubValidator = sinon.stub(Validator, 'execute');
-
-		mockfs({
-			'edit.yml': mock.file({
-				content: editSchemaExampleStringified.replace('sections/browse.partial.yml', '/sections/browse.partial.yml')
-			})
-		});
-
-		const execute = executeInstance('tests/mocks/schemas/partials/');
-
-		await execute();
-
-		sinon.assert.calledWithMatch(stubValidator, JSON.parse(editWithRefsExpected.toString()));
+		const expected = JSON.parse(editWithRefsExpected.toString());
+		sinon.assert.calledWithMatch(stubValidator, expected);
 	});
 });
