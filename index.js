@@ -66,7 +66,6 @@ const packageJson = require('./package.json');
 		output,
 		service,
 		minified,
-		undefined,
 		watch,
 		command,
 		env

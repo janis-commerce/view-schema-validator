@@ -9,8 +9,9 @@ let ymljs;
 try {
 	ymljs = require('yamljs');
 } catch(e) {
-	console.error('Error: yamljs is required for migration. Install it temporarily:');
-	console.error('  npm install yamljs');
+	console.error('Error: yamljs is required for migration but is not included as a dependency.');
+	console.error('Install it temporarily before running the migration:');
+	console.error('  npm install --no-save yamljs');
 	process.exit(1);
 }
 

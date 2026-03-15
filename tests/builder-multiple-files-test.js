@@ -21,7 +21,6 @@ const executeInstance = (build = true, watch = false, inputPath) => {
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		false,
-		undefined,
 		watch,
 		build ? 'build' : 'validate',
 		'local'

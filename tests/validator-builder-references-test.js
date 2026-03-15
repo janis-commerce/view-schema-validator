@@ -45,7 +45,6 @@ describe('test builder with JS imports (replacing $ref)', () => {
 			'/tests/schemas/fakeBuildFolder',
 			undefined,
 			false,
-			undefined,
 			false,
 			'validate',
 			'local'

@@ -15,7 +15,6 @@ const executeInstance = (build = true, inputPath, minified = false) => {
 		'/tests/schemas/fakeBuildFolder',
 		undefined,
 		minified,
-		undefined,
 		false,
 		build ? 'build' : 'validate',
 		'local'
@@ -84,7 +83,7 @@ describe('test builder single files', () => {
 		assert(processInputStub.calledOnce);
 	});
 
-	it('Should pass validation with input file js path directory', async () => {
+	it('Should pass validation with JS file input path', async () => {
 		sinon.stub(process, 'exit');
 		sinon.stub(Validator, 'execute').returns({ data0: 'test', data1: 'test', data2: 'test' });
 
