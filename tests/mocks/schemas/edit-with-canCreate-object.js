@@ -1,0 +1,186 @@
+'use strict';
+
+module.exports = {
+	service: 'sac',
+	name: 'claim-motive-edit',
+	root: 'Edit',
+	canPrint: true,
+	canCreate: true,
+	source: {
+		service: 'sac',
+		namespace: 'claim-motive',
+		method: 'get',
+		resolve: false
+	},
+	saveRedirectUrl: '/some-path',
+	cancelRedirectUrl: '/some-path',
+	header: {
+		title: [
+			{
+				name: 'id',
+				component: 'MainTitle',
+				componentAttributes: {
+					identifier: 'someFieldName'
+				}
+			},
+			{
+				name: 'status',
+				component: 'StatusChip',
+				mapper: 'translate',
+				componentAttributes: {
+					useTheme: true
+				}
+			},
+			{
+				name: 'badgeField',
+				component: 'BadgeLetter',
+				componentAttributes: {
+					backgroundColorTheme: 'backgroundThemeName',
+					fontColorTheme: 'colorThemeName',
+					useTheme: 'someTheme'
+				}
+			},
+			{
+				name: 'chipField',
+				component: 'Chip',
+				componentAttributes: {
+					textColor: 'colorName'
+				}
+			},
+			{
+				name: 'mediumChipField',
+				component: 'MediumChip'
+			},
+			{
+				name: 'smallChipField',
+				component: 'SmallChip'
+			},
+			{
+				name: 'iconField',
+				component: 'Icon',
+				componentAttributes: {
+					icon: 'iconName'
+				}
+			},
+			{
+				name: 'colorField',
+				component: 'Color'
+			},
+			{
+				name: 'imageField',
+				component: 'Image'
+			},
+			{
+				name: 'userImageField',
+				component: 'UserImage'
+			},
+			{
+				name: 'userChipField',
+				component: 'UserChip'
+			}
+		]
+	},
+	themes: {
+		themeOne: {
+			new: 'black',
+			closed: 'green',
+			_default: 'grey'
+		},
+		themeTwo: {
+			new: 'grey',
+			closed: 'fizzgreen',
+			warning: {
+				somePropOne: 'someValue',
+				somePropTwo: 'someValue'
+			}
+		}
+	},
+	dependencies: [
+		{
+			name: 'dependencyOne',
+			source: {
+				service: 'serviceName',
+				namespace: 'namespaceName',
+				method: 'methodName',
+				resolve: false
+			},
+			endpointParameters: [
+				{
+					name: 'status',
+					target: 'path',
+					value: {
+						dynamic: 'id'
+					}
+				},
+				{
+					name: 'status',
+					target: 'filter',
+					value: {
+						static: 'active'
+					}
+				},
+				{
+					name: 'sortBy',
+					target: 'queryString',
+					value: {
+						static: 'status'
+					}
+				}
+			],
+			targetField: 'fieldNameOne'
+		}
+	],
+	collapseSections: true,
+	sections: [
+		{
+			name: 'someBrowse',
+			rootComponent: 'BrowseSection',
+			sourceField: 'someFieldName',
+			pageSize: 'none',
+			canCreate: {
+				endpoint: {
+					service: 'service',
+					namespace: 'namespace',
+					method: 'method',
+					resolve: false
+				},
+				endpointParameters: [
+					{
+						name: 'status',
+						target: 'path',
+						value: {
+							dynamic: 'id'
+						}
+					},
+					{
+						name: 'status',
+						target: 'query',
+						value: {
+							static: 1
+						}
+					},
+					{
+						name: 'status',
+						target: 'path',
+						value: {
+							dynamic: 'id'
+						}
+					},
+					{
+						name: 'status',
+						target: 'query',
+						value: {
+							static: 1
+						}
+					}
+				]
+			},
+			fields: [
+				{
+					name: 'id',
+					component: 'BoldText'
+				}
+			]
+		}
+	]
+};

@@ -2,20 +2,16 @@
 
 const assert = require('assert');
 const sinon = require('sinon');
-const fs = require('fs-extra');
-const ymljs = require('yamljs');
 
 const deprecationValidator = require('../lib/deprecation-validator');
 
-const titleIdentifier = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/deprecated/edit-with-deprecated-title-identifier.yml');
-const titleBeforeId = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/deprecated/edit-with-deprecated-title-before-id.yml');
-const titleAfterId = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/deprecated/edit-with-deprecated-title-after-id.yml');
-const titleComponents = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/deprecated/edit-with-deprecated-title-components.yml');
+const deprecatedSchemaIdentifier = require('./mocks/schemas/deprecated/edit-with-deprecated-title-identifier.js');
+const deprecatedSchemaBeforeId = require('./mocks/schemas/deprecated/edit-with-deprecated-title-before-id.js');
+const deprecatedSchemaAfterId = require('./mocks/schemas/deprecated/edit-with-deprecated-title-after-id.js');
+const deprecatedSchemaTitleComponents = require('./mocks/schemas/deprecated/edit-with-deprecated-title-components.js');
 
-const deprecatedSchemaIdentifier = ymljs.parse(titleIdentifier.toString());
-const deprecatedSchemaBeforeId = ymljs.parse(titleBeforeId.toString());
-const deprecatedSchemaAfterId = ymljs.parse(titleAfterId.toString());
-const deprecatedSchemaTitleComponents = ymljs.parse(titleComponents.toString());
+// Helper to deep clone since tests mutate schemas
+const clone = obj => JSON.parse(JSON.stringify(obj));
 
 describe('deprecation-validator', () => {
 
@@ -27,7 +23,7 @@ describe('deprecation-validator', () => {
 
 		const executeSpy = sinon.spy(deprecationValidator, 'execute');
 
-		deprecationValidator.execute(deprecatedSchemaIdentifier);
+		deprecationValidator.execute(clone(deprecatedSchemaIdentifier));
 
 		assert(executeSpy.calledOnce);
 	});
@@ -36,9 +32,10 @@ describe('deprecation-validator', () => {
 
 		const executeSpy = sinon.spy(deprecationValidator, 'execute');
 
-		delete deprecatedSchemaIdentifier.header;
+		const schema = clone(deprecatedSchemaIdentifier);
+		delete schema.header;
 
-		deprecationValidator.execute(deprecatedSchemaIdentifier);
+		deprecationValidator.execute(schema);
 
 		assert(executeSpy.calledOnce);
 	});
@@ -47,7 +44,7 @@ describe('deprecation-validator', () => {
 
 		const executeSpy = sinon.spy(deprecationValidator, 'execute');
 
-		deprecationValidator.execute(deprecatedSchemaAfterId);
+		deprecationValidator.execute(clone(deprecatedSchemaAfterId));
 
 		assert(executeSpy.calledOnce);
 	});
@@ -56,7 +53,7 @@ describe('deprecation-validator', () => {
 
 		const executeSpy = sinon.spy(deprecationValidator, 'execute');
 
-		deprecationValidator.execute(deprecatedSchemaBeforeId);
+		deprecationValidator.execute(clone(deprecatedSchemaBeforeId));
 
 		assert(executeSpy.calledOnce);
 	});
@@ -65,7 +62,7 @@ describe('deprecation-validator', () => {
 
 		const executeSpy = sinon.spy(deprecationValidator, 'execute');
 
-		deprecationValidator.execute(deprecatedSchemaTitleComponents);
+		deprecationValidator.execute(clone(deprecatedSchemaTitleComponents));
 
 		assert(executeSpy.calledOnce);
 	});

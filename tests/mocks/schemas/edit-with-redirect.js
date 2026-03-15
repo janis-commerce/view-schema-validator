@@ -1,0 +1,16 @@
+'use strict';
+
+module.exports = {
+	service: 'sac',
+	name: 'claim-motive-edit',
+	root: 'Edit',
+	canPrint: true,
+	canCreate: true,
+	redirect: {
+		source: {
+			service: 'conversation',
+			namespace: 'template',
+			method: 'browse'
+		}
+	}
+};

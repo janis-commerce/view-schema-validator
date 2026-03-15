@@ -1,0 +1,21 @@
+'use strict';
+
+module.exports = {
+	service: 'tms',
+	name: 'planning',
+	root: 'Planning',
+	title: 'planning',
+	canRefresh: false,
+	canImport: true,
+	canExport: true,
+	filters: [
+		{
+			name: 'filterInput',
+			label: 'someLabel',
+			component: 'Input',
+			componentAttributes: {
+				icon: 'iconName'
+			}
+		}
+	]
+};

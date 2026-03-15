@@ -1,0 +1,463 @@
+'use strict';
+
+module.exports = {
+	service: 'picking',
+	name: 'views-demo-preview',
+	root: 'Preview',
+	source: {
+		service: 'playground',
+		namespace: 'views-demo',
+		method: 'get',
+		resolve: false
+	},
+	sourceEndpointParameters: [
+		{
+			name: 'id',
+			target: 'path',
+			value: {
+				dynamic: 'id'
+			}
+		}
+	],
+	header: {
+		title: [
+			{
+				name: 'id',
+				component: 'IdText'
+			},
+			{
+				name: 'title',
+				component: 'MainTitle',
+				componentAttributes: {
+					value: 'someField',
+					color: 'colorName',
+					identifier: 'someFieldName'
+				}
+			},
+			{
+				name: 'status',
+				component: 'StatusChip',
+				mapper: 'translate',
+				componentAttributes: {
+					useTheme: true
+				}
+			}
+		]
+	},
+	themes: {
+		themeOne: {
+			new: 'black',
+			closed: 'green',
+			_default: 'grey'
+		},
+		themeTwo: {
+			new: 'grey',
+			closed: 'fizzgreen',
+			warning: {
+				somePropOne: 'someValue',
+				somePropTwo: 'someValue'
+			}
+		}
+	},
+	actions: [
+		{
+			name: 'someActionOne',
+			type: 'link',
+			sections: [
+				'sectionName'
+			],
+			componentAttributes: {
+				path: '/playground/views-demo/{id}',
+				linkTarget: '_blank',
+				target: {
+					service: 'playground',
+					namespace: 'views-demo',
+					method: 'create',
+					resolve: false
+				},
+				endpointParameters: [
+					{
+						name: 'id',
+						target: 'path',
+						value: {
+							dynamic: 'id'
+						}
+					}
+				]
+			}
+		},
+		{
+			name: 'someActionTwo',
+			type: 'endpoint',
+			conditions: {
+				showWhen: [
+					[
+						{
+							name: 'isNotEmpty',
+							field: 'order'
+						}
+					]
+				]
+			},
+			callback: 'reloadBrowse',
+			componentAttributes: {
+				endpoint: {
+					service: 'playground',
+					namespace: 'views-demo',
+					method: 'create',
+					resolve: false
+				},
+				endpointParameters: [
+					{
+						name: 'id',
+						target: 'path',
+						value: {
+							dynamic: 'id'
+						}
+					}
+				]
+			}
+		},
+		{
+			name: 'someActionThree',
+			type: 'form',
+			componentAttributes: {
+				fields: [
+					{
+						name: 'someField',
+						component: 'Input'
+					}
+				],
+				endpoint: {
+					service: 'playground',
+					namespace: 'views-demo',
+					method: 'create',
+					resolve: false
+				},
+				endpointParameters: [
+					{
+						name: 'id',
+						target: 'path',
+						value: {
+							dynamic: 'id'
+						}
+					}
+				]
+			}
+		}
+	],
+	sections: [
+		{
+			name: 'testFormSection',
+			rootComponent: 'FormSection',
+			sourceField: 'fieldName',
+			columnsType: 'even',
+			hideUserModified: false,
+			hideUserCreated: true,
+			themes: {
+				themeOne: {
+					new: 'black',
+					closed: 'green'
+				}
+			},
+			source: {
+				service: 'sac',
+				namespace: 'claim-motive',
+				method: 'get',
+				resolve: false
+			},
+			target: {
+				service: 'sac',
+				namespace: 'claim-motive',
+				method: 'save',
+				resolve: false
+			},
+			fieldsGroup: [
+				{
+					name: 'detail',
+					position: 'left',
+					icon: 'catalogue',
+					collapsible: true,
+					fields: [
+						{
+							name: 'name',
+							component: 'Select',
+							componentAttributes: {
+								translateLabels: true,
+								labelFieldName: 'motiveName',
+								options: {
+									scope: 'local',
+									valuesMapper: {
+										label: 'name',
+										value: 'id'
+									},
+									values: [
+										{
+											label: 'common.status.active',
+											value: 1
+										},
+										{
+											label: 'common.status.inactive',
+											value: 0
+										}
+									]
+								}
+							},
+							validations: [
+								[
+									{
+										name: 'required'
+									}
+								],
+								[
+									{
+										name: 'maxLength',
+										options: {
+											length: 50
+										}
+									}
+								]
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			name: 'mainFormSection',
+			icon: 'catalogue',
+			rootComponent: 'ReadOnlySection',
+			columnsType: 'even',
+			fieldsGroup: [
+				{
+					name: 'detail',
+					icon: 'catalogue',
+					fields: [
+						{
+							name: 'image',
+							component: 'UserImage',
+							componentAttributes: {
+								size: 'large'
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			name: 'summary',
+			rootComponent: 'Summary',
+			icon: 'summary',
+			cards: [
+				{
+					component: 'BaseCard',
+					name: 'detail',
+					x: 0,
+					y: 0,
+					width: 5,
+					height: 3,
+					fieldsGroup: [
+						{
+							name: 'detail',
+							icon: 'catalogue',
+							fields: [
+								{
+									name: 'text',
+									component: 'Text'
+								},
+								{
+									name: 'chip',
+									component: 'Chip',
+									conditions: {
+										showWhen: [
+											[
+												{
+													name: 'isNotEmpty',
+													field: 'someField'
+												}
+											]
+										]
+									}
+								},
+								{
+									name: 'mediumChip',
+									component: 'MediumChip'
+								},
+								{
+									name: 'userRelated',
+									component: 'UserChip',
+									componentAttributes: {
+										userDataSource: {
+											firstname: 'firstname',
+											lastname: 'lastname',
+											email: 'email',
+											image: 'image'
+										}
+									}
+								},
+								{
+									name: 'status',
+									component: 'StatusChip',
+									componentAttributes: {
+										useTheme: true
+									}
+								},
+								{
+									name: 'dateCreated',
+									component: 'Text',
+									mapper: {
+										name: 'date',
+										props: {
+											format: 'DD/MM/YYYY'
+										}
+									}
+								},
+								{
+									name: 'friends',
+									component: 'Text',
+									mapper: 'join'
+								},
+								{
+									name: 'gender',
+									component: 'Text',
+									mapper: [
+										{
+											name: 'prefix',
+											props: {
+												value: 'common.gender.'
+											}
+										},
+										'translate'
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					component: 'BaseCard',
+					name: 'Links',
+					x: 5,
+					y: 0,
+					width: 5,
+					height: 'auto',
+					fieldsGroup: [
+						{
+							name: 'Links',
+							icon: 'catalogue',
+							fields: [
+								{
+									name: 'link',
+									component: 'Link',
+									componentAttributes: {
+										translateLabels: false,
+										path: '/playground/views-demo/edit/{id}',
+										endpointParameters: [
+											{
+												name: 'id',
+												target: 'path',
+												value: {
+													dynamic: 'id'
+												}
+											}
+										]
+									}
+								},
+								{
+									name: 'coordinates',
+									component: 'Location',
+									componentAttributes: {
+										label: 'some.label.translation'
+									}
+								},
+								{
+									name: 'coordinates',
+									component: 'Location',
+									componentAttributes: {
+										label: {
+											template: '{0} {1} {2}, {3} ({4}), {5}, {6}, {7}',
+											fields: [
+												'address.street',
+												'address.number',
+												'address.complement',
+												'address.neighborhood',
+												'address.postalCode',
+												'address.state',
+												'address.city',
+												'address.country'
+											]
+										}
+									}
+								},
+								{
+									name: 'address',
+									component: 'Location',
+									componentAttributes: {
+										label: {
+											template: '{0} {1} {2}, {3} ({4}), {5}, {6}, {7}',
+											fields: [
+												'address.street',
+												'address.number',
+												'address.complement',
+												'address.neighborhood',
+												'address.postalCode',
+												'address.state',
+												'address.city',
+												'address.country'
+											]
+										},
+										fieldsMapping: {
+											latitude: 'lat',
+											longitude: 'lng'
+										}
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					name: 'totals',
+					component: 'OMSOrderTotalsCard',
+					x: 0,
+					y: 3,
+					width: 4,
+					height: 4
+				}
+			]
+		},
+		{
+			name: 'comments',
+			icon: 'message',
+			rootComponent: 'Comments'
+		},
+		{
+			name: 'logs',
+			icon: 'clock',
+			rootComponent: 'LogsBrowseSection'
+		},
+		{
+			name: 'dynamicRemoteSection',
+			icon: 'clock',
+			rootComponent: 'RemoteSection',
+			schemaSource: {
+				type: 'dynamic',
+				endpoint: {
+					service: 'playground',
+					namespace: 'views-demo-remote-section-browse',
+					method: 'list',
+					resolve: true
+				},
+				endpointParameters: [
+					{
+						name: 'firstname',
+						target: 'queryString',
+						value: {
+							dynamic: 'firstname'
+						}
+					}
+				]
+			}
+		}
+	]
+};
