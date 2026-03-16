@@ -2,48 +2,99 @@
 
 'use strict';
 
+const path = require('path');
 const logger = require('lllog')();
-const { argv } = require('yargs')
-	.command('build')
-	.command('validate')
-	.demandCommand()
-	.option('input', {
+const yargs = require('yargs');
+
+const ViewSchemaValidator = require('./lib');
+const migrate = require('./lib/migrate');
+const packageJson = require('./package.json');
+
+const commonOptions = {
+	input: {
 		alias: 'i',
 		describe: 'write a relative dir for your inputs files folder or file',
 		type: 'string',
 		demandOption: true
+	}
+};
+
+const { argv } = yargs
+	.command('build', 'Build view schemas', y => {
+		y.options({
+			...commonOptions,
+			output: {
+				alias: 'o',
+				type: 'string',
+				describe: 'write a relative dir for outputs'
+			},
+			service: {
+				alias: 's',
+				type: 'string',
+				describe: 'write a service local for resolve endpoints'
+			},
+			env: {
+				alias: 'e',
+				type: 'string',
+				describe: 'write a current environment',
+				default: 'local'
+			},
+			minified: {
+				alias: 'm',
+				type: 'boolean',
+				default: false
+			},
+			watch: {
+				alias: 'w',
+				type: 'boolean',
+				default: false
+			}
+		});
 	})
-	.option('output', {
-		alias: 'o',
-		type: 'string',
-		describe: 'write a relative dir for outputs'
+	.command('validate', 'Validate view schemas', y => {
+		y.options({
+			...commonOptions,
+			output: {
+				alias: 'o',
+				type: 'string',
+				describe: 'write a relative dir for outputs'
+			},
+			service: {
+				alias: 's',
+				type: 'string',
+				describe: 'write a service local for resolve endpoints'
+			},
+			env: {
+				alias: 'e',
+				type: 'string',
+				describe: 'write a current environment',
+				default: 'local'
+			},
+			minified: {
+				alias: 'm',
+				type: 'boolean',
+				default: false
+			},
+			watch: {
+				alias: 'w',
+				type: 'boolean',
+				default: false
+			}
+		});
 	})
-	.option('service', {
-		alias: 's',
-		type: 'string',
-		describe: 'write a service local for resolve endpoints'
+	.command('migrate', 'Migrate YAML view schemas to JS modules', y => {
+		y.options({
+			...commonOptions,
+			output: {
+				alias: 'o',
+				type: 'string',
+				describe: 'output directory for converted JS files (default: alongside YAML files)'
+			}
+		});
 	})
-	.option('env', {
-		alias: 'e',
-		type: 'string',
-		describe: 'write a current environment',
-		default: 'local'
-	})
-	.option('minified', {
-		alias: 'm',
-		type: 'boolean',
-		default: false
-	})
-	.option('watch', {
-		alias: 'w',
-		type: 'boolean',
-		default: false
-	})
+	.demandCommand()
 	.strict()
 	.help('help');
-
-const ViewSchemaValidator = require('./lib');
-const packageJson = require('./package.json');
 
 (async () => {
 
@@ -60,6 +111,12 @@ const packageJson = require('./package.json');
 	} = argv;
 
 	const [command] = commands;
+
+	if(command === 'migrate') {
+		const inputDir = path.resolve(input);
+		const outputDir = output ? path.resolve(output) : undefined;
+		return migrate.execute(inputDir, outputDir);
+	}
 
 	const schemaValidator = new ViewSchemaValidator(
 		input,
