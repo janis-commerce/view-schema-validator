@@ -15,7 +15,7 @@ const commonOptions = {
 		alias: 'i',
 		describe: 'write a relative dir for your inputs files folder or file',
 		type: 'string',
-		demandOption: true
+		default: 'view-schemas'
 	}
 };
 
@@ -26,7 +26,8 @@ const { argv } = yargs
 			output: {
 				alias: 'o',
 				type: 'string',
-				describe: 'write a relative dir for outputs'
+				describe: 'write a relative dir for outputs',
+				default: 'view-schemas-built'
 			},
 			service: {
 				alias: 's',
@@ -57,7 +58,8 @@ const { argv } = yargs
 			output: {
 				alias: 'o',
 				type: 'string',
-				describe: 'write a relative dir for outputs'
+				describe: 'write a relative dir for outputs',
+				default: 'view-schemas-built'
 			},
 			service: {
 				alias: 's',
@@ -88,7 +90,7 @@ const { argv } = yargs
 			output: {
 				alias: 'o',
 				type: 'string',
-				describe: 'output directory for converted JS files (default: alongside YAML files)'
+				describe: 'output directory for converted JS files (default: same as input)'
 			}
 		});
 	})
