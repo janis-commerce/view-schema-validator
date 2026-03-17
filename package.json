@@ -2,8 +2,18 @@
 	"name": "@janiscommerce/view-schema-validator",
 	"version": "4.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "lib/define-view.js",
 	"types": "./types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"default": "./lib/define-view.js"
+		},
+		"./define-view": {
+			"types": "./types/index.d.ts",
+			"default": "./lib/define-view.js"
+		}
+	},
 	"scripts": {
 		"test": "export TEST_ENV=true; mocha --timeout 8000 --exit -R nyan --require tests/bootstrap.js --recursive tests/",
 		"test-ci": "nyc --reporter=lcov --reporter=text-summary mocha --timeout 8000 --exit --recursive tests/",

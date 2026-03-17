@@ -7,7 +7,7 @@ export * from './views';
  *
  * @example
  * ```js
- * const { defineView } = require('@janiscommerce/view-schema-validator/lib/define-view');
+ * const { defineView } = require('@janiscommerce/view-schema-validator');
  *
  * module.exports = defineView({
  *   root: 'Browse',
