@@ -1,0 +1,31 @@
+'use strict';
+
+module.exports = {
+	service: 'sac',
+	name: 'claim-motive-edit',
+	root: 'Edit',
+	canPrint: true,
+	canCreate: true,
+	source: {
+		service: 'sac',
+		namespace: 'claim-motive',
+		method: 'get',
+		resolve: false
+	},
+	saveRedirectUrl: '/some-path',
+	cancelRedirectUrl: '/some-path',
+	header: {
+		title: {
+			beforeId: [
+				{
+					name: 'test',
+					component: 'BadgeLetter',
+					componentAttributes: {
+						backgroundColorTheme: 'backgroundThemeName',
+						fontColorTheme: 'colorThemeName'
+					}
+				}
+			]
+		}
+	}
+};

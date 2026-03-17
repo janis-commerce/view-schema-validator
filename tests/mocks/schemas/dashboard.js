@@ -1,0 +1,137 @@
+'use strict';
+
+module.exports = {
+	service: 'serviceName',
+	name: 'example-dashboard',
+	root: 'Dashboard',
+	filters: [
+		{
+			name: 'filterInput',
+			label: 'someLabel',
+			component: 'Input',
+			componentAttributes: {
+				icon: 'iconName'
+			}
+		}
+	],
+	graphs: [
+		{
+			component: 'Table',
+			name: 'graphName',
+			title: 'someTitleForGraph',
+			source: {
+				service: 'serviceName',
+				namespace: 'namespaceName',
+				method: 'methodName',
+				resolve: false
+			},
+			endpointParameters: [
+				{
+					name: 'status',
+					target: 'path',
+					value: {
+						dynamic: 'id'
+					}
+				},
+				{
+					name: 'status',
+					target: 'query',
+					value: {
+						static: 1
+					}
+				}
+			],
+			x: 0,
+			y: 0,
+			width: 6,
+			height: 3
+		},
+		{
+			component: 'BarChart',
+			name: 'graphName',
+			title: 'someTitleForGraph',
+			translateTitle: true,
+			subtitle: 'someSubtitleForGraph',
+			translateSubtitle: true,
+			source: {
+				service: 'serviceName',
+				namespace: 'namespaceName',
+				method: 'methodName',
+				resolve: false
+			},
+			componentAttributes: {
+				options: {
+					width: '100%'
+				}
+			},
+			x: 6,
+			y: 0,
+			width: 6,
+			height: 3
+		},
+		{
+			component: 'TextCardKpi',
+			name: 'TextCard',
+			title: 'title',
+			source: {
+				service: 'serviceName',
+				namespace: 'namespaceName',
+				method: 'list',
+				resolve: true
+			},
+			value: {
+				field: 'someField',
+				mapper: {
+					name: 'suffix',
+					props: {
+						addWhitespace: true,
+						value: 'hs'
+					}
+				}
+			},
+			percent: {
+				field: 'someField',
+				mapper: {
+					name: 'suffix',
+					props: {
+						addWhitespace: true,
+						value: '%'
+					}
+				}
+			},
+			x: 0,
+			y: 0,
+			width: 12,
+			height: 4
+		},
+		{
+			component: 'TextCardKpi',
+			name: 'TextCardDelivery',
+			title: 'title',
+			value: {
+				field: 'someField',
+				mapper: {
+					name: 'suffix',
+					props: {
+						addWhitespace: true,
+						value: 'hs'
+					}
+				}
+			},
+			percent: {
+				field: 'someField',
+				mapper: {
+					name: 'suffix',
+					props: {
+						addWhitespace: true,
+						value: '%'
+					}
+				}
+			},
+			x: 0,
+			y: 0,
+			width: 12,
+			height: 4
+		}
+	]
+};
