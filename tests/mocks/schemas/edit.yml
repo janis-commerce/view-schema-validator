@@ -1078,6 +1078,9 @@ sections:
                 valuesMapper:
                   label: name
                   value: id
+                localValues:
+                  - value: sin_asignacion
+                    label: Sin asignación
 
           - name: selectRemoteTwo
             component: Select
