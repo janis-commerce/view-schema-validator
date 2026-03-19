@@ -253,6 +253,22 @@
         "borderColor": "grey"
       },
       "mapper": "booleanToWord"
+    },
+    {
+      "name": "displayName",
+      "component": "Text",
+      "attributes": {
+        "initialSortDirection": "desc",
+        "isDefaultSort": false,
+        "isStatus": false,
+        "sortable": false
+      },
+      "componentAttributes": {
+        "fontWeight": "normal"
+      },
+      "mapper": {
+        "name": "capitalize"
+      }
     }
   ]
 }

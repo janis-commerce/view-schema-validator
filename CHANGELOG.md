@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.10.0] - 2026-03-19
+
+### Added
+
+- Support for capitalize mapper in view schemas
+
 ## [3.9.0] - 2026-02-26
 
 ### Added
