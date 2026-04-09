@@ -330,7 +330,7 @@ sections:
           - name: name
             component: Select
             componentAttributes:
-              labelDescription: Texto de ayuda visible en el tooltip.
+              fieldHelp: Texto de ayuda visible en el tooltip.
               translateLabels: true
               labelFieldName: motiveName
               labelPrefix: common.status.

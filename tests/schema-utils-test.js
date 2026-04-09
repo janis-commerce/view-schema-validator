@@ -19,7 +19,7 @@ describe('test schema utils functons', () => {
 				properties: {
 					componentAttributes: {
 						type: 'object',
-						properties: { labelDescription: { $ref: 'schemaDefinitions#/definitions/labelDescription' } },
+						properties: { fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' } },
 						default: {},
 						additionalProperties: false
 					}
@@ -49,7 +49,7 @@ describe('test schema utils functons', () => {
 					componentAttributes: {
 						type: 'object',
 						properties: {
-							labelDescription: { $ref: 'schemaDefinitions#/definitions/labelDescription' },
+							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
 							colorSource: { type: 'string' }
 						},
 						default: {},
@@ -82,7 +82,7 @@ describe('test schema utils functons', () => {
 					componentAttributes: {
 						type: 'object',
 						properties: {
-							labelDescription: { $ref: 'schemaDefinitions#/definitions/labelDescription' },
+							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
 							colorSource: { type: 'string' }
 						},
 						required: ['colorSource'],
@@ -116,7 +116,7 @@ describe('test schema utils functons', () => {
 					componentAttributes: {
 						type: 'object',
 						properties: {
-							labelDescription: { $ref: 'schemaDefinitions#/definitions/labelDescription' },
+							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
 							colorSource: { type: 'string' }
 						},
 						required: ['colorSource'],
@@ -161,7 +161,7 @@ describe('test schema utils functons', () => {
 					componentAttributes: {
 						type: 'object',
 						properties: {
-							labelDescription: { $ref: 'schemaDefinitions#/definitions/labelDescription' },
+							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
 							colorSource: { type: 'string' }
 						},
 						if: {
