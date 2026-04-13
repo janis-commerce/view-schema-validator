@@ -331,6 +331,7 @@ sections:
             component: Select
             componentAttributes:
               fieldHelp: Texto de ayuda visible en el tooltip.
+              fieldHelpPosition: left
               translateLabels: true
               labelFieldName: motiveName
               labelPrefix: common.status.
