@@ -20,8 +20,7 @@ describe('test schema utils functons', () => {
 					componentAttributes: {
 						type: 'object',
 						properties: {
-							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
-							fieldHelpPosition: { $ref: 'schemaDefinitions#/definitions/fieldHelpPosition' }
+							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' }
 						},
 						default: {},
 						additionalProperties: false
@@ -53,7 +52,6 @@ describe('test schema utils functons', () => {
 						type: 'object',
 						properties: {
 							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
-							fieldHelpPosition: { $ref: 'schemaDefinitions#/definitions/fieldHelpPosition' },
 							colorSource: { type: 'string' }
 						},
 						default: {},
@@ -87,7 +85,6 @@ describe('test schema utils functons', () => {
 						type: 'object',
 						properties: {
 							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
-							fieldHelpPosition: { $ref: 'schemaDefinitions#/definitions/fieldHelpPosition' },
 							colorSource: { type: 'string' }
 						},
 						required: ['colorSource'],
@@ -122,7 +119,6 @@ describe('test schema utils functons', () => {
 						type: 'object',
 						properties: {
 							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
-							fieldHelpPosition: { $ref: 'schemaDefinitions#/definitions/fieldHelpPosition' },
 							colorSource: { type: 'string' }
 						},
 						required: ['colorSource'],
@@ -168,7 +164,6 @@ describe('test schema utils functons', () => {
 						type: 'object',
 						properties: {
 							fieldHelp: { $ref: 'schemaDefinitions#/definitions/fieldHelp' },
-							fieldHelpPosition: { $ref: 'schemaDefinitions#/definitions/fieldHelpPosition' },
 							colorSource: { type: 'string' }
 						},
 						if: {
