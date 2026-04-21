@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.12.0] - 2026-04-21
+
+### Added
+
+- Shared `fieldHelp` schema definition and registration in `schemaDefinitions`.
+- `makeComponent` merges `fieldHelp` into `componentAttributes.properties` so components (e.g. Select) accept it under `additionalProperties: false`.
+- Edit-new field `componentAttributes` allows `fieldHelp` via `$ref`.
+
 ## [3.11.0] - 2026-04-14
 
 ### Added
