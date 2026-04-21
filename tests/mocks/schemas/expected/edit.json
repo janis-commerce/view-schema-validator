@@ -146,10 +146,19 @@
     {
       "name": "mainFormSection",
       "rootComponent": "MainForm",
-      "columnsType": "default",
       "icon": "catalogue",
+      "columnsType": "default",
       "hideUserModified": false,
       "hideUserCreated": true,
+      "assist": {
+        "target": {
+          "service": "ai",
+          "namespace": "assistant",
+          "method": "suggest",
+          "resolve": true
+        },
+        "placeholder": "views.field.askAi"
+      },
       "dependencies": [
         {
           "name": "dependencyOne",
@@ -401,12 +410,6 @@
                 "modalTitle": "testModalTitle",
                 "fields": [
                   {
-                    "attributes": {
-                      "initialSortDirection": "desc",
-                      "isDefaultSort": false,
-                      "isStatus": false,
-                      "sortable": false
-                    },
                     "name": "password",
                     "label": "login.field.temporaryPassword",
                     "component": "FieldList",
@@ -414,30 +417,36 @@
                       "direction": "horizontal",
                       "fields": [
                         {
-                          "attributes": {
-                            "initialSortDirection": "desc",
-                            "isDefaultSort": false,
-                            "isStatus": false,
-                            "sortable": false
-                          },
                           "name": "temporalPassword",
                           "component": "Text",
                           "componentAttributes": {
                             "fontWeight": "normal"
+                          },
+                          "attributes": {
+                            "isStatus": false,
+                            "sortable": false,
+                            "isDefaultSort": false,
+                            "initialSortDirection": "desc"
                           }
                         },
                         {
-                          "attributes": {
-                            "initialSortDirection": "desc",
-                            "isDefaultSort": false,
-                            "isStatus": false,
-                            "sortable": false
-                          },
+                          "name": "temporalPassword",
                           "component": "CopyToClipboardButton",
-                          "componentAttributes": {},
-                          "name": "temporalPassword"
+                          "attributes": {
+                            "isStatus": false,
+                            "sortable": false,
+                            "isDefaultSort": false,
+                            "initialSortDirection": "desc"
+                          },
+                          "componentAttributes": {}
                         }
                       ]
+                    },
+                    "attributes": {
+                      "isStatus": false,
+                      "sortable": false,
+                      "isDefaultSort": false,
+                      "initialSortDirection": "desc"
                     }
                   }
                 ]
@@ -474,7 +483,10 @@
               [
                 {
                   "name": "isNotEmpty",
-                  "field": ["test", "name"]
+                  "field": [
+                    "test",
+                    "name"
+                  ]
                 },
                 {
                   "name": "isNotEqualTo",
@@ -524,8 +536,8 @@
       "fieldsGroup": [
         {
           "name": "detail",
-          "icon": "catalogue",
           "position": "left",
+          "icon": "catalogue",
           "collapsible": true,
           "defaultOpen": true,
           "fields": [
@@ -581,7 +593,10 @@
                     {
                       "name": "isOneOf",
                       "field": "someField",
-                      "referenceValue": ["test1", "test2"]
+                      "referenceValue": [
+                        "test1",
+                        "test2"
+                      ]
                     },
                     {
                       "name": "isDev"
@@ -592,7 +607,10 @@
                   [
                     {
                       "name": "isNotEmpty",
-                      "field": ["test", "name"]
+                      "field": [
+                        "test",
+                        "name"
+                      ]
                     },
                     {
                       "name": "isNotEqualTo",
@@ -672,7 +690,10 @@
                     {
                       "name": "isOneOf",
                       "field": "someField",
-                      "referenceValue": ["test1", "test2"]
+                      "referenceValue": [
+                        "test1",
+                        "test2"
+                      ]
                     },
                     {
                       "name": "isDev"
@@ -683,7 +704,10 @@
                   [
                     {
                       "name": "isNotEmpty",
-                      "field": ["test", "name"]
+                      "field": [
+                        "test",
+                        "name"
+                      ]
                     },
                     {
                       "name": "isNotEqualTo",
@@ -729,13 +753,19 @@
                     {
                       "name": "isNotOneOf",
                       "field": "someField",
-                      "referenceValue": ["test1", "test2"]
+                      "referenceValue": [
+                        "test1",
+                        "test2"
+                      ]
                     }
                   ],
                   [
                     {
                       "name": "isNotEqualTo",
-                      "field": ["test", "name"],
+                      "field": [
+                        "test",
+                        "name"
+                      ],
                       "referenceValue": true
                     }
                   ],
@@ -814,19 +844,19 @@
             {
               "name": "exampleStaticValueMapper",
               "component": "Text",
-              "componentAttributes": {},
               "mapper": {
                 "name": "addStaticValue",
                 "props": {
                   "value": "common.action.viewMore",
                   "translate": true
                 }
-              }
+              },
+              "componentAttributes": {}
             },
             {
               "name": "exampleImage",
-              "component": "Image",
               "translateLabel": false,
+              "component": "Image",
               "componentAttributes": {
                 "roundBorders": false,
                 "width": "auto",
@@ -847,8 +877,8 @@
               "name": "exampleUserImage",
               "component": "UserImage",
               "componentAttributes": {
-                "roundBorders": true,
-                "size": "medium"
+                "size": "medium",
+                "roundBorders": true
               }
             },
             {
@@ -1450,7 +1480,6 @@
             {
               "name": "fieldTriggers",
               "component": "Input",
-              "componentAttributes": {},
               "triggers": [
                 {
                   "endpoint": {
@@ -1491,12 +1520,12 @@
                     "name": "firstname"
                   }
                 }
-              ]
+              ],
+              "componentAttributes": {}
             },
             {
               "name": "fieldTriggersTwo",
               "component": "Input",
-              "componentAttributes": {},
               "triggers": [
                 {
                   "endpoint": {
@@ -1511,11 +1540,15 @@
                     },
                     "other": {
                       "someField": "someField",
-                      "root": ["fieldOne", "fieldTwo"]
+                      "root": [
+                        "fieldOne",
+                        "fieldTwo"
+                      ]
                     }
                   }
                 }
-              ]
+              ],
+              "componentAttributes": {}
             },
             {
               "name": "someInput",
@@ -1540,11 +1573,11 @@
               "component": "FieldsArray",
               "componentAttributes": {
                 "canChangeElements": true,
-                "minElements": 1,
-                "maxElements": 3,
                 "addButtonText": false,
                 "addButtonPosition": "left",
                 "showDivisor": false,
+                "minElements": 1,
+                "maxElements": 3,
                 "fields": [
                   {
                     "name": "test1",
@@ -1566,8 +1599,8 @@
               "component": "FieldsArray",
               "componentAttributes": {
                 "canChangeElements": true,
-                "minElements": 1,
                 "uniqueField": true,
+                "minElements": 1,
                 "addButtonText": "some.traduction",
                 "addButtonTextColor": "colorName",
                 "addButtonBackgroundColor": "colorName",
@@ -1673,7 +1706,6 @@
                 "targetField": "fieldName",
                 "options": {
                   "scope": "remote",
-                  "searchParam": "filters[search]",
                   "endpoint": {
                     "service": "sac",
                     "namespace": "claim",
@@ -1707,7 +1739,8 @@
                   "valuesMapper": {
                     "label": "name",
                     "value": "id"
-                  }
+                  },
+                  "searchParam": "filters[search]"
                 }
               }
             },
@@ -1721,7 +1754,6 @@
                 },
                 "options": {
                   "scope": "remote",
-                  "searchParam": "filters[search]",
                   "endpoint": {
                     "service": "sac",
                     "namespace": "claim",
@@ -1739,10 +1771,15 @@
                   "valuesMapper": {
                     "label": {
                       "template": "{0} {1} - ({2})",
-                      "fields": ["firstname", "lastname", "email"]
+                      "fields": [
+                        "firstname",
+                        "lastname",
+                        "email"
+                      ]
                     },
                     "value": "id"
-                  }
+                  },
+                  "searchParam": "filters[search]"
                 }
               }
             },
@@ -1754,13 +1791,13 @@
                 "responseProperty": "someField",
                 "options": {
                   "scope": "remote",
-                  "searchParam": "filters[search]",
                   "endpoint": {
                     "service": "sac",
                     "namespace": "claim",
                     "method": "list",
                     "resolve": false
                   },
+                  "searchParam": "filters[search]",
                   "valuesMapper": {
                     "label": "name",
                     "value": "id"
@@ -1775,18 +1812,18 @@
                 "translateLabels": true,
                 "options": {
                   "scope": "remote",
-                  "searchParam": "filters[search]",
                   "endpoint": {
                     "service": "sac",
                     "namespace": "claim",
                     "method": "list",
                     "resolve": false
                   },
+                  "initialValuesEndpoint": false,
+                  "searchParam": "filters[search]",
                   "valuesMapper": {
                     "label": "name",
                     "value": "id"
-                  },
-                  "initialValuesEndpoint": false
+                  }
                 }
               }
             },
@@ -1800,7 +1837,6 @@
                 "maxLevel": 3,
                 "options": {
                   "scope": "remote",
-                  "searchParam": "filters[search]",
                   "endpoint": {
                     "service": "sac",
                     "namespace": "claim",
@@ -1834,7 +1870,8 @@
                   "valuesMapper": {
                     "label": "name",
                     "value": "id"
-                  }
+                  },
+                  "searchParam": "filters[search]"
                 }
               }
             },
@@ -1853,7 +1890,6 @@
                   }
                 ],
                 "options": {
-                  "searchParam": "filters[search]",
                   "endpoint": {
                     "service": "sac",
                     "namespace": "claim",
@@ -1871,7 +1907,8 @@
                   "valuesMapper": {
                     "label": "name",
                     "value": "id"
-                  }
+                  },
+                  "searchParam": "filters[search]"
                 }
               }
             },
@@ -1886,7 +1923,10 @@
                 "timeOptions": {
                   "hourLapse": 2,
                   "minuteLapse": 30,
-                  "custom": ["11:00", "20:00"]
+                  "custom": [
+                    "11:00",
+                    "20:00"
+                  ]
                 }
               }
             },
@@ -1942,9 +1982,9 @@
                 "groupField": "statusName",
                 "labelField": "name",
                 "valueField": "id",
-                "translateSectionLabel": true,
                 "translateGroupLabel": false,
-                "translateCheckboxLabel": false
+                "translateCheckboxLabel": false,
+                "translateSectionLabel": true
               }
             },
             {
@@ -1998,9 +2038,9 @@
                 "groupField": "statusName",
                 "labelField": "name",
                 "valueField": "id",
-                "translateSectionLabel": true,
                 "translateGroupLabel": "delivery.title",
-                "translateCheckboxLabel": false
+                "translateCheckboxLabel": false,
+                "translateSectionLabel": true
               }
             },
             {
@@ -2067,7 +2107,11 @@
               "component": "StatusSelector",
               "componentAttributes": {
                 "canClear": true,
-                "values": ["active", "inactive", "procesing"]
+                "values": [
+                  "active",
+                  "inactive",
+                  "procesing"
+                ]
               }
             },
             {
@@ -2138,6 +2182,7 @@
       "rootComponent": "BrowseSection",
       "sourceField": "fieldName",
       "canRefresh": true,
+      "canEdit": false,
       "canImport": true,
       "canExport": true,
       "themes": {
@@ -2192,6 +2237,37 @@
           ]
         ]
       },
+      "topComponents": [
+        {
+          "component": "TestComponent",
+          "attributes": {
+            "name": "test",
+            "sarasa": "test23"
+          }
+        },
+        {
+          "component": "TestComponent2",
+          "attributes": {
+            "name": "test",
+            "sarasa": "test23"
+          }
+        },
+        {
+          "component": "ActionButtons",
+          "position": "right",
+          "actions": [
+            {
+              "name": "new",
+              "icon": "star_light",
+              "color": "fizzGreen",
+              "type": "link",
+              "options": {
+                "path": "/service/namespace/new"
+              }
+            }
+          ]
+        }
+      ],
       "source": {
         "service": "sac",
         "namespace": "claim-semaphore",
@@ -2240,38 +2316,6 @@
               "id": "string"
             }
           }
-        }
-      ],
-      "filters": [],
-      "topComponents": [
-        {
-          "component": "TestComponent",
-          "attributes": {
-            "name": "test",
-            "sarasa": "test23"
-          }
-        },
-        {
-          "component": "TestComponent2",
-          "attributes": {
-            "name": "test",
-            "sarasa": "test23"
-          }
-        },
-        {
-          "component": "ActionButtons",
-          "position": "right",
-          "actions": [
-            {
-              "name": "new",
-              "icon": "star_light",
-              "color": "fizzGreen",
-              "type": "link",
-              "options": {
-                "path": "/service/namespace/new"
-              }
-            }
-          ]
         }
       ],
       "fields": [
@@ -2329,18 +2373,18 @@
         {
           "name": "rangeLow",
           "component": "Chip",
-          "attributes": {
-            "isStatus": false,
-            "sortable": false,
-            "isDefaultSort": false,
-            "initialSortDirection": "desc"
-          },
           "componentAttributes": {
             "icon": "icon_test",
             "iconColor": "red",
             "borderColor": "red",
             "textColor": "grey",
             "backgroundColor": "grey"
+          },
+          "attributes": {
+            "isStatus": false,
+            "sortable": false,
+            "isDefaultSort": false,
+            "initialSortDirection": "desc"
           }
         },
         {
@@ -2370,14 +2414,14 @@
         {
           "name": "colorTestTwo",
           "component": "Color",
+          "componentAttributes": {
+            "showCode": true
+          },
           "attributes": {
             "isStatus": false,
             "sortable": false,
             "isDefaultSort": false,
             "initialSortDirection": "desc"
-          },
-          "componentAttributes": {
-            "showCode": true
           }
         },
         {
@@ -2457,9 +2501,9 @@
         }
       ],
       "canPreview": false,
-      "canEdit": false,
       "canCreate": true,
       "canView": false,
+      "filters": [],
       "pageSize": 60
     },
     {
@@ -2513,7 +2557,9 @@
         "method": "sort",
         "resolve": false
       },
-      "filesTypes": ["image/png"]
+      "filesTypes": [
+        "image/png"
+      ]
     },
     {
       "name": "imageFilesSection",
@@ -2576,7 +2622,11 @@
           }
         }
       ],
-      "filesTypes": ["image/png", "image/jpg", "image/gif"],
+      "filesTypes": [
+        "image/png",
+        "image/jpg",
+        "image/gif"
+      ],
       "uploadMultiplesFiles": true
     },
     {
@@ -2656,6 +2706,23 @@
       "columnsType": "even",
       "hideUserModified": false,
       "hideUserCreated": true,
+      "assist": {
+        "target": {
+          "service": "ai",
+          "namespace": "assistant",
+          "method": "suggest",
+          "resolve": true
+        },
+        "endpointParameters": [
+          {
+            "name": "id",
+            "target": "path",
+            "value": {
+              "dynamic": "id"
+            }
+          }
+        ]
+      },
       "themes": {
         "themeOne": {
           "new": "black",
@@ -2699,7 +2766,9 @@
           }
         }
       ],
-      "includeDataFrom": ["someSection"],
+      "includeDataFrom": [
+        "someSection"
+      ],
       "fieldsGroup": [
         {
           "name": "detail",
@@ -2754,8 +2823,8 @@
     {
       "name": "someBrowse",
       "rootComponent": "BrowseSection",
-      "filters": [],
       "sourceField": "someFieldName",
+      "pageSize": "none",
       "fields": [
         {
           "name": "id",
@@ -2798,7 +2867,7 @@
       "canPreview": false,
       "canCreate": true,
       "canView": false,
-      "pageSize": "none"
+      "filters": []
     },
     {
       "name": "multiSectionExample",
@@ -2807,7 +2876,6 @@
         {
           "name": "someBrowse",
           "rootComponent": "BrowseSection",
-          "filters": [],
           "source": {
             "service": "service",
             "namespace": "namespace",
@@ -2856,6 +2924,7 @@
           "canPreview": false,
           "canCreate": true,
           "canView": false,
+          "filters": [],
           "pageSize": 60
         },
         {
@@ -2995,8 +3064,8 @@
               "fields": [
                 {
                   "name": "someField",
-                  "component": "Text",
                   "translateLabel": false,
+                  "component": "Text",
                   "componentAttributes": {}
                 },
                 {
@@ -3070,9 +3139,12 @@
           "graphs": [
             {
               "component": "Table",
-              "filters": [],
               "name": "graphName",
               "title": "someTitleForGraph",
+              "x": 0,
+              "y": 0,
+              "width": 6,
+              "height": 3,
               "source": {
                 "service": "serviceName",
                 "namespace": "namespaceName",
@@ -3095,10 +3167,7 @@
                   }
                 }
               ],
-              "x": 0,
-              "y": 0,
-              "width": 6,
-              "height": 3
+              "filters": []
             }
           ]
         },

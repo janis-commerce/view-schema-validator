@@ -11,6 +11,12 @@ cancelRedirectUrl: /some-path
 sections:
 - name: mainFormSection
   rootComponent: MainForm
+  assist:
+    target:
+      service: ai
+      namespace: assistant
+      method: suggest
+    placeholder: views.field.askAi
   fieldsGroup:
   - name: detail
     icon: catalogue

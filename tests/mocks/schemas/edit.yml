@@ -95,6 +95,12 @@ sections:
     columnsType: default
     hideUserModified: false
     hideUserCreated: true
+    assist:
+      target:
+        service: ai
+        namespace: assistant
+        method: suggest
+      placeholder: views.field.askAi
     dependencies:
       - name: dependencyOne
         source:
@@ -1691,6 +1697,16 @@ sections:
     columnsType: even
     hideUserModified: false
     hideUserCreated: true
+    assist:
+      target:
+        service: ai
+        namespace: assistant
+        method: suggest
+      endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
     themes:
       themeOne:
         new: black

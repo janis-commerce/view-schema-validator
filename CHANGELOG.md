@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.11.0] - 2026-04-14
+
+### Added
+
+- Assist Ai key in MainForm and FormSection
+
 ## [3.10.0] - 2026-03-19
 
 ### Added
