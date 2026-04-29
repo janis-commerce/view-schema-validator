@@ -379,7 +379,8 @@ sections:
 
           - name: name
             component: CopyToClipboardButton
-            componentAttributes: {}
+            componentAttributes:
+              fieldHelp: true
 
           - name: svg
             component: Svg
@@ -1224,6 +1225,17 @@ sections:
               selectTime: true
               selectRange: true
               format: hh:mm
+
+          - name: dateTimeSeconds
+            component: DateTimePicker
+            componentAttributes:
+              useTimezone: true
+              selectDate: false
+              selectTime: true
+              selectRange: true
+              format: hh:mm:ss
+              timeOptions:
+                secondLapse: 10
 
           - name: otherDateTime
             component: DateTimePicker

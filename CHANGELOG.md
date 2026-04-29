@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- `secondLapse` numeric property in `timeOptions` for `DateTimePicker` (browse filters and edit-new) and `NewDatePicker` components
+
+### Changed
+
+- `fieldHelp` schema definition now accepts `boolean` in addition to `string`.
+
 ## [3.12.0] - 2026-04-21
 
 ### Added
