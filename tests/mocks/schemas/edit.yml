@@ -1234,7 +1234,7 @@ sections:
               selectRange: true
               format: hh:mm:ss
               timeOptions:
-                secondsLapse: 10
+                secondLapse: 10
 
           - name: otherDateTime
             component: DateTimePicker
