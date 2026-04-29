@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - `secondLapse` numeric property in `timeOptions` for `DateTimePicker` (browse filters and edit-new) and `NewDatePicker` components
+- Optional `isSearchable` (boolean) added to `componentAttributes` in Select/Multiselect schemas (browse filters, edit-new)
 
 ### Changed
 
