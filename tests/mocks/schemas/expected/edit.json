@@ -545,6 +545,7 @@
               "name": "name",
               "component": "Select",
               "componentAttributes": {
+                "isSearchable": true,
                 "fieldHelp": "Texto de ayuda visible en el tooltip.",
                 "translateLabels": true,
                 "labelFieldName": "motiveName",
