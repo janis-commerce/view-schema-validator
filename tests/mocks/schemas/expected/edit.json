@@ -625,7 +625,9 @@
             {
               "name": "name",
               "component": "CopyToClipboardButton",
-              "componentAttributes": {}
+              "componentAttributes": {
+                "fieldHelp": true
+              }
             },
             {
               "name": "svg",
