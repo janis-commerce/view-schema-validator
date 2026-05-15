@@ -782,6 +782,71 @@
       }
     },
     {
+      "name": "remoteMultiselectDynamicOptions",
+      "component": "Multiselect",
+      "componentAttributes": {
+        "translateLabels": false,
+        "options": {
+          "scope": "remote",
+          "endpoint": {
+            "service": "delivery",
+            "namespace": "carrier",
+            "method": "list"
+          },
+          "endpointParameters": [
+            {
+              "name": "locationId",
+              "target": "filter",
+              "value": {
+                "dynamic": "filters.locationId"
+              }
+            }
+          ],
+          "valuesMapper": {
+            "label": "name",
+            "value": "id"
+          },
+          "searchParam": "filters[search]"
+        }
+      }
+    },
+    {
+      "name": "remoteMultiselectStaticDynamicOptions",
+      "component": "Multiselect",
+      "componentAttributes": {
+        "translateLabels": false,
+        "options": {
+          "scope": "remote",
+          "endpoint": {
+            "service": "delivery",
+            "namespace": "carrier",
+            "method": "list"
+          },
+          "endpointParameters": [
+            {
+              "name": "locationId",
+              "target": "filter",
+              "value": {
+                "dynamic": "filters.locationId"
+              }
+            },
+						{
+              "name": "locationId",
+              "target": "filter",
+              "value": {
+                "static": "staticValue"
+              }
+            }
+          ],
+          "valuesMapper": {
+            "label": "name",
+            "value": "id"
+          },
+          "searchParam": "filters[search]"
+        }
+      }
+    },
+    {
       "name": "dateTimePickerFilter",
       "component": "DateTimePicker",
       "componentAttributes": {
