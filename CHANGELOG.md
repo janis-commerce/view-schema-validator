@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.14.0] - 2026-05-18
+
+### Changed
+
+- `getEndpointParameters` now accepts dynamic and static values in remote select `endpointParameters` for browse filters
+
 ## [3.13.0] - 2026-04-29
 
 ### Added
