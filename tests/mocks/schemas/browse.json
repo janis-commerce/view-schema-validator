@@ -830,7 +830,7 @@
                 "dynamic": "filters.locationId"
               }
             },
-						{
+            {
               "name": "locationId",
               "target": "filter",
               "value": {
