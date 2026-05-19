@@ -1,0 +1,56 @@
+{
+    "service": "sac",
+    "name": "sku-edit",
+    "root": "Edit",
+    "source": {
+        "service": "sac",
+        "namespace": "sku",
+        "method": "get",
+        "resolve": true
+    },
+    "sections": [
+        {
+            "name": "mainFormSection",
+            "rootComponent": "MainForm",
+            "fieldsGroup": [
+                {
+                    "name": "detail",
+                    "icon": "catalogue",
+                    "fields": [
+                        {
+                            "name": "salesChannelData",
+                            "component": "MultiValueWrapper",
+                            "componentAttributes": {
+                                "direction": "vertical",
+                                "useDataField": true,
+                                "field": {
+                                    "name": "salesChannel",
+                                    "component": "Text",
+                                    "componentAttributes": {}
+                                }
+                            }
+                        },
+                        {
+                            "name": "salesChannelDataCollapsable",
+                            "component": "MultiValueWrapper",
+                            "componentAttributes": {
+                                "direction": "horizontal",
+                                "useDataField": false,
+                                "isCollapsable": true,
+                                "itemsToShowWhenClosed": 3,
+                                "defaultStatus": "open",
+                                "field": {
+                                    "name": "value",
+                                    "component": "Chip",
+                                    "componentAttributes": {
+                                        "borderColor": "grey"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
