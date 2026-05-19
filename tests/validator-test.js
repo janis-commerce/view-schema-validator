@@ -34,6 +34,8 @@ const editWithRemoteActionsSchemaYml = fs.readFileSync(process.cwd() + '/tests/m
 const editWithRemoteActionsSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-remote-actions.json');
 const editWithRedirectYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-redirect.yml');
 const editWithRedirectExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-redirect.json');
+const editWithMultiValueWrapperYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-multiValueWrapper.yml');
+const editWithMultiValueWrapperExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-multiValueWrapper.json');
 const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
 const newWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-min-max-input.yml');
 const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
@@ -131,6 +133,7 @@ describe('Test validation functions', () => {
 		const editWithMinMaxInputSchema = ymljs.parse(editWithMinMaxInputSchemaYml.toString());
 		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
 		const editWithRedirectSchema = ymljs.parse(editWithRedirectYml.toString());
+		const editWithMultiValueWrapperSchema = ymljs.parse(editWithMultiValueWrapperYml.toString());
 		const newSchema = ymljs.parse(newSchemaYml.toString());
 		const newWithMinMaxInputSchema = ymljs.parse(newWithMinMaxInputSchemaYml.toString());
 		const newWithRedirectSchema = ymljs.parse(newWithRedirectSchemaYml.toString());
@@ -160,6 +163,7 @@ describe('Test validation functions', () => {
 		const newWithMinMaxInputData = Validator.execute(newWithMinMaxInputSchema, true, '/test/data12.json');
 		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
 		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data14.json');
+		const editWithMultiValueWrapperData = Validator.execute(editWithMultiValueWrapperSchema, true, '/test/data22.json');
 		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
 		const newWithRedirectData = Validator.execute(newWithRedirectSchema, true, '/test/data16.json');
 		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
@@ -183,6 +187,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(editWithMinMaxInputData, JSON.parse(editWithMinMaxInputSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRedirectData, JSON.parse(editWithRedirectExpectedJson.toString()));
+		sinon.assert.match(editWithMultiValueWrapperData, JSON.parse(editWithMultiValueWrapperExpectedJson.toString()));
 		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithMinMaxInputData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithRedirectData, JSON.parse(newWithRedirectSchemaExpectedJson.toString()));
