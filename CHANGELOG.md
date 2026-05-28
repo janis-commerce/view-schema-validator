@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.15.0] - 2026-05-28
+
+### Added
+
+- `MultiValueWrapper` component support in Edit/New schemas [JMV-4065](https://janiscommerce.atlassian.net/browse/JMV-4065)
+
 ## [3.14.0] - 2026-05-18
 
 ### Changed
