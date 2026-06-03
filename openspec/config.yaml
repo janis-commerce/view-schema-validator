@@ -1,0 +1,34 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Node.js 18.x, CommonJS, CLI (yargs), schema validation (AJV 6)
+  Architecture: CLI tool + library — validates and builds Janis view schemas (JSON/YAML)
+  Core modules: view-schema-validator.js (orchestrator), validator.js, builder.js, endpoint-resolver.js
+  Schemas: lib/schemas/{browse,edit,new,common}/ — define valid view structures
+  Testing: Mocha + Sinon, nyc (coverage), no mocks for FS (uses mock-fs)
+  Style: ESLint airbnb-base, tabs indent, no trailing commas, max-len 150
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Identify affected lib/schemas/ definitions and lib/ modules
+  specs:
+    - Use Given/When/Then format for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Document which schema definitions change and why
+    - Include before/after examples for schema structure changes
+  tasks:
+    - Group by phase (schema definitions, validation logic, tests)
+    - Use hierarchical numbering (1.1, 1.2, etc.)
+    - Keep tasks completable in one session
+  apply:
+    - Follow CommonJS (require/module.exports), no ES modules
+    - Use tabs for indentation, airbnb-base ESLint rules
+    - Tests in tests/ mirroring lib/ structure
+  verify:
+    - Run npm test — must pass with full coverage
+    - Run npm run lint — zero errors
+    - Validate against real schema examples from mocking-service
+  archive:
+    - Warn before merging destructive deltas (large removals)

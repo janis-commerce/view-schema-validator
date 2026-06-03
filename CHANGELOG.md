@@ -7,6 +7,49 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.15.0] - 2026-05-28
+
+### Added
+
+- `MultiValueWrapper` component support in Edit/New schemas [JMV-4065](https://janiscommerce.atlassian.net/browse/JMV-4065)
+
+## [3.14.0] - 2026-05-18
+
+### Changed
+
+- `getEndpointParameters` now accepts dynamic and static values in remote select `endpointParameters` for browse filters
+
+## [3.13.0] - 2026-04-29
+
+### Added
+
+- `secondLapse` numeric property in `timeOptions` for `DateTimePicker` (browse filters and edit-new) and `NewDatePicker` components
+- Optional `isSearchable` (boolean) added to `componentAttributes` in Select/Multiselect schemas (browse filters, edit-new)
+
+### Changed
+
+- `fieldHelp` schema definition now accepts `boolean` in addition to `string`.
+
+## [3.12.0] - 2026-04-21
+
+### Added
+
+- Shared `fieldHelp` schema definition and registration in `schemaDefinitions`.
+- `makeComponent` merges `fieldHelp` into `componentAttributes.properties` so components (e.g. Select) accept it under `additionalProperties: false`.
+- Edit-new field `componentAttributes` allows `fieldHelp` via `$ref`.
+
+## [3.11.0] - 2026-04-14
+
+### Added
+
+- Assist Ai key in MainForm and FormSection
+
+## [3.10.0] - 2026-03-19
+
+### Added
+
+- Support for capitalize mapper in view schemas
+
 ## [3.9.0] - 2026-02-26
 
 ### Added

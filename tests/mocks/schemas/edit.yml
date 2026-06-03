@@ -95,6 +95,12 @@ sections:
     columnsType: default
     hideUserModified: false
     hideUserCreated: true
+    assist:
+      target:
+        service: ai
+        namespace: assistant
+        method: suggest
+      placeholder: views.field.askAi
     dependencies:
       - name: dependencyOne
         source:
@@ -330,6 +336,8 @@ sections:
           - name: name
             component: Select
             componentAttributes:
+              isSearchable: false
+              fieldHelp: Texto de ayuda visible en el tooltip.
               translateLabels: true
               labelFieldName: motiveName
               labelPrefix: common.status.
@@ -371,7 +379,8 @@ sections:
 
           - name: name
             component: CopyToClipboardButton
-            componentAttributes: {}
+            componentAttributes:
+              fieldHelp: true
 
           - name: svg
             component: Svg
@@ -1220,6 +1229,17 @@ sections:
               selectRange: true
               format: hh:mm
 
+          - name: dateTimeSeconds
+            component: DateTimePicker
+            componentAttributes:
+              useTimezone: true
+              selectDate: false
+              selectTime: true
+              selectRange: true
+              format: hh:mm:ss
+              timeOptions:
+                secondLapse: 10
+
           - name: otherDateTime
             component: DateTimePicker
             componentAttributes:
@@ -1693,6 +1713,16 @@ sections:
     columnsType: even
     hideUserModified: false
     hideUserCreated: true
+    assist:
+      target:
+        service: ai
+        namespace: assistant
+        method: suggest
+      endpointParameters:
+        - name: id
+          target: path
+          value:
+            dynamic: id
     themes:
       themeOne:
         new: black
