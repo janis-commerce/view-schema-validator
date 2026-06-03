@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.16.0] - 2026-06-03
+
+### Added
+
+- Common remote options schema
+- localValues at remote options
+
 ## [3.15.0] - 2026-05-28
 
 ### Added
