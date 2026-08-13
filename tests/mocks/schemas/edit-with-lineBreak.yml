@@ -1,0 +1,20 @@
+service: sac
+name: sku-edit
+root: Edit
+source:
+  service: sac
+  namespace: sku
+  method: get
+sections:
+- name: mainFormSection
+  rootComponent: MainForm
+  fieldsGroup:
+  - name: detail
+    icon: catalogue
+    fields:
+    - name: firstName
+      component: Text
+    - name: brk1
+      component: LineBreak
+    - name: lastName
+      component: Text

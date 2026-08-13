@@ -1,0 +1,40 @@
+{
+    "service": "sac",
+    "name": "sku-edit",
+    "root": "Edit",
+    "source": {
+        "service": "sac",
+        "namespace": "sku",
+        "method": "get",
+        "resolve": true
+    },
+    "sections": [
+        {
+            "name": "mainFormSection",
+            "rootComponent": "MainForm",
+            "fieldsGroup": [
+                {
+                    "name": "detail",
+                    "icon": "catalogue",
+                    "fields": [
+                        {
+                            "name": "firstName",
+                            "component": "Text",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "brk1",
+                            "component": "LineBreak",
+                            "componentAttributes": {}
+                        },
+                        {
+                            "name": "lastName",
+                            "component": "Text",
+                            "componentAttributes": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

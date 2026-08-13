@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- `LineBreak` component support in Edit/New schemas [JMV-4105](https://janiscommerce.atlassian.net/browse/JMV-4105)
+
 ## [3.15.0] - 2026-05-28
 
 ### Added
