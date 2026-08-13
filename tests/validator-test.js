@@ -36,6 +36,8 @@ const editWithRedirectYml = fs.readFileSync(process.cwd() + '/tests/mocks/schema
 const editWithRedirectExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-redirect.json');
 const editWithMultiValueWrapperYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-multiValueWrapper.yml');
 const editWithMultiValueWrapperExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-multiValueWrapper.json');
+const editWithLineBreakYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/edit-with-lineBreak.yml');
+const editWithLineBreakExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/edit-with-lineBreak.json');
 const newSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new.yml');
 const newWithMinMaxInputSchemaYml = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/new-with-min-max-input.yml');
 const newSchemaExpectedJson = fs.readFileSync(process.cwd() + '/tests/mocks/schemas/expected/new.json');
@@ -134,6 +136,7 @@ describe('Test validation functions', () => {
 		const editWithRemoteActionsSchema = ymljs.parse(editWithRemoteActionsSchemaYml.toString());
 		const editWithRedirectSchema = ymljs.parse(editWithRedirectYml.toString());
 		const editWithMultiValueWrapperSchema = ymljs.parse(editWithMultiValueWrapperYml.toString());
+		const editWithLineBreakSchema = ymljs.parse(editWithLineBreakYml.toString());
 		const newSchema = ymljs.parse(newSchemaYml.toString());
 		const newWithMinMaxInputSchema = ymljs.parse(newWithMinMaxInputSchemaYml.toString());
 		const newWithRedirectSchema = ymljs.parse(newWithRedirectSchemaYml.toString());
@@ -164,6 +167,7 @@ describe('Test validation functions', () => {
 		const editWithCanCreateData = Validator.execute(editWithCanCreateSchema, true, '/test/data13.json');
 		const editWithRedirectData = Validator.execute(editWithRedirectSchema, true, '/test/data14.json');
 		const editWithMultiValueWrapperData = Validator.execute(editWithMultiValueWrapperSchema, true, '/test/data22.json');
+		const editWithLineBreakData = Validator.execute(editWithLineBreakSchema, true, '/test/data23.json');
 		const browseWithRedirectMatchData = Validator.execute(browseWithRedirectSchema, true, '/test/data15.json');
 		const newWithRedirectData = Validator.execute(newWithRedirectSchema, true, '/test/data16.json');
 		const browseCountDownData = Validator.execute(browseCountDownSchema, true, '/test/data17.json');
@@ -188,6 +192,7 @@ describe('Test validation functions', () => {
 		sinon.assert.match(editWithRemoteActionsData, JSON.parse(editWithRemoteActionsSchemaExpectedJson.toString()));
 		sinon.assert.match(editWithRedirectData, JSON.parse(editWithRedirectExpectedJson.toString()));
 		sinon.assert.match(editWithMultiValueWrapperData, JSON.parse(editWithMultiValueWrapperExpectedJson.toString()));
+		sinon.assert.match(editWithLineBreakData, JSON.parse(editWithLineBreakExpectedJson.toString()));
 		sinon.assert.match(newData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithMinMaxInputData, JSON.parse(newSchemaExpectedJson.toString()));
 		sinon.assert.match(newWithRedirectData, JSON.parse(newWithRedirectSchemaExpectedJson.toString()));
@@ -199,6 +204,13 @@ describe('Test validation functions', () => {
 		sinon.assert.match(settingsData, JSON.parse(settingsExpected.toString()));
 		sinon.assert.match(monitorData, JSON.parse(monitorSchemaExpected.toString()));
 		sinon.assert.match(planningData, JSON.parse(planningSchemaExpected.toString()));
+	});
+
+	it('should error if an Edit/Create field uses a non-existent component', () => {
+		const schema = ymljs.parse(editWithLineBreakYml.toString());
+		schema.sections[0].fieldsGroup[0].fields[1].component = 'NotARealComponent';
+
+		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
 	});
 
 	it('should error with default schema', () => {
