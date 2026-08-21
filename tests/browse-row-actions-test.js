@@ -146,6 +146,23 @@ describe('Browse row actions', () => {
 			);
 		});
 
+		it('should not validate a form action without componentAttributes', () => {
+			const schema = makeBrowseSchema([
+				{ name: 'assignUser', title: 'schema.action.assignUser', type: 'form' }
+			]);
+
+			const validationErrors = getValidationErrors(schema);
+
+			assert.deepStrictEqual(
+				hasError(validationErrors, {
+					keyword: 'required',
+					property: 'componentAttributes',
+					dataPathEnd: '.actionsData[0]'
+				}),
+				true
+			);
+		});
+
 		it('should not validate a form action with an empty fields array', () => {
 			const schema = makeBrowseSchema([makeFormAction({ fields: [] })]);
 
