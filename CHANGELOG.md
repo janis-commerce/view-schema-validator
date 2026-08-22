@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.16.0] - 2026-08-21
+
+### Added
+
+- `form` action type in browse row actions, declaring its modal fields in `componentAttributes` [JMV-4109](https://janiscommerce.atlassian.net/browse/JMV-4109)
+
 ## [3.15.0] - 2026-05-28
 
 ### Added
