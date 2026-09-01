@@ -221,4 +221,62 @@ describe('Test validation functions', () => {
 		assert(compileSpy.calledOnce);
 	});
 
+	context('CheckList component new properties', () => {
+
+		const findFieldByName = (node, name) => {
+			if(!node || typeof node !== 'object')
+				return null;
+
+			if(node.name === name && node.component === 'CheckList')
+				return node;
+
+			for(const value of Object.values(node)) {
+				const found = findFieldByName(value, name);
+				if(found)
+					return found;
+			}
+
+			return null;
+		};
+
+		const buildEditSchemaWithCheckListAttributes = attributes => {
+			const schema = ymljs.parse(editSchemaYml.toString());
+			const checkList = findFieldByName(schema, 'checklistOne');
+			checkList.componentAttributes = { ...checkList.componentAttributes, ...attributes };
+			return schema;
+		};
+
+		it('should accept firstSections as an array of strings and prioritizeCheckedSections as a boolean', () => {
+			const schema = buildEditSchemaWithCheckListAttributes({
+				firstSections: ['refund', 'exchange'],
+				prioritizeCheckedSections: true
+			});
+
+			const data = Validator.execute(schema, true, '/test/data.json');
+			const checkList = findFieldByName(data, 'checklistOne');
+
+			assert.deepStrictEqual(checkList.componentAttributes.firstSections, ['refund', 'exchange']);
+			assert.strictEqual(checkList.componentAttributes.prioritizeCheckedSections, true);
+		});
+
+		it('should error if firstSections is not an array', () => {
+			const schema = buildEditSchemaWithCheckListAttributes({ firstSections: 'refund' });
+
+			assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+		});
+
+		it('should error if firstSections items are not strings', () => {
+			const schema = buildEditSchemaWithCheckListAttributes({ firstSections: [1, 2] });
+
+			assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+		});
+
+		it('should error if prioritizeCheckedSections is not a boolean', () => {
+			const schema = buildEditSchemaWithCheckListAttributes({ prioritizeCheckedSections: 'yes' });
+
+			assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+		});
+
+	});
+
 });

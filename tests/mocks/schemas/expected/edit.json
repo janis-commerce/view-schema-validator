@@ -2004,6 +2004,11 @@
                 "valueField": "id",
                 "translateGroupLabel": false,
                 "translateCheckboxLabel": false,
+                "firstSections": [
+                  "refund",
+                  "exchange"
+                ],
+                "prioritizeCheckedSections": true,
                 "translateSectionLabel": true
               }
             },

@@ -1276,6 +1276,10 @@ sections:
               valueField: id
               translateGroupLabel: false
               translateCheckboxLabel: false
+              firstSections:
+                - refund
+                - exchange
+              prioritizeCheckedSections: true
 
           - name: checklistTwo
             component: CheckList
