@@ -11,6 +11,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - `LineBreak` component support in Edit/New schemas [JMV-4105](https://janiscommerce.atlassian.net/browse/JMV-4105)
 
+## [3.18.0] - 2026-09-01
+
+### Added
+
+- `firstSections` (array of strings) and `prioritizeCheckedSections` (boolean) optional properties in `CheckList` component
+
+## [3.17.0] - 2026-08-21
+
+### Added
+
+- `form` action type in browse row actions, declaring its modal fields in `componentAttributes` [JMV-4109](https://janiscommerce.atlassian.net/browse/JMV-4109)
+
+## [3.16.0] - 2026-06-03
+
+### Added
+
+- Common remote options schema
+- localValues at remote options
+
 ## [3.15.0] - 2026-05-28
 
 ### Added

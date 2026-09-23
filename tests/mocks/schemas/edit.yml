@@ -1087,6 +1087,9 @@ sections:
                 valuesMapper:
                   label: name
                   value: id
+                localValues:
+                  - value: sin_asignacion
+                    label: Sin asignación
 
           - name: selectRemoteTwo
             component: Select
@@ -1273,6 +1276,10 @@ sections:
               valueField: id
               translateGroupLabel: false
               translateCheckboxLabel: false
+              firstSections:
+                - refund
+                - exchange
+              prioritizeCheckedSections: true
 
           - name: checklistTwo
             component: CheckList

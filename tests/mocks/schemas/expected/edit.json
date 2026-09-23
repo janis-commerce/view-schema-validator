@@ -1743,6 +1743,9 @@
                     "label": "name",
                     "value": "id"
                   },
+                  "localValues": [
+                    { "value": "sin_asignacion", "label": "Sin asignación" }
+                  ],
                   "searchParam": "filters[search]"
                 }
               }
@@ -2001,6 +2004,11 @@
                 "valueField": "id",
                 "translateGroupLabel": false,
                 "translateCheckboxLabel": false,
+                "firstSections": [
+                  "refund",
+                  "exchange"
+                ],
+                "prioritizeCheckedSections": true,
                 "translateSectionLabel": true
               }
             },
