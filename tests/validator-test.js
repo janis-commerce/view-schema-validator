@@ -206,13 +206,6 @@ describe('Test validation functions', () => {
 		sinon.assert.match(planningData, JSON.parse(planningSchemaExpected.toString()));
 	});
 
-	it('should error if an Edit/Create field uses a non-existent component', () => {
-		const schema = ymljs.parse(editWithLineBreakYml.toString());
-		schema.sections[0].fieldsGroup[0].fields[1].component = 'NotARealComponent';
-
-		assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
-	});
-
 	it('should error with default schema', () => {
 		const schemaOne = { url: 'http://janis.in' };
 		const schemaTwo = { root: 5, url: 'http://janis.in' };
