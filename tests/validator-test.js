@@ -284,4 +284,30 @@ describe('Test validation functions', () => {
 
 	});
 
+	context('Image component expandable property', () => {
+
+		const buildBrowseSchemaWithImageAttributes = attributes => {
+			const schema = JSON.parse(browseSchemaJson.toString());
+			const image = schema.fields.find(({ name }) => name === 'exampleImageWithProps');
+			image.componentAttributes = { ...image.componentAttributes, ...attributes };
+			return schema;
+		};
+
+		it('should accept expandable as a boolean', () => {
+			const schema = buildBrowseSchemaWithImageAttributes({ expandable: true });
+
+			const data = Validator.execute(schema, true, '/test/data.json');
+			const image = data.fields.find(({ name }) => name === 'exampleImageWithProps');
+
+			assert.strictEqual(image.componentAttributes.expandable, true);
+		});
+
+		it('should error if expandable is not a boolean', () => {
+			const schema = buildBrowseSchemaWithImageAttributes({ expandable: 'yes' });
+
+			assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+		});
+
+	});
+
 });
