@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.20.0] - 2026-10-02
+
+### Added
+
+- `Image` fields in Browse and BrowseSection schemas now accept the boolean `expandable` component attribute, so the full-size image preview on click can be enabled from the schema [JMV-4135](https://janiscommerce.atlassian.net/browse/JMV-4135)
+
 ## [3.19.0] - 2026-09-23
 
 ### Added
