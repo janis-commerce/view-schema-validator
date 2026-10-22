@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Optional `callout` property in Browse schemas with `value`, `mapper` and `componentAttributes` (`type`: `info` | `warning` | `error`, `closable`) [JMV-4151](https://janiscommerce.atlassian.net/browse/JMV-4151)
+
 ## [3.20.0] - 2026-10-02
 
 ### Added

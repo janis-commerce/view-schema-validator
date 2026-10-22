@@ -310,4 +310,65 @@ describe('Test validation functions', () => {
 
 	});
 
+	context('Browse callout property', () => {
+
+		const buildBrowseSchemaWithCallout = callout => ({ ...JSON.parse(browseSchemaJson.toString()), callout });
+
+		const assertCalloutError = (callout, keyword, dataPath) => {
+			assert.throws(() => Validator.execute(buildBrowseSchemaWithCallout(callout), true, '/test/data.json'), ({ errors }) => {
+				assert.deepStrictEqual(errors.map(error => [error.keyword, error.dataPath]), [[keyword, dataPath]]);
+				return true;
+			});
+		};
+
+		it('should accept a callout with only value', () => {
+			const callout = { value: 'some.notice' };
+
+			const data = Validator.execute(buildBrowseSchemaWithCallout(callout), true, '/test/data.json');
+
+			assert.deepStrictEqual(data.callout, callout);
+		});
+
+		it('should accept a callout with value, mapper and componentAttributes', () => {
+			const callout = {
+				value: 'dataLake.pickerProductivity.weighableItemsNotice',
+				mapper: { name: 'translate' },
+				componentAttributes: { type: 'info', closable: true }
+			};
+
+			const data = Validator.execute(buildBrowseSchemaWithCallout(callout), true, '/test/data.json');
+
+			assert.deepStrictEqual(data.callout, callout);
+		});
+
+		it('should error if callout has no value', () => {
+			assertCalloutError({ mapper: 'translate' }, 'required', '.callout');
+		});
+
+		it('should error if componentAttributes type is not allowed', () => {
+			const callout = { value: 'some.notice', componentAttributes: { type: 'success' } };
+
+			assertCalloutError(callout, 'enum', '.callout.componentAttributes.type');
+		});
+
+		it('should error if componentAttributes closable is not a boolean', () => {
+			const callout = { value: 'some.notice', componentAttributes: { closable: 'yes' } };
+
+			assertCalloutError(callout, 'type', '.callout.componentAttributes.closable');
+		});
+
+		it('should error if callout has an unknown property', () => {
+			const callout = { value: 'some.notice', title: 'some.title' };
+
+			assertCalloutError(callout, 'additionalProperties', '.callout');
+		});
+
+		it('should error if componentAttributes has an unknown property', () => {
+			const callout = { value: 'some.notice', componentAttributes: { type: 'info', icon: 'info' } };
+
+			assertCalloutError(callout, 'additionalProperties', '.callout.componentAttributes');
+		});
+
+	});
+
 });
