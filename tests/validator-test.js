@@ -321,12 +321,21 @@ describe('Test validation functions', () => {
 			});
 		};
 
-		it('should accept a callout with only value', () => {
-			const callout = { value: 'some.notice' };
+		it('should accept a callout with only value and fill componentAttributes defaults', () => {
+			const data = Validator.execute(buildBrowseSchemaWithCallout({ value: 'some.notice' }), true, '/test/data.json');
+
+			assert.deepStrictEqual(data.callout, {
+				value: 'some.notice',
+				componentAttributes: { type: 'info', closable: false }
+			});
+		});
+
+		it('should fill the missing componentAttributes defaults', () => {
+			const callout = { value: 'some.notice', componentAttributes: { closable: true } };
 
 			const data = Validator.execute(buildBrowseSchemaWithCallout(callout), true, '/test/data.json');
 
-			assert.deepStrictEqual(data.callout, callout);
+			assert.deepStrictEqual(data.callout.componentAttributes, { type: 'info', closable: true });
 		});
 
 		it('should accept a callout with value, mapper and componentAttributes', () => {
