@@ -308,6 +308,47 @@ describe('Test validation functions', () => {
 			assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
 		});
 
+		context('in Edit body', () => {
+
+			const findImage = node => {
+				if(!node || typeof node !== 'object')
+					return null;
+
+				if(node.name === 'exampleImageWithProps' && node.component === 'Image')
+					return node;
+
+				for(const value of Object.values(node)) {
+					const found = findImage(value);
+					if(found)
+						return found;
+				}
+
+				return null;
+			};
+
+			const buildEditSchemaWithImageAttributes = attributes => {
+				const schema = ymljs.parse(editSchemaYml.toString());
+				const image = findImage(schema);
+				image.componentAttributes = { ...image.componentAttributes, ...attributes };
+				return schema;
+			};
+
+			it('should accept expandable as a boolean', () => {
+				const schema = buildEditSchemaWithImageAttributes({ expandable: true });
+
+				const data = Validator.execute(schema, true, '/test/data.json');
+
+				assert.strictEqual(findImage(data).componentAttributes.expandable, true);
+			});
+
+			it('should error if expandable is not a boolean', () => {
+				const schema = buildEditSchemaWithImageAttributes({ expandable: 'yes' });
+
+				assert.throws(() => Validator.execute(schema, true, '/test/data.json'));
+			});
+
+		});
+
 	});
 
 	context('Browse callout property', () => {
