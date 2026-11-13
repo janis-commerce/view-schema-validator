@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.22.0] - 2026-10-30
+
+### Added
+
+- `Image` fields in the body of Edit and New schemas now accept the boolean `expandable` component attribute, so the full-size image preview on click can be enabled from the schema [JMV-4160](https://janiscommerce.atlassian.net/browse/JMV-4160)
+
+## [3.21.0] - 2026-10-23
+
+### Added
+
+- Browse schemas now accept an optional `callout` (`value`, `mapper` and `componentAttributes` with `type` and `closable`), so a Browse view can declare a callout message [JMV-4151](https://janiscommerce.atlassian.net/browse/JMV-4151)
+
 ## [3.20.0] - 2026-10-02
 
 ### Added
