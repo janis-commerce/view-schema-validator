@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.23.0] - 2026-11-13
+
+### Added
+
+- Edit and New schemas now accept a `CoreLogsBrowseSection` section, declared with just `name` and `rootComponent` plus the common section properties (`title`, `icon`, `conditions`, etc.), so an Edit/New view can include a core logs section; Preview schemas do not accept it [JMV-4144](https://janiscommerce.atlassian.net/browse/JMV-4144)
+
 ## [3.22.0] - 2026-10-30
 
 ### Added
